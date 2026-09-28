@@ -1,4 +1,20 @@
-# nhut-duong
+<img src="preview/inux.jpg" width="100%">
+
+<img src="https://img.shields.io/badge/Inux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
+
+> [!NOTE]
+> Features 🧼   
+
+- Clean UI  
+- Online Radio 
+- SEO-Friendly   
+- Responsive Design  
+- Cloud & Static Hosting Ready
+
+#### Tech Stack   
+```
+Astro | Bun | Vite | Biome | Tailwind CSS   
+```
 
 Personal site built with [Astro](https://astro.build) — static output, TypeScript (strict preset).
 
