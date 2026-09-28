@@ -17,12 +17,6 @@
 Astro | Bun | Vite | Biome | Tailwind CSS | Cloudflare | TypeScript   
 ```
 
-Personal Blog built with [Astro](https://astro.build) — static output, TypeScript (strict preset).
-
-## Content
-
-Content: Markdown blog (`src/content/blog`) + MDX pages (`src/content/pages`), validated by Zod schemas in `src/content.config.ts`.
-
 ## Project Structure
 
 ```text
@@ -63,14 +57,6 @@ All commands are run from the root of the project:
 | `bun run ci`      | Non-mutating Biome check for CI                 |
 | `bunx wrangler dev`    | Serves `./dist` on a local Workers runtime (build first) |
 | `bunx wrangler deploy` | Deploys `./dist` to Cloudflare Workers (build first)    |
-
-## Deployment
-
-The site deploys to Cloudflare Workers as static assets, configured in `wrangler.jsonc`:
-
-- `assets.directory` points at the Astro build output (`./dist`) — always run `bun run build` before `npx wrangler dev` or `npx wrangler deploy`.
-- `assets.not_found_handling: "404-page"` serves the built `404.html` for unknown routes.
-- Wrangler local state lives in `.wrangler/` (gitignored).
 
 ## Learn More
 
