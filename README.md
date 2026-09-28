@@ -54,7 +54,6 @@ All commands are run from the root of the project:
 | `bun run preview` | Previews the build locally                      |
 | `bun run check`   | Lints + formats (Biome, applies safe fixes)     |
 | `bun run ci`      | Non-mutating Biome check for CI                 |
-| `bunx wrangler deploy` | Deploys `./dist` to Cloudflare Pages or Workers (build first)    |
 
 ## Learn More
 
