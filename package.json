@@ -1,17 +1,36 @@
 {
-  "name": "yojee",
-  "version": "1.0.0",
-  "private": true,
+  "name": "yo-blog",
   "type": "module",
-  "packageManager": "bun@1.4.2",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "biome lint --write",
+    "format": "biome format --write",
+    "check": "biome check --write",
+    "ci": "biome ci"
+  },
+  "dependencies": {
+    "@astrojs/markdown-satteri": "^0.4.2",
+    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "astro-og-canvas": "^0.13.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.3.0",
-    "tailwindcss": "^4.3.0",
-    "vite": "^8.0.0"
+    "@biomejs/biome": "2.5.14",
+    "@tailwindcss/typography": "^0.5.20",
+    "schema-dts": "^2.0.0",
+    "wrangler": "^4.131.1"
   }
 }

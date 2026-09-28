@@ -1,0 +1,32 @@
+---
+import Button from "@/components/Button.astro";
+import siteConfig from "@/data/site-config";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description={siteConfig.description}
+  image={siteConfig.image}
+  showBreadcrumbs={false}
+  noindex
+>
+  <section>
+    <h1 class="font-serif text-4xl font-semibold sm:text-[2.5rem]">
+      Page Not Found
+    </h1>
+    <p class="mt-5 mb-6 text-base leading-relaxed sm:text-lg">
+      The page you are looking for does not exist. It may have been moved, or
+      the URL might be mistyped.
+    </p>
+    <div class="flex flex-wrap items-center gap-4">
+      <Button href="/">Go to Homepage</Button>
+      <a
+        href="/blog/"
+        class="text-foreground/60 hover:text-foreground text-sm transition-colors"
+      >
+        or browse the blog
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import { slugify } from "@/utils/common-utils";
+
+type Props = {
+  categories: string[];
+};
+
+const { categories } = Astro.props;
+---
+
+<nav class="blog-categories" aria-label="Blog categories">
+  <a class:list={{ active: Astro.url.pathname === "/" || Astro.url.pathname === "/blog" || Astro.url.pathname.startsWith("/blog/") }} href="/">
+    All
+  </a>
+
+  {categories.map((category) => (
+    <a
+      href={`/tags/${slugify(category)}/`}
+      class:list={{ active: Astro.url.pathname.startsWith(`/tags/${slugify(category)}`) }}
+    >
+      {category}
+    </a>
+  ))}
+</nav>

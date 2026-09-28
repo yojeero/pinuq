@@ -1,3 +1,17 @@
+
+# generated types
+.astro/
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# wrangler local state
+.wrangler/
+
 # Logs
 logs
 *.log

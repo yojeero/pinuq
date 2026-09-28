@@ -1,0 +1,68 @@
+---
+import BlogCategories from "@/components/BlogCategories.astro";
+import BlogHero from "@/components/BlogHero.astro";
+import BlogPostCard from "@/components/BlogPostCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import siteConfig from "@/data/site-config";
+import type { BlogPost } from "@/types";
+
+type Props = {
+  posts: BlogPost[];
+  categories: string[];
+  currentPage: number;
+};
+
+const { posts, categories, currentPage } = Astro.props;
+const featuredPost = currentPage === 1 ? posts[0] : null;
+const gridPosts = currentPage === 1 ? posts.slice(1) : posts;
+---
+
+<BaseLayout
+  title={currentPage > 1
+    ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}`
+    : "Blog"}
+  description="Insights from a full stack developer and consultant. Explore tech tips, coding journeys, and advice for developers and tech enthusiasts."
+  showBreadcrumbs={false}
+  mainClass="blog-main"
+>
+  <BlogHero />
+
+  <BlogCategories categories={categories} />
+
+  {featuredPost && (
+    <section class="blog-section" aria-labelledby="featured-heading">
+      <div class="blog-section-heading">
+        <p id="featured-heading">Featured</p>
+        <span>{featuredPost.data.tags?.[0] ?? "Latest"}</span>
+      </div>
+
+      <BlogPostCard post={featuredPost} featured />
+    </section>
+  )}
+
+  {gridPosts.length > 0 && (
+    <section class="blog-section" aria-labelledby="latest-heading">
+      <div class="blog-section-heading">
+        <p id="latest-heading">{featuredPost ? "Latest" : "All posts"}</p>
+        <span>{currentPage}</span>
+      </div>
+
+      <div class="blog-grid">
+        {gridPosts.map((post) => <BlogPostCard post={post} />)}
+      </div>
+    </section>
+  )}
+
+  <slot />
+
+  <section class="blog-quote" aria-label="About this blog">
+    <div>
+      <span class="blog-quote-mark">“</span>
+      <p>
+        Notes from building products, writing software, and figuring out what
+        makes the web feel good to use.
+      </p>
+      <span class="blog-quote-author">— Yojee</span>
+    </div>
+  </section>
+</BaseLayout>

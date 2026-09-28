@@ -1,0 +1,2937 @@
+<!doctype html>
+<html lang="en" class="wrap-break-word antialiased">
+  <head>
+    <script>
+    (() => {
+      const stored = localStorage.getItem("theme");
+      const theme =
+        stored === "light" || stored === "dark"
+          ? stored
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+      document.documentElement.classList.toggle("dark", theme === "dark");
+    })();
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | INUX</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="sitemap" href="/sitemap-index.xml">
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="INUX"
+      href="https://inux.pages.dev/rss.xml"
+    >
+    <link rel="canonical" href="https://inux.pages.dev/about/">
+    <meta
+      name="description"
+      content="Yojee is a full stack developer and consultant in the Cloud, passionate about tech, swimming, exploring, and a data hoarder who loves chillout music."
+    >
+    <meta name="author" content="Yojee">
+    <meta name="generator" content="Astro v7.3.5">
+    <meta name="robots" content="index, follow">
+    <meta
+      name="theme-color"
+      content="#f0ece3"
+      media="(prefers-color-scheme: light)"
+    >
+    <meta
+      name="theme-color"
+      content="#1c2644"
+      media="(prefers-color-scheme: dark)"
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="INUX">
+    <meta property="og:url" content="https://inux.pages.dev/about/">
+    <meta property="og:title" content="About | INUX">
+    <meta
+      property="og:description"
+      content="Yojee is a full stack developer and consultant in the Cloud, passionate about tech, swimming, exploring, and a data hoarder who loves chillout music."
+    >
+    <meta property="og:image" content="https://inux.pages.dev/og.png">
+    <meta
+      property="og:image:alt"
+      content="Yojee - Full Stack Developer and Consultant in the Cloud"
+    >
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@yojeero">
+    <meta name="twitter:site" content="@yojeero">
+    <meta name="twitter:url" content="https://inux.pages.dev/about/">
+    <meta name="twitter:title" content="About | INUX">
+    <meta
+      name="twitter:description"
+      content="Yojee is a full stack developer and consultant in the Cloud, passionate about tech, swimming, exploring, and a data hoarder who loves chillout music."
+    >
+    <meta name="twitter:image" content="https://inux.pages.dev/og.png">
+    <meta
+      name="twitter:image:alt"
+      content="Yojee - Full Stack Developer and Consultant in the Cloud"
+    >
+    <style>
+    @font-face {
+      font-family: "Space Grotesk-cdebc738ad9d75e5";
+      src: url("/_astro/fonts/font-space-grotesk-300-700-normal-901d1b2156af9931.woff2")
+        format("woff2");
+      font-display: swap;
+      font-weight: 300 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Space Grotesk-cdebc738ad9d75e5 fallback: Arial";
+      src: local("Arial");
+      font-display: swap;
+      font-weight: 300 700;
+      font-style: normal;
+      size-adjust: 109.4659%;
+      ascent-override: 89.891%;
+      descent-override: 26.675%;
+      line-gap-override: 0%;
+    }
+    :root {
+      --font-space-grotesk:
+        "Space Grotesk-cdebc738ad9d75e5",
+        "Space Grotesk-cdebc738ad9d75e5 fallback: Arial", sans-serif;
+    }
+    </style>
+    <link
+      rel="preload"
+      href="/_astro/fonts/font-space-grotesk-300-700-normal-901d1b2156af9931.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <style>
+    @font-face {
+      font-family: "JetBrains Mono-49cf78dd60f7bc2d";
+      src: url("/_astro/fonts/font-jetbrains-mono-400-700-normal-a19d69f5a86e943a.woff2")
+        format("woff2");
+      font-display: swap;
+      font-weight: 400 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "JetBrains Mono-49cf78dd60f7bc2d fallback: Courier New";
+      src: local("Courier New");
+      font-display: swap;
+      font-weight: 400 700;
+      font-style: normal;
+      size-adjust: 99.9837%;
+      ascent-override: 102.0166%;
+      descent-override: 30.0049%;
+    }
+    :root {
+      --font-jetbrains-mono:
+        "JetBrains Mono-49cf78dd60f7bc2d",
+        "JetBrains Mono-49cf78dd60f7bc2d fallback: Courier New", monospace;
+    }
+    </style>
+    <script
+      type="application/ld+json"
+    >[{"@context":"https://schema.org","@type":"WebSite","name":"INUX","description":"I'm a full stack developer and consultant based in the Cloud, obsessed with crafting seamless, impactful digital solutions.","url":"https://inux.pages.dev/","author":{"@type":"Person","name":"Yojee"},"publisher":{"@type":"Person","name":"Yojee"}},{"@context":"https://schema.org","@type":"WebPage","name":"About","description":"Yojee is a full stack developer and consultant in the Cloud, passionate about tech, swimming, exploring, and a data hoarder who loves chillout music.","url":"https://inux.pages.dev/about","isPartOf":{"@type":"WebSite","name":"INUX","url":"https://inux.pages.dev/"}},{"@context":"https://schema.org","@type":"Person","name":"Yojee","jobTitle":"Full Stack Developer and Consultant","worksFor":{"@type":"Organization","name":"Bosch Digital"},"address":{"@type":"PostalAddress","addressLocality":"Ho Chi Minh City","addressCountry":"Vietnam"},"url":"https://inux.pages.dev/about","sameAs":["https://inux.pages.dev/rss.xml","https://x.com/yojeero","https://github.com/yojeero","https://www.linkedin.com/in/yojeero/"],"description":"I'm a full stack developer and consultant based in Ho Chi Minh City, Vietnam, obsessed with crafting seamless, impactful digital solutions.","knowsAbout":["Full Stack Development","Web Development","Frontend Development","Backend Development","Software Engineering","Technical Consulting","JavaScript","TypeScript","React","Node.js","Astro"]}]</script>
+    <script
+      type="application/ld+json"
+    >{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://inux.pages.dev/"},{"@type":"ListItem","position":2,"name":"About","item":"https://inux.pages.dev/about"}]}</script>
+    <meta name="astro-view-transitions-enabled" content="true">
+    <meta name="astro-view-transitions-fallback" content="animate">
+    <script
+      type="module"
+      src="/node_modules/astro/components/ClientRouter.astro?astro&type=script&index=0&lang.ts"
+    ></script>
+    <style
+      data-vite-dev-id="D:/Yojee/App/Site/Landing/yo_blog/node_modules/astro/components/ClientRouter.astro?astro&amp;type=style&amp;index=0&amp;lang.css"
+    >
+    /* Route announcer */
+    .astro-route-announcer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      overflow: hidden;
+      white-space: nowrap;
+      width: 1px;
+      height: 1px;
+    }
+    </style>
+    <style
+      data-vite-dev-id="D:/Yojee/App/Site/Landing/yo_blog/src/styles/global.css"
+    >
+    /*! tailwindcss v4.3.3 | MIT License | https://tailwindcss.com */
+    @layer properties;
+    @layer theme, base, components, utilities;
+    @layer theme {
+      :root,
+      :host {
+        --font-sans: var(--font-space-grotesk), sans-serif;
+        --font-serif:
+          ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+        --spacing: 0.25rem;
+        --container-2xl: 42rem;
+        --container-5xl: 64rem;
+        --text-xs: 0.75rem;
+        --text-xs--line-height: calc(1 / 0.75);
+        --text-sm: 0.875rem;
+        --text-sm--line-height: calc(1.25 / 0.875);
+        --text-base: 1rem;
+        --text-base--line-height: calc(1.5 / 1);
+        --text-lg: 1.125rem;
+        --text-lg--line-height: calc(1.75 / 1.125);
+        --text-2xl: 1.5rem;
+        --text-2xl--line-height: calc(2 / 1.5);
+        --text-3xl: 1.875rem;
+        --text-3xl--line-height: calc(2.25 / 1.875);
+        --text-4xl: 2.25rem;
+        --text-4xl--line-height: calc(2.5 / 2.25);
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --tracking-tight: -0.025em;
+        --leading-relaxed: 1.625;
+        --default-transition-duration: 150ms;
+        --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        --default-font-family: var(--font-sans);
+        --default-mono-font-family: var(--font-mono);
+      }
+    }
+    @layer base {
+      *,
+      ::after,
+      ::before,
+      ::backdrop,
+      ::file-selector-button {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0 solid;
+      }
+      html,
+      :host {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        tab-size: 4;
+        font-family: var(
+          --default-font-family,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          "Noto Sans",
+          Arial,
+          sans-serif,
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji"
+        );
+        font-feature-settings: var(--default-font-feature-settings, normal);
+        font-variation-settings: var(--default-font-variation-settings, normal);
+        -webkit-tap-highlight-color: transparent;
+      }
+      hr {
+        height: 0;
+        color: inherit;
+        border-top-width: 1px;
+      }
+      abbr:where([title]) {
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        -webkit-text-decoration: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      samp,
+      pre {
+        font-family: var(
+          --default-mono-font-family,
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          "Liberation Mono",
+          "Courier New",
+          monospace
+        );
+        font-feature-settings: var(
+          --default-mono-font-feature-settings,
+          normal
+        );
+        font-variation-settings: var(
+          --default-mono-font-variation-settings,
+          normal
+        );
+        font-size: 1em;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        text-indent: 0;
+        border-color: inherit;
+        border-collapse: collapse;
+      }
+      :-moz-focusring:where(:not(iframe)) {
+        outline: auto;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      summary {
+        display: list-item;
+      }
+      ol,
+      ul,
+      menu {
+        list-style: none;
+      }
+      img,
+      svg,
+      video,
+      canvas,
+      audio,
+      iframe,
+      embed,
+      object {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+      }
+      button,
+      input,
+      select,
+      optgroup,
+      textarea,
+      ::file-selector-button {
+        font: inherit;
+        font-feature-settings: inherit;
+        font-variation-settings: inherit;
+        letter-spacing: inherit;
+        color: inherit;
+        border-radius: 0;
+        background-color: transparent;
+        opacity: 1;
+      }
+      :where(select:is([multiple], [size])) optgroup {
+        font-weight: bolder;
+      }
+      :where(select:is([multiple], [size])) optgroup option {
+        padding-inline-start: 20px;
+      }
+      ::file-selector-button {
+        margin-inline-end: 4px;
+      }
+      ::placeholder {
+        opacity: 1;
+      }
+      @supports (not (-webkit-appearance: -apple-pay-button)) or
+        (contain-intrinsic-size: 1px) {
+        ::placeholder {
+          color: currentcolor;
+          @supports (color: color-mix(in lab, red, red)) {
+            color: color-mix(in oklab, currentcolor 50%, transparent);
+          }
+        }
+      }
+      textarea {
+        resize: vertical;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-date-and-time-value {
+        min-height: 1lh;
+        text-align: inherit;
+      }
+      ::-webkit-datetime-edit {
+        display: inline-flex;
+      }
+      ::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
+      }
+      ::-webkit-datetime-edit,
+      ::-webkit-datetime-edit-year-field,
+      ::-webkit-datetime-edit-month-field,
+      ::-webkit-datetime-edit-day-field,
+      ::-webkit-datetime-edit-hour-field,
+      ::-webkit-datetime-edit-minute-field,
+      ::-webkit-datetime-edit-second-field,
+      ::-webkit-datetime-edit-millisecond-field,
+      ::-webkit-datetime-edit-meridiem-field {
+        padding-block: 0;
+      }
+      ::-webkit-calendar-picker-indicator {
+        line-height: 1;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      button,
+      input:where([type="button"], [type="reset"], [type="submit"]),
+      ::file-selector-button {
+        appearance: button;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [hidden]:where(:not([hidden="until-found"])) {
+        display: none !important;
+      }
+    }
+    @layer utilities {
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+      .static {
+        position: static;
+      }
+      .top-\[5\%\] {
+        top: 5%;
+      }
+      .order-2 {
+        order: 2;
+      }
+      .container {
+        width: 100%;
+        @media (width >= 40rem) {
+          max-width: 40rem;
+        }
+        @media (width >= 48rem) {
+          max-width: 48rem;
+        }
+        @media (width >= 64rem) {
+          max-width: 64rem;
+        }
+        @media (width >= 80rem) {
+          max-width: 80rem;
+        }
+        @media (width >= 96rem) {
+          max-width: 96rem;
+        }
+      }
+      .mx-auto {
+        margin-inline: auto;
+      }
+      .ms-2 {
+        margin-inline-start: calc(var(--spacing) * 2);
+      }
+      .prose {
+        color: var(--tw-prose-body);
+        max-width: 65ch;
+        :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.25em;
+          margin-bottom: 1.25em;
+        }
+        :where([class~="lead"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: var(--tw-prose-lead);
+          font-size: 1.25em;
+          line-height: 1.6;
+          margin-top: 1.2em;
+          margin-bottom: 1.2em;
+        }
+        :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-links);
+          text-decoration: underline;
+          font-weight: 500;
+        }
+        :where(strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: var(--tw-prose-bold);
+          font-weight: 600;
+        }
+        :where(a strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(blockquote strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(thead th strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          list-style-type: decimal;
+          margin-top: 1.25em;
+          margin-bottom: 1.25em;
+          padding-inline-start: 1.625em;
+        }
+        :where(ol[type="A"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: upper-alpha;
+        }
+        :where(ol[type="a"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: lower-alpha;
+        }
+        :where(ol[type="A" s]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: upper-alpha;
+        }
+        :where(ol[type="a" s]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: lower-alpha;
+        }
+        :where(ol[type="I"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: upper-roman;
+        }
+        :where(ol[type="i"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: lower-roman;
+        }
+        :where(ol[type="I" s]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: upper-roman;
+        }
+        :where(ol[type="i" s]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: lower-roman;
+        }
+        :where(ol[type="1"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          list-style-type: decimal;
+        }
+        :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          list-style-type: disc;
+          margin-top: 1.25em;
+          margin-bottom: 1.25em;
+          padding-inline-start: 1.625em;
+        }
+        :where(ol > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::marker {
+          font-weight: 400;
+          color: var(--tw-prose-counters);
+        }
+        :where(ul > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::marker {
+          color: var(--tw-prose-bullets);
+        }
+        :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-headings);
+          font-weight: 600;
+          margin-top: 1.25em;
+        }
+        :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          border-color: var(--tw-prose-hr);
+          border-top-width: 1px;
+          margin-top: 3em;
+          margin-bottom: 3em;
+        }
+        :where(blockquote):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-weight: 500;
+          font-style: italic;
+          color: var(--tw-prose-quotes);
+          border-inline-start-width: 0.25rem;
+          border-inline-start-color: var(--tw-prose-quote-borders);
+          quotes: "\201C" "\201D" "\2018" "\2019";
+          margin-top: 1.6em;
+          margin-bottom: 1.6em;
+          padding-inline-start: 1em;
+        }
+        :where(blockquote p:first-of-type):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::before {
+          content: open-quote;
+        }
+        :where(blockquote p:last-of-type):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::after {
+          content: close-quote;
+        }
+        :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-headings);
+          font-weight: 800;
+          font-size: 2.25em;
+          margin-top: 0;
+          margin-bottom: 0.8888889em;
+          line-height: 1.1111111;
+        }
+        :where(h1 strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-weight: 900;
+          color: inherit;
+        }
+        :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-headings);
+          font-weight: 700;
+          font-size: 1.5em;
+          margin-top: 2em;
+          margin-bottom: 1em;
+          line-height: 1.3333333;
+        }
+        :where(h2 strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-weight: 800;
+          color: inherit;
+        }
+        :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-headings);
+          font-weight: 600;
+          font-size: 1.25em;
+          margin-top: 1.6em;
+          margin-bottom: 0.6em;
+          line-height: 1.6;
+        }
+        :where(h3 strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-weight: 700;
+          color: inherit;
+        }
+        :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-headings);
+          font-weight: 600;
+          margin-top: 1.5em;
+          margin-bottom: 0.5em;
+          line-height: 1.5;
+        }
+        :where(h4 strong):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-weight: 700;
+          color: inherit;
+        }
+        :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }
+        :where(picture):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          display: block;
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }
+        :where(video):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }
+        :where(kbd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          font-weight: 500;
+          font-family: inherit;
+          color: var(--tw-prose-kbd);
+          box-shadow:
+            0 0 0 1px var(--tw-prose-kbd-shadows),
+            0 3px 0 var(--tw-prose-kbd-shadows);
+          font-size: 0.875em;
+          border-radius: 0.3125rem;
+          padding-top: 0.1875em;
+          padding-inline-end: 0.375em;
+          padding-bottom: 0.1875em;
+          padding-inline-start: 0.375em;
+        }
+        :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-code);
+          font-weight: 600;
+          font-size: 0.875em;
+        }
+        :where(code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::before {
+          content: "`";
+        }
+        :where(code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::after {
+          content: "`";
+        }
+        :where(a code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(h1 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(h2 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+          font-size: 0.875em;
+        }
+        :where(h3 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+          font-size: 0.9em;
+        }
+        :where(h4 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(blockquote code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(thead th code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: inherit;
+        }
+        :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          color: var(--tw-prose-pre-code);
+          background-color: var(--tw-prose-pre-bg);
+          overflow-x: auto;
+          font-weight: 400;
+          font-size: 0.875em;
+          line-height: 1.7142857;
+          margin-top: 1.7142857em;
+          margin-bottom: 1.7142857em;
+          border-radius: 0.375rem;
+          padding-top: 0.8571429em;
+          padding-inline-end: 1.1428571em;
+          padding-bottom: 0.8571429em;
+          padding-inline-start: 1.1428571em;
+        }
+        :where(pre code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          background-color: transparent;
+          border-width: 0;
+          border-radius: 0;
+          padding: 0;
+          font-weight: inherit;
+          color: inherit;
+          font-size: inherit;
+          font-family: inherit;
+          line-height: inherit;
+        }
+        :where(pre code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::before {
+          content: none;
+        }
+        :where(pre code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          )::after {
+          content: none;
+        }
+        :where(table):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          width: 100%;
+          table-layout: auto;
+          margin-top: 2em;
+          margin-bottom: 2em;
+          font-size: 0.875em;
+          line-height: 1.7142857;
+        }
+        :where(thead):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          border-bottom-width: 1px;
+          border-bottom-color: var(--tw-prose-th-borders);
+        }
+        :where(thead th):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: var(--tw-prose-headings);
+          font-weight: 600;
+          vertical-align: bottom;
+          padding-inline-end: 0.5714286em;
+          padding-bottom: 0.5714286em;
+          padding-inline-start: 0.5714286em;
+        }
+        :where(tbody tr):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          border-bottom-width: 1px;
+          border-bottom-color: var(--tw-prose-td-borders);
+        }
+        :where(tbody tr:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          border-bottom-width: 0;
+        }
+        :where(tbody td):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          vertical-align: baseline;
+        }
+        :where(tfoot):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          border-top-width: 1px;
+          border-top-color: var(--tw-prose-th-borders);
+        }
+        :where(tfoot td):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          vertical-align: top;
+        }
+        :where(th, td):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          text-align: start;
+        }
+        :where(figure > *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        :where(figcaption):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          color: var(--tw-prose-captions);
+          font-size: 0.875em;
+          line-height: 1.4285714;
+          margin-top: 0.8571429em;
+        }
+        --tw-prose-body: oklch(37.3% 0.034 259.733);
+        --tw-prose-headings: oklch(21% 0.034 264.665);
+        --tw-prose-lead: oklch(44.6% 0.03 256.802);
+        --tw-prose-links: oklch(21% 0.034 264.665);
+        --tw-prose-bold: oklch(21% 0.034 264.665);
+        --tw-prose-counters: oklch(55.1% 0.027 264.364);
+        --tw-prose-bullets: oklch(87.2% 0.01 258.338);
+        --tw-prose-hr: oklch(92.8% 0.006 264.531);
+        --tw-prose-quotes: oklch(21% 0.034 264.665);
+        --tw-prose-quote-borders: oklch(92.8% 0.006 264.531);
+        --tw-prose-captions: oklch(55.1% 0.027 264.364);
+        --tw-prose-kbd: oklch(21% 0.034 264.665);
+        --tw-prose-kbd-shadows: color-mix(
+          in oklab,
+          oklch(21% 0.034 264.665) 10%,
+          transparent
+        );
+        --tw-prose-code: oklch(21% 0.034 264.665);
+        --tw-prose-pre-code: oklch(92.8% 0.006 264.531);
+        --tw-prose-pre-bg: oklch(27.8% 0.033 256.848);
+        --tw-prose-th-borders: oklch(87.2% 0.01 258.338);
+        --tw-prose-td-borders: oklch(92.8% 0.006 264.531);
+        --tw-prose-invert-body: oklch(87.2% 0.01 258.338);
+        --tw-prose-invert-headings: #fff;
+        --tw-prose-invert-lead: oklch(70.7% 0.022 261.325);
+        --tw-prose-invert-links: #fff;
+        --tw-prose-invert-bold: #fff;
+        --tw-prose-invert-counters: oklch(70.7% 0.022 261.325);
+        --tw-prose-invert-bullets: oklch(44.6% 0.03 256.802);
+        --tw-prose-invert-hr: oklch(37.3% 0.034 259.733);
+        --tw-prose-invert-quotes: oklch(96.7% 0.003 264.542);
+        --tw-prose-invert-quote-borders: oklch(37.3% 0.034 259.733);
+        --tw-prose-invert-captions: oklch(70.7% 0.022 261.325);
+        --tw-prose-invert-kbd: #fff;
+        --tw-prose-invert-kbd-shadows: rgb(255 255 255 / 10%);
+        --tw-prose-invert-code: #fff;
+        --tw-prose-invert-pre-code: oklch(87.2% 0.01 258.338);
+        --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
+        --tw-prose-invert-th-borders: oklch(44.6% 0.03 256.802);
+        --tw-prose-invert-td-borders: oklch(37.3% 0.034 259.733);
+        font-size: 1rem;
+        line-height: 1.75;
+        :where(picture > img):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 0.5em;
+          margin-bottom: 0.5em;
+        }
+        :where(ol > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0.375em;
+        }
+        :where(ul > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0.375em;
+        }
+        :where(.prose > ul > li p):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0.75em;
+          margin-bottom: 0.75em;
+        }
+        :where(.prose > ul > li > p:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.25em;
+        }
+        :where(.prose > ul > li > p:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 1.25em;
+        }
+        :where(.prose > ol > li > p:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.25em;
+        }
+        :where(.prose > ol > li > p:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 1.25em;
+        }
+        :where(ul ul, ul ol, ol ul, ol ol):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0.75em;
+          margin-bottom: 0.75em;
+        }
+        :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.25em;
+          margin-bottom: 1.25em;
+        }
+        :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 0.5em;
+          padding-inline-start: 1.625em;
+        }
+        :where(hr + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        :where(h2 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        :where(h3 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        :where(h4 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        :where(thead th:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0;
+        }
+        :where(thead th:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-end: 0;
+        }
+        :where(tbody td, tfoot td):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-top: 0.5714286em;
+          padding-inline-end: 0.5714286em;
+          padding-bottom: 0.5714286em;
+          padding-inline-start: 0.5714286em;
+        }
+        :where(tbody td:first-child, tfoot td:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0;
+        }
+        :where(tbody td:last-child, tfoot td:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-end: 0;
+        }
+        :where(figure):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 2em;
+          margin-bottom: 2em;
+        }
+        :where(.prose > :first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        :where(.prose > :last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 0;
+        }
+      }
+      .mt-4 {
+        margin-top: calc(var(--spacing) * 4);
+      }
+      .mt-5 {
+        margin-top: calc(var(--spacing) * 5);
+      }
+      .mt-6 {
+        margin-top: calc(var(--spacing) * 6);
+      }
+      .mt-8 {
+        margin-top: calc(var(--spacing) * 8);
+      }
+      .mt-10 {
+        margin-top: calc(var(--spacing) * 10);
+      }
+      .mt-12 {
+        margin-top: calc(var(--spacing) * 12);
+      }
+      .mb-4 {
+        margin-bottom: calc(var(--spacing) * 4);
+      }
+      .mb-6 {
+        margin-bottom: calc(var(--spacing) * 6);
+      }
+      .mb-8 {
+        margin-bottom: calc(var(--spacing) * 8);
+      }
+      .mb-10 {
+        margin-bottom: calc(var(--spacing) * 10);
+      }
+      .line-clamp-2 {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .block {
+        display: block;
+      }
+      .contents {
+        display: contents;
+      }
+      .flex {
+        display: flex;
+      }
+      .grid {
+        display: grid;
+      }
+      .hidden {
+        display: none;
+      }
+      .inline {
+        display: inline;
+      }
+      .inline-flex {
+        display: inline-flex;
+      }
+      .table {
+        display: table;
+      }
+      .size-4 {
+        width: calc(var(--spacing) * 4);
+        height: calc(var(--spacing) * 4);
+      }
+      .h-4 {
+        height: calc(var(--spacing) * 4);
+      }
+      .h-5 {
+        height: calc(var(--spacing) * 5);
+      }
+      .h-9 {
+        height: calc(var(--spacing) * 9);
+      }
+      .min-h-20 {
+        min-height: calc(var(--spacing) * 20);
+      }
+      .min-h-screen {
+        min-height: 100vh;
+      }
+      .w-0 {
+        width: 0px;
+      }
+      .w-0\.5 {
+        width: calc(var(--spacing) * 0.5);
+      }
+      .w-4 {
+        width: calc(var(--spacing) * 4);
+      }
+      .w-9 {
+        width: calc(var(--spacing) * 9);
+      }
+      .w-56 {
+        width: calc(var(--spacing) * 56);
+      }
+      .w-auto {
+        width: auto;
+      }
+      .w-full {
+        width: 100%;
+      }
+      .max-w-5xl {
+        max-width: var(--container-5xl);
+      }
+      .max-w-none {
+        max-width: none;
+      }
+      .flex-1 {
+        flex: 1;
+      }
+      .flex-grow {
+        flex-grow: 1;
+      }
+      .grow {
+        flex-grow: 1;
+      }
+      .border-collapse {
+        border-collapse: collapse;
+      }
+      .transform {
+        transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,)
+          var(--tw-skew-x,) var(--tw-skew-y,);
+      }
+      .cursor-pointer {
+        cursor: pointer;
+      }
+      .resize {
+        resize: both;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .items-baseline {
+        align-items: baseline;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .gap-1 {
+        gap: var(--spacing);
+      }
+      .gap-1\.5 {
+        gap: calc(var(--spacing) * 1.5);
+      }
+      .gap-2 {
+        gap: calc(var(--spacing) * 2);
+      }
+      .gap-3 {
+        gap: calc(var(--spacing) * 3);
+      }
+      .gap-4 {
+        gap: calc(var(--spacing) * 4);
+      }
+      .gap-5 {
+        gap: calc(var(--spacing) * 5);
+      }
+      .gap-6 {
+        gap: calc(var(--spacing) * 6);
+      }
+      .gap-10 {
+        gap: calc(var(--spacing) * 10);
+      }
+      .gap-x-5 {
+        column-gap: calc(var(--spacing) * 5);
+      }
+      .gap-y-2 {
+        row-gap: calc(var(--spacing) * 2);
+      }
+      .rounded {
+        border-radius: 0.25rem;
+      }
+      .rounded-lg {
+        border-radius: var(--radius);
+      }
+      .rounded-md {
+        border-radius: var(--radius);
+      }
+      .border {
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+      }
+      .border-\[1\.5px\] {
+        border-style: var(--tw-border-style);
+        border-width: 1.5px;
+      }
+      .border-t {
+        border-top-style: var(--tw-border-style);
+        border-top-width: 1px;
+      }
+      .border-b-2 {
+        border-bottom-style: var(--tw-border-style);
+        border-bottom-width: 2px;
+      }
+      .border-gold {
+        border-color: var(--gold);
+      }
+      .border-muted-foreground {
+        border-color: var(--muted-foreground);
+      }
+      .border-muted-foreground\/40 {
+        border-color: var(--muted-foreground);
+        @supports (color: color-mix(in lab, red, red)) {
+          border-color: color-mix(
+            in oklab,
+            var(--muted-foreground) 40%,
+            transparent
+          );
+        }
+      }
+      .border-transparent {
+        border-color: transparent;
+      }
+      .bg-gold {
+        background-color: var(--gold);
+      }
+      .bg-primary {
+        background-color: var(--primary);
+      }
+      .fill-current {
+        fill: currentcolor;
+      }
+      .p-3 {
+        padding: calc(var(--spacing) * 3);
+      }
+      .px-2 {
+        padding-inline: calc(var(--spacing) * 2);
+      }
+      .px-2\.5 {
+        padding-inline: calc(var(--spacing) * 2.5);
+      }
+      .px-3 {
+        padding-inline: calc(var(--spacing) * 3);
+      }
+      .px-4 {
+        padding-inline: calc(var(--spacing) * 4);
+      }
+      .py-0 {
+        padding-block: 0px;
+      }
+      .py-0\.5 {
+        padding-block: calc(var(--spacing) * 0.5);
+      }
+      .py-1 {
+        padding-block: var(--spacing);
+      }
+      .py-2 {
+        padding-block: calc(var(--spacing) * 2);
+      }
+      .py-3 {
+        padding-block: calc(var(--spacing) * 3);
+      }
+      .py-8 {
+        padding-block: calc(var(--spacing) * 8);
+      }
+      .py-12 {
+        padding-block: calc(var(--spacing) * 12);
+      }
+      .ps-7 {
+        padding-inline-start: calc(var(--spacing) * 7);
+      }
+      .pt-1 {
+        padding-top: var(--spacing);
+      }
+      .pt-6 {
+        padding-top: calc(var(--spacing) * 6);
+      }
+      .pt-8 {
+        padding-top: calc(var(--spacing) * 8);
+      }
+      .pb-0 {
+        padding-bottom: 0px;
+      }
+      .pb-0\.5 {
+        padding-bottom: calc(var(--spacing) * 0.5);
+      }
+      .pb-4 {
+        padding-bottom: calc(var(--spacing) * 4);
+      }
+      .pl-3 {
+        padding-left: calc(var(--spacing) * 3);
+      }
+      .font-sans {
+        font-family: var(--font-sans);
+      }
+      .font-serif {
+        font-family: var(--font-serif);
+      }
+      .text-2xl {
+        font-size: var(--text-2xl);
+        line-height: var(--tw-leading, var(--text-2xl--line-height));
+      }
+      .text-4xl {
+        font-size: var(--text-4xl);
+        line-height: var(--tw-leading, var(--text-4xl--line-height));
+      }
+      .text-base {
+        font-size: var(--text-base);
+        line-height: var(--tw-leading, var(--text-base--line-height));
+      }
+      .text-sm {
+        font-size: var(--text-sm);
+        line-height: var(--tw-leading, var(--text-sm--line-height));
+      }
+      .text-xs {
+        font-size: var(--text-xs);
+        line-height: var(--tw-leading, var(--text-xs--line-height));
+      }
+      .text-\[clamp\(2\.5rem\,5vw\,4rem\)\] {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+      }
+      .leading-relaxed {
+        --tw-leading: var(--leading-relaxed);
+        line-height: var(--leading-relaxed);
+      }
+      .font-bold {
+        --tw-font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-bold);
+      }
+      .font-medium {
+        --tw-font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-medium);
+      }
+      .font-normal {
+        --tw-font-weight: var(--font-weight-normal);
+        font-weight: var(--font-weight-normal);
+      }
+      .font-semibold {
+        --tw-font-weight: var(--font-weight-semibold);
+        font-weight: var(--font-weight-semibold);
+      }
+      .tracking-tight {
+        --tw-tracking: var(--tracking-tight);
+        letter-spacing: var(--tracking-tight);
+      }
+      .text-wrap {
+        text-wrap: wrap;
+      }
+      .wrap-break-word {
+        overflow-wrap: break-word;
+      }
+      .whitespace-nowrap {
+        white-space: nowrap;
+      }
+      .text-foreground {
+        color: var(--foreground);
+      }
+      .text-foreground\/30 {
+        color: var(--foreground);
+        @supports (color: color-mix(in lab, red, red)) {
+          color: color-mix(in oklab, var(--foreground) 30%, transparent);
+        }
+      }
+      .text-foreground\/60 {
+        color: var(--foreground);
+        @supports (color: color-mix(in lab, red, red)) {
+          color: color-mix(in oklab, var(--foreground) 60%, transparent);
+        }
+      }
+      .text-foreground\/80 {
+        color: var(--foreground);
+        @supports (color: color-mix(in lab, red, red)) {
+          color: color-mix(in oklab, var(--foreground) 80%, transparent);
+        }
+      }
+      .text-muted-foreground {
+        color: var(--muted-foreground);
+      }
+      .text-navy {
+        color: var(--navy);
+      }
+      .text-primary-foreground {
+        color: var(--primary-foreground);
+      }
+      .underline {
+        text-decoration-line: underline;
+      }
+      .antialiased {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .shadow {
+        --tw-shadow:
+          0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+          0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        box-shadow:
+          var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+      .shadow-lg {
+        --tw-shadow:
+          0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+          0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        box-shadow:
+          var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+      .shadow-sm {
+        --tw-shadow:
+          0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+          0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+        box-shadow:
+          var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+      .ring {
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0
+          calc(1px + var(--tw-ring-offset-width))
+          var(--tw-ring-color, currentcolor);
+        box-shadow:
+          var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+      .outline {
+        outline-style: var(--tw-outline-style);
+        outline-width: 1px;
+      }
+      .grayscale {
+        --tw-grayscale: grayscale(100%);
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,)
+          var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,)
+          var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+      }
+      .filter {
+        filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,)
+          var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,)
+          var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+      }
+      .transition {
+        transition-property:
+          color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
+        transition-timing-function: var(
+          --tw-ease,
+          var(--default-transition-timing-function)
+        );
+        transition-duration: var(
+          --tw-duration,
+          var(--default-transition-duration)
+        );
+      }
+      .transition-all {
+        transition-property: all;
+        transition-timing-function: var(
+          --tw-ease,
+          var(--default-transition-timing-function)
+        );
+        transition-duration: var(
+          --tw-duration,
+          var(--default-transition-duration)
+        );
+      }
+      .transition-colors {
+        transition-property:
+          color, background-color, border-color, outline-color,
+          text-decoration-color, fill, stroke, --tw-gradient-from,
+          --tw-gradient-via, --tw-gradient-to;
+        transition-timing-function: var(
+          --tw-ease,
+          var(--default-transition-timing-function)
+        );
+        transition-duration: var(
+          --tw-duration,
+          var(--default-transition-duration)
+        );
+      }
+      .transition-transform {
+        transition-property: transform, translate, scale, rotate;
+        transition-timing-function: var(
+          --tw-ease,
+          var(--default-transition-timing-function)
+        );
+        transition-duration: var(
+          --tw-duration,
+          var(--default-transition-duration)
+        );
+      }
+      .duration-150 {
+        --tw-duration: 150ms;
+        transition-duration: 150ms;
+      }
+      .duration-200 {
+        --tw-duration: 200ms;
+        transition-duration: 200ms;
+      }
+      .duration-300 {
+        --tw-duration: 300ms;
+        transition-duration: 300ms;
+      }
+      .select-none {
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      .group-open\:rotate-90:is(
+        :where(.group):is([open], :popover-open, :open) *
+      ) {
+        rotate: 90deg;
+      }
+      @media (hover: hover) {
+        .hover\:scale-105:hover {
+          --tw-scale-x: 105%;
+          --tw-scale-y: 105%;
+          --tw-scale-z: 105%;
+          scale: var(--tw-scale-x) var(--tw-scale-y);
+        }
+        .hover\:bg-accent:hover {
+          background-color: var(--accent);
+        }
+        .hover\:bg-gold-hover:hover {
+          background-color: var(--gold-hover);
+        }
+        .hover\:bg-primary\/80:hover {
+          background-color: var(--primary);
+        }
+        @supports (color: color-mix(in lab, red, red)) {
+          .hover\:bg-primary\/80:hover {
+            background-color: color-mix(
+              in oklab,
+              var(--primary) 80%,
+              transparent
+            );
+          }
+        }
+        .hover\:text-accent-foreground:hover {
+          color: var(--accent-foreground);
+        }
+        .hover\:text-foreground:hover {
+          color: var(--foreground);
+        }
+        .hover\:text-foreground\/80:hover {
+          color: var(--foreground);
+        }
+        @supports (color: color-mix(in lab, red, red)) {
+          .hover\:text-foreground\/80:hover {
+            color: color-mix(in oklab, var(--foreground) 80%, transparent);
+          }
+        }
+        .hover\:shadow-2xl:hover {
+          --tw-shadow: 0 25px 50px -12px
+            var(--tw-shadow-color, rgb(0 0 0 / 0.25));
+          box-shadow:
+            var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+            var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+            var(--tw-shadow);
+        }
+        .hover\:shadow-md:hover {
+          --tw-shadow:
+            0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)),
+            0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+          box-shadow:
+            var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+            var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+            var(--tw-shadow);
+        }
+        .hover\:grayscale-0:hover {
+          --tw-grayscale: grayscale(0%);
+          filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,)
+            var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,)
+            var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+        }
+      }
+      .focus\:not-sr-only:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip-path: none;
+        white-space: normal;
+      }
+      .focus\:absolute:focus {
+        position: absolute;
+      }
+      .focus\:top-4:focus {
+        top: calc(var(--spacing) * 4);
+      }
+      .focus\:left-4:focus {
+        left: calc(var(--spacing) * 4);
+      }
+      .focus\:z-50:focus {
+        z-index: 50;
+      }
+      .focus-visible\:ring-1:focus-visible {
+        --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0
+          calc(1px + var(--tw-ring-offset-width))
+          var(--tw-ring-color, currentcolor);
+        box-shadow:
+          var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+          var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+      }
+      .focus-visible\:ring-ring:focus-visible {
+        --tw-ring-color: var(--ring);
+      }
+      .focus-visible\:outline-none:focus-visible {
+        --tw-outline-style: none;
+        outline-style: none;
+      }
+      .active\:translate-y-px:active {
+        --tw-translate-y: 1px;
+        translate: var(--tw-translate-x) var(--tw-translate-y);
+      }
+      @media (width >= 40rem) {
+        .sm\:float-right {
+          float: right;
+        }
+        .sm\:prose-lg {
+          font-size: 1.125rem;
+          line-height: 1.7777778;
+        }
+        .sm\:prose-lg
+          :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.3333333em;
+          margin-bottom: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where([class~="lead"]):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 1.2222222em;
+          line-height: 1.4545455;
+          margin-top: 1.0909091em;
+          margin-bottom: 1.0909091em;
+        }
+        .sm\:prose-lg
+          :where(blockquote):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.6666667em;
+          margin-bottom: 1.6666667em;
+          padding-inline-start: 1em;
+        }
+        .sm\:prose-lg
+          :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          font-size: 2.6666667em;
+          margin-top: 0;
+          margin-bottom: 0.8333333em;
+          line-height: 1;
+        }
+        .sm\:prose-lg
+          :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          font-size: 1.6666667em;
+          margin-top: 1.8666667em;
+          margin-bottom: 1.0666667em;
+          line-height: 1.3333333;
+        }
+        .sm\:prose-lg
+          :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          font-size: 1.3333333em;
+          margin-top: 1.6666667em;
+          margin-bottom: 0.6666667em;
+          line-height: 1.5;
+        }
+        .sm\:prose-lg
+          :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.7777778em;
+          margin-bottom: 0.4444444em;
+          line-height: 1.5555556;
+        }
+        .sm\:prose-lg
+          :where(img):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.7777778em;
+          margin-bottom: 1.7777778em;
+        }
+        .sm\:prose-lg
+          :where(picture):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.7777778em;
+          margin-bottom: 1.7777778em;
+        }
+        .sm\:prose-lg
+          :where(picture > img):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .sm\:prose-lg
+          :where(video):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.7777778em;
+          margin-bottom: 1.7777778em;
+        }
+        .sm\:prose-lg
+          :where(kbd):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8888889em;
+          border-radius: 0.3125rem;
+          padding-top: 0.2222222em;
+          padding-inline-end: 0.4444444em;
+          padding-bottom: 0.2222222em;
+          padding-inline-start: 0.4444444em;
+        }
+        .sm\:prose-lg
+          :where(code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8888889em;
+        }
+        .sm\:prose-lg
+          :where(h2 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8666667em;
+        }
+        .sm\:prose-lg
+          :where(h3 code):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.875em;
+        }
+        .sm\:prose-lg
+          :where(pre):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8888889em;
+          line-height: 1.75;
+          margin-top: 2em;
+          margin-bottom: 2em;
+          border-radius: 0.375rem;
+          padding-top: 1em;
+          padding-inline-end: 1.5em;
+          padding-bottom: 1em;
+          padding-inline-start: 1.5em;
+        }
+        .sm\:prose-lg
+          :where(ol):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.3333333em;
+          margin-bottom: 1.3333333em;
+          padding-inline-start: 1.5555556em;
+        }
+        .sm\:prose-lg
+          :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.3333333em;
+          margin-bottom: 1.3333333em;
+          padding-inline-start: 1.5555556em;
+        }
+        .sm\:prose-lg
+          :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 0.6666667em;
+          margin-bottom: 0.6666667em;
+        }
+        .sm\:prose-lg
+          :where(ol > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0.4444444em;
+        }
+        .sm\:prose-lg
+          :where(ul > li):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0.4444444em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > ul > li p):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0.8888889em;
+          margin-bottom: 0.8888889em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > ul > li > p:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > ul > li > p:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > ol > li > p:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > ol > li > p:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(ul ul, ul ol, ol ul, ol ol):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0.8888889em;
+          margin-bottom: 0.8888889em;
+        }
+        .sm\:prose-lg
+          :where(dl):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.3333333em;
+          margin-bottom: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(dt):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 1.3333333em;
+        }
+        .sm\:prose-lg
+          :where(dd):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 0.6666667em;
+          padding-inline-start: 1.5555556em;
+        }
+        .sm\:prose-lg
+          :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+          margin-top: 3.1111111em;
+          margin-bottom: 3.1111111em;
+        }
+        .sm\:prose-lg
+          :where(hr + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        .sm\:prose-lg
+          :where(h2 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        .sm\:prose-lg
+          :where(h3 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        .sm\:prose-lg
+          :where(h4 + *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        .sm\:prose-lg
+          :where(table):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8888889em;
+          line-height: 1.5;
+        }
+        .sm\:prose-lg
+          :where(thead th):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-end: 0.75em;
+          padding-bottom: 0.75em;
+          padding-inline-start: 0.75em;
+        }
+        .sm\:prose-lg
+          :where(thead th:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0;
+        }
+        .sm\:prose-lg
+          :where(thead th:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-end: 0;
+        }
+        .sm\:prose-lg
+          :where(tbody td, tfoot td):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-top: 0.75em;
+          padding-inline-end: 0.75em;
+          padding-bottom: 0.75em;
+          padding-inline-start: 0.75em;
+        }
+        .sm\:prose-lg
+          :where(tbody td:first-child, tfoot td:first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-start: 0;
+        }
+        .sm\:prose-lg
+          :where(tbody td:last-child, tfoot td:last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          padding-inline-end: 0;
+        }
+        .sm\:prose-lg
+          :where(figure):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 1.7777778em;
+          margin-bottom: 1.7777778em;
+        }
+        .sm\:prose-lg
+          :where(figure > *):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+        .sm\:prose-lg
+          :where(figcaption):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          font-size: 0.8888889em;
+          line-height: 1.5;
+          margin-top: 1em;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > :first-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-top: 0;
+        }
+        .sm\:prose-lg
+          :where(.sm\:prose-lg > :last-child):not(
+            :where([class~="not-prose"], [class~="not-prose"] *)
+          ) {
+          margin-bottom: 0;
+        }
+        .sm\:ml-6 {
+          margin-left: calc(var(--spacing) * 6);
+        }
+        .sm\:block {
+          display: block;
+        }
+        .sm\:w-48 {
+          width: calc(var(--spacing) * 48);
+        }
+        .sm\:rotate-2 {
+          rotate: 2deg;
+        }
+        .sm\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .sm\:gap-2\.5 {
+          gap: calc(var(--spacing) * 2.5);
+        }
+        .sm\:py-16 {
+          padding-block: calc(var(--spacing) * 16);
+        }
+        .sm\:text-right {
+          text-align: right;
+        }
+        .sm\:text-3xl {
+          font-size: var(--text-3xl);
+          line-height: var(--tw-leading, var(--text-3xl--line-height));
+        }
+        .sm\:text-lg {
+          font-size: var(--text-lg);
+          line-height: var(--tw-leading, var(--text-lg--line-height));
+        }
+        .sm\:text-\[2\.5rem\] {
+          font-size: 2.5rem;
+        }
+        @media (hover: hover) {
+          .sm\:hover\:rotate-3:hover {
+            rotate: 3deg;
+          }
+        }
+      }
+      @media (width >= 48rem) {
+        .md\:grid-cols-2 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .md\:flex-row {
+          flex-direction: row;
+        }
+        .md\:px-8 {
+          padding-inline: calc(var(--spacing) * 8);
+        }
+      }
+      @media (width >= 64rem) {
+        .lg\:sticky {
+          position: sticky;
+        }
+        .lg\:top-0 {
+          top: 0px;
+        }
+        .lg\:mb-0 {
+          margin-bottom: 0px;
+        }
+        .lg\:block {
+          display: block;
+        }
+        .lg\:flex {
+          display: flex;
+        }
+        .lg\:hidden {
+          display: none;
+        }
+        .lg\:max-w-2xl {
+          max-width: var(--container-2xl);
+        }
+        .lg\:items-start {
+          align-items: flex-start;
+        }
+        .lg\:gap-6 {
+          gap: calc(var(--spacing) * 6);
+        }
+        .lg\:gap-12 {
+          gap: calc(var(--spacing) * 12);
+        }
+        .lg\:py-20 {
+          padding-block: calc(var(--spacing) * 20);
+        }
+      }
+      .dark\:block:where(.dark *) {
+        display: block;
+      }
+      .dark\:hidden:where(.dark *) {
+        display: none;
+      }
+      .\[\&\.highlight\]\:font-medium.highlight {
+        --tw-font-weight: var(--font-weight-medium);
+        font-weight: var(--font-weight-medium);
+      }
+      .\[\&\.highlight\]\:text-primary.highlight {
+        color: var(--primary);
+      }
+      .\[\&\.highlight-bg\]\:bg-primary.highlight-bg {
+        background-color: var(--primary);
+      }
+      .\[\&\.readed\]\:bg-input.readed {
+        background-color: var(--input);
+      }
+      .\[\&\.readed\]\:text-input.readed {
+        color: var(--input);
+      }
+      .\[\&\>svg\]\:size-3\.5 > svg {
+        width: calc(var(--spacing) * 3.5);
+        height: calc(var(--spacing) * 3.5);
+      }
+    }
+    :root {
+      --background: #f0ece3;
+      --foreground: #1c2644;
+      --primary: #1c2644;
+      --primary-foreground: #f0ece3;
+      --muted-foreground: #5b6377;
+      --accent: #e5dfd2;
+      --accent-foreground: #1c2644;
+      --border: #d7d1c3;
+      --ring: #9a7a44;
+      --input: #d7d1c3;
+      --radius: 0.25rem;
+      --gold: #c8a870;
+      --gold-hover: #b8976a;
+      --navy: #1c2644;
+      --navy-alt: #232f55;
+      --link: #1c2644;
+    }
+    .dark {
+      --background: #1c2644;
+      --foreground: #e2dcd0;
+      --primary: #e2dcd0;
+      --primary-foreground: #1c2644;
+      --muted-foreground: #a9b1c6;
+      --accent: #232f55;
+      --accent-foreground: #e2dcd0;
+      --border: #e2dcd0 / 15%;
+      --ring: #c8a870;
+      --input: #e2dcd0 / 20%;
+      --link: #c8a870;
+    }
+    @layer base {
+      * {
+        border-color: var(--border);
+        outline-color: var(--ring);
+        @supports (color: color-mix(in lab, red, red)) {
+          outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+        }
+      }
+      body {
+        background-color: var(--background);
+        color: var(--foreground);
+      }
+      button:not(:disabled),
+      [role="button"]:not(:disabled) {
+        cursor: pointer;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        text-wrap: balance;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline-width: 1px;
+        outline-style: var(--tw-outline-style);
+        outline-width: 2px;
+        outline-offset: 2px;
+        outline-color: var(--ring);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      ::before,
+      ::after {
+        scroll-behavior: auto;
+        transition-duration: 0.01ms;
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+      }
+    }
+    .prose {
+      --tw-prose-body: var(--foreground);
+      --tw-prose-headings: var(--foreground);
+      --tw-prose-lead: var(--foreground);
+      --tw-prose-links: var(--link);
+      --tw-prose-bold: var(--foreground);
+      --tw-prose-counters: var(--foreground);
+      --tw-prose-bullets: var(--foreground);
+      --tw-prose-hr: var(--border);
+      --tw-prose-quotes: var(--foreground);
+      --tw-prose-quote-borders: var(--gold);
+      --tw-prose-captions: var(--muted-foreground);
+      --tw-prose-code: var(--foreground);
+      --tw-prose-pre-code: #e2dcd0;
+      --tw-prose-pre-bg: var(--navy-alt);
+      --tw-prose-th-borders: var(--border);
+      --tw-prose-td-borders: var(--border);
+    }
+    .prose :is(h1, h2, h3, h4, h5, h6) {
+      font-family: var(--font-space-grotesk);
+      font-weight: 600;
+    }
+    .prose :is(h2, h3, h4) {
+      scroll-margin-top: 1.5rem;
+    }
+    .prose :is(pre, :not(pre) > code) {
+      font-family: var(--font-jetbrains-mono);
+    }
+    .prose pre.astro-code {
+      --astro-code-background: var(--navy-alt);
+      --astro-code-foreground: #e2dcd0;
+      --astro-code-token-comment: #98a1ba;
+      --astro-code-token-keyword: #c8a870;
+      --astro-code-token-string: #9fc4a4;
+      --astro-code-token-string-expression: #9fc4a4;
+      --astro-code-token-function: #f0ece3;
+      --astro-code-token-constant: #d9c08e;
+      --astro-code-token-variable: #e2dcd0;
+      --astro-code-token-operator: #c8a870;
+      --astro-code-token-entity: #d9c08e;
+      --astro-code-token-tag: #c8a870;
+      --astro-code-token-attribute: #d9c08e;
+    }
+    .prose p {
+      text-wrap: pretty;
+    }
+    .prose .anchor-link {
+      margin-left: calc(var(--spacing) * 1.5);
+      --tw-font-weight: var(--font-weight-normal);
+      font-weight: var(--font-weight-normal);
+      color: var(--muted-foreground);
+      text-decoration-line: none;
+      opacity: 0%;
+      transition-property: opacity;
+      transition-timing-function: var(
+        --tw-ease,
+        var(--default-transition-timing-function)
+      );
+      transition-duration: var(
+        --tw-duration,
+        var(--default-transition-duration)
+      );
+      --tw-duration: 150ms;
+      transition-duration: 150ms;
+    }
+    .prose :is(h2, h3, h4):hover .anchor-link,
+    .prose .anchor-link:focus-visible {
+      opacity: 100%;
+    }
+    @property --tw-rotate-x {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-rotate-y {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-rotate-z {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-skew-x {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-skew-y {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-border-style {
+      syntax: "*";
+      inherits: false;
+      initial-value: solid;
+    }
+    @property --tw-leading {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-font-weight {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-tracking {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-shadow {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0 0 #0000;
+    }
+    @property --tw-shadow-color {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-shadow-alpha {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 100%;
+    }
+    @property --tw-inset-shadow {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0 0 #0000;
+    }
+    @property --tw-inset-shadow-color {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-inset-shadow-alpha {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 100%;
+    }
+    @property --tw-ring-color {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-ring-shadow {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0 0 #0000;
+    }
+    @property --tw-inset-ring-color {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-inset-ring-shadow {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0 0 #0000;
+    }
+    @property --tw-ring-inset {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-ring-offset-width {
+      syntax: "<length>";
+      inherits: false;
+      initial-value: 0px;
+    }
+    @property --tw-ring-offset-color {
+      syntax: "*";
+      inherits: false;
+      initial-value: #fff;
+    }
+    @property --tw-ring-offset-shadow {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0 0 #0000;
+    }
+    @property --tw-outline-style {
+      syntax: "*";
+      inherits: false;
+      initial-value: solid;
+    }
+    @property --tw-blur {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-brightness {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-contrast {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-grayscale {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-hue-rotate {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-invert {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-opacity {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-saturate {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-sepia {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-drop-shadow {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-drop-shadow-color {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-drop-shadow-alpha {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 100%;
+    }
+    @property --tw-drop-shadow-size {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-duration {
+      syntax: "*";
+      inherits: false;
+    }
+    @property --tw-scale-x {
+      syntax: "*";
+      inherits: false;
+      initial-value: 1;
+    }
+    @property --tw-scale-y {
+      syntax: "*";
+      inherits: false;
+      initial-value: 1;
+    }
+    @property --tw-scale-z {
+      syntax: "*";
+      inherits: false;
+      initial-value: 1;
+    }
+    @property --tw-translate-x {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }
+    @property --tw-translate-y {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }
+    @property --tw-translate-z {
+      syntax: "*";
+      inherits: false;
+      initial-value: 0;
+    }
+    @layer properties {
+      @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or
+        ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+        *,
+        ::before,
+        ::after,
+        ::backdrop {
+          --tw-rotate-x: initial;
+          --tw-rotate-y: initial;
+          --tw-rotate-z: initial;
+          --tw-skew-x: initial;
+          --tw-skew-y: initial;
+          --tw-border-style: solid;
+          --tw-leading: initial;
+          --tw-font-weight: initial;
+          --tw-tracking: initial;
+          --tw-shadow: 0 0 #0000;
+          --tw-shadow-color: initial;
+          --tw-shadow-alpha: 100%;
+          --tw-inset-shadow: 0 0 #0000;
+          --tw-inset-shadow-color: initial;
+          --tw-inset-shadow-alpha: 100%;
+          --tw-ring-color: initial;
+          --tw-ring-shadow: 0 0 #0000;
+          --tw-inset-ring-color: initial;
+          --tw-inset-ring-shadow: 0 0 #0000;
+          --tw-ring-inset: initial;
+          --tw-ring-offset-width: 0px;
+          --tw-ring-offset-color: #fff;
+          --tw-ring-offset-shadow: 0 0 #0000;
+          --tw-outline-style: solid;
+          --tw-blur: initial;
+          --tw-brightness: initial;
+          --tw-contrast: initial;
+          --tw-grayscale: initial;
+          --tw-hue-rotate: initial;
+          --tw-invert: initial;
+          --tw-opacity: initial;
+          --tw-saturate: initial;
+          --tw-sepia: initial;
+          --tw-drop-shadow: initial;
+          --tw-drop-shadow-color: initial;
+          --tw-drop-shadow-alpha: 100%;
+          --tw-drop-shadow-size: initial;
+          --tw-duration: initial;
+          --tw-scale-x: 1;
+          --tw-scale-y: 1;
+          --tw-scale-z: 1;
+          --tw-translate-x: 0;
+          --tw-translate-y: 0;
+          --tw-translate-z: 0;
+        }
+      }
+    }
+    </style>
+    <script type="module" src="/@vite/client"></script>
+    <script
+      type="module"
+      src="/@id/astro/runtime/client/dev-toolbar/entrypoint.js"
+    ></script>
+    <script>
+    window.__astro_dev_toolbar__ = {
+      root: "D:\\Yojee\\App\\Site\\Landing\\yo_blog\\",
+      version: "7.3.5",
+      debugInfo:
+        "Astro                    v7.3.5\nNode                     v25.0.0\nSystem                   Windows (x64)\nPackage Manager          bun\nOutput                   static\nAdapter                  none\nIntegrations             @astrojs/mdx\n                         @astrojs/sitemap",
+    };
+    </script>
+    <script
+      type="module"
+      src="/node_modules/astro/components/ClientRouter.astro?astro&type=style&index=0&lang.css"
+    ></script>
+    <script type="module" src="/src/styles/global.css"></script>
+  </head>
+  <body
+    class="font-sans antialiased"
+    data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/layouts/BaseLayout.astro"
+    data-astro-source-loc="89:39"
+  >
+    <a
+      href="#main"
+      class="bg-primary text-primary-foreground sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 rounded-md px-4 py-2 text-sm font-medium"
+      data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/layouts/BaseLayout.astro"
+      data-astro-source-loc="93:6"
+      >Skip to content</a
+    >
+    <div
+      class="flex min-h-screen flex-col px-4 md:px-8"
+      data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/layouts/BaseLayout.astro"
+      data-astro-source-loc="96:58"
+    >
+      <header
+        class="flex min-h-20 items-center"
+        data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+        data-astro-source-loc="6:44"
+      >
+        <div
+          class="mx-auto flex w-full max-w-5xl items-center justify-between"
+          data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+          data-astro-source-loc="7:75"
+        >
+          <a
+            class="flex"
+            aria-label="INUX"
+            href="/"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+            data-astro-source-loc="8:60"
+            ><svg
+              class="h-5 w-auto fill-current"
+              viewBox="32 -508 806 508"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+              data-astro-source-loc="14:8"
+            >
+              <path
+                d="M 37 0 L 37 -53 L 145 -63 L 197 -63 L 298 -53 L 298 0 L 37 0 ZM 107 0 Q 107 -30 107.5 -67 Q 108 -104 108 -143 Q 108 -182 108 -215 L 108 -269 Q 108 -294 108 -314.5 Q 108 -335 107.5 -354.5 Q 107 -374 107 -394 L 32 -399 L 32 -447 L 185 -502 L 215 -497 L 229 -389 L 234 -388 L 234 -215 Q 234 -182 234.5 -143 Q 235 -104 235 -67 Q 235 -30 236 0 L 107 0 ZM 365 0 L 365 -53 L 468 -63 L 520 -63 L 626 -53 L 626 0 L 365 0 ZM 430 0 Q 431 -30 431 -67 Q 431 -104 431.5 -142.5 Q 432 -181 432 -215 L 432 -315 Q 432 -370 413.5 -392.5 Q 395 -415 355 -415 Q 332 -415 308.5 -407.5 Q 285 -400 261 -385.5 Q 237 -371 212 -350 L 208 -403 L 236 -403 Q 258 -434 284.5 -457.5 Q 311 -481 342.5 -494.5 Q 374 -508 411 -508 Q 482 -508 519.5 -464.5 Q 557 -421 557 -334 L 557 -215 Q 557 -181 557.5 -142.5 Q 558 -104 558 -67 Q 558 -30 559 0 L 430 0 Z"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+                data-astro-source-loc="15:10"
+              ></path>
+              <circle
+                cx="780"
+                cy="-58"
+                r="58"
+                fill="#c8a870"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Header.astro"
+                data-astro-source-loc="18:10"
+              ></circle>
+            </svg></a
+          >
+          <nav
+            class="flex items-center gap-4 text-sm lg:gap-6"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Nav.astro"
+            data-astro-source-loc="9:55"
+          >
+            <a
+              class="border-b-2 pb-0.5 transition-colors hover:text-foreground/80 transition-colors border-gold font-medium text-foreground"
+              href="/about"
+              aria-current="page"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/NavLink.astro"
+              data-astro-source-loc="27:5"
+              >About</a
+            ><a
+              class="border-b-2 pb-0.5 transition-colors hover:text-foreground/80 transition-colors border-transparent text-foreground/60"
+              href="/blog"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/NavLink.astro"
+              data-astro-source-loc="27:5"
+              >Blog</a
+            ><button
+              id="theme-toggle"
+              type="button"
+              aria-label="Toggle Theme"
+              aria-pressed="false"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+              data-astro-source-loc="10:2"
+            >
+              <svg
+                class="h-4 w-4 dark:hidden"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                data-astro-source-loc="21:4"
+              >
+                <path
+                  d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="22:6"
+                ></path>
+              </svg><svg
+                class="hidden h-4 w-4 dark:block"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                data-astro-source-loc="34:4"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="35:6"
+                ></circle>
+                <path
+                  d="M12 2v2"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="36:6"
+                ></path>
+                <path
+                  d="M12 20v2"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="37:6"
+                ></path>
+                <path
+                  d="m4.93 4.93 1.41 1.41"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="38:6"
+                ></path>
+                <path
+                  d="m17.66 17.66 1.41 1.41"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="39:6"
+                ></path>
+                <path
+                  d="M2 12h2"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="40:6"
+                ></path>
+                <path
+                  d="M20 12h2"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="41:6"
+                ></path>
+                <path
+                  d="m6.34 17.66-1.41 1.41"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="42:6"
+                ></path>
+                <path
+                  d="m19.07 4.93-1.41 1.41"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/ThemeToggle.astro"
+                  data-astro-source-loc="43:6"
+                ></path>
+              </svg>
+            </button>
+            <script
+              type="module"
+              src="/src/components/ThemeToggle.astro?astro&type=script&index=0&lang.ts"
+            ></script>
+          </nav>
+        </div>
+      </header>
+      <main
+        id="main"
+        class="mx-auto w-full max-w-5xl grow py-12 sm:py-16 lg:py-20"
+        data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/layouts/BaseLayout.astro"
+        data-astro-source-loc="101:8"
+      >
+        <div
+          class="mb-8"
+          data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/layouts/BaseLayout.astro"
+          data-astro-source-loc="103:31"
+        >
+          <nav
+            aria-label="breadcrumb"
+            class="py-2"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+            data-astro-source-loc="14:63"
+          >
+            <ol
+              class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+              data-astro-source-loc="17:4"
+            >
+              <li
+                class="inline-flex items-center gap-1.5"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                data-astro-source-loc="20:54"
+              >
+                <a
+                  href="/"
+                  class="hover:text-foreground transition-colors"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                  data-astro-source-loc="22:81"
+                  >Home</a
+                >
+              </li>
+              <li
+                role="presentation"
+                aria-hidden="true"
+                class="[&amp;&gt;svg]:size-3.5"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                data-astro-source-loc="32:79"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                  data-astro-source-loc="42:14"
+                >
+                  <path
+                    d="m9 18 6-6-6-6"
+                    data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                    data-astro-source-loc="43:16"
+                  ></path>
+                </svg>
+              </li>
+              <li
+                class="inline-flex items-center gap-1.5"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                data-astro-source-loc="20:54"
+              >
+                <span
+                  aria-current="page"
+                  class="text-foreground font-normal"
+                  data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Breadcrumbs.astro"
+                  data-astro-source-loc="26:75"
+                  >About</span
+                >
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <article
+          data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/pages/[...id].astro"
+          data-astro-source-loc="33:12"
+        >
+          <header
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/pages/[...id].astro"
+            data-astro-source-loc="34:13"
+          >
+            <h1
+              class="font-serif text-4xl mb-8 font-semibold sm:text-[2.5rem]"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/pages/[...id].astro"
+              data-astro-source-loc="35:75"
+            >
+              About
+            </h1>
+          </header>
+          <div
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/pages/[...id].astro"
+            data-astro-source-loc="39:10"
+          >
+            <div
+              class="prose sm:prose-lg max-w-none"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Prose.astro"
+              data-astro-source-loc="9:63"
+            >
+              <img
+                src="/_image?href=%2F%40fs%2FD%3A%2FYojee%2FApp%2FSite%2FLanding%2Fyo_blog%2Fsrc%2Fassets%2Favatar.png%3ForigWidth%3D750%26origHeight%3D750%26origFormat%3Dpng&amp;w=750&amp;h=750&amp;f=webp"
+                data-image-component="true"
+                alt="Yojee - Full Stack Developer and Consultant in the Cloud"
+                title="Yojee - Full Stack Developer and Consultant in the Cloud"
+                loading="lazy"
+                decoding="async"
+                width="750"
+                height="750"
+                class="mx-auto mb-10 w-56 rounded-md shadow-lg grayscale transition duration-150 hover:scale-105 hover:shadow-2xl hover:grayscale-0 sm:float-right sm:ml-6 sm:w-48 sm:rotate-2 sm:hover:rotate-3"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/node_modules/astro/components/Image.astro"
+                data-astro-source-loc="53:2"
+              >
+              <p>Hello, I’m Yojee, a full stack developer and consultant.</p>
+              <p>
+                I started my journey as a software engineer in 2012, and now,
+                I’m a technical consultant at Bosch Digital. Before this, I was
+                a front-end software engineer at DXC Technology. I live in the
+                Cloud, with my wonderful wife and our two kids—a son and a
+                daughter.
+              </p>
+              <p>
+                Driven by a passion for technology, I love exploring
+                cutting-edge tools, open-source projects, and innovative side
+                projects. My expertise spans both front-end and back-end
+                development, where I create scalable solutions and impactful
+                digital experiences. I strive to align technology with business
+                goals, delivering exceptional results.
+              </p>
+              <p>
+                When I’m not coding, you’ll find me running and swimming to stay
+                fit, riding my motorbike to discover new spots, and traveling to
+                explore new horizons. I’m also a movie enthusiast and a data
+                hoarder, always gathering insights that spark inspiration.
+              </p>
+              <p>
+                Let’s connect if you’re looking for a dedicated full stack
+                developer and consultant who leverages technology to create
+                value. I’m excited to help bring your vision to life.
+              </p>
+            </div>
+            <script
+              type="module"
+              src="/src/components/Prose.astro?astro&type=script&index=0&lang.ts"
+            ></script>
+          </div>
+        </article>
+      </main>
+      <footer
+        class="mx-auto flex w-full max-w-5xl items-center justify-between py-8"
+        data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Footer.astro"
+        data-astro-source-loc="9:81"
+      >
+        <div
+          class="flex"
+          data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Footer.astro"
+          data-astro-source-loc="10:21"
+        >
+          <p
+            class="text-muted-foreground text-xs"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Footer.astro"
+            data-astro-source-loc="11:46"
+          >
+            &#169; 2026 INUX
+          </p>
+        </div>
+        <div
+          class="flex items-center gap-2"
+          data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/Footer.astro"
+          data-astro-source-loc="16:44"
+        >
+          <a
+            href="https://inux.pages.dev/rss.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+            data-astro-source-loc="16:2"
+            ><svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 fill-current"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/RSS.astro"
+              data-astro-source-loc="15:2"
+            >
+              <path
+                d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/RSS.astro"
+                data-astro-source-loc="16:4"
+              ></path>
+            </svg><span
+              class="sr-only"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+              data-astro-source-loc="18:25"
+              >RSS (opens in new tab)</span
+            ></a
+          ><a
+            href="https://x.com/yojeero"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+            data-astro-source-loc="16:2"
+            ><svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 fill-current"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/X.astro"
+              data-astro-source-loc="15:2"
+            >
+              <path
+                d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/X.astro"
+                data-astro-source-loc="16:4"
+              ></path>
+            </svg><span
+              class="sr-only"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+              data-astro-source-loc="18:25"
+              >X (opens in new tab)</span
+            ></a
+          ><a
+            href="https://github.com/yojeero"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+            data-astro-source-loc="16:2"
+            ><svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 fill-current"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/GitHub.astro"
+              data-astro-source-loc="15:2"
+            >
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/GitHub.astro"
+                data-astro-source-loc="16:4"
+              ></path>
+            </svg><span
+              class="sr-only"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+              data-astro-source-loc="18:25"
+              >GitHub (opens in new tab)</span
+            ></a
+          ><a
+            href="https://www.linkedin.com/in/yojeero/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-md transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+            data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+            data-astro-source-loc="16:2"
+            ><svg
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4 fill-current"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/LinkedIn.astro"
+              data-astro-source-loc="15:2"
+            >
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/icons/LinkedIn.astro"
+                data-astro-source-loc="16:4"
+              ></path>
+            </svg><span
+              class="sr-only"
+              data-astro-source-file="D:/Yojee/App/Site/Landing/yo_blog/src/components/SocialLink.astro"
+              data-astro-source-loc="18:25"
+              >LinkedIn (opens in new tab)</span
+            ></a
+          >
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

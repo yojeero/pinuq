@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+
+import BlogListing from "@/components/BlogListing.astro";
+import Pagination from "@/components/Pagination.astro";
+import type { BlogPost } from "@/types";
+import { sortItemsByDateDesc } from "@/utils/data-utils";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (await getCollection("blog")).sort(sortItemsByDateDesc);
+  return paginate(posts, { pageSize: 10 });
+}
+
+type Props = { page: Page<BlogPost> };
+
+const { page } = Astro.props;
+const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
+const categories = [...new Set(allPosts.flatMap((post) => post.data.tags ?? []))];
+---
+
+<BlogListing posts={page.data} categories={categories} currentPage={page.currentPage}>
+  <Pagination page={page} firstPageUrl="/" />
+</BlogListing>

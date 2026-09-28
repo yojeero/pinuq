@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import BlogListing from "@/components/BlogListing.astro";
+import { sortItemsByDateDesc } from "@/utils/data-utils";
+
+const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
+const posts = allPosts.slice(0, 10);
+const categories = [
+  ...new Set(allPosts.flatMap((post) => post.data.tags ?? [])),
+];
+---
+
+<BlogListing posts={posts} categories={categories} currentPage={1}>
+  {allPosts.length > 10 && (
+    <nav aria-label="Pagination" class="mt-12 flex justify-end text-sm">
+      <a
+        href="/blog/2/"
+        class="text-foreground/60 hover:text-foreground transition-colors"
+        rel="next"
+      >
+        Next &rarr;
+      </a>
+    </nav>
+  )}
+</BlogListing>

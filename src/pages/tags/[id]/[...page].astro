@@ -1,0 +1,57 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPathsOptions, Page } from "astro";
+import Pagination from "@/components/Pagination.astro";
+import PostListItem from "@/components/PostListItem.astro";
+import siteConfig from "@/data/site-config";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { BlogPost, TagData } from "@/types";
+import {
+  getAllTags,
+  getPostsByTag,
+  sortItemsByDateDesc,
+} from "@/utils/data-utils";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (await getCollection("blog")).sort(sortItemsByDateDesc);
+  const tags = getAllTags(posts);
+
+  return tags.flatMap((tag: TagData) => {
+    const filteredPosts = getPostsByTag(posts, tag.id);
+    return paginate(filteredPosts, {
+      params: { id: tag.id },
+      pageSize: 10,
+    });
+  });
+}
+
+type Props = { page: Page<BlogPost> };
+
+const { page } = Astro.props;
+const blog = page.data;
+const params = Astro.params;
+const allPosts = await getCollection("blog");
+const allTags = getAllTags(allPosts);
+const currentTag = allTags.find((tag) => {
+  return tag.id === params.id;
+});
+---
+
+<BaseLayout
+  title={page.currentPage > 1
+  ? `${currentTag?.name} ${siteConfig.titleSeparator} Page ${page.currentPage}`
+  : `${currentTag?.name}`}
+  description={`Insights, guides, and tips on ${currentTag?.name} from a full stack developer and consultant, for developers and tech enthusiasts.`}
+>
+  <section>
+    <h1 class="font-serif text-4xl font-medium mb-8 sm:text-[2.5rem]">
+      {currentTag?.name}
+    </h1>
+    <ul class="flex flex-col gap-10">
+      {blog.map((post) => (
+  <PostListItem post={post} hideTags={true} class="flex flex-col gap-1" />
+))}
+    </ul>
+    <Pagination page={page} />
+  </section>
+</BaseLayout>

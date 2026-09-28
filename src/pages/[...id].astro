@@ -1,0 +1,45 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Prose from "@/components/Prose.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { createPersonSchema } from "@/utils/schema-utils";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => {
+    return {
+      params: { id: page.id },
+      props: { page },
+    };
+  });
+}
+
+type Props = { page: CollectionEntry<"pages"> };
+
+const { page } = Astro.props;
+const { title, seo } = page.data;
+const { Content } = await render(page);
+
+const isAboutPage = page.id === "about";
+const customSchemas = isAboutPage ? [createPersonSchema()] : [];
+---
+
+<BaseLayout
+  title={seo?.title ?? title}
+  description={seo?.description}
+  image={seo?.image}
+  customSchemas={customSchemas}
+>
+  <article>
+    <header>
+      <h1 class="font-serif text-4xl mb-8 font-semibold sm:text-[2.5rem]">
+        {title}
+      </h1>
+    </header>
+    <div>
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </article>
+</BaseLayout>
