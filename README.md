@@ -14,7 +14,7 @@
 
 #### Tech Stack   
 ```
-Astro | Bun | Vite | Biome | Tailwind CSS | Cloudflare | TypeScript   
+Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript   
 ```
 
 ## Project Structure
