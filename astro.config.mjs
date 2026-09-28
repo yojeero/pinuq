@@ -12,15 +12,25 @@ function getBlogLastmod(url) {
   const match = url.match(/\/blog\/([^/]+)\/?\$/);
   const slug = match?.[1];
   if (!slug) return undefined;
+
+  let content = "";
   try {
-    const content = readFileSync(new URL(`${slug}.md`, blogDir), "utf-8");
-    const updated = content.match(/^updatedDate:\s*['"]?([\d-]{10})/m)?.[1];
-    const published = content.match(/^publishDate:\s*['"]?([\d-]{10})/m)?.[1];
-    const date = updated ?? published;
-    return date ? new Date(date) : undefined;
+    const folderUrl = new URL(`${slug}/index.mdx`, blogDir);
+    content = readFileSync(folderUrl, "utf-8");
   } catch {
-    return undefined;
+    try {
+      const fileUrl = new URL(`${slug}.mdx`, blogDir);
+      content = readFileSync(fileUrl, "utf-8");
+    } catch {
+      return undefined;
+    }
   }
+
+  const updated = content.match(/^updatedDate:\s*['"]?([\d-]{10})/m)?.[1];
+  const published = content.match(/^publishDate:\s*['"]?([\d-]{10})/m)?.[1];
+  const date = updated ?? published;
+
+  return date ? new Date(date) : undefined;
 }
 
 export default defineConfig({
@@ -75,12 +85,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: [
-        {
-          // Workaround for astro 7.3.5: `astro/components/Font.astro` imports
-          // "virtual:astro:assets/fonts", but the fonts Vite plugin only
-          // registers "virtual:astro:assets/fonts/internal". Without this
-          // mapping, every import from `astro:assets` (e.g. `<Image />`)
-          // fails to resolve and the page renders a 500.
+        { 
           find: /^virtual:astro:assets\/fonts$/,
           replacement: "virtual:astro:assets/fonts/internal",
         },

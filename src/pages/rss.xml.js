@@ -1,27 +1,29 @@
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import sanitizeHtml from "sanitize-html";
+import MarkdownIt from "markdown-it";
 import siteConfig from "@/data/site-config.ts";
 import { sortItemsByDateDesc } from "@/utils/data-utils.ts";
+
+const parser = new MarkdownIt();
 
 export async function GET(context) {
   const posts = (await getCollection("blog")).sort(sortItemsByDateDesc);
 
-  const container = await AstroContainer.create();
-  const items = await Promise.all(
-    posts.map(async (item) => {
-      const { Content } = await render(item);
-      const content = await container.renderToString(Content);
-      return {
-        title: item.data.title,
-        description: item.data.excerpt,
-        link: `/blog/${item.id}/`,
-        pubDate: item.data.publishDate,
-        categories: item.data.tags,
-        content,
-      };
-    }),
-  );
+  const items = posts.map((item) => {
+    const htmlContent = parser.render(item.body || "");
+
+    return {
+      title: item.data.title,
+      description: item.data.excerpt,
+      link: `/blog/${item.id}/`,
+      pubDate: item.data.publishDate,
+      categories: item.data.tags,  
+      content: sanitizeHtml(htmlContent, {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+      }),
+    };
+  });
 
   return rss({
     title: siteConfig.title,
