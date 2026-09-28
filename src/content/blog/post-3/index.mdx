@@ -1,9 +1,9 @@
 ---
-title: "BSPWM Cobalt"
+title: "BSPWM Paper"
 coverImage: ./cover.webp
 coverAlt: "Screenshot of my project"
 excerpt: "BSPWM dotfiles for the Arch Linux."
-publishDate: '2026-08-12'
+publishDate: '2026-08-18'
 tags:
   - Linux
   - Rice
@@ -11,7 +11,7 @@ tags:
 
 import { Image } from 'astro:assets';
 import image1 from './1.webp';
-import image2 from './2.webp';   
+import image2 from './2.webp';
 
 | **Window Manager** <img width="20"/> | `bspwm` <img width="60"/> |
 | :----------------------------------- | :------------------------- |
@@ -23,11 +23,11 @@ import image2 from './2.webp';
 | **Compositor**                       | `picom`                    |
 | **Screenshot**                       | `maim`                     |
 | **Viewer**                           | `imv`                      |
-
+   
 <div class="grid grid-cols-2 gap-4">
-  <Image src={image1} alt="bspwm-cobalt" />
-  <Image src={image2} alt="bspwm-cobalt" />
-</div>
+  <Image src={image1} alt="bspwm-paper" />
+  <Image src={image2} alt="bspwm-paper" />
+</div>   
 
 #### Fonts   
 
@@ -35,7 +35,7 @@ import image2 from './2.webp';
 **JetBrains Mono** - system font and interface.
 
 **Clear Sans 10** - System Font  
-**Gruvbox Dark** - Theme  
+**Zorin Light** - Theme  
 **Gruvbox** - Icons
 
 ### 🧼 Installation
@@ -48,7 +48,7 @@ archinstall
 on the step - profile - select > desktop > bspwm
 ```
 
-#### 2. After installing > reboot and update system
+#### 2. After installing - Reboot and update system
 
 ```
 sudo pacman -Syu
@@ -80,7 +80,7 @@ sxhkd \
 ```
 
 > [!IMPORTANT]
-> Give execution rights to configuration scripts:
+> Give execution rights to configuration scripts
 
 ```
 chmod +x ~/.config/bspwm/bspwmrc
@@ -93,6 +93,7 @@ chmod +x ~/.config/polybar/launch.sh
 sudo pacman -S \
 
 alacritty \
+   foot \
    micro \
    mousepad \
    firefox
@@ -130,7 +131,7 @@ imv \
    rhythmbox \
    imagemagick \
    ffmpeg \
-   lxappearance 
+   lxappearance
 ```
 
 #### 5. Installing FISH
