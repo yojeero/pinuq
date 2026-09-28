@@ -5,35 +5,23 @@
 > [!NOTE]
 > Features 🧼   
 
-- Clean UI  
-- Online Radio 
+
+- Blog   
+- Clean UI   
 - SEO-Friendly   
-- Responsive Design  
-- Cloud & Static Hosting Ready
+- Responsive Design   
+- Cloud & Static Hosting Ready   
 
 #### Tech Stack   
 ```
-Astro | Bun | Vite | Biome | Tailwind CSS   
+Astro | Bun | Vite | Biome | Tailwind CSS | Cloudflare | TypeScript   
 ```
 
-Personal site built with [Astro](https://astro.build) — static output, TypeScript (strict preset).
+Personal Blog built with [Astro](https://astro.build) — static output, TypeScript (strict preset).
 
-## Tech Stack
-
-- [Astro](https://astro.build) ^7.2.9 (static output, zero-JS) — MDX, sitemap, RSS, Fonts API (self-hosted Inter + Newsreader via the Fontsource provider), dynamic OG images (`astro-og-canvas`)
-- [Tailwind CSS](https://tailwindcss.com) v4 via the `@tailwindcss/vite` plugin (+ `@tailwindcss/typography`, shadcn-style theme tokens in `src/styles/global.css`)
-- [Biome](https://biomejs.dev) 2.x for linting and formatting (incl. `.astro` files)
-- TypeScript with the `astro/tsconfigs/strict` preset
-- Deployed to [Cloudflare Workers](https://developers.cloudflare.com/workers/) as static assets (Wrangler)
+## Content
 
 Content: Markdown blog (`src/content/blog`) + MDX pages (`src/content/pages`), validated by Zod schemas in `src/content.config.ts`.
-
-Note: builds fetch fonts (Fontsource) and the OG-image font from CDNs on a cold cache — see `.astro/fonts` / `node_modules/.astro/fonts`.
-
-## Prerequisites
-
-- Node.js `>= 22.12.0`
-- bun
 
 ## Project Structure
 
@@ -60,8 +48,6 @@ Note: builds fetch fonts (Fontsource) and the OG-image font from CDNs on a cold 
 ├── wrangler.jsonc     # Cloudflare Workers static assets config (serves ./dist)
 └── dist/              # Build output (generated)
 ```
-
-Astro looks for `.astro`, `.md(x)`, or endpoint `.js` files in `src/pages/`. Each is exposed as a route based on its file name.
 
 ## Commands
 
