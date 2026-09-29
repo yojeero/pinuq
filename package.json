@@ -21,6 +21,7 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.3.3",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^7.3.2",
     "astro-og-canvas": "^0.13.1",
     "clsx": "^2.1.1",

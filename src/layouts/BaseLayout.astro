@@ -14,6 +14,7 @@ import {
   shouldShowBreadcrumbs,
 } from "@/utils/breadcrumb-utils";
 import { createWebPageSchema, createWebSiteSchema } from "@/utils/schema-utils";
+import Analytics from "@vercel/analytics/astro";
 
 export type Props = BaseHeadProps & {
   showBreadcrumbs?: boolean;

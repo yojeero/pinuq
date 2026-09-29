@@ -6,8 +6,8 @@ const posts = await getCollection("blog");
 const pages = Object.fromEntries(posts.map(({ data, id }) => [id, { data }]));
 
 export const { getStaticPaths, GET } = await OGImageRoute({
-  param: "id",
   pages,
+  getSlug: (id: string) => `${id}.png`,
   getImageOptions: (_, page: (typeof pages)[number]) => {
     return {
       title: page.data.title,
