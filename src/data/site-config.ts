@@ -1,5 +1,5 @@
 import type { ImageMetadata } from "astro";
-import avatar from "@/assets/avatar.jpg";
+import avatar from "@/assets/avatar.webp";
 
 export type Image = {
   src: ImageMetadata | string;

@@ -1,4 +1,4 @@
-<img src="preview/inux-2.jpg" width="100%">
+<img src="preview/inux.jpg" width="100%">
 
 <img src="https://img.shields.io/badge/Inux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
