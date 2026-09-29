@@ -16,9 +16,15 @@ type Props = { page: Page<BlogPost> };
 
 const { page } = Astro.props;
 const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
-const categories = [...new Set(allPosts.flatMap((post) => post.data.tags ?? []))];
+const categories = [
+  ...new Set(allPosts.flatMap((post) => post.data.tags ?? [])),
+];
 ---
 
-<BlogListing posts={page.data} categories={categories} currentPage={page.currentPage}>
+<BlogListing
+  posts={page.data}
+  categories={categories}
+  currentPage={page.currentPage}
+>
   <Pagination page={page} firstPageUrl="/" />
 </BlogListing>

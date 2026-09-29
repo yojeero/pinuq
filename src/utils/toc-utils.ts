@@ -4,7 +4,7 @@ import type { TocItem } from "@/types";
 export function generateToc(headings: readonly MarkdownHeading[]): TocItem[] {
   const bodyHeadings = headings.filter(({ depth }) => depth > 1);
   const toc: TocItem[] = [];
-  
+
   // Стек для отслеживания текущего пути вложенности
   const stack: TocItem[] = [];
 

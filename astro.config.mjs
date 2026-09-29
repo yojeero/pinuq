@@ -9,7 +9,8 @@ import { defineConfig, fontProviders } from "astro/config";
 const blogDir = new URL("./src/content/blog/", import.meta.url);
 
 function getBlogLastmod(url) {
-  const match = url.match(/\/blog\/([^/]+)\/?\$/);
+  const { pathname } = new URL(url);
+  const match = pathname.match(/^\/blog\/([^/]+)\/?$/);
   const slug = match?.[1];
   if (!slug) return undefined;
 
@@ -34,7 +35,8 @@ function getBlogLastmod(url) {
 }
 
 export default defineConfig({
-  site: "https://inux.pages.dev",
+  site: "https://inux.vercel.app",
+  output: "static",
   markdown: {
     shikiConfig: {
       theme: "css-variables",
@@ -85,7 +87,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: [
-        { 
+        {
           find: /^virtual:astro:assets\/fonts$/,
           replacement: "virtual:astro:assets/fonts/internal",
         },

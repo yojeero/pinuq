@@ -34,7 +34,6 @@
     "@tailwindcss/typography": "^0.5.20",
     "@types/markdown-it": "^14.2.0",
     "@types/sanitize-html": "^2.16.1",
-    "schema-dts": "^2.0.0",
-    "wrangler": "^4.131.1"
+    "schema-dts": "^2.0.0"
   }
 }

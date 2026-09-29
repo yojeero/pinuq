@@ -9,11 +9,11 @@
 - Clean UI   
 - SEO-Friendly   
 - Responsive Design   
-- Cloud & Static Hosting Ready   
+- Cloud & Vercel Hosting Ready
 
-#### Tech Stack   
+#### Tech Stack
 ```
-Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript   
+Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript
 ```
 
 ## Project Structure
@@ -38,8 +38,7 @@ Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript
 ├── astro.config.mjs   # Astro configuration (site, fonts, mdx/sitemap integrations)
 ├── biome.json         # Biome lint/format configuration
 ├── tsconfig.json      # Extends astro/tsconfigs/strict, @/* path alias
-├── wrangler.jsonc     # Cloudflare Workers static assets config (serves ./dist)
-└── dist/              # Build output (generated)
+└── dist/              # Build output (generated, static site served by Vercel)
 ```
 
 ## Commands

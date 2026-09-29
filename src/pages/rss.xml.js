@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
-import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
+import sanitizeHtml from "sanitize-html";
 import siteConfig from "@/data/site-config.ts";
 import { sortItemsByDateDesc } from "@/utils/data-utils.ts";
 
@@ -18,7 +18,7 @@ export async function GET(context) {
       description: item.data.excerpt,
       link: `/blog/${item.id}/`,
       pubDate: item.data.publishDate,
-      categories: item.data.tags,  
+      categories: item.data.tags,
       content: sanitizeHtml(htmlContent, {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),

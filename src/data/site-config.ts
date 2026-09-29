@@ -12,7 +12,7 @@ export type Link = {
 };
 
 export type SocialLink = Link & {
-  icon: "github" | "dribbble" | "rss" ;
+  icon: "github" | "dribbble" | "rss";
 };
 
 export type Hero = {
@@ -33,7 +33,7 @@ export type SiteConfig = {
   hero?: Hero;
 };
 
-const siteUrl = (import.meta.env.SITE ?? "https://inux.pages.dev").replace(
+const siteUrl = (import.meta.env.SITE ?? "https://inux.vercel.app").replace(
   /\/$/,
   "",
 );

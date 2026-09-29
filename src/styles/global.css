@@ -175,7 +175,6 @@
   @apply opacity-100;
 }
 
-
 /* Blog editorial layout */
 .blog-main {
   width: min(100%, 1280px);
@@ -191,18 +190,18 @@
 .blog-hero__eyebrow {
   display: flex;
   align-items: center;
-  gap: .65rem;
+  gap: 0.65rem;
   margin-bottom: 2rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: .7rem;
-  letter-spacing: .08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .blog-dot {
-  width: .45rem;
-  height: .45rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 999px;
   background: var(--gold);
 }
@@ -212,8 +211,8 @@
   margin: 0;
   font-size: clamp(3.5rem, 8.4vw, 8.5rem);
   font-weight: 500;
-  line-height: .88;
-  letter-spacing: -.065em;
+  line-height: 0.88;
+  letter-spacing: -0.065em;
 }
 
 .blog-hero h1 em {
@@ -231,9 +230,9 @@
 
 .blog-categories {
   display: flex;
-  gap: .35rem;
+  gap: 0.35rem;
   overflow-x: auto;
-  padding-block: .65rem;
+  padding-block: 0.65rem;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   scrollbar-width: none;
@@ -245,11 +244,13 @@
 
 .blog-categories a {
   flex: 0 0 auto;
-  padding: .55rem .85rem;
+  padding: 0.55rem 0.85rem;
   color: var(--muted-foreground);
   border-radius: 999px;
-  font-size: .85rem;
-  transition: background-color .2s, color .2s;
+  font-size: 0.85rem;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 .blog-categories a:hover,
@@ -270,8 +271,8 @@
   margin-bottom: 1.25rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: .68rem;
-  letter-spacing: .08em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -294,7 +295,7 @@
 
 .blog-card--featured {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(260px, .85fr);
+  grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.85fr);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -304,7 +305,7 @@
 }
 
 .blog-card__media img {
-  transition: transform .7s cubic-bezier(.2,.7,.2,1);
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
 .blog-card:hover .blog-card__media img {
@@ -324,8 +325,10 @@
   color: var(--foreground);
   font-size: 1rem;
   opacity: 0;
-  transform: translateY(.35rem);
-  transition: opacity .2s, transform .2s;
+  transform: translateY(0.35rem);
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 
 .blog-card:hover .blog-card__arrow,
@@ -350,11 +353,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: .9rem;
+  margin-bottom: 0.9rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: .68rem;
-  letter-spacing: .02em;
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
   text-transform: uppercase;
 }
 
@@ -367,19 +370,19 @@
   font-size: clamp(1.45rem, 2.1vw, 2.1rem);
   font-weight: 500;
   line-height: 1.02;
-  letter-spacing: -.035em;
+  letter-spacing: -0.035em;
 }
 
 .blog-card--featured .blog-card__body h2 {
   max-width: 560px;
   font-size: clamp(2.3rem, 4vw, 4.8rem);
-  line-height: .96;
+  line-height: 0.96;
 }
 
 .blog-card__body h2 a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: .12em;
+  text-underline-offset: 0.12em;
 }
 
 .blog-card__body p {
@@ -394,7 +397,7 @@
   margin-top: 1.75rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: .68rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
 }
 
@@ -432,15 +435,15 @@
   color: var(--gold);
   font-family: Georgia, serif;
   font-size: 5rem;
-  line-height: .5;
+  line-height: 0.5;
 }
 
 .blog-quote p {
   margin: 1.5rem 0 0;
   font-size: clamp(2rem, 4.3vw, 4.6rem);
   font-weight: 500;
-  line-height: .98;
-  letter-spacing: -.045em;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
 }
 
 .blog-quote-author {
@@ -448,8 +451,8 @@
   margin-top: 2rem;
   color: var(--muted-foreground);
   font-family: var(--font-mono);
-  font-size: .7rem;
-  letter-spacing: .08em;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -509,7 +512,7 @@
   }
 
   .blog-card__meta {
-    font-size: .62rem;
+    font-size: 0.62rem;
   }
 
   .blog-card--featured .blog-card__body h2 {

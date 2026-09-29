@@ -34,8 +34,8 @@ const primaryTag = tags[0];
       quality={100}
       widths={featured ? [640, 960, 1280, 1600] : [480, 720, 960]}
       sizes={featured
-        ? "(min-width: 1024px) 62vw, 100vw"
-        : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
+  ? "(min-width: 1024px) 62vw, 100vw"
+  : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"}
       class="h-full w-full object-cover"
       loading={featured ? "eager" : "lazy"}
     />
@@ -45,9 +45,7 @@ const primaryTag = tags[0];
   <div class="blog-card__body">
     <div class="blog-card__meta">
       <div>
-        {primaryTag && (
-          <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>
-        )}
+        {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
       </div>
       <time datetime={publishDate.toISOString()}>
         <FormattedDate date={publishDate} />

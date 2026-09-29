@@ -14,6 +14,11 @@ const { text, href, icon, class: className } = Astro.props;
   className,
 )}
 >
-  {icon && <Icon icon={icon} class={cn("h-4 w-4", icon === "dribbble" ? "fill-none" : "fill-current")} />}
+  {icon && (
+  <Icon
+    icon={icon}
+    class={cn("h-4 w-4", icon === "dribbble" ? "fill-none" : "fill-current")}
+  />
+)}
   <span class="sr-only">{text} (opens in new tab)</span>
 </a>

@@ -9,7 +9,8 @@ type Props = {
 const { page, firstPageUrl } = Astro.props;
 const hasPrev = Boolean(page.url.prev);
 const hasNext = Boolean(page.url.next);
-const prevUrl = page.currentPage === 2 && firstPageUrl ? firstPageUrl : page.url.prev;
+const prevUrl =
+  page.currentPage === 2 && firstPageUrl ? firstPageUrl : page.url.prev;
 ---
 
 {(hasPrev || hasNext) && (
