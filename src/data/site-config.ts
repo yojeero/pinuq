@@ -33,13 +33,13 @@ export type SiteConfig = {
   hero?: Hero;
 };
 
-const siteUrl = (import.meta.env.SITE ?? "https://inux.vercel.app").replace(
+const siteUrl = (import.meta.env.SITE ?? "https://pinux.vercel.app").replace(
   /\/$/,
   "",
 );
 
 const siteConfig: SiteConfig = {
-  title: "INUX",
+  title: "PINUX",
   titleSeparator: "|",
   description:
     "I'm a full stack developer and consultant based in the Cloud, obsessed with crafting seamless, impactful digital solutions.",

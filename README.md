@@ -1,6 +1,6 @@
-<img src="preview/inux.jpg" width="100%">
+<img src="preview/pinux.jpg" width="100%">
 
-<img src="https://img.shields.io/badge/Inux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
+<img src="https://img.shields.io/badge/Pinux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
 > [!NOTE]
 > Features 🧼   
@@ -54,6 +54,11 @@ All commands are run from the root of the project:
 | `bun run check`   | Lints + formats (Biome, applies safe fixes)     |
 | `bun run ci`      | Non-mutating Biome check for CI                 |
 
-## Learn More
+> [!IMPORTANT]
+> https://pinux.vercel.app — now using in the config files on production.
+> When your project gets a different domain name (for example, new.vercel.app) or you connect your own domain, update all 4 locations; otherwise, the incorrect address will remain.   
 
-- [Astro documentation](https://docs.astro.build)
+> astro.config.mjs   
+> public/robots.txt   
+> site-config.ts   
+> BaseLayout.astro.    

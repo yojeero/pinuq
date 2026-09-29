@@ -13,7 +13,7 @@ function getSiteUrl(fallbackOrigin?: string): string {
   if (site) {
     return site.endsWith("/") ? site : `${site}/`;
   }
-  return fallbackOrigin || "https://nhutduong.com/";
+  return fallbackOrigin || "https://pinux.vercel.app/";
 }
 
 export function createWebSiteSchema(url: string): WithContext<WebSite> {
@@ -44,28 +44,23 @@ export function createPersonSchema(): WithContext<Person> {
     jobTitle: "Full Stack Developer and Consultant",
     worksFor: {
       "@type": "Organization",
-      name: "Bosch Digital",
+      name: "Yojeero",
     },
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Ho Chi Minh City",
-      addressCountry: "Vietnam",
+      addressLocality: "Cloud",
+      addressCountry: "Cloud",
     },
     url: new URL("about", getSiteUrl()).toString(),
     sameAs: socialLinks.map((link) => link.href),
     description:
-      "I'm a full stack developer and consultant based in Ho Chi Minh City, Vietnam, obsessed with crafting seamless, impactful digital solutions.",
+      "I'm a full stack developer and consultant based in the Cloud.",
     knowsAbout: [
       "Full Stack Development",
       "Web Development",
       "Frontend Development",
       "Backend Development",
-      "Software Engineering",
       "Technical Consulting",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Node.js",
       "Astro",
     ],
   };

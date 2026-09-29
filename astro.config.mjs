@@ -35,7 +35,7 @@ function getBlogLastmod(url) {
 }
 
 export default defineConfig({
-  site: "https://inux.vercel.app",
+  site: "https://pinux.vercel.app",
   output: "static",
   markdown: {
     shikiConfig: {

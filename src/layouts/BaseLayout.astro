@@ -30,7 +30,7 @@ const {
   ...head
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString() ?? "https://inux.vercel.app";
+const siteUrl = Astro.site?.toString() ?? "https://pinux.vercel.app";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 
 const shouldShow = showBreadcrumbs && shouldShowBreadcrumbs(Astro.url.pathname);
