@@ -21,7 +21,7 @@ export function generateToc(headings: readonly MarkdownHeading[]): TocItem[] {
 
     if (stack.length === 0) {
       toc.push(heading);
-    } else {  
+    } else {
       stack[stack.length - 1].subheadings.push(heading);
     }
 

@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
+import Analytics from "@vercel/analytics/astro";
 import BaseHead from "@/components/BaseHead.astro";
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Footer from "@/components/Footer.astro";
@@ -14,7 +15,6 @@ import {
   shouldShowBreadcrumbs,
 } from "@/utils/breadcrumb-utils";
 import { createWebPageSchema, createWebSiteSchema } from "@/utils/schema-utils";
-import Analytics from "@vercel/analytics/astro";
 
 export type Props = BaseHeadProps & {
   showBreadcrumbs?: boolean;
@@ -80,6 +80,7 @@ if (customSchemas.length > 0) {
     <Font cssVariable="--font-space-grotesk" preload />
     <Font cssVariable="--font-jetbrains-mono" />
     <JsonLd schema={schemas} />
+    <Analytics />
     {breadcrumbStructuredData && (
   <script
     is:inline
