@@ -6,7 +6,6 @@ import "@/styles/global.css";
 const {
   description = siteConfig.description,
   author = siteConfig.author,
-  twitter = siteConfig.twitter,
   image = siteConfig.image,
   pageType = "website",
   publishedTime,
@@ -79,9 +78,6 @@ function formatCanonicalURL(url: string | URL) {
 )}
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:creator" content={twitter}>
-<meta name="twitter:site" content={twitter}>
-<meta name="twitter:url" content={formatCanonicalURL(canonicalURL)}>
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 {resolvedImage?.src && <meta name="twitter:image" content={resolvedImage.src} />}
