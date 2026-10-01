@@ -1,4 +1,4 @@
-<img src="preview/pinux_1.jpg" width="100%">
+<img src="preview/pinux_6.jpg" width="100%">
 
 <img src="https://img.shields.io/badge/Pinux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
