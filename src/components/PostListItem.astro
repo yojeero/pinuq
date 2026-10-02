@@ -15,7 +15,7 @@ const { title, publishDate, tags = [], coverImage, coverAlt } = post.data;
 ---
 
 <li class:list={[className]}>
-  {showCover && (
+  {showCover && coverImage && (
   <a href={`/blog/${post.id}/`} aria-label={`Read ${title}`} class="shrink-0">
     <Image
       src={coverImage}

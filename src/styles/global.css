@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 /*
@@ -14,13 +14,13 @@
 @custom-variant dark (&:where(.dark *));
 
 /*
-  Signal design system (DESIGN.md — designmd.app/library/signal)
+  Signal design system (DESIGN.md вЂ” designmd.app/library/signal)
   Light mode = bone paper canvas. Dark mode = deep navy canvas.
   Muted gold (#c8a870) is the single accent, constant across modes;
   on light surfaces the focus ring darkens to #9a7a44 for WCAG 3:1.
 */
 :root {
-  --background: #f0ece3;
+  --background: #f5f5f4;
   --foreground: #1c2644;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
@@ -145,7 +145,7 @@
 }
 
 /* Syntax highlighting (Shiki css-variables theme) driven by Signal tokens:
-   navy-alt canvas, bone text, gold for keywords — color as punctuation. */
+   navy-alt canvas, bone text, gold for keywords вЂ” color as punctuation. */
 .prose pre.astro-code {
   --astro-code-background: var(--navy-alt);
   --astro-code-foreground: #e2dcd0;
@@ -417,6 +417,78 @@
   aspect-ratio: 1.8 / 1;
 }
 
+.blog-card--no-cover.blog-card--featured {
+  grid-template-columns: minmax(0, 1fr);
+}
+/* Notes */
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+  row-gap: clamp(2rem, 1.25vw, 3rem);
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notes-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding-top: 0.5rem;
+}
+
+.notes-item__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.notes-item__meta a {
+  color: var(--foreground);
+}
+
+.notes-item__title {
+  margin: 0;
+  font-size: clamp(1.15rem, 1.5vw, 1rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.notes-item__excerpt {
+  margin: 0.5rem 0 0;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.notes-more {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.notes-more a {
+  display: inline-flex;
+  align-items: center;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
 .blog-quote {
   margin-top: clamp(6rem, 12vw, 12rem);
   padding-block: clamp(5rem, 9vw, 9rem);
@@ -487,6 +559,10 @@
   .blog-grid .blog-card:nth-child(3n) .blog-card__media {
     aspect-ratio: 4 / 3;
   }
+
+  .notes-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -511,6 +587,10 @@
     row-gap: 3.5rem;
   }
 
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+
   .blog-card__meta {
     font-size: 0.62rem;
   }
@@ -521,5 +601,14 @@
 
   .blog-quote {
     margin-top: 6rem;
+  }
+}
+
+.notes-item__title a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+
+  &:hover {
+    text-decoration: underline;
   }
 }

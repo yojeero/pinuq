@@ -1,0 +1,43 @@
+---
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { BlogPost } from "@/types";
+import { slugify } from "@/utils/common-utils";
+
+type Props = {
+  posts: BlogPost[];
+};
+
+const { posts } = Astro.props;
+const notePosts = posts.slice(0, 9);
+const hasMore = posts.length > 9;
+---
+
+<ol class="notes-grid">
+  {notePosts.map((post) => {
+  const { title, excerpt, publishDate, tags = [] } = post.data;
+  const primaryTag = tags[0];
+
+  return (
+    <li class="notes-item">
+      <div class="notes-item__meta">
+        <time datetime={publishDate.toISOString()}>
+          <FormattedDate date={publishDate} />
+        </time>
+        {primaryTag && (
+          <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>
+        )}
+      </div>
+
+      <h3 class="notes-item__title">
+        <a href={`/blog/${post.id}/`}>{title}</a>
+      </h3>
+
+      {excerpt && <p class="notes-item__excerpt">{excerpt}</p>}
+    </li>
+  );
+})}
+</ol>
+
+<div class="notes-more">
+  <a href="/notes">More Notes</a>
+</div>

@@ -1,0 +1,111 @@
+---
+title: "Git Gitignore"
+excerpt: "gitignore and how to use it"
+publishDate: '2026-10-01'
+author: "Cloud"
+tags:
+  - Git
+
+---
+
+.gitignore   
+    > needed to hide files and folders from the Git version control system. Typically, configuration files (especially those with passwords), temporary files and folders are hidden.
+    
+Base:
+    
+- Each line is a separate template.   
+- Empty lines are ignored.   
+- Lines starting with # are comments.   
+- The slash character "/" at the beginning of the line indicates the current folder (where .gitignore is located).   
+- The asterisk(*) replaces any number of characters.   
+- Two asterisks (**) are used to indicate all subfolders.   
+- An exclamation mark(!) at the beginning of a line inverts the pattern (used for exceptions).   
+- To escape special characters, use the backslash "\". To ignore an entire directory, the rule must end with a slash (/), otherwise the rule is treated as a file name.   
+- The gitignore repository from github contains examples of gitignore files for all typical projects.   
+    
+Example .gitignore file   
+```
+Ignore foo.txt file.
+foo.txt
+
+# Ignore html files
+*.html   
+
+# But specifically foo.html should not be ignored
+!foo.html   
+
+# Ignore rar files in the project root
+# Let's say the file /temp/main.rar will not be ignored because he's not at the root
+/*.rar   
+
+# Ignore css files from the bar folder not including subfolders
+# Let's say the file /bar/temp/main.css will not be ignored because it's in the temp subfolder
+/bar/*.css   
+
+# Ignore js files from the bar folder and subfolders, if any
+/bar/**.*.js
+```   
+
+----
+
+### How can I exclude a folder from tracking but add a subfolder?   
+
+Problem 1   
+
+Remove the node_modules folder, but leave 2 subfolders jquery and semantic in it   
+
+```
+├── js
+│ ├── app.js
+│ └── system.js
+├── scss
+│ ├── system.scss
+│ └── theme.scss
+└── vendor
+    ├── node_modules ← Убрать
+    │ ├── load-json-file
+    │ ├── lodash
+    │ ├── jquery ← Оставить
+    │ ├── make-error
+    │ ├── semantic ← Оставить
+    │ └── yargs
+    └── semantic.json
+```   
+
+Solution:   
+
+/vendor/node_modules/*   
+!/vendor/node_modules/jquery/   
+!/vendor/node_modules/semantic/   
+
+----
+
+Problem 2   
+
+Remove the node_modules folder, but leave the dist subfolder in its jquery subfolder.   
+
+```
+├── js
+│ ├── app.js
+│ └── system.js
+├── scss
+│ ├── system.scss
+│ └── theme.scss
+└── vendor
+    ├── node_modules ← Убрать
+    │ ├── load-json-file
+    │ ├── lodash
+    │ ├── jquery
+    │ │ └──dist ← Оставить
+    │ ├── make-error
+    │ ├── semantic
+    │ └── yargs
+    └── semantic.json
+```    
+
+Solution:   
+    
+/vendor/node_modules/*   
+/vendor/node_modules/jquery/*   
+!/vendor/node_modules/jquery/   
+!/vendor/node_modules/jquery/dist/   

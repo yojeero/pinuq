@@ -1,6 +1,7 @@
 ---
 import BlogCategories from "@/components/BlogCategories.astro";
 import BlogHero from "@/components/BlogHero.astro";
+import BlogNotesList from "@/components/BlogNotesList.astro";
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import siteConfig from "@/data/site-config";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -13,8 +14,17 @@ type Props = {
 };
 
 const { posts, categories, currentPage } = Astro.props;
-const featuredPost = currentPage === 1 ? posts[0] : null;
-const gridPosts = currentPage === 1 ? posts.slice(1) : posts;
+// Featured пост на главной — всегда первый пост с обложкой
+const featuredPost =
+  currentPage === 1
+    ? (posts.find((post) => post.data.coverImage) ?? null)
+    : null;
+const gridPosts = featuredPost
+  ? posts.filter((post) => post.id !== featuredPost.id)
+  : posts;
+// Посты без обложек выводим не карточками, а компактным списком
+const notePosts = gridPosts.filter((post) => !post.data.coverImage);
+const cardPosts = gridPosts.filter((post) => post.data.coverImage);
 ---
 
 <BaseLayout
@@ -40,7 +50,7 @@ const gridPosts = currentPage === 1 ? posts.slice(1) : posts;
   </section>
 )}
 
-  {gridPosts.length > 0 && (
+  {cardPosts.length > 0 && (
   <section class="blog-section" aria-labelledby="latest-heading">
     <div class="blog-section-heading">
       <p id="latest-heading">{featuredPost ? "Latest" : "All posts"}</p>
@@ -48,10 +58,21 @@ const gridPosts = currentPage === 1 ? posts.slice(1) : posts;
     </div>
 
     <div class="blog-grid">
-      {gridPosts.map((post) => (
+      {cardPosts.map((post) => (
         <BlogPostCard post={post} />
       ))}
     </div>
+  </section>
+)}
+
+  {notePosts.length > 0 && (
+  <section class="blog-section" aria-labelledby="notes-heading">
+    <div class="blog-section-heading">
+      <p id="notes-heading">Notes</p>
+      <span>{notePosts.length}</span>
+    </div>
+
+    <BlogNotesList posts={notePosts} />
   </section>
 )}
 

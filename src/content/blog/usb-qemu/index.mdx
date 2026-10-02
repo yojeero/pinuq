@@ -1,0 +1,35 @@
+---
+title: "USB via Qemu"
+excerpt: "Run multiboot USB via QEMU."
+publishDate: '2026-10-01'
+author: "Cloud"
+tags:
+  - USB
+  - Virtualization
+
+---
+
+# The easiest way to run multiboot USB via QEMU on Windows
+
+- Download QEMU for Windows regular installer.   
+- Find out the flash drive number
+
+PowerShell from administrator:
+
+```
+Get-CimInstance Win32_DiskDrive
+```
+
+Look for your USB flash drive.
+
+For example:  \\.\PHYSICALDRIVE2
+
+3. Launch the flash drive
+
+Open PowerShell as administrator:
+
+cd "C:\Program Files\qemu"
+
+```
+.\qemu-system-x86_64.exe -m 4096 -boot c -hda \\.\PHYSICALDRIVE2
+```
