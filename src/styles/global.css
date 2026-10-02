@@ -20,7 +20,7 @@
   on light surfaces the focus ring darkens to #9a7a44 for WCAG 3:1.
 */
 :root {
-  --background: #f5f5f4;
+  --background: #F1F3F2;
   --foreground: #1c2644;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
