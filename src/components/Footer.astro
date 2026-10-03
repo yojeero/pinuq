@@ -6,17 +6,157 @@ const currentYear = new Date().getFullYear();
 const socialLinks = siteConfig.socialLinks || [];
 ---
 
-<footer class="mx-auto flex w-full max-w-7xl items-center justify-between py-8">
-  <div class="flex">
-    <p class="text-muted-foreground text-xs">
-      &#169; {currentYear}{" "}{siteConfig.title}
-    </p>
-  </div>
-  {socialLinks.length > 0 && (
+<footer class="relative w-full overflow-hidden min-h-[600px] pt-16">
+  <div class="relative z-10">
+    <div
+      class="mx-auto w-full max-w-7xl grid grid-cols-2 justify-items-center gap-y-10 md:grid-cols-[1fr_auto_auto_auto] md:justify-items-start md:gap-x-24 px-4"
+    >
+      <div>
+        <a class="flex" aria-label={siteConfig.title} href="/">
+          <img
+            src="/images/dev.svg"
+            alt="code"
+            class="h-48 w-48 rounded-full hover:rotate-12 transition-transform duration-500"
+          >
+        </a>
+      </div>
+
+      <div>
+        <nav aria-labelledby="footer-heading-0">
+          <h2
+            class="text-base font-semibold text-foreground"
+            id="footer-heading-0"
+          >
+            Company
+          </h2>
+
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >Mission</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >Team</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >History</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div>
+        <nav aria-labelledby="footer-heading-1">
+          <h2
+            class="text-base font-semibold text-foreground"
+            id="footer-heading-1"
+          >
+            Services
+          </h2>
+
+          <ul class="mt-4 space-y-3">
+            <li class="text-sm font-medium text-foreground leading-6">
+              Marketing
+            </li>
+            <li class="text-sm font-medium text-foreground leading-6">
+              Analytics
+            </li>
+            <li class="text-sm font-medium text-foreground leading-6">
+              Commerce
+            </li>
+            <li class="text-sm font-medium text-foreground">Insights</li>
+          </ul>
+        </nav>
+      </div>
+
+      <div>
+        <nav aria-labelledby="footer-heading-2">
+          <h2
+            class="text-base font-semibold text-foreground"
+            id="footer-heading-2"
+          >
+            Resources
+          </h2>
+
+          <ul class="mt-4 space-y-3">
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >Documentation</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >Guides</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >Webinars</a
+              >
+            </li>
+            <li>
+              <a
+                class="text-sm font-medium text-foreground hover:opacity-80 transition-opacity"
+                href="#"
+                >White Papers</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div
+      class="mx-auto w-full max-w-7xl mt-12 flex flex-col items-center justify-between gap-8 py-8 pt-12 sm:flex-row px-4"
+    >
+      <p class="text-xs text-muted-foreground">
+        Copyright © {currentYear} {siteConfig.title}. All rights reserved.
+      </p>
+
+      {socialLinks.length > 0 && (
   <div class="flex items-center gap-2">
+    <p class="sr-only">Follow us on social media</p>
+
     {(siteConfig.socialLinks || []).map((link) => (
       <SocialLink {...link} />
     ))}
   </div>
 )}
+    </div>
+  </div>
+
+  <div
+    class="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-full overflow-hidden flex items-end justify-center"
+  >
+    <img
+      src="/images/pinux.png"
+      alt=""
+      aria-hidden="true"
+      class="block w-[80vw] max-w-none min-w-[1200px] h-auto opacity-3 dark:opacity-10 translate-y-[20%] select-none"
+    >
+  </div>
 </footer>

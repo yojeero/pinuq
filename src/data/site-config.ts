@@ -40,6 +40,10 @@ export type SiteConfig = {
   titleSeparator: string;
   description: string;
   author: string;
+  logo: {
+    src: string;
+    alt: string;
+  };
   image: Image & { src: ImageMetadata };
   primaryNavLinks?: Link[];
   socialLinks?: SocialLink[];
@@ -99,6 +103,10 @@ const siteConfig: SiteConfig = {
   title: "PINUX",
   titleSeparator: "|",
   description: team[0].bio,
+  logo: {
+    src: "/images/logo.png",
+    alt: "PINUX",
+  },
   author: team[0].author || team[0].name,
   image: {
     src: team[0].avatar,

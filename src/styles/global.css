@@ -20,7 +20,7 @@
   on light surfaces the focus ring darkens to #9a7a44 for WCAG 3:1.
 */
 :root {
-  --background: #F1F3F2;
+  --background: #f1f3f2;
   --foreground: #1c2644;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
@@ -176,6 +176,7 @@
 }
 
 /* Blog editorial layout */
+
 .blog-main {
   width: min(100%, 1280px);
   margin-inline: auto;
@@ -221,11 +222,9 @@
 }
 
 .blog-hero p {
-  max-width: 620px;
-  margin: 2.5rem 0 0;
+  @apply flex flex-row place-content-start items-center gap-2 ml-4 max-w-4xl mt-10 leading-normal text-lg;
+
   color: var(--muted-foreground);
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  line-height: 1.5;
 }
 
 .blog-categories {

@@ -4,16 +4,14 @@ import Nav from "@/components/Nav.astro";
 import siteConfig from "@/data/site-config";
 ---
 
-<header class="flex min-h-20 items-center">
+<header class="flex min-h-24 items-center">
   <div class="mx-auto flex w-full max-w-7xl items-center justify-between">
     <a class="flex" aria-label={siteConfig.title} href="/">
-      <AstroImage
-        class="h-12 w-12 rounded-full object-cover"
-        width={48}
-        height={48}
-        src={siteConfig.image.src}
-        alt={siteConfig.image.alt ?? ""}
-      />
+      <img
+        src={siteConfig.logo.src}
+        alt={siteConfig.logo.alt}
+        class="h-16 w-16 rounded-full ring-2 bg-white ring-slate-50   hover:-rotate-12 transition-transform duration-500"
+      >
     </a>
     <Nav />
   </div>
