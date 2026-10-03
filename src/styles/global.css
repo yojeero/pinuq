@@ -16,8 +16,6 @@
 /*
   Signal design system (DESIGN.md вЂ” designmd.app/library/signal)
   Light mode = bone paper canvas. Dark mode = deep navy canvas.
-  Muted gold (#c8a870) is the single accent, constant across modes;
-  on light surfaces the focus ring darkens to #9a7a44 for WCAG 3:1.
 */
 :root {
   --background: #f1f3f2;
@@ -80,6 +78,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+@view-transition {
+  navigation: auto;
+}
 
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -419,6 +421,7 @@
 .blog-card--no-cover.blog-card--featured {
   grid-template-columns: minmax(0, 1fr);
 }
+
 /* Notes */
 
 .notes-grid {
@@ -487,6 +490,8 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
+
+/* testmonials */
 
 .blog-quote {
   margin-top: clamp(6rem, 12vw, 12rem);
