@@ -41,7 +41,7 @@ export function createPersonSchema(): WithContext<Person> {
     "@context": "https://schema.org",
     "@type": "Person",
     name: siteConfig.author,
-    jobTitle: "Full Stack Developer and Consultant",
+    jobTitle: "Full Stack Developer",
     worksFor: {
       "@type": "Organization",
       name: "Yojeero",
@@ -53,8 +53,7 @@ export function createPersonSchema(): WithContext<Person> {
     },
     url: new URL("about", getSiteUrl()).toString(),
     sameAs: socialLinks.map((link) => link.href),
-    description:
-      "I'm a full stack developer and consultant based in the Cloud.",
+    description: "I'm a full stack developer based in the Cloud.",
     knowsAbout: [
       "Full Stack Development",
       "Web Development",

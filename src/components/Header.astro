@@ -1,6 +1,5 @@
 ---
-import { Image as AstroImage } from "astro:assets";
-import Nav from "@/components/Nav.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
 ---
 
@@ -10,9 +9,21 @@ import siteConfig from "@/data/site-config";
       <img
         src={siteConfig.logo.src}
         alt={siteConfig.logo.alt}
-        class="h-16 w-16 rounded-full ring-2 bg-white ring-slate-50   hover:-rotate-12 transition-transform duration-500"
+        class="h-16 w-16 rounded-full bg-amber-300 hover:-rotate-12 transition-transform duration-500 shrink-0"
       >
     </a>
-    <Nav />
+
+    <p
+      class="flex flex-row flex-1 font-mono uppercase text-[0.7rem] tracking-wide items-center gap-2 py-1 ml-6"
+    >
+      <span
+        class="flex items-center w-1.5 h-1.5 rounded-full bg-green-600"
+        aria-hidden="true"
+      ></span>
+
+      Journal / Notes / Ideas
+    </p>
+
+    <ThemeToggle />
   </div>
 </header>

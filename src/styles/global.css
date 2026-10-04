@@ -18,7 +18,7 @@
   Light mode = bone paper canvas. Dark mode = deep navy canvas.
 */
 :root {
-  --background: #f1f3f2;
+  --background: #f8f6f2;
   --foreground: #1c2644;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
@@ -79,9 +79,9 @@
     @apply bg-background text-foreground;
   }
 
-@view-transition {
-  navigation: auto;
-}
+  @view-transition {
+    navigation: auto;
+  }
 
   button:not(:disabled),
   [role="button"]:not(:disabled) {
@@ -190,25 +190,6 @@
   padding-block: clamp(3rem, 8vw, 8rem) 5rem;
 }
 
-.blog-hero__eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-bottom: 2rem;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.blog-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: var(--gold);
-}
-
 .blog-hero h1 {
   max-width: 1050px;
   margin: 0;
@@ -221,12 +202,6 @@
 .blog-hero h1 em {
   color: var(--muted-foreground);
   font-style: normal;
-}
-
-.blog-hero p {
-  @apply flex flex-row place-content-start items-center gap-2 ml-4 max-w-4xl mt-10 leading-normal text-lg;
-
-  color: var(--muted-foreground);
 }
 
 .blog-categories {
@@ -497,7 +472,7 @@
   margin-top: clamp(6rem, 12vw, 12rem);
   padding-block: clamp(5rem, 9vw, 9rem);
   border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  /* border-bottom: 1px solid var(--border); */
 }
 
 .blog-quote > div {
