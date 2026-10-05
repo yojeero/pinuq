@@ -14,7 +14,7 @@ export type Link = {
   href: string;
 };
 
-export type SocialIconType = "github" | "dribbble" | "rss" | "telegram";
+export type SocialIconType = "github";
 
 export type SocialLink = Link & {
   icon: SocialIconType;
@@ -29,15 +29,10 @@ export type TeamMember = {
   socials: SocialLink[];
 };
 
-export type Hero = {
-  title?: string;
-  text?: string;
-  cta?: Link[];
-};
-
 export type SiteConfig = {
   title: string;
   titleSeparator: string;
+  url: string; 
   description: string;
   author: string;
   logo: {
@@ -47,7 +42,6 @@ export type SiteConfig = {
   image: Image & { src: ImageMetadata };
   primaryNavLinks?: Link[];
   socialLinks?: SocialLink[];
-  hero?: Hero;
   team: TeamMember[];
 };
 
@@ -62,15 +56,9 @@ export const team: TeamMember[] = [
     author: "Yojee",
     role: "Full Stack Developer",
     avatar: yojeeAvatar,
-    bio: "Tech Lover / Linux Nerd / Open Source Enthusiast",
+    bio: "Tech Lover & Linux Nerd",
     socials: [
       { text: "GitHub", href: "https://github.com/yojeero", icon: "github" },
-      {
-        text: "Dribbble",
-        href: "https://dribbble.com/yojeero",
-        icon: "dribbble",
-      },
-      { text: "Telegram", href: "https://t.me", icon: "telegram" },
     ],
   },
   {
@@ -81,8 +69,6 @@ export const team: TeamMember[] = [
     bio: "Tech & DevOps.",
     socials: [
       { text: "GitHub", href: "https://github.com/", icon: "github" },
-      { text: "Dribbble", href: "https://dribbble.com/", icon: "dribbble" },
-      { text: "Telegram", href: "https://t.me", icon: "telegram" },
     ],
   },
   {
@@ -93,8 +79,6 @@ export const team: TeamMember[] = [
     bio: "PR & Media.",
     socials: [
       { text: "GitHub", href: "https://github.com/", icon: "github" },
-      { text: "Dribbble", href: "https://dribbble.com/", icon: "dribbble" },
-      { text: "Telegram", href: "https://t.me", icon: "telegram" },
     ],
   },
 ];
@@ -102,6 +86,7 @@ export const team: TeamMember[] = [
 const siteConfig: SiteConfig = {
   title: "PINUX",
   titleSeparator: "|",
+  url: siteUrl,
   description: team[0].bio,
   logo: {
     src: "/images/logo.png",
@@ -114,14 +99,8 @@ const siteConfig: SiteConfig = {
   },
   primaryNavLinks: [
     { text: "About", href: "/about" },
-    { text: "Projects", href: "/projects" },
   ],
   socialLinks: [
-    {
-      text: "RSS",
-      href: `${siteUrl}/rss.xml`,
-      icon: "rss",
-    },
     ...team[0].socials,
   ],
   team: team,

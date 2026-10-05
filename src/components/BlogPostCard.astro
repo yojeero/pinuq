@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import FormattedDate from "@/components/FormattedDate.astro";
-import siteConfig from "@/data/site-config";
+import siteConfig, { team } from "@/data/site-config";
 import type { BlogPost } from "@/types";
 import { slugify } from "@/utils/common-utils";
 
@@ -20,51 +20,71 @@ const {
   coverAlt,
   author,
 } = post.data;
+
 const authorName = author || siteConfig.author;
+const matchedMember = team.find(
+  (member) => member.author === authorName || member.name === authorName,
+);
+const authorAvatar = matchedMember
+  ? matchedMember.avatar
+  : siteConfig.image.src;
+
 const primaryTag = tags[0];
+
 const hasCover = Boolean(coverImage);
 ---
 
 <article
   class:list={[
-  "blog-card",
-  featured && "blog-card--featured",
-  !hasCover && "blog-card--no-cover",
-]}
+    "blog-card",
+    featured && "blog-card--featured",
+    !hasCover && "blog-card--no-cover",
+  ]}
 >
-  {hasCover && (
-  <a
-    class="blog-card__media"
-    href={`/blog/${post.id}/`}
-    aria-label={`Read ${title}`}
-  >
-    <Image
-      src={coverImage}
-      alt={coverAlt}
-      quality={100}
-      widths={featured ? [640, 960, 1280, 1600] : [480, 720, 960]}
-      sizes={
-        featured
-          ? "(min-width: 1024px) 62vw, 100vw"
-          : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-      }
-      class="h-full w-full object-cover"
-      loading={featured ? "eager" : "lazy"}
-    />
-    <span class="blog-card__arrow" aria-hidden="true">
-      ↗
-    </span>
-  </a>
-)}
+  {hasCover && coverImage && (
+    <a
+      class="blog-card__media"
+      href={`/blog/${post.id}/`}
+      aria-label={`Read ${title}`}
+    >
+      <Image
+        src={coverImage}
+        alt={coverAlt ?? title}
+        quality={100}
+        widths={featured ? [640, 960, 1280, 1600] : undefined}
+        sizes={
+          featured
+            ? "(min-width: 1024px) 62vw, 100vw"
+            : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        }
+        class="h-full w-full object-cover"
+        loading={featured ? "eager" : "lazy"}
+      />
+      <span class="blog-card__arrow" aria-hidden="true">
+        ↗
+      </span>
+    </a>
+  )}
 
   <div class="blog-card__body">
     <div class="blog-card__meta">
-      <div>
-        {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
+      <div class="flex items-center gap-2">
+        {authorAvatar && (
+          <Image 
+            src={authorAvatar} 
+            alt={authorName} 
+            width={32} 
+            height={32} 
+            class="h-8 w-8 rounded-full object-cover"
+          />
+        )}
+        {authorName && <span class="blog-card__author">By {authorName}</span>}
+
+        <time datetime={publishDate.toISOString()}>
+          <FormattedDate date={publishDate} />
+        </time>
       </div>
-      <time datetime={publishDate.toISOString()}>
-        <FormattedDate date={publishDate} />
-      </time>
+      {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
 
     <h2>
@@ -72,7 +92,5 @@ const hasCover = Boolean(coverImage);
     </h2>
 
     {excerpt && <p>{excerpt}</p>}
-
-    {authorName && <span class="blog-card__author">By {authorName}</span>}
   </div>
 </article>

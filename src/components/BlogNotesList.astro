@@ -9,7 +9,6 @@ type Props = {
 
 const { posts } = Astro.props;
 const notePosts = posts.slice(0, 9);
-const hasMore = posts.length > 9;
 ---
 
 <ol class="notes-grid">

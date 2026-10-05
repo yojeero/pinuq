@@ -1,0 +1,1 @@
+исправить все <Image alt={coverAlt}

@@ -10,15 +10,10 @@ const { text, href, icon, class: className } = Astro.props;
   target="_blank"
   rel="noopener noreferrer"
   class={cn(
-  "flex h-12 w-12 items-center justify-center rounded-full transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+  "flex items-center justify-center rounded-full transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
   className,
 )}
 >
-  {icon && (
-  <Icon
-    icon={icon}
-    class={cn("h-4 w-4", icon === "dribbble" ? "fill-none" : "fill-current")}
-  />
-)}
+  {icon && <Icon icon={icon} class={cn("h-6 w-6", icon === "fill-current")} />}
   <span class="sr-only">{text} (opens in new tab)</span>
 </a>

@@ -3,14 +3,22 @@ import { OGImageRoute } from "astro-og-canvas";
 
 const posts = await getCollection("blog");
 
-const pages = Object.fromEntries(posts.map(({ data, id }) => [id, { data }]));
+const pages = Object.fromEntries(
+  posts.map(({ data, id }) => [
+    id, 
+    { 
+      title: data.title, 
+      customData: data  
+    }
+  ])
+);
 
 export const { getStaticPaths, GET } = await OGImageRoute({
   pages,
   getSlug: (id: string) => `${id}.png`,
-  getImageOptions: (_, page: (typeof pages)[number]) => {
+  getImageOptions: (_, page: typeof pages[string]) => {
     return {
-      title: page.data.title,
+      title: page.title, 
       bgGradient: [[240, 236, 227]],
       border: { color: [200, 168, 112], width: 10 },
       padding: 60,
@@ -23,11 +31,11 @@ export const { getStaticPaths, GET } = await OGImageRoute({
           color: [28, 38, 68],
           size: 60,
           lineHeight: 1.25,
-          families: ["Space Grotesk"],
-          weight: "Bold",
+          families: ["Pier Sans"],
+          weight: "Normal", 
         },
       },
-      fonts: ["./src/assets/fonts/SpaceGrotesk-Variable.woff2"],
+      fonts: ["./src/assets/fonts/PierSans-Regular.woff2"],
     };
   },
 });

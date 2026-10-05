@@ -54,15 +54,45 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "Space Grotesk",
-      cssVariable: "--font-space-grotesk",
+      name: "Pier Sans",
+      cssVariable: "--font-piersans",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
-            weight: "300 700",
+            weight: "300",
             style: "normal",
-            src: ["./src/assets/fonts/SpaceGrotesk-Variable.woff2"],
+            src: ["./src/assets/fonts/PierSans-Light.woff2"],
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Pier Sans",
+      cssVariable: "--font-piersans",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "400",
+            style: "normal",
+            src: ["./src/assets/fonts/PierSans-Regular.woff2"],
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Pier Sans",
+      cssVariable: "--font-piersans",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "700",
+            style: "normal",
+            src: ["./src/assets/fonts/PierSans-Bold.woff2"],
           },
         ],
       },

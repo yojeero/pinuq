@@ -66,6 +66,13 @@ if (customSchemas.length > 0) {
 <!doctype html>
 <html lang="en" class="wrap-break-word antialiased">
   <head>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS"
+      href={`${Astro.site}rss.xml`}
+    >
+
     <script is:inline>
     (() => {
       const stored = localStorage.getItem("theme");
@@ -79,7 +86,7 @@ if (customSchemas.length > 0) {
     })();
     </script>
     <BaseHead {...head} />
-    <Font cssVariable="--font-space-grotesk" preload />
+    <Font cssVariable="--font-piersans" preload />
     <Font cssVariable="--font-jetbrains-mono" />
     <JsonLd schema={schemas} />
     <Analytics />

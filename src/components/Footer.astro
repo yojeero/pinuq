@@ -1,54 +1,38 @@
 ---
-import SocialLink from "@/components/SocialLink.astro";
 import siteConfig from "@/data/site-config";
 
 const currentYear = new Date().getFullYear();
-const socialLinks = siteConfig.socialLinks || [];
 ---
 
-<footer
-  class="w-full overflow-hidden py-40 bg-white dark:bg-amber-500/60 px-4 md:px-24"
->
+<footer class="w-full overflow-hidden py-20">
   <div
-    class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-1 grid-rows-2 gap-y-10 items-center"
+    class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center uppercase"
   >
-    <div>
+    <div class="flex place-content-center lg:justify-start my-4">
       <a
-        class="flex justify-center lg:justify-start"
-        aria-label={siteConfig.title}
-        href="/"
+        href="https://t.me/pinux"
+        target="_blank"
+        class=" flex flex-col md:flex-row items-center gap-2"
       >
         <img
-          src="/images/dev.svg"
-          alt="code"
-          class="h-48 w-48 rounded-full hover:rotate-12 transition-transform duration-500"
+          alt="logo-footer"
+          class="h-32 w-auto bg-amber-300 p-2 rounded-md"
+          src="/images/logo_2.png"
+        >
+        <span class="text-lg tracking-widest hover:text-amber-800"
+          >Telegram</span
         >
       </a>
     </div>
 
-    <nav
-      aria-labelledby="footer-heading-0"
-      class="mx-auto flex w-full items-center place-content-center gap-4 text-sm font-medium text-foreground"
-    >
-      <a class="hover:text-black transition-colors" href="/about">About</a>
-      /
-      <a class="hover:text-black transition-colors" href="/about">Team</a>
-      /
-      <a class="hover:text-black transition-colors" href="/projects"
-        >Projects</a
+    <div class="flex text-xs justify-center lg:justify-end">
+      <a
+        class="flex hover:text-amber-800"
+        aria-label={siteConfig.title}
+        href="/"
       >
-      /
-      <a class="hover:text-black transition-colors" href="/about">Contact</a>
-    </nav>
-
-    <div
-      class="flex items-center justify-center justify-self-center gap-2 lg:justify-end lg:justify-self-end lg:items-end"
-    >
-      {socialLinks.map((link) => <SocialLink {...link} />)}
-    </div>
-
-    <div class="col-span-full text-xs w-full text-center mx-auto mt-4">
-      © {currentYear} {siteConfig.title}
+        © PINUX {currentYear}
+      </a>
     </div>
   </div>
 </footer>

@@ -1,6 +1,4 @@
 ---
-import BlogCategories from "@/components/BlogCategories.astro";
-import BlogHero from "@/components/BlogHero.astro";
 import BlogNotesList from "@/components/BlogNotesList.astro";
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import siteConfig from "@/data/site-config";
@@ -13,7 +11,7 @@ type Props = {
   currentPage: number;
 };
 
-const { posts, categories, currentPage } = Astro.props;
+const { posts, currentPage } = Astro.props;
 // Featured пост на главной — всегда первый пост с обложкой
 const featuredPost =
   currentPage === 1
@@ -31,14 +29,10 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
   title={currentPage > 1
   ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}`
   : "Blog"}
-  description="Insights from a full stack developer and consultant. Explore tech tips, coding journeys, and advice for developers and tech enthusiasts."
+  description="Explore tech tips, coding journeys, and advice for developers and tech enthusiasts."
   showBreadcrumbs={false}
   mainClass="blog-main"
 >
-  <BlogHero />
-
-  <BlogCategories categories={categories} />
-
   {featuredPost && (
   <section class="blog-section" aria-labelledby="featured-heading">
     <div class="blog-section-heading">
@@ -65,6 +59,8 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
   </section>
 )}
 
+  <slot />
+
   {notePosts.length > 0 && (
   <section class="blog-section" aria-labelledby="notes-heading">
     <div class="blog-section-heading">
@@ -75,17 +71,4 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
     <BlogNotesList posts={notePosts} />
   </section>
 )}
-
-  <slot />
-
-  <section class="blog-quote" aria-label="About this blog">
-    <div>
-      <span class="blog-quote-mark">“</span>
-      <p>
-        Notes from building products, writing software, and figuring out what
-        makes the web feel good to use.
-      </p>
-      <span class="blog-quote-author">— Yojee</span>
-    </div>
-  </section>
 </BaseLayout>

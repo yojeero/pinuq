@@ -19,7 +19,7 @@ const { title, publishDate, tags = [], coverImage, coverAlt } = post.data;
   <a href={`/blog/${post.id}/`} aria-label={`Read ${title}`} class="shrink-0">
     <Image
       src={coverImage}
-      alt={coverAlt}
+      alt={coverAlt ?? title}
       widths={[240, 480]}
       sizes="(min-width: 768px) 160px, 100vw"
       class="aspect-video w-full rounded-sm object-cover md:w-40"

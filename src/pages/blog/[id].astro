@@ -102,7 +102,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
       {coverImage && (
   <Image
     src={coverImage}
-    alt={coverAlt}
+    alt={coverAlt ?? title}
     widths={[640, 960, 1280]}
     sizes="(min-width: 1024px) 672px, 100vw"
     class="mb-10 aspect-video w-full rounded-sm object-cover"
