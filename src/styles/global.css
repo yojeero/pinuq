@@ -1,11 +1,6 @@
 ﻿@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/*
-  Webfonts are declared in astro.config.mjs (`fonts`) and rendered by the
-  `<Font />` component in BaseLayout.astro. Astro emits the @font-face rules
-  with hashed asset URLs and exposes the `--font-*` variables used below.
-*/
 @theme {
   --font-sans: var(--font-piersans), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
@@ -13,12 +8,8 @@
 
 @custom-variant dark (&:where(.dark *));
 
-/*
-  Signal design system (DESIGN.md вЂ” designmd.app/library/signal)
-  Light mode = bone paper canvas. Dark mode = deep navy canvas.
-*/
 :root {
-  --background: #f8f6f2;
+  --background: #ffffff;
   --foreground: #1c2644;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
@@ -134,7 +125,7 @@
 }
 
 .prose :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--font-space-grotesk);
+  font-family: var(--font-sans);
   font-weight: 600;
 }
 
@@ -143,11 +134,9 @@
 }
 
 .prose :is(pre, :not(pre) > code) {
-  font-family: var(--font-jetbrains-mono);
+  font-family: var(--font-mono);
 }
 
-/* Syntax highlighting (Shiki css-variables theme) driven by Signal tokens:
-   navy-alt canvas, bone text, gold for keywords вЂ” color as punctuation. */
 .prose pre.astro-code {
   --astro-code-background: var(--navy-alt);
   --astro-code-foreground: #e2dcd0;
@@ -253,12 +242,10 @@
 .blog-card--featured {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(260px, 0.85fr);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
 }
 
 .blog-card--featured .blog-card__media {
-  aspect-ratio: 1.77 / 1;
+  @apply aspect-video;
 }
 
 .blog-card__media img {
@@ -267,31 +254,6 @@
 
 .blog-card:hover .blog-card__media img {
   transform: scale(1.025);
-}
-
-.blog-card__arrow {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
-  border-radius: 999px;
-  background: var(--background);
-  color: var(--foreground);
-  font-size: 1rem;
-  opacity: 0;
-  transform: translateY(0.35rem);
-  transition:
-    opacity 0.2s,
-    transform 0.2s;
-}
-
-.blog-card:hover .blog-card__arrow,
-.blog-card:focus-within .blog-card__arrow {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .blog-card__body {
@@ -435,52 +397,6 @@
   text-transform: uppercase;
 }
 
-/* testmonials */
-
-.blog-quote {
-  margin-top: clamp(6rem, 12vw, 12rem);
-  padding-block: clamp(5rem, 9vw, 9rem);
-  border-top: 1px solid var(--border);
-}
-
-.blog-quote > div {
-  max-width: 920px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-.blog-quote-mark {
-  display: block;
-  color: var(--gold);
-  font-family: Georgia, serif;
-  font-size: 5rem;
-  line-height: 0.5;
-}
-
-.blog-quote p {
-  margin: 1.5rem 0 0;
-  font-size: clamp(2rem, 4.3vw, 4.6rem);
-  font-weight: 500;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
-}
-
-.blog-quote-author {
-  display: block;
-  margin-top: 2rem;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.blog-main > nav[aria-label="Pagination"] {
-  margin-top: 4rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--border);
-}
-
 @media (max-width: 900px) {
   .blog-main {
     padding-inline: 1.25rem;
@@ -491,20 +407,11 @@
   }
 
   .blog-card--featured .blog-card__media {
-    aspect-ratio: 1.5 / 1;
+    @apply aspect-video;
   }
 
   .blog-card--featured .blog-card__body {
     padding: 2rem 0 0;
-  }
-
-  .blog-grid .blog-card:nth-child(3n) {
-    grid-column: auto;
-    max-width: none;
-  }
-
-  .blog-grid .blog-card:nth-child(3n) .blog-card__media {
-    aspect-ratio: 4 / 3;
   }
 
   .notes-grid {
@@ -534,9 +441,6 @@
     font-size: clamp(2.25rem, 12vw, 4rem);
   }
 
-  .blog-quote {
-    margin-top: 6rem;
-  }
 }
 
 .notes-item__title a {
@@ -637,8 +541,8 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  text-transform: uppercase;
+  font-family: ui-monospace, Menlo, monospace;
+
   font-size: 1.8rem;
   letter-spacing: 0.05em;
 }
@@ -657,8 +561,3 @@ align-items: center;
 .nav-top span {margin-right: 1rem;}
 
 .nav-top:hover{color: #9a7a44; cursor: pointer;}
-
-
-/* 
- lg:justify-self-start lg:items-start
-*/

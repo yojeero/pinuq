@@ -7,25 +7,15 @@ import siteConfig from "@/data/site-config";
   <div
     class="relative mx-auto flex items-center justify-between flex-wrap p-6 max-w-7xl w-full z-20 lg:px-0"
   >
-    <div class="flex flex-no-shrink items-center pr-2 pt-2 w-full">
-      <a class="flex" aria-label={siteConfig.title} href="/">
-        <img
-          src={siteConfig.logo.src}
-          alt={siteConfig.logo.alt}
-          class="h-16 w-16 rounded-full bg-slate-50 hover:-rotate-12 transition-transform duration-500 shrink-0"
-        >
-      </a>
-      <div
-        class="flex flex-row flex-1 font-mono uppercase text-[0.7rem] tracking-wide items-center gap-2 py-1 ml-6"
+    <a class="flex flex-no-shrink" aria-label={siteConfig.title} href="#foot">
+      <img
+        src={siteConfig.logo.src}
+        alt={siteConfig.logo.alt}
+        class="h-16 w-16 rounded-full bg-slate-50 hover:-rotate-12 transition-transform duration-500 shrink-0"
       >
-        <span
-          class="flex items-center w-1.5 h-1.5 rounded-full bg-green-600"
-          aria-hidden="true"
-        ></span>
+    </a>
 
-        PINUX
-      </div>
-
+    <div class="flex">
       <button
         type="button"
         aria-label="Open navigation menu"
@@ -52,7 +42,7 @@ import siteConfig from "@/data/site-config";
 
         <div id="nav-content">
           <ul class="nav">
-            <li class="nav-top"><span>PINUX</span> <ThemeToggle /></li>
+            <li class="nav-top"><span>Menu</span> <ThemeToggle /></li>
 
             <li><a href="/">Home</a></li>
             <li>

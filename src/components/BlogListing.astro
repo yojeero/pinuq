@@ -36,8 +36,7 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
   {featuredPost && (
   <section class="blog-section" aria-labelledby="featured-heading">
     <div class="blog-section-heading">
-      <p id="featured-heading">Featured</p>
-      <span>{featuredPost.data.tags?.[0] ?? "Latest"}</span>
+      <p id="featured-heading" class="text-lg font-sans bold tracking-widest">Pinux</p>
     </div>
 
     <BlogPostCard post={featuredPost} featured />
@@ -46,11 +45,6 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
 
   {cardPosts.length > 0 && (
   <section class="blog-section" aria-labelledby="latest-heading">
-    <div class="blog-section-heading">
-      <p id="latest-heading">{featuredPost ? "Latest" : "All posts"}</p>
-      <span>{currentPage}</span>
-    </div>
-
     <div class="blog-grid">
       {cardPosts.map((post) => (
         <BlogPostCard post={post} />

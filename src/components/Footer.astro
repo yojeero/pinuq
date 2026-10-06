@@ -4,35 +4,32 @@ import siteConfig from "@/data/site-config";
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full overflow-hidden py-20">
+<footer
+  id="foot"
+  class="w-full overflow-hidden max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 py-20 items-center"
+>
   <div
-    class="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center uppercase"
+    class="flex flex-col md:flex-row place-content-center items-center lg:justify-start gap-4 my-8"
   >
-    <div class="flex place-content-center lg:justify-start my-4">
-      <a
-        href="https://t.me/pinux"
-        target="_blank"
-        class=" flex flex-col md:flex-row items-center gap-2"
+    <a href="/" target="_blank">
+      <img
+        alt="logo-footer"
+        class="h-32 w-auto bg-amber-300 p-2 rounded-full"
+        src="/images/logo_2.png"
       >
-        <img
-          alt="logo-footer"
-          class="h-32 w-auto bg-amber-300 p-2 rounded-md"
-          src="/images/logo_2.png"
-        >
-        <span class="text-lg tracking-widest hover:text-amber-800"
-          >Telegram</span
-        >
-      </a>
-    </div>
+    </a>
+    <a href="https://t.me/" target="_blank">
+      <span class="text-lg tracking-widest hover:text-amber-800">Telegram</span>
+    </a>
+  </div>
 
-    <div class="flex text-xs justify-center lg:justify-end">
-      <a
-        class="flex hover:text-amber-800"
-        aria-label={siteConfig.title}
-        href="/"
-      >
-        © PINUX {currentYear}
-      </a>
-    </div>
+  <div class="flex text-sm justify-center lg:justify-end">
+    <a
+      class="flex hover:text-amber-800"
+      aria-label={siteConfig.title}
+      href="https//pinux.vercel.app/"
+    >
+      © Pinux {currentYear}
+    </a>
   </div>
 </footer>
