@@ -2,8 +2,8 @@
 import BlogNotesList from "@/components/BlogNotesList.astro";
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import siteConfig from "@/data/site-config";
+import type { BlogPost } from "@/data/types";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { BlogPost } from "@/types";
 
 type Props = {
   posts: BlogPost[];
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const { posts, currentPage } = Astro.props;
-// Featured пост на главной — всегда первый пост с обложкой
+// Featured post on the main page always with a cover
 const featuredPost =
   currentPage === 1
     ? (posts.find((post) => post.data.coverImage) ?? null)
@@ -20,7 +20,7 @@ const featuredPost =
 const gridPosts = featuredPost
   ? posts.filter((post) => post.id !== featuredPost.id)
   : posts;
-// Посты без обложек выводим не карточками, а компактным списком
+// Posts without covers are displayed not as cards, but as a compact list
 const notePosts = gridPosts.filter((post) => !post.data.coverImage);
 const cardPosts = gridPosts.filter((post) => post.data.coverImage);
 ---
@@ -36,7 +36,9 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
   {featuredPost && (
   <section class="blog-section" aria-labelledby="featured-heading">
     <div class="blog-section-heading">
-      <p id="featured-heading" class="text-lg font-sans bold tracking-widest">Pinux</p>
+      <p id="featured-heading" class="text-lg font-sans bold tracking-widest">
+        Pinux
+      </p>
     </div>
 
     <BlogPostCard post={featuredPost} featured />

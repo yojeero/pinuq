@@ -5,9 +5,8 @@ import { getCollection, render } from "astro:content";
 import Badge from "@/components/Badge.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Prose from "@/components/Prose.astro";
-import TOC from "@/components/TOC.astro";
+import type { BlogPost } from "@/data/types";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { BlogPost } from "@/types";
 import { slugify } from "@/utils/common-utils";
 import { sortItemsByDateDesc } from "@/utils/data-utils";
 import {
@@ -47,9 +46,6 @@ const {
   coverAlt,
 } = post.data;
 
-const wordCount = post.body?.trim().split(/\s+/).length ?? 0;
-const readingTime = Math.max(1, Math.round(wordCount / 220));
-
 const ogImage = {
   src: new URL(`og/${post.id}.png`, Astro.site).toString(),
   alt: title,
@@ -75,7 +71,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   customSchemas={[blogPostingSchema]}
 >
   <div>
-    <h1 class="font-serif text-4xl font-semibold sm:text-[2.5rem]">{title}</h1>
+    <h1 class="font-sans text-4xl font-semibold sm:text-[2.5rem]">{title}</h1>
     <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
       <span class="text-foreground/60 text-sm">
         {updatedDate ? (
@@ -88,7 +84,6 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   </>
 )}
       </span>
-      <span class="text-foreground/60 text-sm">{readingTime} min read</span>
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         {tags.length > 0 &&
   tags.map((tag) => <Badge href={`/tags/${slugify(tag)}/`}>{tag}</Badge>)}
@@ -96,9 +91,8 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     </div>
   </div>
 
-  <div class="mt-10 lg:flex lg:items-start lg:gap-12">
-    <TOC headings={headings} class="order-2 mb-8 lg:mb-0" />
-    <article class="min-w-0 lg:max-w-2xl">
+  <div class="mt-10">
+    <article class="min-w-0 w-full max-w-3xl mx-auto">
       {coverImage && (
   <Image
     src={coverImage}

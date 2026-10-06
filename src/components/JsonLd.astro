@@ -1,5 +1,5 @@
 ---
-import type { JsonLdProps } from "@/types";
+import type { JsonLdProps } from "@/data/types";
 
 const { schema } = Astro.props as JsonLdProps;
 const schemaJson = Array.isArray(schema) ? schema : [schema];

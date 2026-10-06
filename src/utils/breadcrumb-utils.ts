@@ -1,5 +1,5 @@
 import { getCollection } from "astro:content";
-import type { BreadcrumbItem } from "@/types";
+import type { BreadcrumbItem } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
 export async function generateBreadcrumbItems(

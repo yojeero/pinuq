@@ -4,8 +4,8 @@ import type { GetStaticPathsOptions, Page } from "astro";
 import Pagination from "@/components/Pagination.astro";
 import PostListItem from "@/components/PostListItem.astro";
 import siteConfig from "@/data/site-config";
+import type { BlogPost, TagData } from "@/data/types";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { BlogPost, TagData } from "@/types";
 import {
   getAllTags,
   getPostsByTag,
@@ -41,10 +41,10 @@ const currentTag = allTags.find((tag) => {
   title={page.currentPage > 1
   ? `${currentTag?.name} ${siteConfig.titleSeparator} Page ${page.currentPage}`
   : `${currentTag?.name}`}
-  description={`Insights, guides, and tips on ${currentTag?.name} from a full stack developer and consultant, for developers and tech enthusiasts.`}
+  description={`Insights, guides, and tips on ${currentTag?.name} from a full stack developer.`}
 >
   <section>
-    <h1 class="font-serif text-4xl font-medium mb-8 sm:text-[2.5rem]">
+    <h1 class="font-sans text-4xl font-medium mb-8 sm:text-[2.5rem]">
       {currentTag?.name}
     </h1>
     <ul class="flex flex-col gap-10">

@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import FormattedDate from "@/components/FormattedDate.astro";
 import siteConfig, { team } from "@/data/site-config";
-import type { BlogPost } from "@/types";
+import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
 type Props = {
@@ -36,46 +36,45 @@ const hasCover = Boolean(coverImage);
 
 <article
   class:list={[
-    "blog-card",
-    featured && "blog-card--featured",
-    !hasCover && "blog-card--no-cover",
-  ]}
+  "blog-card",
+  featured && "blog-card--featured",
+  !hasCover && "blog-card--no-cover",
+]}
 >
   {hasCover && coverImage && (
-    <a
-      class="blog-card__media"
-      href={`/blog/${post.id}/`}
-      aria-label={`Read ${title}`}
-    >
-      <Image
-        src={coverImage}
-        alt={coverAlt ?? title}
-        quality={100}
-        widths={featured ? [640, 960, 1280, 1600] : undefined}
-        sizes={
-          featured
-            ? "(min-width: 1024px) 62vw, 100vw"
-            : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-        }
-        class="h-full w-full object-cover"
-        loading={featured ? "eager" : "lazy"}
-      />
-
-    </a>
-  )}
+  <a
+    class="blog-card__media"
+    href={`/blog/${post.id}/`}
+    aria-label={`Read ${title}`}
+  >
+    <Image
+      src={coverImage}
+      alt={coverAlt ?? title}
+      quality={100}
+      widths={featured ? [640, 960, 1280, 1600] : undefined}
+      sizes={
+        featured
+          ? "(min-width: 1024px) 62vw, 100vw"
+          : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+      }
+      class="h-full w-full object-cover"
+      loading={featured ? "eager" : "lazy"}
+    />
+  </a>
+)}
 
   <div class="blog-card__body">
     <div class="blog-card__meta">
       <div class="flex items-center gap-2">
         {authorAvatar && (
-          <Image 
-            src={authorAvatar} 
-            alt={authorName} 
-            width={32} 
-            height={32} 
-            class="h-8 w-8 rounded-full object-cover"
-          />
-        )}
+  <Image
+    src={authorAvatar}
+    alt={authorName}
+    width={32}
+    height={32}
+    class="h-8 w-8 rounded-full object-cover"
+  />
+)}
         {authorName && <span class="blog-card__author">By {authorName}</span>}
 
         <time datetime={publishDate.toISOString()}>

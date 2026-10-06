@@ -1,6 +1,14 @@
 ---
 import Icon from "@/components/Icon.astro";
+import type { SocialIconType } from "@/data/types";
 import { cn } from "@/lib/utils";
+
+interface Props {
+  text: string;
+  href: string;
+  icon: SocialIconType;
+  class?: string;
+}
 
 const { text, href, icon, class: className } = Astro.props;
 ---
@@ -14,6 +22,7 @@ const { text, href, icon, class: className } = Astro.props;
   className,
 )}
 >
-  {icon && <Icon icon={icon} class={cn("h-6 w-6", icon === "fill-current")} />}
+  {icon && <Icon name={icon} class="h-6 w-6 fill-current" />}
+
   <span class="sr-only">{text} (opens in new tab)</span>
 </a>

@@ -6,7 +6,7 @@ import type {
   WithContext,
 } from "schema-dts";
 import siteConfig from "@/data/site-config";
-import type { BlogPost } from "@/types";
+import type { BlogPost } from "@/data/types";
 
 function getSiteUrl(fallbackOrigin?: string): string {
   const site = import.meta.env.SITE;

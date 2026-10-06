@@ -1,6 +1,6 @@
 ---
 import TOCList from "@/components/TOCList.astro";
-import type { TOCProps } from "@/types";
+import type { TOCProps } from "@/data/types";
 import { generateToc } from "@/utils/toc-utils";
 
 const { headings, class: className, ...props } = Astro.props as TOCProps;
@@ -8,34 +8,32 @@ const { headings, class: className, ...props } = Astro.props as TOCProps;
 const toc = generateToc(headings);
 ---
 
-<nav
-  aria-label="Table of contents"
-  class:list={["lg:sticky lg:top-0", className]}
-  {...props}
->
-  <details class="group rounded-lg border lg:hidden">
-    <summary
-      class="flex cursor-pointer select-none items-center justify-between px-4 py-3 text-sm font-medium"
-    >
-      On this page
-      <svg
-        class="size-4 transition-transform duration-200 group-open:rotate-90"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        aria-hidden="true"
+<toc-heading class:list={["block lg:sticky lg:top-0", className]} {...props}>
+  <nav aria-label="Table of contents">
+    <details class="group rounded-lg border lg:hidden">
+      <summary
+        class="flex cursor-pointer select-none items-center justify-between px-4 py-3 text-sm font-medium"
       >
-        <path d="m9 18 6-6-6-6"></path>
-      </svg>
-    </summary>
-    <TOCList headings={toc} class="px-4 pt-1 pb-4" />
-  </details>
-  <TOCList headings={toc} class="hidden pt-6 lg:block" />
-</nav>
+        On this page
+        <svg
+          class="size-4 transition-transform duration-200 group-open:rotate-90"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </summary>
+      <TOCList headings={toc} class="px-4 pt-1 pb-4" />
+    </details>
+    <TOCList headings={toc} class="hidden pt-6 lg:block" />
+  </nav>
+</toc-heading>
 
 <script>
 interface TOCLink {

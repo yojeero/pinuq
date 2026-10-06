@@ -1,8 +1,51 @@
+// src/types.ts
 import type { CollectionEntry } from "astro:content";
+import type { ImageMetadata } from "astro";
 import type { Thing, WithContext } from "schema-dts";
-import type { Image } from "@/data/site-config";
 
 export type { Thing, WithContext } from "schema-dts";
+
+export type Image = {
+  src: ImageMetadata | string;
+  alt?: string;
+};
+
+export type Link = {
+  text: string;
+  href: string;
+};
+
+export type SocialIconType = "github" | "twitter";
+
+export type SocialLink = Link & {
+  icon: SocialIconType;
+};
+
+export type TeamMember = {
+  name: string;
+  author?: string;
+  role: string;
+  bio: string;
+  avatar: ImageMetadata;
+  socials: SocialLink[];
+};
+
+export type SiteConfig = {
+  title: string;
+  titleSeparator: string;
+  url: string;
+  description: string;
+  author: string;
+  logo: {
+    src: string;
+    alt: string;
+  };
+  image: Image & { src: ImageMetadata };
+  primaryNavLinks?: Link[];
+  socialLinks?: SocialLink[];
+  team: TeamMember[];
+};
+// -------------------------------------------------------------
 
 export type BlogPost = CollectionEntry<"blog">;
 

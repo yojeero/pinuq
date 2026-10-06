@@ -1,5 +1,5 @@
 import type { MarkdownHeading } from "astro";
-import type { TocItem } from "@/types";
+import type { TocItem } from "@/data/types";
 
 export function generateToc(headings: readonly MarkdownHeading[]): TocItem[] {
   const bodyHeadings = headings.filter(({ depth }) => depth > 1);

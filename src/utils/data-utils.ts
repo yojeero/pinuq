@@ -1,4 +1,4 @@
-import type { BlogPost, TagData } from "@/types";
+import type { BlogPost, TagData } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
 export function sortItemsByDateDesc(itemA: BlogPost, itemB: BlogPost): number {
