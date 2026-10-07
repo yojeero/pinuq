@@ -41,7 +41,7 @@ export const team: TeamMember[] = [
 
 const siteConfig: SiteConfig = {
   title: "PINUX",
-  titleSeparator: "|",
+  titleSeparator: "",
   url: siteUrl,
   description: team[0].bio,
   logo: {

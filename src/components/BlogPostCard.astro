@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import FormattedDate from "@/components/FormattedDate.astro";
-import siteConfig, { team } from "@/data/site-config";
+import siteConfig from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
@@ -22,12 +22,6 @@ const {
 } = post.data;
 
 const authorName = author || siteConfig.author;
-const matchedMember = team.find(
-  (member) => member.author === authorName || member.name === authorName,
-);
-const authorAvatar = matchedMember
-  ? matchedMember.avatar
-  : siteConfig.image.src;
 
 const primaryTag = tags[0];
 
@@ -65,23 +59,18 @@ const hasCover = Boolean(coverImage);
 
   <div class="blog-card__body">
     <div class="blog-card__meta">
-      <div class="flex items-center gap-2">
-        {authorAvatar && (
-  <Image
-    src={authorAvatar}
-    alt={authorName}
-    width={32}
-    height={32}
-    class="h-8 w-8 rounded-full object-cover"
-  />
-)}
-        {authorName && <span class="blog-card__author">By {authorName}</span>}
+      <div class="flex items-center gap-2 text-stone-700">
+        {authorName && <span class="text-stone-500 mx-1 p-1">By {authorName}</span>}
 
         <time datetime={publishDate.toISOString()}>
           <FormattedDate date={publishDate} />
         </time>
       </div>
-      {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
+      <div
+        class="w-fit lowercase mt-6 text-xs font-sans bg-stone-50 py-2 px-4 tracking-widest rounded-md dark:bg-indigo-900/60 dark:text-stone-300"
+      >
+        {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
+      </div>
     </div>
 
     <h2>

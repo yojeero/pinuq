@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
-
-import Badge from "@/components/Badge.astro";
 import FormattedDate from "@/components/FormattedDate.astro";
 import Prose from "@/components/Prose.astro";
+import siteConfig, { team } from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/common-utils";
@@ -44,14 +43,25 @@ const {
   seo,
   coverImage,
   coverAlt,
+  author,
 } = post.data;
+
+const authorName = author || siteConfig.author;
+const matchedMember = team.find(
+  (member) => member.author === authorName || member.name === authorName,
+);
+const authorAvatar = matchedMember
+  ? matchedMember.avatar
+  : siteConfig.image.src;
 
 const ogImage = {
   src: new URL(`og/${post.id}.png`, Astro.site).toString(),
   alt: title,
 };
 
-const { Content, headings } = await render(post);
+const primaryTag = tags[0];
+
+const { Content } = await render(post);
 
 const postUrl = new URL(`/blog/${post.id}`, Astro.site).toString();
 
@@ -70,24 +80,37 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   tags={tags}
   customSchemas={[blogPostingSchema]}
 >
-  <div>
-    <h1 class="font-sans text-4xl font-semibold sm:text-[2.5rem]">{title}</h1>
-    <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
-      <span class="text-foreground/60 text-sm">
-        {updatedDate ? (
-  <>
-    Updated on <FormattedDate date={updatedDate} />
-  </>
-) : (
-  <>
-    Published on <FormattedDate date={publishDate} />
-  </>
+  <div class="max-w-3xl mx-auto w-full">
+    <h1 class="font-sans font-bold sm:text-[2.5rem] my-4">
+      {title}
+    </h1>
+  </div>
+
+  <div class="flex w-full max-w-3xl mx-auto items-center">
+    <div class="w-full flex items-center gap-4">
+      {authorAvatar && (
+  <Image
+    src={authorAvatar}
+    alt={authorName}
+    class="h-16 w-16 rounded-full object-cover"
+  />
 )}
-      </span>
-      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-        {tags.length > 0 &&
-  tags.map((tag) => <Badge href={`/tags/${slugify(tag)}/`}>{tag}</Badge>)}
-      </div>
+      <p class="text-lg text-stone-700">
+        By
+        {authorName && (
+  <span class="tracking-widest text-stone-500 mx-1 p-1">{authorName}</span>
+)}
+
+        <time datetime={publishDate.toISOString()}>
+          on <FormattedDate date={publishDate} />
+        </time>
+      </p>
+    </div>
+
+    <div
+      class="w-fit lowercase text-sm font-sans bg-stone-50 py-2 px-4 tracking-widest rounded-md dark:bg-indigo-900/60 dark:text-stone-300"
+    >
+      {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
   </div>
 

@@ -1,29 +1,36 @@
 <script>
 import Lenis from "lenis";
 
-const reduceMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)",
-).matches;
+const root = document.documentElement;
 
-if (!reduceMotion) {
-  const lenis = new Lenis({
-    lerp: 0.15,
-    smoothWheel: true,
-  });
+if (!root.dataset.lenisReady) {
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
-  function raf(time: number) {
-    lenis.raf(time);
+  if (!reduceMotion) {
+    const lenis = new Lenis({
+      lerp: 0.15,
+      smoothWheel: true,
+    });
+
+    root.dataset.lenisReady = "true";
+
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
     requestAnimationFrame(raf);
+
+    document.addEventListener("astro:before-preparation", () => {
+      lenis.stop();
+    });
+
+    document.addEventListener("astro:after-swap", () => {
+      lenis.start();
+      lenis.scrollTo(0, { immediate: true });
+    });
   }
-
-  requestAnimationFrame(raf);
-
-  document.addEventListener("astro:before-preparation", () => {
-    lenis.stop();
-  });
-
-  document.addEventListener("astro:after-swap", () => {
-    lenis.start();
-  });
 }
 </script>

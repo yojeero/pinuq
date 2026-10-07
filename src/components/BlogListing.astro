@@ -26,26 +26,18 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
 ---
 
 <BaseLayout
-  title={currentPage > 1
-  ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}`
-  : "Blog"}
+  title={currentPage > 1 ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}` : ""}
   description="Explore tech tips, coding journeys, and advice for developers and tech enthusiasts."
-  showBreadcrumbs={false}
   mainClass="blog-main"
 >
-  {featuredPost && (
+  <div class="blog-main-slot">
+    {featuredPost && (
   <section class="blog-section" aria-labelledby="featured-heading">
-    <div class="blog-section-heading">
-      <p id="featured-heading" class="text-lg font-sans bold tracking-widest">
-        Pinux
-      </p>
-    </div>
-
     <BlogPostCard post={featuredPost} featured />
   </section>
 )}
 
-  {cardPosts.length > 0 && (
+    {cardPosts.length > 0 && (
   <section class="blog-section" aria-labelledby="latest-heading">
     <div class="blog-grid">
       {cardPosts.map((post) => (
@@ -54,17 +46,19 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
     </div>
   </section>
 )}
+  </div>
 
-  <slot />
-
-  {notePosts.length > 0 && (
-  <section class="blog-section" aria-labelledby="notes-heading">
+  <div class="notes-bg">
+    {notePosts.length > 0 && (
+  <section class="notes-center" aria-labelledby="notes-heading">
     <div class="blog-section-heading">
       <p id="notes-heading">Notes</p>
-      <span>{notePosts.length}</span>
     </div>
 
     <BlogNotesList posts={notePosts} />
   </section>
 )}
+  </div>
+
+  <slot />
 </BaseLayout>

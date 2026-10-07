@@ -11,7 +11,7 @@ import siteConfig from "@/data/site-config";
       <img
         src={siteConfig.logo.src}
         alt={siteConfig.logo.alt}
-        class="h-16 w-16 rounded-full bg-slate-50 hover:-rotate-12 transition-transform duration-500 shrink-0"
+        class="h-16 w-16 rounded-full bg-stone-50 hover:-rotate-12 transition-transform duration-500 shrink-0"
       >
     </a>
 
@@ -66,39 +66,55 @@ const initNav = () => {
     document.querySelectorAll<HTMLElement>("[data-nav-toggle]"),
   );
   if (toggles.length === 0) return;
-  nav.dataset.navReady = "true";
 
   const setOpen = (open: boolean) => {
     nav.classList.toggle("is-open", open);
     document.documentElement.classList.toggle("nav-open", open);
-    for (const toggle of toggles) {
+    toggles.forEach((toggle) => {
       toggle.setAttribute("aria-expanded", String(open));
-    }
+    });
   };
 
-  for (const toggle of toggles) {
-    toggle.addEventListener("click", () => {
-      setOpen(toggle.dataset.navToggle === "open");
-    });
-  }
+  const onToggleClick = (event: Event) => {
+    const toggle = event.currentTarget as HTMLElement;
+    setOpen(toggle.dataset.navToggle === "open");
+  };
+
+  const onKeydown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") setOpen(false);
+  };
+
+  const onDocumentClick = (event: MouseEvent) => {
+    const target = event.target as Node;
+    if (nav.contains(target) || toggles.some((t) => t.contains(target))) return;
+    setOpen(false);
+  };
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", onToggleClick);
+  });
 
   nav.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
     link.addEventListener("click", () => setOpen(false));
   });
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setOpen(false);
-  });
+  document.addEventListener("keydown", onKeydown);
+  document.addEventListener("click", onDocumentClick);
 
-  document.addEventListener("click", (event) => {
-    const target = event.target as Node;
-    if (nav.contains(target) || toggles.some((t) => t.contains(target))) return;
-    setOpen(false);
-  });
+  nav.dataset.navReady = "true";
+};
+
+const cleanupNav = () => {
+  const nav = document.getElementById("site-nav");
+  if (!nav) return;
+  nav.dataset.navReady = "false";
+  nav.classList.remove("is-open");
+  document.documentElement.classList.remove("nav-open");
 };
 
 initNav();
 document.addEventListener("astro:page-load", initNav);
+document.addEventListener("astro:before-preparation", cleanupNav);
 </script>
 
 <style>

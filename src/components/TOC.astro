@@ -56,6 +56,8 @@ class TOC extends HTMLElement {
   private ticking = false;
 
   connectedCallback() {
+    if (this.boundUpdate) return;
+
     this.content = document.querySelector<HTMLElement>("#content");
     this.headings = Array.from(
       document.querySelectorAll(
@@ -108,12 +110,13 @@ class TOC extends HTMLElement {
   }
 
   disconnectedCallback() {
-    if (this.boundUpdate) {
-      window.removeEventListener("scroll", this.boundUpdate);
-      window.removeEventListener("resize", this.boundUpdate);
-      window.removeEventListener("load", this.boundUpdate);
-      this.boundUpdate = null;
-    }
+    if (!this.boundUpdate) return;
+
+    window.removeEventListener("scroll", this.boundUpdate);
+    window.removeEventListener("resize", this.boundUpdate);
+    window.removeEventListener("load", this.boundUpdate);
+    this.boundUpdate = null;
+    this.ticking = false;
   }
 
   private docTop(el: HTMLElement): number {
@@ -156,5 +159,7 @@ class TOC extends HTMLElement {
   };
 }
 
-customElements.define("toc-heading", TOC);
+if (!customElements.get("toc-heading")) {
+  customElements.define("toc-heading", TOC);
+}
 </script>

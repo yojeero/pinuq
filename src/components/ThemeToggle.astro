@@ -46,7 +46,11 @@
 <script>
 const THEME_STORAGE_KEY = "theme";
 const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+// Persisted on globalThis so the router events below can reach it after the
+// Astro-scoped module has finished executing.
+Object.assign(globalThis, { darkScheme });
 const THEME_COLORS = { light: "#f0ece3", dark: "#1c2644" } as const;
+const root = document.documentElement;
 
 function getStoredTheme(): "light" | "dark" | null {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -54,7 +58,7 @@ function getStoredTheme(): "light" | "dark" | null {
 }
 
 function isDark(): boolean {
-  return document.documentElement.classList.contains("dark");
+  return root.classList.contains("dark");
 }
 
 function syncThemeColor() {
@@ -65,35 +69,51 @@ function syncThemeColor() {
 }
 
 function syncToggleButton() {
-  document
-    .getElementById("theme-toggle")
-    ?.setAttribute("aria-pressed", String(isDark()));
+  const button = document.getElementById("theme-toggle");
+  if (button) {
+    button.setAttribute("aria-pressed", String(isDark()));
+  }
 }
 
-document.addEventListener("astro:page-load", () => {
-  syncToggleButton();
-  syncThemeColor();
+const initTheme = () => {
+  const button = document.getElementById("theme-toggle");
+  if (!button || button.dataset.themeBound === "true") return;
 
-  document.getElementById("theme-toggle")?.addEventListener("click", () => {
+  const onClick = () => {
     const theme = isDark() ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", theme === "dark");
+    root.classList.toggle("dark", theme === "dark");
     localStorage.setItem(THEME_STORAGE_KEY, theme);
     syncToggleButton();
     syncThemeColor();
-  });
-});
+  };
 
-document.addEventListener("astro:after-swap", () => {
+  button.addEventListener("click", onClick);
+  button.dataset.themeBound = "true";
+  syncToggleButton();
+  syncThemeColor();
+};
+
+const applyStoredTheme = () => {
   const stored = getStoredTheme();
-  document.documentElement.classList.toggle(
+  root.classList.toggle(
     "dark",
     stored ? stored === "dark" : darkScheme.matches,
   );
-});
+  syncToggleButton();
+  syncThemeColor();
+};
+
+// Astro scopes inline <script> blocks, so nothing here is global unless the
+// module explicitly opts in. Pages/router events and the reduced-motion media
+// query listener cross that boundary and need globalThis.
+initTheme();
+
+globalThis.addEventListener("astro:page-load", initTheme);
+globalThis.addEventListener("astro:after-swap", applyStoredTheme);
 
 darkScheme.addEventListener("change", () => {
   if (getStoredTheme()) return;
-  document.documentElement.classList.toggle("dark", darkScheme.matches);
+  root.classList.toggle("dark", darkScheme.matches);
   syncToggleButton();
   syncThemeColor();
 });

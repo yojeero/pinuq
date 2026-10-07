@@ -86,11 +86,6 @@ export type TagData = {
   id: string;
 };
 
-export interface BreadcrumbItem {
-  label: string;
-  href?: string;
-}
-
 export interface JsonLdProps {
   schema: WithContext<Thing> | WithContext<Thing>[];
 }

@@ -11,20 +11,27 @@ const { class: className } = Astro.props;
 </div>
 
 <script>
-document.addEventListener("astro:page-load", () => {
-  for (const heading of document.querySelectorAll<HTMLHeadingElement>(
+const addSectionAnchors = () => {
+  const headings = document.querySelectorAll<HTMLHeadingElement>(
     ".prose :is(h2, h3, h4)",
-  )) {
-    if (!heading.id || heading.querySelector("a.anchor-link")) continue;
+  );
+
+  headings.forEach((heading) => {
+    if (!heading.id || heading.querySelector("a.anchor-link")) return;
+
     const label = heading.textContent?.trim();
     const anchor = document.createElement("a");
     anchor.href = `#${heading.id}`;
     anchor.className = "anchor-link";
     anchor.textContent = "#";
+
     if (label) {
       anchor.setAttribute("aria-label", `Link to this section: ${label}`);
     }
+
     heading.appendChild(anchor);
-  }
-});
+  });
+};
+
+document.addEventListener("astro:page-load", addSectionAnchors);
 </script>

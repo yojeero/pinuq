@@ -1,4 +1,4 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
@@ -9,11 +9,11 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #1c2644;
+  --background: #efefe9;
+  --foreground: #272727;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
-  --muted-foreground: #5b6377;
+  --muted-foreground: #888981;
   --accent: #e5dfd2;
   --accent-foreground: #1c2644;
   --border: #d7d1c3;
@@ -61,17 +61,20 @@
   --color-input: var(--input);
 }
 
+html {
+  background-color: var(--background);
+  transition: background-color 0.2s;
+}
+
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
 
   body {
     @apply bg-background text-foreground;
-  }
-
-  @view-transition {
-    navigation: auto;
   }
 
   button:not(:disabled),
@@ -86,11 +89,6 @@
   h5,
   h6 {
     text-wrap: balance;
-  }
-
-  a:focus-visible,
-  button:focus-visible {
-    @apply outline outline-2 outline-offset-2 outline-ring;
   }
 }
 
@@ -169,9 +167,23 @@
 /* Blog layout */
 
 .blog-main {
-  width: min(100%, 1280px);
-  margin-inline: auto;
-  padding-block: clamp(3rem, 7vw, 7rem) clamp(5rem, 10vw, 10rem);
+  @apply grid w-full;
+}
+
+.blog-main-slot {
+  @apply mx-auto grid max-w-7xl w-full;
+  padding-bottom: clamp(5rem, 8vw, 8rem);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(1.25rem, 3vw, 2.5rem);
+  row-gap: clamp(3.5rem, 7vw, 6rem);
+}
+
+.blog-section {
+  margin-top: clamp(4rem, 8vw, 7rem);
 }
 
 .blog-categories {
@@ -179,8 +191,6 @@
   gap: 0.35rem;
   overflow-x: auto;
   padding-block: 0.65rem;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
   scrollbar-width: none;
 }
 
@@ -203,28 +213,6 @@
 .blog-categories a.active {
   color: var(--foreground);
   background: var(--accent);
-}
-
-.blog-section {
-  margin-top: clamp(4rem, 8vw, 7rem);
-}
-
-.blog-section-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.blog-section-heading p {
-  margin: 0;
-  color: var(--foreground);
 }
 
 .blog-card {
@@ -291,12 +279,6 @@
   letter-spacing: -0.035em;
 }
 
-.blog-card--featured .blog-card__body h2 {
-  max-width: 560px;
-  font-size: clamp(2.3rem, 4vw, 4.8rem);
-  line-height: 0.96;
-}
-
 .blog-card__body h2 a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -310,38 +292,31 @@
   line-height: 1.5;
 }
 
-.blog-card__author {
-  display: flex;
-  color: var(--muted-foreground);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: clamp(1.25rem, 3vw, 2.5rem);
-  row-gap: clamp(3.5rem, 7vw, 6rem);
-}
-
 .blog-card--no-cover.blog-card--featured {
   grid-template-columns: minmax(0, 1fr);
 }
 
 /* Notes */
+.notes-bg {
+  @apply grid mx-auto w-full bg-stone-50/70 dark:bg-indigo-900/60 dark:text-stone-300;
+}
+
+.notes-center {
+  @apply grid mx-auto w-full max-w-7xl;
+
+  margin-top: clamp(4rem, 8vw, 7rem);
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+}
 
 .notes-grid {
-  display: grid;
+  @apply grid m-0 p-0 list-none max-w-7xl;
+
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: repeat(2, auto);
   grid-auto-flow: column;
 
   column-gap: clamp(1.25rem, 3vw, 2.5rem);
   row-gap: clamp(2rem, 1.25vw, 3rem);
-
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .notes-item {
@@ -414,6 +389,10 @@
     padding: 2rem 0 0;
   }
 
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .notes-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -435,10 +414,6 @@
 
   .blog-card__meta {
     font-size: 0.62rem;
-  }
-
-  .blog-card--featured .blog-card__body h2 {
-    font-size: clamp(2.25rem, 12vw, 4rem);
   }
 }
 

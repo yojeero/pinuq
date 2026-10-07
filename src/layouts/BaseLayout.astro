@@ -1,52 +1,30 @@
 ---
 import { Font } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
-import Analytics from "@vercel/analytics/astro";
 import BaseHead from "@/components/BaseHead.astro";
-import Breadcrumbs from "@/components/Breadcrumbs.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import siteConfig from "@/data/site-config";
 import type { BaseHeadProps, Thing, WithContext } from "@/data/types";
-import {
-  generateBreadcrumbItems,
-  generateBreadcrumbStructuredData,
-  shouldShowBreadcrumbs,
-} from "@/utils/breadcrumb-utils";
 import { createWebPageSchema, createWebSiteSchema } from "@/utils/schema-utils";
 
 import SmoothScroll from "../components/SmoothScroll.astro";
 
 export type Props = BaseHeadProps & {
-  showBreadcrumbs?: boolean;
   lastModified?: Date;
   customSchemas?: WithContext<Thing>[];
   mainClass?: string;
 };
 
 const {
-  showBreadcrumbs = true,
   lastModified,
   customSchemas = [],
-  mainClass = "mx-auto w-full max-w-5xl grow py-12 sm:py-16 lg:py-20",
+  mainClass = "mx-auto w-full max-w-5xl py-12 sm:py-16 lg:py-20",
   ...head
 } = Astro.props;
 
 const siteUrl = Astro.site?.toString() ?? "https://pinux.vercel.app";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
-
-const shouldShow = showBreadcrumbs && shouldShowBreadcrumbs(Astro.url.pathname);
-const breadcrumbItems = shouldShow
-  ? await generateBreadcrumbItems(Astro.url.pathname)
-  : [];
-const breadcrumbStructuredData = shouldShow
-  ? generateBreadcrumbStructuredData(
-      breadcrumbItems,
-      Astro.url.pathname,
-      siteUrl,
-    )
-  : null;
 
 const schemas: WithContext<Thing>[] = [
   createWebSiteSchema(siteUrl),
@@ -89,15 +67,6 @@ if (customSchemas.length > 0) {
     <Font cssVariable="--font-piersans" preload />
     <Font cssVariable="--font-jetbrains-mono" />
     <JsonLd schema={schemas} />
-    <Analytics />
-    {breadcrumbStructuredData && (
-  <script
-    is:inline
-    type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbStructuredData).replace(/</g, "\\u003c")}
-  />
-)}
-    <ClientRouter />
   </head>
   <body>
     <SmoothScroll />
@@ -108,14 +77,11 @@ if (customSchemas.length > 0) {
     >
       Skip to content
     </a>
-    <div class="flex min-h-screen flex-col px-4 md:px-8">
+    <div
+      class="flex min-h-screen flex-col min-h-0 overflow-hidden px-4 md:px-8"
+    >
       <Header />
       <main id="main" class={mainClass}>
-        {shouldShow && (
-  <div class="mb-8">
-    <Breadcrumbs items={breadcrumbItems} class="py-2" />
-  </div>
-)}
         <slot />
       </main>
       <Footer />
