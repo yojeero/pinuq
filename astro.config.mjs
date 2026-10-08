@@ -10,7 +10,7 @@ const blogDir = new URL("./src/content/blog/", import.meta.url);
 
 function getBlogLastmod(url) {
   const { pathname } = new URL(url);
-  const match = pathname.match(/^\/blog\/([^/]+)\/?$/);
+  const match = pathname.match(/^\/blog\/([^/]+)\/?\$/);
   const slug = match?.[1];
   if (!slug) return undefined;
 
@@ -37,6 +37,11 @@ function getBlogLastmod(url) {
 export default defineConfig({
   site: "https://pinux.vercel.app",
   output: "static",
+
+  image: {
+    formats: ["avif", "webp"],
+  },
+
   markdown: {
     shikiConfig: {
       theme: "css-variables",
@@ -118,7 +123,7 @@ export default defineConfig({
     resolve: {
       alias: [
         {
-          find: /^virtual:astro:assets\/fonts$/,
+          find: /^virtual:astro:assets\/fonts\$/,
           replacement: "virtual:astro:assets/fonts/internal",
         },
       ],

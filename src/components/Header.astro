@@ -5,13 +5,13 @@ import siteConfig from "@/data/site-config";
 
 <header class="flex min-h-24 items-center">
   <div
-    class="relative mx-auto flex items-center justify-between flex-wrap p-6 max-w-7xl w-full z-20 lg:px-0"
+    class="relative mx-auto flex items-center justify-between flex-wrap p-6 max-w-6xl w-full z-20 lg:px-0"
   >
     <a class="flex flex-no-shrink" aria-label={siteConfig.title} href="/">
       <img
         src={siteConfig.logo.src}
         alt={siteConfig.logo.alt}
-        class="h-16 w-16 rounded-full bg-stone-50 hover:-rotate-12 transition-transform duration-500 shrink-0"
+        class="h-16 w-16 rounded-full bg-stone-50 hover:-rotate-12 transition-transform duration-500 shrink-0 dark:bg-amber-300"
       >
     </a>
 
@@ -24,9 +24,9 @@ import siteConfig from "@/data/site-config";
         class="burger"
         data-nav-toggle="open"
       >
-        <span class="burger__bar"></span>
-        <span class="burger__bar"></span>
-        <span class="burger__bar"></span>
+        <span class="burger__bar w-6 self-end"></span>
+        <span class="burger__bar w-8 self-center"></span>
+        <span class="burger__bar w-5 self-start"></span>
       </button>
 
       <div id="site-nav" class="nav-links">
@@ -36,21 +36,33 @@ import siteConfig from "@/data/site-config";
           class="burger burger--close"
           data-nav-toggle="close"
         >
-          <span class="burger__bar"></span>
-          <span class="burger__bar"></span>
+          <span class="burger__bar w-8"></span>
+          <span class="burger__bar w-8"></span>
         </button>
 
-        <div id="nav-content">
-          <ul class="nav">
-            <li class="nav-top"><span>Menu</span> <ThemeToggle /></li>
-
-            <li><a href="/">Home</a></li>
-            <li>
-              <a class="nav-link" href="/about" rel="prefetch">About</a>
+        <div id="nav-content" class="grid grid-rows-2">
+          <ul
+            class="flex flex-col items-center gap-4 m-0 p-0 list-none text-4xl leading-12 tracking-wider mt-12 text-black dark:text-indigo-300/40"
+          >
+            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
+              <a href="/">Home</a>
             </li>
-            <li><a href="/about">Tags</a></li>
-            <li><a href="/about">Contact</a></li>
+            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
+              <a href="/about">About</a>
+            </li>
+            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
+              <a href="/about">Tags</a>
+            </li>
+            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
+              <a href="/about">Contact</a>
+            </li>
           </ul>
+
+          <div
+            class="grid w-fit h-fit p-4 bg-indigo-500/40 rounded-full text-white hover:bg-blue-800 self-center mx-auto"
+          >
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </div>

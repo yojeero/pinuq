@@ -1,8 +1,8 @@
 // src/data/site-config.ts
 
-import alexAvatar from "@/assets/team/alex.webp";
-import yojeeAvatar from "@/assets/team/yojee.webp";
-import juraAvatar from "@/assets/team/yura.webp";
+import alexAvatar from "@/assets/team/alex.png";
+import yojeeAvatar from "@/assets/team/yojee.png";
+import juraAvatar from "@/assets/team/yura.png";
 import type { SiteConfig, TeamMember } from "@/data/types";
 
 const siteUrl = (import.meta.env.SITE ?? "https://pinux.vercel.app").replace(

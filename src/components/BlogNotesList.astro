@@ -1,5 +1,4 @@
 ---
-import FormattedDate from "@/components/FormattedDate.astro";
 import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
@@ -17,26 +16,38 @@ const notePosts = posts.slice(0, 9);
   const primaryTag = tags[0];
 
   return (
-    <li class="notes-item">
-      <div class="notes-item__meta">
+    <li class="flex min-w-0 flex-col pt-2">
+      <div class="flex items-center gap-3 mb-2 tracking-normal text-xs uppercase font-mono tracking-tight">
         <time datetime={publishDate.toISOString()}>
-          <FormattedDate date={publishDate} />
+          {publishDate.toLocaleDateString("us-US", {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric",
+          })}
         </time>
         {primaryTag && (
           <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>
         )}
       </div>
 
-      <h3 class="notes-item__title">
+      <h3 class="m-0 font-medium leading-2.5 tracking-wide text-lg hover:text-blue-300">
         <a href={`/blog/${post.id}/`}>{title}</a>
       </h3>
 
-      {excerpt && <p class="notes-item__excerpt">{excerpt}</p>}
+      {excerpt && (
+        <p class="mt-2 mx-0 mb-0 text-xs leading-normal font-mono tracking-tight">
+          {excerpt}
+        </p>
+      )}
     </li>
   );
 })}
 </ol>
 
-<div class="notes-more">
-  <a href="/notes">More Notes</a>
+<div class="mt-[clamp(2.5rem,_5vw,_4rem)]">
+  <a
+    href="/notes"
+    class="inline-flex items-center text-xs tracking-wide uppercase hover:text-blue-300"
+    >More Notes</a
+  >
 </div>

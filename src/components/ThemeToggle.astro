@@ -46,8 +46,6 @@
 <script>
 const THEME_STORAGE_KEY = "theme";
 const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-// Persisted on globalThis so the router events below can reach it after the
-// Astro-scoped module has finished executing.
 Object.assign(globalThis, { darkScheme });
 const THEME_COLORS = { light: "#f0ece3", dark: "#1c2644" } as const;
 const root = document.documentElement;
@@ -103,9 +101,6 @@ const applyStoredTheme = () => {
   syncThemeColor();
 };
 
-// Astro scopes inline <script> blocks, so nothing here is global unless the
-// module explicitly opts in. Pages/router events and the reduced-motion media
-// query listener cross that boundary and need globalThis.
 initTheme();
 
 globalThis.addEventListener("astro:page-load", initTheme);

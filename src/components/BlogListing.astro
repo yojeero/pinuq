@@ -12,7 +12,6 @@ type Props = {
 };
 
 const { posts, currentPage } = Astro.props;
-// Featured post on the main page always with a cover
 const featuredPost =
   currentPage === 1
     ? (posts.find((post) => post.data.coverImage) ?? null)
@@ -20,25 +19,24 @@ const featuredPost =
 const gridPosts = featuredPost
   ? posts.filter((post) => post.id !== featuredPost.id)
   : posts;
-// Posts without covers are displayed not as cards, but as a compact list
 const notePosts = gridPosts.filter((post) => !post.data.coverImage);
 const cardPosts = gridPosts.filter((post) => post.data.coverImage);
 ---
 
 <BaseLayout
   title={currentPage > 1 ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}` : ""}
-  description="Explore tech tips, coding journeys, and advice for developers and tech enthusiasts."
+  description="Explore tech tips, coding journeys and tech enthusiasts."
   mainClass="blog-main"
 >
   <div class="blog-main-slot">
     {featuredPost && (
-  <section class="blog-section" aria-labelledby="featured-heading">
+  <section class="py-[clamp(2rem,4vw,6rem)]" aria-labelledby="featured-heading">
     <BlogPostCard post={featuredPost} featured />
   </section>
 )}
 
     {cardPosts.length > 0 && (
-  <section class="blog-section" aria-labelledby="latest-heading">
+  <section aria-labelledby="latest-heading">
     <div class="blog-grid">
       {cardPosts.map((post) => (
         <BlogPostCard post={post} />
@@ -51,10 +49,6 @@ const cardPosts = gridPosts.filter((post) => post.data.coverImage);
   <div class="notes-bg">
     {notePosts.length > 0 && (
   <section class="notes-center" aria-labelledby="notes-heading">
-    <div class="blog-section-heading">
-      <p id="notes-heading">Notes</p>
-    </div>
-
     <BlogNotesList posts={notePosts} />
   </section>
 )}

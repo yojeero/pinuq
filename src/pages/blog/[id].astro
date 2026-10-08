@@ -1,7 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
-import FormattedDate from "@/components/FormattedDate.astro";
 import Prose from "@/components/Prose.astro";
 import siteConfig, { team } from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
@@ -81,34 +80,34 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   customSchemas={[blogPostingSchema]}
 >
   <div class="max-w-3xl mx-auto w-full">
-    <h1 class="font-sans font-bold sm:text-[2.5rem] my-4">
+    <h1 class="font-medium leading-8 tracking-wide text-3xl lg:text-4xl">
       {title}
     </h1>
   </div>
 
-  <div class="flex w-full max-w-3xl mx-auto items-center">
+  <div class="flex w-full max-w-3xl mx-auto items-center my-4">
     <div class="w-full flex items-center gap-4">
       {authorAvatar && (
   <Image
     src={authorAvatar}
     alt={authorName}
-    class="h-16 w-16 rounded-full object-cover"
+    class="h-12 w-12 rounded-full object-cover"
   />
 )}
-      <p class="text-lg text-stone-700">
-        By
-        {authorName && (
-  <span class="tracking-widest text-stone-500 mx-1 p-1">{authorName}</span>
-)}
-
+      <p class="text-slate-700 text-xs font-mono tracking-tighter">
+        {authorName && <span class="pr-1">By {authorName}</span>}
         <time datetime={publishDate.toISOString()}>
-          on <FormattedDate date={publishDate} />
+          {publishDate.toLocaleDateString("us-US", {
+  day: "numeric",
+  month: "numeric",
+  year: "numeric",
+})}
         </time>
       </p>
     </div>
 
     <div
-      class="w-fit lowercase text-sm font-sans bg-stone-50 py-2 px-4 tracking-widest rounded-md dark:bg-indigo-900/60 dark:text-stone-300"
+      class="flex uppercase text-xs font-mono tracking-widest dark:bg-indigo-900/60 dark:text-stone-300 border-1 border-slate-600 px-1 rounded-xs"
     >
       {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
@@ -120,9 +119,9 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   <Image
     src={coverImage}
     alt={coverAlt ?? title}
-    widths={[640, 960, 1280]}
+    widths={[520, 1040]}
     sizes="(min-width: 1024px) 672px, 100vw"
-    class="mb-10 aspect-video w-full rounded-sm object-cover"
+    class="mb-10 aspect-video w-full rounded-lg object-cover"
   />
 )}
       <div id="content">

@@ -6,16 +6,19 @@ author: "Yojee"
 tags:
   - Linux
 
-coverImage: ./cover.webp
+coverImage: ./cover.png
 coverAlt: "post cover"
+coverPosition: "center"
 ---
 
 import { Image } from 'astro:assets';
-import image1 from './1.webp';
-import image2 from './2.webp';
+import image1 from './1.png';
+import image2 from './2.png';
 
-| **Window Manager** <img width="20"/> | `bspwm` <img width="60"/> |
+|  <img width="20"/> | <img width="60"/> |
 | :----------------------------------- | :------------------------- |
+| **Window Manager**                   | `bspwm`                    |
+| **Hotkeys daemon**                   | `sxhkd`                    |
 | **Hotkeys daemon**                   | `sxhkd`                    |
 | **Status bar**                       | `polybar`                  |
 | **Terminal**                         | `alacritty`                |
@@ -180,7 +183,7 @@ chsh -s $(command -v fish)
 > [!TIP]
 > Create folder **Screen** for saving screenshots via maim.
 
-### 🐧 Login TTY
+### Login TTY
 
 #### .xinitrc
 
@@ -204,7 +207,12 @@ if status is-login
 end
 ```
 
-### 🐧 Login Bspwm
+### Login Bspwm
 
 > [!TIP]
-> Arch Linux > login > pass
+> Arch Linux > login > pass   
+
+-----   
+
+> [BSPWM Paper](https://github.com/yojeero/bspwm_paper) download from the  GitHub.   
+

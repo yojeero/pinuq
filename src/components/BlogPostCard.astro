@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import FormattedDate from "@/components/FormattedDate.astro";
 import siteConfig from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
@@ -29,54 +28,60 @@ const hasCover = Boolean(coverImage);
 ---
 
 <article
-  class:list={[
-  "blog-card",
-  featured && "blog-card--featured",
-  !hasCover && "blog-card--no-cover",
-]}
+  class:list={["min-w-0", featured && "blog-card", !hasCover && "blog-card--no-cover"]}
 >
   {hasCover && coverImage && (
   <a
-    class="blog-card__media"
+    class="blog-media relative block overflow-hidden aspect-video"
     href={`/blog/${post.id}/`}
     aria-label={`Read ${title}`}
   >
-    <Image
-      src={coverImage}
-      alt={coverAlt ?? title}
-      quality={100}
-      widths={featured ? [640, 960, 1280, 1600] : undefined}
-      sizes={
-        featured
-          ? "(min-width: 1024px) 62vw, 100vw"
-          : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-      }
-      class="h-full w-full object-cover"
-      loading={featured ? "eager" : "lazy"}
-    />
+    <div class="w-full aspect-video overflow-hidden flex items-center justify-center rounded-lg hover:scale-z-50">
+      <Image
+        src={coverImage}
+        alt={coverAlt ?? title}
+        width={520}
+        height={293}
+        widths={[520, 1040]}
+        sizes="(max-width: 520px) 100vw, 520px"
+        class="w-full max-w-[520px] aspect-video object-cover rounded-lg"
+      />
+    </div>
   </a>
 )}
 
-  <div class="blog-card__body">
-    <div class="blog-card__meta">
-      <div class="flex items-center gap-2 text-stone-700">
-        {authorName && <span class="text-stone-500 mx-1 p-1">By {authorName}</span>}
+  <div class="flex flex-col justify-center px-fluid-p mt-2">
+    <div class="flex items-center justify-between">
+      <div
+        class="flex items-center text-slate-700 text-xs font-mono tracking-tighter"
+      >
+        {authorName && <span class="pr-1">By {authorName}</span>}
 
         <time datetime={publishDate.toISOString()}>
-          <FormattedDate date={publishDate} />
+          {publishDate.toLocaleDateString("us-US", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+})}
         </time>
       </div>
       <div
-        class="w-fit lowercase mt-6 text-xs font-sans bg-stone-50 py-2 px-4 tracking-widest rounded-md dark:bg-indigo-900/60 dark:text-stone-300"
+        class="flex uppercase text-xs font-mono tracking-widest dark:bg-indigo-900/60 dark:text-stone-300 border-1 border-slate-600 px-1 rounded-xs"
       >
         {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
       </div>
     </div>
 
-    <h2>
+    <h2
+      class="m-0 font-medium leading-8 tracking-wide text-3xl lg:text-4xl hover:text-blue-300"
+    >
       <a href={`/blog/${post.id}/`}>{title}</a>
     </h2>
 
-    {excerpt && <p>{excerpt}</p>}
+    {excerpt && (
+  <p class="mt-2 font-light text-xs leading-normal font-mono tracking-tight text-blue-300 uppercase">
+    {excerpt}
+  </p>
+)}
   </div>
 </article>

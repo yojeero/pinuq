@@ -26,6 +26,9 @@ const blog = defineCollection({
       seo: seoSchema.optional(),
       coverImage: image().optional(),
       coverAlt: z.string().optional(),
+      coverPosition: z
+        .enum(["center", "top", "bottom", "left", "right"])
+        .default("center"),
       author: z.string().optional(),
     }),
 });
