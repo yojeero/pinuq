@@ -138,7 +138,9 @@ All commands are run from the root of the project:
 
 > [!IMPORTANT]
 > https://pinux.vercel.app — now using in the config files on production.
-> When your project gets a different domain name (for example, new.vercel.app) or you connect your own domain, update all 4 locations; otherwise, the incorrect address will remain.   
+> When your project gets a different domain name (for example, new.vercel.app)    
+or you connect your own domain, update all 4 locations;    
+otherwise, the incorrect address will remain.   
 
 > astro.config.mjs   
 > public/robots.txt   
