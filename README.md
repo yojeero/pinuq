@@ -19,31 +19,109 @@
 #### Tech Stack
 ```
 Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript
-```
+```   
+
+<img src="preview/100.png" width="70%">   
 
 ## Project Structure
 
 ```text
-/
-├── public/            # Static assets (favicons, manifest, og.png, robots.txt)
-├── src/
-│   ├── assets/        # Optimizable images imported from components (avatar.png)
-│   ├── components/    # Astro components (Badge, TOC, ThemeToggle, ...)
-│   ├── content/       # Content collections (blog/*.md, pages/*.mdx)
-│   ├── content.config.ts  # Collection schemas (Zod via astro/zod)
-│   ├── data/          # site-config.ts (nav, social, hero)
-│   ├── icons/         # Astro icon components
-│   ├── layouts/       # BaseLayout.astro (head, JSON-LD, view transitions)
-│   ├── lib/           # cn() helper
-│   ├── pages/         # File-based routes (index, blog/, tags/, og/, rss.xml, 404)
-│   ├── styles/
-│   │   └── global.css # Tailwind v4 entry: theme tokens, @theme inline fonts, prose overrides
-│   ├── types/         # Shared types
-│   └── utils/         # data, schema (JSON-LD), toc helpers
-├── astro.config.mjs   # Astro configuration (site, fonts, mdx/sitemap integrations)
-├── biome.json         # Biome lint/format configuration
-├── tsconfig.json      # Extends astro/tsconfigs/strict, @/* path alias
-└── dist/              # Build output (generated, static site served by Vercel)
+Directory structure:
+└── pinux/
+    ├── astro.config.mjs
+    ├── biome.json
+    ├── bun.lock
+    ├── package.json
+    ├── preview/
+    │   ├── 1.png
+    │   ├── 2.png
+    │   ├── 100.png
+    │   ├── pinux_1.png
+    │   └── pinux_2.png
+    ├── public/
+    │   ├── android-chrome-192x192.png
+    │   ├── android-chrome-512x512.png
+    │   ├── apple-touch-icon.png
+    │   ├── favicon.ico
+    │   ├── favicon.svg
+    │   ├── images/
+    │   │   ├── logo.png
+    │   │   └── logo_2.png
+    │   ├── manifest.webmanifest
+    │   ├── og.png
+    │   └── robots.txt
+    ├── README.md
+    ├── src/
+    │   ├── assets/
+    │   │   ├── fonts/
+    │   │   │   ├── JetBrainsMono-VariableFont_wght.woff2
+    │   │   │   ├── PierSans-Bold.woff2
+    │   │   │   ├── PierSans-Light.woff2
+    │   │   │   └── PierSans-Regular.woff2
+    │   │   └── team/
+    │   │       ├── alex.png
+    │   │       ├── yojee.png
+    │   │       └── yura.png
+    │   ├── components/
+    │   │   ├── Badge.astro
+    │   │   ├── BaseHead.astro
+    │   │   ├── BlogCategories.astro
+    │   │   ├── BlogListing.astro
+    │   │   ├── BlogNotesList.astro
+    │   │   ├── BlogPostCard.astro
+    │   │   ├── Button.astro
+    │   │   ├── Footer.astro
+    │   │   ├── Header.astro
+    │   │   ├── Icon.astro
+    │   │   ├── JsonLd.astro
+    │   │   ├── NavLink.astro
+    │   │   ├── Pagination.astro
+    │   │   ├── PostListItem.astro
+    │   │   ├── Prose.astro
+    │   │   ├── SmoothScroll.astro
+    │   │   ├── SocialLink.astro
+    │   │   ├── TeamList.astro
+    │   │   ├── ThemeToggle.astro
+    │   │   ├── TOC.astro
+    │   │   ├── TOCHeading.astro
+    │   │   └── TOCList.astro
+    │   ├── content/
+    │   │   ├── blog/
+    │   │   │   
+    │   │   └── pages/
+    │   │       ├── about.mdx
+    │   │       ├── tags.mdx
+    │   │       └── team.mdx
+    │   ├── content.config.ts
+    │   ├── data/
+    │   │   ├── site-config.ts
+    │   │   └── types.ts
+    │   ├── layouts/
+    │   │   └── BaseLayout.astro
+    │   ├── lib/
+    │   │   └── utils.ts
+    │   ├── pages/
+    │   │   ├── 404.astro
+    │   │   ├── blog/
+    │   │   │   ├── [...page].astro
+    │   │   │   └── [id].astro
+    │   │   ├── index.astro
+    │   │   ├── og/
+    │   │   │   └── [...id].ts
+    │   │   ├── rss.xml.js
+    │   │   ├── tags/
+    │   │   │   ├── index.astro
+    │   │   │   └── [id]/
+    │   │   │       └── [...page].astro
+    │   │   └── [...id].astro
+    │   ├── styles/
+    │   │   └── global.css
+    │   └── utils/
+    │       ├── common-utils.ts
+    │       ├── data-utils.ts
+    │       ├── schema-utils.ts
+    │       └── toc-utils.ts
+    └── tsconfig.json
 
 ## Commands
 
@@ -66,5 +144,3 @@ All commands are run from the root of the project:
 > public/robots.txt   
 > site-config.ts   
 > BaseLayout.astro.    
-
-<img src="preview/100.png" width="100%">
