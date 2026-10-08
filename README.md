@@ -10,6 +10,8 @@
     - Linux
     - Life Style  
 - Clean UI   
+- Fast   
+- Optimized   
 - SEO-Friendly   
 - Responsive Design   
 - Cloud & Vercel Hosting Ready
@@ -64,3 +66,5 @@ All commands are run from the root of the project:
 > public/robots.txt   
 > site-config.ts   
 > BaseLayout.astro.    
+
+<img src="preview/100.png" width="100%">
