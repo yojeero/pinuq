@@ -1,6 +1,6 @@
 <img src="preview/pinux_1.png" width="100%"><img src="preview/pinux_2.png" width="100%">
 
-<img src="https://img.shields.io/badge/Pinux-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
+<img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
 > [!NOTE]
 > Features 🧼   
