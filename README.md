@@ -1,4 +1,4 @@
-<img src="preview/pinux_1.png" width="100%"><img src="preview/pinux_2.png" width="100%">
+<img src="preview/pinux_1.png" width="100%">
 
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
@@ -8,15 +8,14 @@
 - Blog about Tech, Linux & Coders Lifestyle  
 - Clean UI   
 - SEO-Friendly   
-- Responsive Design   
+- Responsive Design
+- 100% Lighthouse Performance   
 - Cloud & Vercel Hosting Ready
 
 #### Tech Stack
 ```
 Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript
 ```   
-
-<img src="preview/100.png" width="70%">   
 
 ## Commands
 
