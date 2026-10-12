@@ -2,8 +2,7 @@
 
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Yojee-Blog">   
 
-> [!NOTE]
-> Features 🧼   
+Features 🧼   
 
 - Blog about Tech, Linux & Coders Lifestyle  
 - Clean UI   
