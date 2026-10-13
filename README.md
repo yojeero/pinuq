@@ -4,7 +4,7 @@
 
 Features 🧼   
 
-- Blog about Tech, Linux & Coders Lifestyle  
+- Blog about Tech & Lifestyle  
 - Clean UI   
 - SEO-Friendly   
 - Responsive Design
