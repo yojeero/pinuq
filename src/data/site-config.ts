@@ -20,11 +20,6 @@ const siteConfig: SiteConfig = {
     src: "/assets/team/yojee.png",
     alt: "Yojee - Full Stack Developer",
   },
-  primaryNavLinks: [
-    { text: "About", href: "/about" },
-    { text: "Team", href: "/team" },
-    { text: "Articles", href: "/blog/all" },
-  ],
 };
 
 export const team = teamData as TeamMember[];

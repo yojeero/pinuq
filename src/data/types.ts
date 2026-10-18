@@ -33,8 +33,7 @@ export type SiteConfig = {
     alt: string;
   };
   image: Image;
-  primaryNavLinks?: Link[];
-  team?: TeamMember[]; // Изменено: сделано необязательным, чтобы не ломать siteConfig
+  team?: TeamMember[];
 };
 
 // -------------------------------------------------------------
