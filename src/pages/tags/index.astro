@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import Badge from "@/components/Badge.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   getAllTags,
@@ -34,7 +33,14 @@ const tagsWithCount = tags
           All Tags ({tagsWithCount.length})
         </h2>
         <div class="mt-4 flex flex-wrap gap-2">
-          {tagsWithCount.map((tag) => <Badge href={`/tags/${tag.id}/`}>{tag.name}</Badge>)}
+          {tagsWithCount.map((tag) => (
+  <a
+    href={`/tags/${tag.id}/`}
+    class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs mt-4 hover:text-slate-400"
+  >
+    {tag.name}
+  </a>
+))}
         </div>
       </div>
       {tagsWithCount.length > 0 && (
@@ -45,9 +51,9 @@ const tagsWithCount = tags
         <a href={`/tags/${tag.id}/`} class="font-medium">
           <div class="flex items-center justify-between rounded-lg border p-3">
             {tag.name}
-            <Badge>
+            <span class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs">
               {tag.count} <span class="sr-only">posts</span>
-            </Badge>
+            </span>
           </div>
         </a>
       ))}

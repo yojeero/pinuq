@@ -16,14 +16,7 @@
   --primary-foreground: #f0ece3;
   --muted-foreground: oklch(70.4% 0.04 256.788);
   --accent: oklch(50% 0.134 242.749);
-  --accent-foreground: #1c2644;
   --border: oklch(92.9% 0.013 255.508);
-  --navy: #1c2644;
-  --navy-alt: #232f55;
-  --link: #1c2644;
-  --post-bg: #fbf6ea;
-  --post-fg: #2a241e;
-  --post-accent: #a45d17;
 }
 
 .dark {
@@ -34,9 +27,7 @@
   --primary-foreground: #1c2644;
   --muted-foreground: #a9b1c6;
   --accent: oklch(50% 0.134 242.749);
-  --accent-foreground: #e2dcd0;
   --border: oklch(37.2% 0.044 257.287);
-  --link: #c8a870;
 }
 
 @theme inline {
@@ -47,11 +38,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
-  --color-navy: var(--navy);
-  --color-navy-alt: var(--navy-alt);
-  --color-link: var(--link);
 }
 
 html {
@@ -100,19 +87,23 @@ html {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
   --tw-prose-lead: var(--foreground);
-  --tw-prose-links: var(--link);
+  --tw-prose-links: #1c2644;
   --tw-prose-bold: var(--foreground);
   --tw-prose-counters: var(--foreground);
   --tw-prose-bullets: var(--foreground);
   --tw-prose-hr: var(--border);
   --tw-prose-quotes: var(--foreground);
-  --tw-prose-quote-borders: var(--gold);
+  --tw-prose-quote-borders: #c8a870;
   --tw-prose-captions: var(--muted-foreground);
   --tw-prose-code: var(--foreground);
   --tw-prose-pre-code: #e2dcd0;
-  --tw-prose-pre-bg: var(--navy-alt);
+  --tw-prose-pre-bg: #232f55;
   --tw-prose-th-borders: var(--border);
   --tw-prose-td-borders: var(--border);
+}
+
+.dark .prose {
+  --tw-prose-links: #c8a870;
 }
 
 .prose :is(h1, h2, h3, h4, h5, h6) {
@@ -129,7 +120,7 @@ html {
 }
 
 .prose pre.astro-code {
-  --astro-code-background: var(--navy-alt);
+  --astro-code-background: #232f55;
   --astro-code-foreground: #e2dcd0;
   --astro-code-token-comment: #98a1ba;
   --astro-code-token-keyword: #c8a870;
