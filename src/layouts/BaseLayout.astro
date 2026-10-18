@@ -19,11 +19,11 @@ export type Props = BaseHeadProps & {
 const {
   lastModified,
   customSchemas = [],
-  mainClass = "mx-auto w-full max-w-5xl py-12 sm:py-16 lg:py-20",
+  mainClass = "mx-auto w-full",
   ...head
 } = Astro.props;
 
-const siteUrl = Astro.site?.toString() ?? "https://pinux.vercel.app";
+const siteUrl = Astro.site?.toString() ?? "https://pinuq.vercel.app";
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 
 const schemas: WithContext<Thing>[] = [
@@ -65,7 +65,7 @@ if (customSchemas.length > 0) {
     </script>
     <BaseHead {...head} />
     <Font cssVariable="--font-piersans" preload />
-    <Font cssVariable="--font-jetbrains-mono" />
+    <Font cssVariable="--font-jetbrains-mono" preload />
     <JsonLd schema={schemas} />
   </head>
   <body>

@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
 import Prose from "@/components/Prose.astro";
 import siteConfig, { team } from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
@@ -11,6 +12,7 @@ import {
   createBlogPostingSchema,
   createPersonSchema,
 } from "@/utils/schema-utils";
+import { defaultAvatar, resolveAvatar } from "@/utils/team-utils";
 
 export async function getStaticPaths() {
   const posts = (await getCollection("blog")).sort(sortItemsByDateDesc);
@@ -42,6 +44,8 @@ const {
   seo,
   coverImage,
   coverAlt,
+  coverPosition = "center",
+  coverZoom = 100,
   author,
 } = post.data;
 
@@ -49,9 +53,7 @@ const authorName = author || siteConfig.author;
 const matchedMember = team.find(
   (member) => member.author === authorName || member.name === authorName,
 );
-const authorAvatar = matchedMember
-  ? matchedMember.avatar
-  : siteConfig.image.src;
+const authorAvatar = resolveAvatar(matchedMember?.avatar) ?? defaultAvatar;
 
 const ogImage = {
   src: new URL(`og/${post.id}.png`, Astro.site).toString(),
@@ -63,6 +65,25 @@ const primaryTag = tags[0];
 const { Content } = await render(post);
 
 const postUrl = new URL(`/blog/${post.id}`, Astro.site).toString();
+
+const originMap = {
+  center: "center center",
+  top: "top center",
+  bottom: "bottom center",
+  left: "center left",
+  right: "center right",
+  "top-left": "top left",
+  "top-right": "top right",
+  "bottom-left": "bottom left",
+  "bottom-right": "bottom right",
+};
+
+const activePosition = coverPosition in originMap ? coverPosition : "center";
+
+const coverStyle = {
+  transform: `scale(${coverZoom / 100})`,
+  "transform-origin": originMap[activePosition],
+};
 
 const authorSchema = createPersonSchema();
 const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
@@ -79,8 +100,8 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   tags={tags}
   customSchemas={[blogPostingSchema]}
 >
-  <div class="max-w-3xl mx-auto w-full">
-    <h1 class="font-medium leading-8 tracking-wide text-3xl lg:text-4xl">
+  <div class="max-w-3xl mx-auto w-full mt-24">
+    <h1 class="font-bold leading-8 tracking-wide text-3xl lg:text-4xl">
       {title}
     </h1>
   </div>
@@ -91,23 +112,16 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   <Image
     src={authorAvatar}
     alt={authorName}
-    class="h-12 w-12 rounded-full object-cover"
+    class="h-12 w-12 rounded-full object-cover object-top"
   />
 )}
       <p class="text-slate-700 text-xs font-mono tracking-tighter">
-        {authorName && <span class="pr-1">By {authorName}</span>}
-        <time datetime={publishDate.toISOString()}>
-          {publishDate.toLocaleDateString("us-US", {
-  day: "numeric",
-  month: "numeric",
-  year: "numeric",
-})}
-        </time>
+        <FormattedDate date={publishDate} format="short" />
       </p>
     </div>
 
     <div
-      class="flex uppercase text-xs font-mono tracking-widest dark:bg-indigo-900/60 dark:text-stone-300 border-1 border-slate-600 px-1 rounded-xs"
+      class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs mt-4 hover:text-slate-400"
     >
       {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
@@ -116,13 +130,16 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   <div class="mt-10">
     <article class="min-w-0 w-full max-w-3xl mx-auto">
       {coverImage && (
-  <Image
-    src={coverImage}
-    alt={coverAlt ?? title}
-    widths={[520, 1040]}
-    sizes="(min-width: 1024px) 672px, 100vw"
-    class="mb-10 aspect-video w-full rounded-lg object-cover"
-  />
+  <div class="mb-10 aspect-video w-full overflow-hidden rounded-lg border border-border select-none pointer-events-none">
+    <Image
+      src={coverImage}
+      alt={coverAlt ?? title}
+      widths={[520, 1040]}
+      sizes="(min-width: 1024px) 672px, 100vw"
+      class="w-full h-full object-cover"
+      style={coverStyle}
+    />
+  </div>
 )}
       <div id="content">
         <Prose>

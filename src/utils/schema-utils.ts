@@ -13,7 +13,7 @@ function getSiteUrl(fallbackOrigin?: string): string {
   if (site) {
     return site.endsWith("/") ? site : `${site}/`;
   }
-  return fallbackOrigin || "https://pinux.vercel.app/";
+  return fallbackOrigin || "https://pinuq.vercel.app/";
 }
 
 export function createWebSiteSchema(url: string): WithContext<WebSite> {

@@ -15,19 +15,11 @@ export type Link = {
   href: string;
 };
 
-export type SocialIconType = "github" | "twitter";
-
-export type SocialLink = Link & {
-  icon: SocialIconType;
-};
-
 export type TeamMember = {
   name: string;
   author?: string;
   role: string;
-  bio: string;
-  avatar: ImageMetadata;
-  socials: SocialLink[];
+  avatar?: ImageMetadata | string;
 };
 
 export type SiteConfig = {
@@ -40,11 +32,11 @@ export type SiteConfig = {
     src: string;
     alt: string;
   };
-  image: Image & { src: ImageMetadata };
+  image: Image;
   primaryNavLinks?: Link[];
-  socialLinks?: SocialLink[];
-  team: TeamMember[];
+  team?: TeamMember[]; // Изменено: сделано необязательным, чтобы не ломать siteConfig
 };
+
 // -------------------------------------------------------------
 
 export type BlogPost = CollectionEntry<"blog">;

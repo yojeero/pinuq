@@ -1,6 +1,6 @@
 {
-  "name": "pinux",
-  "short_name": "pinux",
+  "name": "pinuq",
+  "short_name": "pinuq",
   "start_url": "/",
   "icons": [
     {
@@ -12,7 +12,14 @@
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "theme_color": "#a89a00",

@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import siteConfig from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
 
@@ -10,17 +9,7 @@ type Props = {
 };
 
 const { post, featured = false } = Astro.props;
-const {
-  title,
-  excerpt,
-  publishDate,
-  tags = [],
-  coverImage,
-  coverAlt,
-  author,
-} = post.data;
-
-const authorName = author || siteConfig.author;
+const { title, excerpt, tags = [], coverImage, coverAlt } = post.data;
 
 const primaryTag = tags[0];
 
@@ -31,57 +20,34 @@ const hasCover = Boolean(coverImage);
   class:list={["min-w-0", featured && "blog-card", !hasCover && "blog-card--no-cover"]}
 >
   {hasCover && coverImage && (
-  <a
-    class="blog-media relative block overflow-hidden aspect-video"
-    href={`/blog/${post.id}/`}
-    aria-label={`Read ${title}`}
-  >
-    <div class="w-full aspect-video overflow-hidden flex items-center justify-center rounded-lg hover:scale-z-50">
-      <Image
-        src={coverImage}
-        alt={coverAlt ?? title}
-        width={520}
-        height={293}
-        widths={[520, 1040]}
-        sizes="(max-width: 520px) 100vw, 520px"
-        class="w-full max-w-[520px] aspect-video object-cover rounded-lg"
-      />
-    </div>
+  <a href={`/blog/${post.id}/`} aria-label={`Read ${title}`}>
+    <Image
+      src={coverImage}
+      alt={coverAlt ?? title}
+      widths={[520, 1040]}
+      sizes="(max-width: 520px) 100vw, 520px"
+      class="w-full max-w-[520px] aspect-video object-cover hover:scale-105 transition-transform mb-4 mx-auto rounded-lg"
+    />
   </a>
 )}
 
-  <div class="flex flex-col justify-center px-fluid-p mt-2">
-    <div class="flex items-center justify-between">
-      <div
-        class="flex items-center text-slate-700 text-xs font-mono tracking-tighter"
-      >
-        {authorName && <span class="pr-1">By {authorName}</span>}
-
-        <time datetime={publishDate.toISOString()}>
-          {publishDate.toLocaleDateString("us-US", {
-  day: "numeric",
-  month: "short",
-  year: "numeric",
-})}
-        </time>
-      </div>
-      <div
-        class="flex uppercase text-xs font-mono tracking-widest dark:bg-indigo-900/60 dark:text-stone-300 border-1 border-slate-600 px-1 rounded-xs"
-      >
-        {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
-      </div>
-    </div>
-
+  <div class="flex flex-col justify-center ml-1">
     <h2
-      class="m-0 font-medium leading-8 tracking-wide text-3xl lg:text-4xl hover:text-blue-300"
+      class="font-medium leading-normal tracking-wide text-xl hover:text-slate-400"
     >
       <a href={`/blog/${post.id}/`}>{title}</a>
     </h2>
 
     {excerpt && (
-  <p class="mt-2 font-light text-xs leading-normal font-mono tracking-tight text-blue-300 uppercase">
+  <p class="font-light text-xs leading-normal tracking-wide text-slate-700 ">
     {excerpt}
   </p>
 )}
+
+    <div
+      class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs mt-4 hover:text-slate-400"
+    >
+      {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
+    </div>
   </div>
 </article>

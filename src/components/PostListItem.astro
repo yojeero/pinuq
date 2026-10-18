@@ -1,50 +1,69 @@
 ---
-import { Image } from "astro:assets";
-import Badge from "@/components/Badge.astro";
-import type { PostListItemProps } from "@/data/types";
+import FormattedDate from "@/components/FormattedDate.astro";
+import type { BlogPost } from "@/data/types";
 import { slugify } from "@/utils/common-utils";
+
+interface Props {
+  post: BlogPost;
+  lead?: boolean;
+  hideTags?: boolean;
+  class?: string;
+  [key: string]: unknown;
+}
 
 const {
   post,
-  class: className,
+  lead = false,
   hideTags = false,
-  showCover = false,
-} = Astro.props as PostListItemProps;
-const { title, publishDate, tags = [], coverImage, coverAlt } = post.data;
+  class: className,
+  ...rest
+} = Astro.props;
+const { title, excerpt, publishDate, tags = [] } = post.data;
 ---
 
-<li class:list={[className]}>
-  {showCover && coverImage && (
-  <a href={`/blog/${post.id}/`} aria-label={`Read ${title}`} class="shrink-0">
-    <Image
-      src={coverImage}
-      alt={coverAlt ?? title}
-      width={520}
-      height={293}
-      widths={[520, 1040]}
-      sizes="(max-width: 520px) 100vw, 520px"
-      class="w-full max-w-[520px] aspect-video object-cover rounded-lg"
-    />
-  </a>
+<li
+  class:list={[
+  "border-b border-border grid gap-x-6 gap-y-1 py-6 sm:grid-cols-[7.5rem_1fr] sm:items-baseline",
+  lead && "pt-2 sm:pt-2",
+  className,
+]}
+  {...rest}
+>
+  <p class="font-light text-accent">
+    <FormattedDate date={publishDate} format="short" />
+  </p>
+  <div>
+    <a
+      href={`/blog/${post.id}/`}
+      class:list={[
+  "font-mono tracking-wide text-foreground underline-offset-[6px] transition-colors hover:underline",
+  lead ? "text-lg sm:text-[2.125rem]" : "text-lg sm:text-[1.375rem]",
+]}
+    >
+      {title}
+    </a>
+    {lead && excerpt && (
+  <p class="text-accent mt-3 max-w-[58ch] italic leading-relaxed">{excerpt}</p>
 )}
-  <div class="flex flex-col gap-1">
-    <span class="font-medium"><a href={`/blog/${post.id}/`}>{title}</a></span>
-    <div class="flex items-center gap-x-5 gap-y-2">
-      <span class="text-foreground/60 text-sm">
-        <time datetime={publishDate.toISOString()}>
-          {publishDate.toLocaleDateString("de-DE", {
-  day: "numeric",
-  month: "short",
-  year: "numeric",
-})}
-        </time>
-      </span>
-      {!hideTags && (
-  <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
-    {tags.length > 0 &&
-      tags.map((tag) => <Badge href={`/tags/${slugify(tag)}/`}>{tag}</Badge>)}
-  </div>
+    {!hideTags && tags.length > 0 && (
+  <p class="w-fit text-xs font-mono tracking-widest hover:text-slate-400 mt-3">
+    {tags.map((tag, index) => (
+      <>
+        <a
+          href={`/tags/${slugify(tag)}/`}
+          class="py-1 transition-colors hover:text-foreground"
+        >
+          {tag}
+        </a>
+        {index < tags.length - 1 && (
+          <span class="text-rose-400" aria-hidden="true">
+            {" "}
+            ·{" "}
+          </span>
+        )}
+      </>
+    ))}
+  </p>
 )}
-    </div>
   </div>
 </li>

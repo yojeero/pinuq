@@ -27,8 +27,19 @@ const blog = defineCollection({
       coverImage: image().optional(),
       coverAlt: z.string().optional(),
       coverPosition: z
-        .enum(["center", "top", "bottom", "left", "right"])
+        .enum([
+          "center",
+          "top",
+          "bottom",
+          "left",
+          "right",
+          "top-left",
+          "top-right",
+          "bottom-left",
+          "bottom-right",
+        ])
         .default("center"),
+      coverZoom: z.number().min(100).max(500).default(100),
       author: z.string().optional(),
     }),
 });

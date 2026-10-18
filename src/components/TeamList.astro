@@ -1,38 +1,42 @@
 ---
-import Icon from "@/components/Icon.astro";
-import siteConfig from "@/data/site-config";
-
-const { team } = siteConfig;
+import { Image } from "astro:assets";
+import { team } from "@/data/site-config";
+import { resolveAvatar } from "@/utils/team-utils";
 ---
 
-<div class="space-y-8">
-  {team.map((member) => (
-  <div class="flex items-center gap-4 p-4 border rounded-lg">
-    <img
-      src={member.avatar.src}
-      alt={member.name}
-      class="w-16 h-16 rounded-full"
-    />
-
-    <div>
-      <h3 class="font-bold text-lg">{member.name}</h3>
-      <p class="text-sm text-zinc-500">{member.role}</p>
-      <p class="text-sm my-1">{member.bio}</p>
-
-      <div class="flex gap-3 mt-2">
-        {member.socials.map((social) => (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={social.text}
-            class="text-zinc-500 hover:text-black transition-colors"
-          >
-            <Icon name={social.icon} class="w-5 h-5" />
-          </a>
-        ))}
-      </div>
-    </div>
+<section
+  class="not-prose mx-auto max-w-6xl bg-stone dark:bg-[#1c2644] flex flex-col gap-8 py-32 border-x border-border"
+>
+  <div class="space-y-4 p-6 border-b border-border">
+    <h2 class="text-7xl tracking-wide text-foreground font-bold">Our Team</h2>
+    <p class="text-xl text-muted-foreground text-left max-w-3xl">
+      Professionals building the digital future every day.
+    </p>
   </div>
-))}
-</div>
+
+  <div
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-stretch"
+  >
+    {team.map((member) => {
+  const avatar = resolveAvatar(member.avatar);
+  return (
+    <div class="w-full flex flex-col items-center text-left border-r last:border-0 border-border h-full p-8">
+      {avatar && (
+        <Image
+          src={avatar}
+          alt={`Photo of ${member.name}`}
+          class="h-32 w-32 rounded-full object-cover object-top mx-4"
+        />
+      )}
+
+      <p class="text-2xl font-bold text-foreground mt-4 leading-10 px-4">
+        {member.name}
+      </p>
+      <p class="pb-2 text-base font-medium text-accent mt-auto mb-4 px-4">
+        {member.role}
+      </p>
+    </div>
+  );
+})}
+  </div>
+</section>

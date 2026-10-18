@@ -1,35 +1,37 @@
 ---
+import { Icon } from "astro-icon/components";
 import siteConfig from "@/data/site-config";
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer
-  id="foot"
-  class="w-full overflow-hidden max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 py-20 items-center"
->
+<footer id="foot" class="w-full border-t border-border">
   <div
-    class="flex flex-col md:flex-row place-content-center items-center lg:justify-start gap-4 my-8"
+    class="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-96 lg:items-center place-content-evenly"
   >
-    <a href="/" target="_blank">
-      <img
-        alt="logo-footer"
-        class="h-32 w-auto bg-amber-300 p-2 rounded-full"
-        src="/images/logo_2.png"
-      >
-    </a>
-    <a href="https://t.me/" target="_blank">
-      <span class="text-lg tracking-widest hover:text-blue-300">Telegram</span>
-    </a>
-  </div>
-
-  <div class="flex text-sm justify-center lg:justify-end">
-    <a
-      class="flex hover:text-blue-300"
-      aria-label={siteConfig.title}
-      href="https//pinux.vercel.app/"
+    <div
+      class="flex flex-col md:flex-row place-content-center items-center lg:justify-start gap-4"
     >
-      © Pinux {currentYear}
-    </a>
+      <a href="/" aria-label="up">
+        <Icon name="pinuq" class="h-8 w-auto text-black dark:text-amber-500" />
+      </a>
+
+      <a href="https://t.me/" target="_blank">
+        <span
+          class="text-md font-mono tracking-widest hover:text-stone-600 px-6"
+          >[ Telegram ]</span
+        >
+      </a>
+    </div>
+
+    <div class="flex text-sm justify-center lg:justify-end">
+      <a
+        class="flex hover:text-blue-300"
+        aria-label={siteConfig.title}
+        href="https//pinuq.vercel.app/"
+      >
+        © Pinuq {currentYear}
+      </a>
+    </div>
   </div>
 </footer>

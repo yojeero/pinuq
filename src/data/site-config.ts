@@ -1,61 +1,32 @@
-// src/data/site-config.ts
-
-import alexAvatar from "@/assets/team/alex.png";
-import yojeeAvatar from "@/assets/team/yojee.png";
-import juraAvatar from "@/assets/team/yura.png";
+import teamData from "@/data/team.json";
 import type { SiteConfig, TeamMember } from "@/data/types";
 
-const siteUrl = (import.meta.env.SITE ?? "https://pinux.vercel.app").replace(
-  /\/\$/,
+const siteUrl = (import.meta.env.SITE ?? "https://pinuq.vercel.app").replace(
+  /\/$/,
   "",
 );
 
-export const team: TeamMember[] = [
-  {
-    name: "Yojee",
-    author: "Yojee",
-    role: "Full Stack Developer",
-    avatar: yojeeAvatar,
-    bio: "Tech Lover & Linux Nerd",
-    socials: [
-      { text: "GitHub", href: "https://github.com/yojeero", icon: "github" },
-    ],
-  },
-  {
-    name: "ADTech",
-    author: "ADTD",
-    role: "Kotlin Developer",
-    avatar: alexAvatar,
-    bio: "Tech & DevOps.",
-    socials: [{ text: "GitHub", href: "https://github.com/", icon: "github" }],
-  },
-  {
-    name: "Junso",
-    author: "PhD.Junso",
-    role: "Frontend Engineer",
-    avatar: juraAvatar,
-    bio: "PR & Media.",
-    socials: [{ text: "GitHub", href: "https://github.com/", icon: "github" }],
-  },
-];
-
 const siteConfig: SiteConfig = {
-  title: "PINUX",
+  title: "PINUQ",
   titleSeparator: "",
   url: siteUrl,
-  description: team[0].bio,
+  description: "Tech Lover",
   logo: {
-    src: "/images/logo.png",
-    alt: "PINUX",
+    src: "/assets/icons/pinuq.svg",
+    alt: "PINUQ",
   },
-  author: team[0].author || team[0].name,
+  author: "Yojee",
   image: {
-    src: team[0].avatar,
-    alt: `${team[0].name} - ${team[0].role}`,
+    src: "/assets/team/yojee.png",
+    alt: "Yojee - Full Stack Developer",
   },
-  primaryNavLinks: [{ text: "About", href: "/about" }],
-  socialLinks: [...team[0].socials],
-  team: team,
+  primaryNavLinks: [
+    { text: "About", href: "/about" },
+    { text: "Team", href: "/team" },
+    { text: "Articles", href: "/blog/all" },
+  ],
 };
+
+export const team = teamData as TeamMember[];
 
 export default siteConfig;

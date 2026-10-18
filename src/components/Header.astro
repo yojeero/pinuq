@@ -1,137 +1,60 @@
 ---
+import { Icon } from "astro-icon/components";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
+
+const navItems = [
+  { text: "Articles", href: "/blog/all", icon: "note" },
+  { text: "About", href: "/about", icon: "about" },
+  { text: "Team", href: "/team", icon: "team" },
+];
+
+const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
+const currentPath = normalize(Astro.url.pathname);
+const isActive = (href: string) =>
+  href === "/"
+    ? currentPath === "/"
+    : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="flex min-h-24 items-center">
+<header class="w-full border-b border-l border-r border-border rounded-md">
   <div
-    class="relative mx-auto flex items-center justify-between flex-wrap p-6 max-w-6xl w-full z-20 lg:px-0"
+    class="flex flex-wrap font-mono w-full max-w-6xl mx-auto items-center min-h-12 lg:h-12"
   >
-    <a class="flex flex-no-shrink" aria-label={siteConfig.title} href="/">
-      <img
-        src={siteConfig.logo.src}
-        alt={siteConfig.logo.alt}
-        class="h-16 w-16 rounded-full bg-stone-50 hover:-rotate-12 transition-transform duration-500 shrink-0 dark:bg-amber-300"
-      >
+    <a
+      href="/"
+      class="order-1 flex shrink-0 items-center gap-2 px-6 h-12 lg:border-r border-border"
+      aria-label={siteConfig.title}
+    >
+      <Icon
+        name="pinuq"
+        class="h-8 w-auto text-black dark:text-amber-500 mr-4"
+      />
     </a>
 
-    <div class="flex">
-      <button
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        class="burger"
-        data-nav-toggle="open"
+    <div
+      class="order-3 w-full border-t border-border flex items-center justify-start lg:order-2 lg:w-auto lg:flex-1 lg:border-t-0 h-12 overflow-x-auto scrollbar-none"
+    >
+      <nav
+        aria-label="Primary"
+        class="flex h-full items-center  whitespace-nowrap"
       >
-        <span class="burger__bar w-6 self-end"></span>
-        <span class="burger__bar w-8 self-center"></span>
-        <span class="burger__bar w-5 self-start"></span>
-      </button>
+        {navItems.map((item) => (
+  <a
+    href={item.href}
+    aria-current={isActive(item.href) ? "page" : undefined}
+    class="inline-flex items-center gap-x-3 px-5 text-sm border-r border-border text-slate-400 hover:text-black dark:hover:text-amber-500 h-full uppercase"
+  >
+    {item.text}
+  </a>
+))}
+      </nav>
+    </div>
 
-      <div id="site-nav" class="nav-links">
-        <button
-          type="button"
-          aria-label="Close navigation menu"
-          class="burger burger--close"
-          data-nav-toggle="close"
-        >
-          <span class="burger__bar w-8"></span>
-          <span class="burger__bar w-8"></span>
-        </button>
-
-        <div id="nav-content" class="grid grid-rows-2">
-          <ul
-            class="flex flex-col items-center gap-4 m-0 p-0 list-none text-4xl leading-12 tracking-wider mt-12 text-black dark:text-indigo-300/40"
-          >
-            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
-              <a href="/">Home</a>
-            </li>
-            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
-              <a href="/about">About</a>
-            </li>
-            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
-              <a href="/about">Tags</a>
-            </li>
-            <li class="hover:text-slate-600 hover:dark:text-indigo-500">
-              <a href="/about">Contact</a>
-            </li>
-          </ul>
-
-          <div
-            class="grid w-fit h-fit p-4 bg-indigo-500/40 rounded-full text-white hover:bg-blue-800 self-center mx-auto"
-          >
-            <ThemeToggle />
-          </div>
-        </div>
-      </div>
+    <div
+      class="order-2 ml-auto flex shrink-0 items-center justify-end gap-2 px-6 h-12 lg:order-3"
+    >
+      <ThemeToggle />
     </div>
   </div>
 </header>
-
-<script>
-const initNav = () => {
-  const nav = document.getElementById("site-nav");
-  if (!nav || nav.dataset.navReady === "true") return;
-
-  const toggles = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-nav-toggle]"),
-  );
-  if (toggles.length === 0) return;
-
-  const setOpen = (open: boolean) => {
-    nav.classList.toggle("is-open", open);
-    document.documentElement.classList.toggle("nav-open", open);
-    toggles.forEach((toggle) => {
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-  };
-
-  const onToggleClick = (event: Event) => {
-    const toggle = event.currentTarget as HTMLElement;
-    setOpen(toggle.dataset.navToggle === "open");
-  };
-
-  const onKeydown = (event: KeyboardEvent) => {
-    if (event.key === "Escape") setOpen(false);
-  };
-
-  const onDocumentClick = (event: MouseEvent) => {
-    const target = event.target as Node;
-    if (nav.contains(target) || toggles.some((t) => t.contains(target))) return;
-    setOpen(false);
-  };
-
-  toggles.forEach((toggle) => {
-    toggle.addEventListener("click", onToggleClick);
-  });
-
-  nav.querySelectorAll<HTMLAnchorElement>("a").forEach((link) => {
-    link.addEventListener("click", () => setOpen(false));
-  });
-
-  document.addEventListener("keydown", onKeydown);
-  document.addEventListener("click", onDocumentClick);
-
-  nav.dataset.navReady = "true";
-};
-
-const cleanupNav = () => {
-  const nav = document.getElementById("site-nav");
-  if (!nav) return;
-  nav.dataset.navReady = "false";
-  nav.classList.remove("is-open");
-  document.documentElement.classList.remove("nav-open");
-};
-
-initNav();
-document.addEventListener("astro:page-load", initNav);
-document.addEventListener("astro:before-preparation", cleanupNav);
-</script>
-
-<style>
-:global(html.nav-open),
-:global(html.nav-open body) {
-  overflow: hidden;
-}
-</style>
