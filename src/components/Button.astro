@@ -11,12 +11,11 @@ type Props = Omit<HTMLAttributes<"a">, "class"> & {
 const { href, variant = "primary", class: className, ...props } = Astro.props;
 
 const baseClasses =
-  "inline-flex w-fit text-xs tracking-wide border-2 border-black bg-white px-5 py-3 font-light text-black shadow-[4px_4px_0_0] shadow-black hover:translate-1 hover:shadow-none focus:outline-0 hover:bg-muted-foreground/50 hover:border-foreground dark:bg-rose-500";
+  "inline-flex w-fit text-xs tracking-wide border-2 border-black hover:border-0 bg-white hover:bg-rose-600 dark:bg-rose-500 px-5 py-3 font-light text-black hover:text-white shadow-[4px_4px_0_0] shadow-black hover:translate-1 hover:shadow-none focus:outline-0 hover:rounded-xs";
 
 const variants = {
   primary: " ",
-  secondary:
-    " ",
+  secondary: " ",
 } as const;
 ---
 

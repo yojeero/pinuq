@@ -9,25 +9,25 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: oklch(100% 0.00011 271.152);
-  --stone: oklch(98.5% 0.001 106.423);
-  --foreground: oklch(27.274% 0.00003 271.152);
-  --primary: oklch(27.58% 0.05747 268.552);
-  --primary-foreground: oklch(94.372% 0.01264 86.801);
-  --muted-foreground: oklch(70.4% 0.04 256.788);
-  --accent: oklch(50% 0.134 242.749);
-  --border: oklch(92.9% 0.013 255.508);
+  --background: #ffffff;
+  --stone: #fafaf9;
+  --foreground: #272727;
+  --primary: #1c2644;
+  --primary-foreground: #f0ece3;
+  --muted-foreground: #90a1b9;
+  --accent: #0069a8;
+  --border: #e2e8f0;
 }
 
 .dark {
-  --background: oklch(27.58% 0.05747 268.552);
-  --stone: oklch(27.58% 0.05747 268.552);
-  --foreground: oklch(57.115% 0.04241 257.039);
-  --primary: oklch(89.593% 0.01735 84.557);
-  --primary-foreground: oklch(27.58% 0.05747 268.552);
-  --muted-foreground: oklch(76.083% 0.03146 269.046);
-  --accent: oklch(50% 0.134 242.749);
-  --border: oklch(37.2% 0.044 257.287);
+  --background: #1c2644;
+  --stone: #1c2644;
+  --foreground: #687991;
+  --primary: #e2dcd0;
+  --primary-foreground: #1c2644;
+  --muted-foreground: #a9b1c6;
+  --accent: #0069a8;
+  --border: #314158;
 }
 
 @theme inline {
