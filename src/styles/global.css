@@ -4,8 +4,6 @@
 @theme {
   --font-sans: var(--font-piersans), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-
-  --spacing-fluid-p: clamp(1rem, 1vw, 2rem);
 }
 
 @custom-variant dark (&:where(.dark *));
@@ -30,7 +28,7 @@
 
 .dark {
   --background: #1c2644;
-  --stone: #1c2644;
+  --stone: oklch(27.58% 0.05747 268.552);
   --foreground: #687991;
   --primary: #e2dcd0;
   --primary-foreground: #1c2644;
@@ -43,7 +41,7 @@
 
 @theme inline {
   --color-background: var(--background);
-  --color-stone: var(--color-stone-50);
+  --color-stone: var(--stone);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
@@ -166,21 +164,18 @@ html {
 }
 
 .blog-main-slot {
-  @apply mx-auto grid max-w-6xl w-full;
-  padding-bottom: clamp(5rem, 8vw, 8rem);
+  @apply mx-auto grid max-w-6xl w-full py-[clamp(2rem,4vw,6rem)];
 }
 
 .blog-grid {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3;
 
-  column-gap: clamp(1.25rem, 3vw, 2.5rem);
-  row-gap: clamp(3.5rem, 7vw, 6rem);
+  column-gap: clamp(1.25rem, 2vw, 2rem);
+  row-gap: clamp(1rem, 2vw, 2rem);
 }
 
 .blog-categories {
   @apply flex gap-0.5 overflow-x-auto;
-
-  padding-block: 0.65rem;
 }
 
 .blog-categories a {

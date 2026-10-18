@@ -9,12 +9,12 @@ const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
 
 <BaseLayout title="All posts" description="All posts." mainClass="blog-main">
   <section
-    class="w-full mx-auto max-w-5xl py-[clamp(2rem,4vw,6rem)] border-x border-border bg-stone dark:bg-[#1c2644] px-18"
+    class="w-full mx-auto max-w-5xl py-[clamp(2rem,4vw,6rem)] border-x border-border bg-stone pl-18"
   >
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide mb-8">
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide mb-8">
       All posts
-    </h1>
-    <ul class="flex flex-col gap-8">
+    </h2>
+    <ul class="flex flex-col gap-2">
       {allPosts.map((post) => <PostListItem post={post} hideTags={false} />)}
     </ul>
   </section>

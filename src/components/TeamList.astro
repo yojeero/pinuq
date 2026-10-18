@@ -5,22 +5,26 @@ import { resolveAvatar } from "@/utils/team-utils";
 ---
 
 <section
-  class="not-prose mx-auto max-w-6xl bg-stone dark:bg-[#1c2644] flex flex-col gap-8 py-32 border-x border-border"
+  class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-border"
 >
-  <div class="space-y-4 p-6 border-b border-border">
-    <h2 class="text-7xl tracking-wide text-foreground font-bold">Our Team</h2>
-    <p class="text-xl text-muted-foreground text-left max-w-3xl">
+  <div
+    class="border-b border-border grid justify-center text-center py-18 px-4 gap-4"
+  >
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
+      Our Team
+    </h2>
+    <p class="text-xl max-w-3xl">
       Professionals building the digital future every day.
     </p>
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  items-stretch"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-8 py-18"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
   return (
-    <div class="w-full flex flex-col items-center text-left border-r last:border-0 border-border h-full p-8">
+    <div class="w-full flex flex-col items-center border-r last:border-0 border-border h-full">
       {avatar && (
         <Image
           src={avatar}

@@ -1,24 +1,22 @@
 ---
-title: "About Magazine"
+title: "About"
 ---
 
 import { Image } from 'astro:assets';
 import imageAbout from './about.webp'; 
 
 <section
-  class="not-prose mx-auto max-w-6xl bg-stone dark:bg-[#1c2644] flex flex-col gap-8 py-32 border-x border-border"
+  class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-border"
 >
-  <div class="space-y-4 p-6 border-b border-border">
-    <h2 class="text-7xl tracking-wide text-foreground font-bold">About</h2>
-    <p class="text-xl text-muted-foreground text-left max-w-3xl">
+  <div class="border-b border-border grid justify-center text-center py-18 px-4 gap-4">
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">About</h2>
+    <p class="text-xl max-w-3xl">
       Explore the most awesome things in the tech & lifestyle news.
     </p>
   </div>
+ 
+   <Image src={imageAbout} alt="about image" class="w-full aspect-video overflow-hidden" />
 
-   <div class="h-1/2 w-full aspect-video overflow-hidden flex items-center hover:scale-z-50">
-        <Image src={imageAbout} alt="about image" />
-      </div>
-
-      <p class="p-6 text-2xl max-w-3xl">We focus on bold aesthetics where functional gadgets and street fashion collide, redefining how we interact in the modern world.</p>
+    <p class="p-18 mx-auto text-center text-xl max-w-3xl">We focus on bold aesthetics where functional gadgets and street fashion collide, redefining how we interact in the modern world.</p>
 
 </section>
