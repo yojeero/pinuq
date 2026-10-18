@@ -3,7 +3,6 @@
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Pinuq">   
 
 Features 🧼   
-Features 🧼   
 
 - Blog about Tech & Lifestyle   
 - 100% Lighthouse Performance   
