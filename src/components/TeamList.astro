@@ -8,7 +8,7 @@ import { resolveAvatar } from "@/utils/team-utils";
   class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-line"
 >
   <div
-    class="border-b border-line grid justify-start p-18 gap-4"
+    class="grid justify-start p-18 gap-4"
   >
     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
       Team.
@@ -19,12 +19,12 @@ import { resolveAvatar } from "@/utils/team-utils";
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-line"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
   return (
-    <div class="flex flex-col justify-evenly p-18 bg-white border-b border-line md:border-b-0 md:border-r last:lg:border-0">
+    <div class="flex flex-col justify-evenly p-18 bg-background border-b border-line md:border-b-0 md:border-r last:border-0">
       {avatar && (
         <Image
           src={avatar}
