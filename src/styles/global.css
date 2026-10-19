@@ -16,7 +16,7 @@
   --primary-foreground: #f0ece3;
   --muted-foreground: #90a1b9;
   --accent: #0069a8;
-  --border: #e2e8f0;
+  --line: #e2e8f0;
 }
 
 .dark {
@@ -27,7 +27,7 @@
   --primary-foreground: #1c2644;
   --muted-foreground: #a9b1c6;
   --accent: #0069a8;
-  --border: #314158;
+  --line: #314158;
 }
 
 @theme inline {
@@ -38,7 +38,7 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-border: var(--border);
+  --color-line: var(--line);
 }
 
 html {

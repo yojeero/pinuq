@@ -4,7 +4,7 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
 
 const navItems = [
-  { text: "Articles", href: "/blog/all" },
+  { text: "Blog", href: "/blog/all" },
   { text: "About", href: "/about" },
   { text: "Team", href: "/team" },
 ];
@@ -17,20 +17,20 @@ const isActive = (href: string) =>
     : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full border-b border-border">
+<header class="w-full border-b border-line">
   <div
     class="flex flex-wrap font-mono w-full max-w-6xl mx-auto items-center h-max"
   >
     <a
       href="/"
-      class="order-1 flex shrink-0 items-center gap-2 h-16 lg:border-r border-border bg-rose-500 px-6"
+      class="order-1 flex shrink-0 items-center gap-2 h-16 lg:border-r border-line bg-rose-500 px-6"
       aria-label={siteConfig.title}
     >
       <Icon name="pinuq" class="h-8 w-auto text-white" />
     </a>
 
     <div
-      class="order-3 w-full border-t border-border flex items-center justify-start lg:order-2 lg:w-auto lg:flex-1 lg:border-t-0 h-14 lg:h-16 overflow-x-auto scrollbar-none"
+      class="order-3 w-full border-t border-line flex items-center justify-start lg:order-2 lg:w-auto lg:flex-1 lg:border-t-0 h-14 lg:h-16 overflow-x-auto scrollbar-none"
     >
       <nav
         aria-label="Primary"
@@ -40,7 +40,7 @@ const isActive = (href: string) =>
   <a
     href={item.href}
     aria-current={isActive(item.href) ? "page" : undefined}
-    class="inline-flex items-center gap-x-3 px-5 text-sm border-r border-border text-slate-400 hover:text-black dark:hover:text-amber-500 h-full"
+    class="inline-flex items-center gap-x-3 px-5 text-sm border-r border-line text-slate-400 hover:text-black dark:hover:text-amber-500 h-full"
   >
     {item.text}
   </a>

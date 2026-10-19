@@ -5,13 +5,13 @@ import { resolveAvatar } from "@/utils/team-utils";
 ---
 
 <section
-  class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-border"
+  class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-line"
 >
   <div
-    class="border-b border-border grid justify-center text-center py-18 px-4 gap-4"
+    class="border-b border-line grid justify-start p-18 gap-4"
   >
     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
-      Our Team
+      Team.
     </h2>
     <p class="text-xl max-w-3xl">
       Professionals building the digital future every day.
@@ -24,7 +24,7 @@ import { resolveAvatar } from "@/utils/team-utils";
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
   return (
-    <div class="w-full flex flex-col items-center border-r last:border-0 border-border h-full">
+    <div class="w-full flex flex-col items-center border-r last:border-0 border-line h-full">
       {avatar && (
         <Image
           src={avatar}
