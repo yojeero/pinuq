@@ -19,24 +19,24 @@ import { resolveAvatar } from "@/utils/team-utils";
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-stretch gap-8 py-18"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
   return (
-    <div class="w-full flex flex-col items-center border-r last:border-0 border-line h-full">
+    <div class="flex flex-col justify-evenly p-18 bg-white border-b border-line md:border-b-0 md:border-r last:lg:border-0">
       {avatar && (
         <Image
           src={avatar}
           alt={`Photo of ${member.name}`}
-          class="h-32 w-32 rounded-full object-cover object-top mx-4"
+          class="h-24 w-24 rounded-full object-cover object-top mb-4"
         />
       )}
 
-      <p class="text-2xl font-bold text-foreground mt-4 leading-10 px-4">
+      <p class="text-lg text-foreground leading-10">
         {member.name}
       </p>
-      <p class="pb-2 text-base font-medium text-accent mt-auto mb-4 px-4">
+      <p class="text-sm font-bold">
         {member.role}
       </p>
     </div>
