@@ -7,9 +7,7 @@ import { resolveAvatar } from "@/utils/team-utils";
 <section
   class="not-prose mx-auto max-w-6xl bg-stone flex flex-col gap-8 border-x border-line"
 >
-  <div
-    class="grid justify-start p-18 gap-4"
-  >
+  <div class="grid justify-start p-18 gap-4">
     <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
       Team.
     </h2>
@@ -33,12 +31,8 @@ import { resolveAvatar } from "@/utils/team-utils";
         />
       )}
 
-      <p class="text-lg text-foreground leading-10">
-        {member.name}
-      </p>
-      <p class="text-sm font-bold">
-        {member.role}
-      </p>
+      <p class="text-lg text-foreground leading-10">{member.name}</p>
+      <p class="text-sm font-bold">{member.role}</p>
     </div>
   );
 })}
