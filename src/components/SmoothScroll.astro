@@ -16,12 +16,13 @@ if (!root.dataset.lenisReady) {
 
     root.dataset.lenisReady = "true";
 
+    let rafId = 0;
     const raf = (time: number) => {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     };
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     document.addEventListener("astro:before-preparation", () => {
       lenis.stop();
@@ -30,6 +31,15 @@ if (!root.dataset.lenisReady) {
     document.addEventListener("astro:after-swap", () => {
       lenis.start();
       lenis.scrollTo(0, { immediate: true });
+    });
+
+    // stop the raf loop while the page is hidden to save CPU
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        cancelAnimationFrame(rafId);
+      } else {
+        rafId = requestAnimationFrame(raf);
+      }
     });
   }
 }

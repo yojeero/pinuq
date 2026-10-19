@@ -1,0 +1,29 @@
+<svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" aria-label="floppy">
+  <g fill="none" class="prefix__nc-icon-wrapper" stroke-width="4">
+    <path
+      d="M3 7h.01M3 11h.01M3 15h.01M3 19h.01M3 23h.01M7 27h.01M11 3h.01M11 7h.01M11 19h.01M11 27h.01M11 23h.01M15 19h.01M15 27h.01"
+      stroke="#212121"
+      stroke-linecap="square"
+    />
+    <path
+      d="M23 23h.01M23 19h.01M7 23h.01"
+      stroke="#21212140"
+      stroke-linecap="square"
+    />
+    <path
+      d="M19 19h.01M19 27h.01M23 7h.01M7 3h.01M15 3h.01M19 3h.01M23 27h.01M27 11h.01M27 15h.01M27 19h.01M27 23h.01"
+      stroke="#212121"
+      stroke-linecap="square"
+    />
+    <path
+      d="M15 7h.01M23 11h.01M19 7h.01"
+      stroke="#21212140"
+      stroke-linecap="square"
+    />
+    <path d="M19 23h.01" stroke="#212121" stroke-linecap="square" />
+    <path
+      d="M3 3h.01M23 3h.01M27 3h.01M27 7h.01M19 11h.01M15 11h.01M11 11h.01M7 7h.01M7 11h.01M7 15h.01M11 15h.01M15 15h.01M19 15h.01M23 15h.01M7 19h.01M15 23h.01M3 27h.01M27 27h.01"
+      stroke="#21212100"
+    />
+  </g>
+</svg>

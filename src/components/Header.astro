@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
+import { CloseSquare, Menu } from "reicon-astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
 
@@ -17,41 +18,117 @@ const isActive = (href: string) =>
     : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full border-b border-line">
+<header class="w-full py-24 lg:border-b border-line">
   <div
-    class="flex flex-wrap font-mono w-full max-w-6xl mx-auto items-center h-max"
+    class="relative mx-auto flex items-center justify-between flex-wrap max-w-7xl w-full z-20 py-4 px-8"
   >
-    <a
-      href="/"
-      class="order-1 flex shrink-0 items-center gap-2 h-16 lg:border-r border-line bg-rose-500 px-6"
-      aria-label={siteConfig.title}
-    >
-      <Icon name="pinuq" class="h-8 w-auto text-white" />
+    <a href="/" class="flex flex-no-shrink" aria-label={siteConfig.title}>
+      <Icon
+        name="pinuq"
+        class="h-8 w-auto text-black hover:text-rose-600 dark:text-rose-500"
+      />
     </a>
 
-    <div
-      class="order-3 w-full border-t border-line flex items-center justify-start lg:order-2 lg:w-auto lg:flex-1 lg:border-t-0 h-14 lg:h-16 overflow-x-auto scrollbar-none"
-    >
-      <nav
-        aria-label="Primary"
-        class="flex h-full items-center whitespace-nowrap"
+    <div class="flex">
+      <button
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-nav-toggle="open"
       >
-        {navItems.map((item) => (
+        <Menu
+          class="w-6 h-6 text-foreground transition-colors hover:text-rose-500"
+        />
+      </button>
+
+      <div id="site-nav" class="nav-links">
+        <button
+          type="button"
+          aria-label="Close navigation menu"
+          class="burger-close"
+          data-nav-toggle="close"
+        >
+          <CloseSquare
+            class="w-6 h-6 text-foreground transition-colors hover:text-rose-500"
+          />
+        </button>
+
+        <div id="nav-content" class="grid grid-rows-2">
+          <nav aria-label="Primary" class="flex flex-col items-center gap-4">
+            {navItems.map((item) => (
   <a
     href={item.href}
     aria-current={isActive(item.href) ? "page" : undefined}
-    class="inline-flex items-center gap-x-3 px-5 text-sm border-r border-line text-slate-400 hover:text-black dark:hover:text-amber-500 h-full"
+    class="flex text-4xl leading-12 tracking-wider text-foreground hover:text-slate-600 hover:dark:text-indigo-500"
   >
     {item.text}
   </a>
 ))}
-      </nav>
-    </div>
+          </nav>
 
-    <div
-      class="order-2 ml-auto flex shrink-0 items-center justify-end gap-2 px-6 lg:order-3"
-    >
-      <ThemeToggle />
+          <div
+            class="grid w-fit h-fit p-4 bg-rose-500 rounded-full text-white hover:bg-blue-800 self-center mx-auto mt-12"
+          >
+            <ThemeToggle />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+const getNav = () => document.getElementById("site-nav");
+const getToggles = () =>
+  Array.from(document.querySelectorAll<HTMLElement>("[data-nav-toggle]"));
+
+const setOpen = (open: boolean) => {
+  const nav = getNav();
+  if (!nav) return;
+  nav.classList.toggle("is-open", open);
+  document.documentElement.classList.toggle("nav-open", open);
+  getToggles().forEach((toggle) => {
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+};
+
+const isOpen = () => getNav()?.classList.contains("is-open") ?? false;
+
+document.addEventListener("click", (event) => {
+  const toggle = (event.target as HTMLElement | null)?.closest<HTMLElement>(
+    "[data-nav-toggle]",
+  );
+  if (toggle) {
+    setOpen(toggle.dataset.navToggle === "open");
+    return;
+  }
+  if (isOpen()) {
+    const nav = getNav();
+    if (nav && !nav.contains(event.target as Node)) setOpen(false);
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setOpen(false);
+});
+
+// close the menu when a nav link is clicked (event delegation survives swaps)
+document.addEventListener("click", (event) => {
+  const nav = getNav();
+  if (!nav?.classList.contains("is-open")) return;
+  const link = (event.target as HTMLElement | null)?.closest("a");
+  if (link && nav.contains(link)) setOpen(false);
+});
+
+// ensure the menu starts closed on every navigation (full load or swap)
+document.addEventListener("astro:before-preparation", () => setOpen(false));
+document.addEventListener("astro:page-load", () => setOpen(false));
+</script>
+
+<style>
+:global(html.nav-open),
+:global(html.nav-open body) {
+  overflow: hidden;
+}
+</style>

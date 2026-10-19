@@ -1,5 +1,5 @@
 ---
-// import { Icon } from "astro-icon/components";
+import { Bulb } from "reicon-astro";
 ---
 
 <button
@@ -7,9 +7,9 @@
   type="button"
   aria-label="Toggle Theme"
   aria-pressed="false"
-  class="inline-flex items-center  cursor-pointer"
+  class="inline-flex items-center cursor-pointer"
 >
-  <span class="w-2 h-4 bg-rose-500 hover:bg-rose-400"></span>
+  <Bulb class="w-4 h-4 text-white transition-colors" />
 </button>
 
 <script>
@@ -18,14 +18,13 @@ const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 Object.assign(globalThis, { darkScheme });
 const THEME_COLORS = { light: "#f0ece3", dark: "#1c2644" } as const;
 const root = document.documentElement;
+function isDark() {
+  return document.documentElement.classList.contains("dark");
+}
 
 function getStoredTheme(): "light" | "dark" | null {
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
   return stored === "light" || stored === "dark" ? stored : null;
-}
-
-function isDark(): boolean {
-  return root.classList.contains("dark");
 }
 
 function syncThemeColor() {
@@ -43,22 +42,21 @@ function syncToggleButton() {
 }
 
 const initTheme = () => {
-  const button = document.getElementById("theme-toggle");
-  if (!button || button.dataset.themeBound === "true") return;
-
-  const onClick = () => {
-    const theme = isDark() ? "light" : "dark";
-    root.classList.toggle("dark", theme === "dark");
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-    syncToggleButton();
-    syncThemeColor();
-  };
-
-  button.addEventListener("click", onClick);
-  button.dataset.themeBound = "true";
   syncToggleButton();
   syncThemeColor();
 };
+
+const onClick = (event: Event) => {
+  const target = event.target as HTMLElement | null;
+  if (!target?.closest("#theme-toggle")) return;
+  const theme = isDark() ? "light" : "dark";
+  root.classList.toggle("dark", theme === "dark");
+  localStorage.setItem(THEME_STORAGE_KEY, theme);
+  syncToggleButton();
+  syncThemeColor();
+};
+
+document.addEventListener("click", onClick);
 
 const applyStoredTheme = () => {
   const stored = getStoredTheme();
