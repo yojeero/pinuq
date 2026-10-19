@@ -186,7 +186,7 @@ html {
 
 /* Notes */
 .notes-bg {
-  @apply w-full bg-stone-100 dark:bg-stone-50/10 dark:text-stone-300 py-12 lg:py-38;
+  @apply w-full bg-blue-50 dark:bg-stone-50/10 dark:text-stone-300 py-12 lg:py-38;
 }
 
 .notes-center {
