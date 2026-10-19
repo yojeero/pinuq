@@ -50,14 +50,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       <Button href="/blog/all/">All writing &rarr;</Button>
       </div>
 
-      <div class="md:block hidden h-80 mx-auto lg:w-auto aspect-[4/5] shadow-[4px_4px_0_0,8px_8px_0_0] shadow-black overflow-hidden">
+      <div class="md:block hidden h-full place-content-center overflow-hidden">
 
         <Image
           src={images["/src/assets/images/notes.webp"]()}
           alt="header image"
           widths={[400, 900, 1280]}
           sizes="(max-width: 768px) 100vw, 768px"
-          class="h-80 object-cover object-center"
+          class="w-64 aspect-[4/3] shadow-[4px_4px_0_0,8px_8px_0_0] shadow-stone-700/70 object-cover object-center mx-auto rounded-xs"
         />
 
       </div>
