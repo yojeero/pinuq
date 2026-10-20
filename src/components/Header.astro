@@ -20,7 +20,7 @@ const isActive = (href: string) =>
 <header class="w-full py-24 lg:border-b border-line">
 
   <div
-    class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 px-8"
+    class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 px-8 tracking-wider"
   >
 
     <a href="/" class="flex" aria-label={siteConfig.title}>
@@ -63,7 +63,7 @@ const isActive = (href: string) =>
       >
         <a
           href="/"
-          class="text-2xl hover:text-rose-500"
+          class="text-2xl hover:text-rose-500 tracking-wider"
           aria-label={siteConfig.title}
         >
           {siteConfig.title}
@@ -91,7 +91,7 @@ const isActive = (href: string) =>
           })}
         </nav>
 
-        <div class="flex w-full flex-col justify-between gap-2 uppercase">
+        <div class="flex w-full flex-col justify-between gap-2 tracking-wider">
           <ThemeToggle />
 
           <div class="flex gap-2 text-sm">
@@ -101,12 +101,12 @@ const isActive = (href: string) =>
             <a class="hover:text-rose-500" href="https://github.com/yojeero">
               Github /
             </a>
-            <a class="hover:text-rose-500" href="https://dribble.com/yojeero">
-              Dribble
+            <a class="hover:text-rose-500" href="https://dribbble.com/yojeero">
+              Dribbble
             </a>
           </div>
 
-          <div class="text-xs text-rose-500 hover:text-slate-300">
+          <div class="text-xs uppercase text-rose-500 hover:text-slate-300">
             hello @
             <a href="https://pinuq.vercel.app">pinuq</a>
           </div>
