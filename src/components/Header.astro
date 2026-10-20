@@ -1,5 +1,5 @@
 ---
-import { CloseSquare, Menu } from "reicon-astro";
+import { CloseSquare, Menu, Anchor } from "reicon-astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
 
@@ -24,7 +24,13 @@ const isActive = (href: string) =>
   >
 
     <a href="/" class="flex" aria-label={siteConfig.title}>
-      {siteConfig.title}
+
+       <Anchor
+          class="h-5 mr-1 inline-flex text-blue-400 rotate-25"
+        />
+
+  {siteConfig.title}
+    
     </a>
 
     <button
