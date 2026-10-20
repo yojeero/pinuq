@@ -64,15 +64,25 @@ const isActive = (href: string) =>
         </a>
 
         <nav aria-label="Primary" class="flex w-full flex-col gap-4">
-          {navItems.map((item) => (
-  <a
-    href={item.href}
-    aria-current={isActive(item.href) ? "page" : undefined}
-    class="border-b border-line pb-8 text-4xl md:text-6xl lg:text-8xl tracking-wider text-foreground hover:text-green-500 dark:hover:text-indigo-500"
-  >
-    {item.text}
-  </a>
-))}
+          {navItems.map((item, index) => {        
+            const num = String(index + 1).padStart(2, '0'); 
+            
+            return (
+              <a 
+                href={item.href} 
+                aria-current={isActive(item.href) ? "page" : undefined} 
+                class="inline-flex items-baseline border-b border-line pb-8 text-4xl md:text-6xl lg:text-8xl tracking-wider text-foreground hover:text-green-500 dark:hover:text-indigo-500"
+              >
+                
+                {item.text} 
+
+                <span class="ml-4 text-base self-end text-slate-500/60">
+                  {num}
+                </span>       
+
+              </a>
+            );
+          })}
         </nav>
 
         <div class="flex w-full flex-col justify-between gap-2 uppercase">
