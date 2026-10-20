@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import { CloseSquare, Menu } from "reicon-astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
 
@@ -22,12 +21,17 @@ const isActive = (href: string) =>
   <div
     class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 tracking-wider"
   >
-    <a href="/" class="flex items-center py-2 bg-blue-400 font-light text-white rounded-full" aria-label={siteConfig.title}>
+    <a
+      href="/"
+      class="flex items-center py-2 bg-blue-400 font-light text-white rounded-full"
+      aria-label={siteConfig.title}
+    >
+      <Icon
+        name="cup"
+        class="h-10 w-10 inline-flex text-white mr-2 bg-white/20 rounded-full flex-shrink-0 p-2 ml-2"
+      />
 
-      <Icon name="cup" class="h-10 w-10 inline-flex text-white mr-2 bg-white/20 rounded-full flex-shrink-0 p-2 ml-2" />
-     
-     <span class="font-light text-white mr-4">{siteConfig.title}</span>
-
+      <span class="font-light text-white mr-4">{siteConfig.title}</span>
     </a>
 
     <button
@@ -36,8 +40,14 @@ const isActive = (href: string) =>
       aria-expanded="false"
       aria-controls="site-nav"
       data-nav-toggle="open"
+      class="inline-flex text-xs uppercase text-foreground items-center"
     >
-      <Menu class="w-6 h-6 text-black transition-colors hover:text-rose-500" />
+      Menu
+
+      <Icon
+        name="menu2"
+        class="h-8 w-8 text-foreground hover:text-rose-500 ml-2"
+      />
     </button>
 
     <div id="site-nav" class="nav-links">
@@ -47,8 +57,9 @@ const isActive = (href: string) =>
         class="burger-close"
         data-nav-toggle="close"
       >
-        <CloseSquare
-          class="w-8 h-8 text-foreground transition-colors hover:text-rose-500"
+        <Icon
+          name="close"
+          class="h-8 w-8 text-foreground hover:text-rose-500"
         />
       </button>
 
@@ -101,7 +112,6 @@ const isActive = (href: string) =>
             hello @
             <a href="https://pinuq.vercel.app">pinuq</a>
           </div>
-
         </div>
       </div>
     </div>

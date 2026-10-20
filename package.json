@@ -30,7 +30,6 @@
     "lenis": "^1.3.26",
     "loaders": "^1.1.3",
     "markdown-it": "^15.0.2",
-    "reicon-astro": "^1.0.1",
     "sanitize-html": "^2.17.7",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3",
