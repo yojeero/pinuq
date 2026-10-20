@@ -1,5 +1,4 @@
 ---
-import { Bulb } from "reicon-astro";
 ---
 
 <button
@@ -9,7 +8,9 @@ import { Bulb } from "reicon-astro";
   aria-pressed="false"
   class="inline-flex items-center cursor-pointer"
 >
-  <Bulb class="w-4 h-4 text-white transition-colors" />
+  <span class="text-foreground hover:text-rose-500 text-xs mb-4 uppercase"
+    >Switch Theme</span
+  >
 </button>
 
 <script>

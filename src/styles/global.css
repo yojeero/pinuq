@@ -233,7 +233,7 @@ html {
 /* hamburger menu */
 
 .nav-links {
-  @apply fixed grid gap-2 p-5 inset-0 z-30 invisible overflow-y-auto opacity-0 place-content-center bg-[var(--color-background)];
+  @apply flex inset-0 fixed z-30 invisible opacity-0 bg-[var(--color-background)];
 
   transform: translateY(-1rem);
   transition:
@@ -247,5 +247,5 @@ html {
 }
 
 .nav-links .burger-close {
-  @apply absolute right-24 top-16;
+  @apply absolute z-50 right-18 top-18;
 }

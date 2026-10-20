@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import { CloseSquare, Menu } from "reicon-astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import siteConfig from "@/data/site-config";
@@ -19,58 +18,81 @@ const isActive = (href: string) =>
 ---
 
 <header class="w-full py-24 lg:border-b border-line">
+
   <div
-    class="relative mx-auto flex items-center justify-between flex-wrap max-w-7xl w-full z-20 py-4 px-8"
+    class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 px-8"
   >
-    <a href="/" class="flex flex-no-shrink" aria-label={siteConfig.title}>
-      <Icon
-        name="pinuq"
-        class="h-8 w-auto text-black hover:text-rose-600 dark:text-rose-500"
-      />
+
+    <a href="/" class="flex" aria-label={siteConfig.title}>
+      {siteConfig.title}
     </a>
 
-    <div class="flex">
+    <button
+      type="button"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      data-nav-toggle="open"
+    >
+      <Menu
+        class="w-6 h-6 text-foreground transition-colors hover:text-rose-500"
+      />
+    </button>
+
+    <div id="site-nav" class="nav-links">
       <button
         type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        data-nav-toggle="open"
+        aria-label="Close navigation menu"
+        class="burger-close"
+        data-nav-toggle="close"
       >
-        <Menu
-          class="w-6 h-6 text-foreground transition-colors hover:text-rose-500"
+        <CloseSquare
+          class="w-8 h-8 text-foreground transition-colors hover:text-rose-500"
         />
       </button>
 
-      <div id="site-nav" class="nav-links">
-        <button
-          type="button"
-          aria-label="Close navigation menu"
-          class="burger-close"
-          data-nav-toggle="close"
+      <div
+        id="nav-content"
+        class="fixed inset-0 z-20 flex h-full w-full flex-col items-start justify-between p-18"
+      >
+        <a
+          href="/"
+          class="text-2xl hover:text-rose-500"
+          aria-label={siteConfig.title}
         >
-          <CloseSquare
-            class="w-6 h-6 text-foreground transition-colors hover:text-rose-500"
-          />
-        </button>
+          {siteConfig.title}
+        </a>
 
-        <div id="nav-content" class="grid grid-rows-2">
-          <nav aria-label="Primary" class="flex flex-col items-center gap-4">
-            {navItems.map((item) => (
+        <nav aria-label="Primary" class="flex w-full flex-col gap-4">
+          {navItems.map((item) => (
   <a
     href={item.href}
     aria-current={isActive(item.href) ? "page" : undefined}
-    class="flex text-4xl leading-12 tracking-wider text-foreground hover:text-slate-600 hover:dark:text-indigo-500"
+    class="border-b border-line pb-8 text-8xl tracking-wider text-foreground hover:text-green-500 dark:hover:text-indigo-500"
   >
     {item.text}
   </a>
 ))}
-          </nav>
+        </nav>
 
-          <div
-            class="grid w-fit h-fit p-4 bg-rose-500 rounded-full text-white hover:bg-blue-800 self-center mx-auto mt-12"
-          >
-            <ThemeToggle />
+        <div class="flex w-full flex-col justify-between gap-2 uppercase">
+          <ThemeToggle />
+
+          <div class="flex gap-2 text-sm">
+            <a class="hover:text-rose-500" href="https://instagram.com">
+              Instagram /
+            </a>
+            <a class="hover:text-rose-500" href="https://github.com/yojeero">
+              Github /
+            </a>
+            <a class="hover:text-rose-500" href="https://dribble.com/yojeero">
+              Dribble
+            </a>
+          </div>
+
+          <div class="text-xs text-rose-500 hover:text-slate-300">
+            hello @
+            <a href="https://pinuq.vercel.app">pinuq</a>
           </div>
         </div>
       </div>
@@ -79,49 +101,52 @@ const isActive = (href: string) =>
 </header>
 
 <script>
-const getNav = () => document.getElementById("site-nav");
-const getToggles = () =>
-  Array.from(document.querySelectorAll<HTMLElement>("[data-nav-toggle]"));
+const getElement = <T extends HTMLElement>(selector: string) =>
+  document.querySelector<T>(selector);
+
+const isOpen = () =>
+  getElement("#site-nav")?.classList.contains("is-open") ?? false;
 
 const setOpen = (open: boolean) => {
-  const nav = getNav();
+  const nav = getElement("#site-nav");
   if (!nav) return;
+
   nav.classList.toggle("is-open", open);
   document.documentElement.classList.toggle("nav-open", open);
-  getToggles().forEach((toggle) => {
-    toggle.setAttribute("aria-expanded", String(open));
-  });
+
+  document
+    .querySelectorAll<HTMLElement>("[data-nav-toggle]")
+    .forEach((toggle) => {
+      toggle.setAttribute("aria-expanded", String(open));
+    });
 };
 
-const isOpen = () => getNav()?.classList.contains("is-open") ?? false;
+const handleDocumentClick = (event: MouseEvent) => {
+  const target = event.target instanceof Element ? event.target : null;
 
-document.addEventListener("click", (event) => {
-  const toggle = (event.target as HTMLElement | null)?.closest<HTMLElement>(
-    "[data-nav-toggle]",
-  );
+  const toggle = target?.closest<HTMLElement>("[data-nav-toggle]");
   if (toggle) {
     setOpen(toggle.dataset.navToggle === "open");
     return;
   }
-  if (isOpen()) {
-    const nav = getNav();
-    if (nav && !nav.contains(event.target as Node)) setOpen(false);
+
+  if (!isOpen()) return;
+
+  const nav = getElement("#site-nav");
+  if (nav && target && nav.contains(target)) {
+    if (target.closest("a")) setOpen(false);
+    return;
   }
-});
 
-document.addEventListener("keydown", (event) => {
+  if (nav) setOpen(false);
+};
+
+const handleDocumentKeydown = (event: KeyboardEvent) => {
   if (event.key === "Escape") setOpen(false);
-});
+};
 
-// close the menu when a nav link is clicked (event delegation survives swaps)
-document.addEventListener("click", (event) => {
-  const nav = getNav();
-  if (!nav?.classList.contains("is-open")) return;
-  const link = (event.target as HTMLElement | null)?.closest("a");
-  if (link && nav.contains(link)) setOpen(false);
-});
-
-// ensure the menu starts closed on every navigation (full load or swap)
+document.addEventListener("click", handleDocumentClick);
+document.addEventListener("keydown", handleDocumentKeydown);
 document.addEventListener("astro:before-preparation", () => setOpen(false));
 document.addEventListener("astro:page-load", () => setOpen(false));
 </script>
