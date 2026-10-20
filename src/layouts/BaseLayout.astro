@@ -9,8 +9,6 @@ import siteConfig from "@/data/site-config";
 import type { BaseHeadProps, Thing, WithContext } from "@/data/types";
 import { createWebPageSchema, createWebSiteSchema } from "@/utils/schema-utils";
 
-import SmoothScroll from "../components/SmoothScroll.astro";
-
 export type Props = BaseHeadProps & {
   lastModified?: Date;
   customSchemas?: WithContext<Thing>[];
@@ -52,18 +50,23 @@ if (customSchemas.length > 0) {
       href={`${Astro.site}rss.xml`}
     >
 
-    <script is:inline>
-    (() => {
-      const stored = localStorage.getItem("theme");
-      const theme =
-        stored === "light" || stored === "dark"
-          ? stored
-          : window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-      document.documentElement.classList.toggle("dark", theme === "dark");
-    })();
-    </script>
+  <script is:inline>
+    function applyTheme() {
+      const localStorageTheme = localStorage.getItem("theme");
+      const systemSpeed = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      
+      if (localStorageTheme === "dark" || (!localStorageTheme && systemSpeed)) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    }
+
+    applyTheme();
+
+    document.addEventListener("astro:after-swap", applyTheme);
+  </script>
+
     <ClientRouter />
     <BaseHead {...head} />
     <Font cssVariable="--font-piersans" preload />
@@ -71,8 +74,6 @@ if (customSchemas.length > 0) {
     <JsonLd schema={schemas} />
   </head>
   <body>
-    <SmoothScroll />
-
     <a
       href="#main"
       class="bg-primary text-primary-foreground sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 rounded-md px-4 py-2 text-sm font-medium"

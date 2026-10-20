@@ -31,7 +31,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     {currentPage === 1 && (
   <section
     aria-labelledby="heading"
-    class="grid grid-cols-1 md:grid-cols-[2fr_1fr] mb-12 px-2"
+    class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] mb-32 px-2"
   >
     <div class="w-full grid items-center gap-4 tracking-wide font-bold">
       <h1
@@ -41,26 +41,25 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         Tech & lifestyle journal
       </h1>
 
-      <h3 class="text-2xl text-muted-foreground mb-4">/ our captures</h3>
+      <h3 class="text-2xl text-foreground mb-4">/ our captures</h3>
 
       <Button href="/blog/all/">All writing &rarr;</Button>
     </div>
 
-    <div class="md:block hidden h-full place-content-center">
-      <div class="relative w-64 aspect-[4/3] mx-auto rounded-md overflow-hidden">
-        <Image
-          src={images["/src/assets/images/notes.webp"]()}
-          alt="header image"
-          widths={[400, 900, 1280]}
-          sizes="(max-width: 768px) 100vw, 768px"
-          class="w-full h-full object-cover object-center rounded-md transition-transform duration-500 ease-out shadow-md"
-        />
+    <div class="flex h-full place-content-center mt-12">
 
-        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-white/10 backdrop-blur-[4px] border border-white/20 shadow-sm rounded-r-md transition-all duration-500 ease-out hover:backdrop-blur-none hover:bg-white/0 hover:border-0 hover:bg-none hover:shadow-none"></div>
+      <div class="px-6 py-12 flex flex-col gap-4 items-center justify-center w-full border border-line">  
+        <div class="text-center">
+          <div class="text-xs tracking-normal text-mauve-700 uppercase mb-2">— Master Class —</div>
+          <div class="font-[Georgia] text-3xl text-mauve-800 leading-none mb-2 tracking-wide">Letterpress &amp; Bindery</div>
+          <div class="text-[0.65rem] tracking-wider text-amber-700/60 uppercase">N° 0247 · Awarded May 2026</div>
+        </div>
       </div>
-    </div>
-  </section>
-)}
+
+      </div>
+          
+        </section>
+      )}
 
     {cardPosts.length > 0 && (
   <section aria-labelledby="latest-heading" class="blog-grid">

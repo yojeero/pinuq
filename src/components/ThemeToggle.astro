@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+// import { Icon } from "astro-icon/components";
 ---
 
 <button
@@ -9,81 +9,56 @@ import { Icon } from "astro-icon/components";
   aria-pressed="false"
   class="inline-flex items-center cursor-pointer"
 >
-  <span class="text-foreground hover:text-rose-500 text-xs mb-4 uppercase"
+<span class="inline-flex w-fit border-2 border-black bg-accent px-5 py-3 font-light text-xs text-black shadow-[4px_4px_0_0] shadow-black hover:bg-mauve hover:text-mauve-100 tracking-wider"
     >Switch Theme
-
-    <Icon
-      name="lamp"
-      class="h-5 w-5 ml-2 mb-2 inline-flex transition-colors text-blue-400"
-    />
   </span>
 </button>
 
 <script>
-const THEME_STORAGE_KEY = "theme";
-const darkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-Object.assign(globalThis, { darkScheme });
-const THEME_COLORS = { light: "#f0ece3", dark: "#1c2644" } as const;
-const root = document.documentElement;
-function isDark() {
-  return document.documentElement.classList.contains("dark");
-}
+  const THEME_STORAGE_KEY = "theme";
+  const THEME_COLORS = { light: "#f0ece3", dark: "#1c2644" } as const;
 
-function getStoredTheme(): "light" | "dark" | null {
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  return stored === "light" || stored === "dark" ? stored : null;
-}
+  const getThemeState = () => document.documentElement.classList.contains("dark");
 
-function syncThemeColor() {
-  const color = isDark() ? THEME_COLORS.dark : THEME_COLORS.light;
-  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
-    meta.setAttribute("content", color);
+  function syncThemeElements() {
+    const isDark = getThemeState();
+    
+    const button = document.getElementById("theme-toggle");
+    if (button) {
+      button.setAttribute("aria-pressed", String(isDark));
+    }
+
+    const color = isDark ? THEME_COLORS.dark : THEME_COLORS.light;
+    for (const meta of document.querySelectorAll('meta[name="theme-color"]')) {
+      meta.setAttribute("content", color);
+    }
   }
-}
 
-function syncToggleButton() {
-  const button = document.getElementById("theme-toggle");
-  if (button) {
-    button.setAttribute("aria-pressed", String(isDark()));
+  function setupTheme() {
+    syncThemeElements();
+
+    const button = document.getElementById("theme-toggle");
+    if (button) {
+
+      button.removeEventListener("click", toggleTheme);
+      button.addEventListener("click", toggleTheme);
+    }
   }
-}
 
-const initTheme = () => {
-  syncToggleButton();
-  syncThemeColor();
-};
+  function toggleTheme() {
+    const isDark = getThemeState();
+    const newTheme = isDark ? "light" : "dark";
+    
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    localStorage.setItem(THEME_STORAGE_KEY, newTheme);
+    syncThemeElements();
+  }
 
-const onClick = (event: Event) => {
-  const target = event.target as HTMLElement | null;
-  if (!target?.closest("#theme-toggle")) return;
-  const theme = isDark() ? "light" : "dark";
-  root.classList.toggle("dark", theme === "dark");
-  localStorage.setItem(THEME_STORAGE_KEY, theme);
-  syncToggleButton();
-  syncThemeColor();
-};
-
-document.addEventListener("click", onClick);
-
-const applyStoredTheme = () => {
-  const stored = getStoredTheme();
-  root.classList.toggle(
-    "dark",
-    stored ? stored === "dark" : darkScheme.matches,
-  );
-  syncToggleButton();
-  syncThemeColor();
-};
-
-initTheme();
-
-globalThis.addEventListener("astro:page-load", initTheme);
-globalThis.addEventListener("astro:after-swap", applyStoredTheme);
-
-darkScheme.addEventListener("change", () => {
-  if (getStoredTheme()) return;
-  root.classList.toggle("dark", darkScheme.matches);
-  syncToggleButton();
-  syncThemeColor();
-});
+  document.addEventListener("astro:page-load", setupTheme);
+ 
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+    document.documentElement.classList.toggle("dark", e.matches);
+    syncThemeElements();
+  });
 </script>

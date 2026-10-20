@@ -17,21 +17,22 @@ const isActive = (href: string) =>
     : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full py-24 lg:border-b border-line">
+<header class="w-full py-24">
   <div
     class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 tracking-wider"
   >
     <a
-      href="/"
-      class="flex items-center py-2 bg-blue-400 font-light text-white rounded-full"
-      aria-label={siteConfig.title}
+      href="/"  
+      aria-label={siteConfig.title} 
+      class="main-logo"
     >
+
       <Icon
         name="cup"
-        class="h-10 w-10 inline-flex text-white mr-2 bg-white/20 rounded-full flex-shrink-0 p-2 ml-2"
+        class="h-10 w-10 inline-flex text-white mr-2 bg-white/20 rounded-full flex-shrink-0 p-2"
       />
 
-      <span class="font-light text-white mr-4">{siteConfig.title}</span>
+      <span>{siteConfig.title}</span>
     </a>
 
     <button
@@ -46,7 +47,7 @@ const isActive = (href: string) =>
 
       <Icon
         name="menu2"
-        class="h-8 w-8 text-foreground hover:text-rose-500 ml-2"
+        class="h-8 w-8 text-foreground hover:text-mauve-500 ml-2"
       />
     </button>
 
@@ -59,7 +60,7 @@ const isActive = (href: string) =>
       >
         <Icon
           name="close"
-          class="h-8 w-8 text-foreground hover:text-rose-500"
+          class="h-8 w-8 text-foreground hover:text-mauve-500"
         />
       </button>
 
@@ -69,7 +70,7 @@ const isActive = (href: string) =>
       >
         <a
           href="/"
-          class="text-2xl hover:text-rose-500 tracking-wider"
+          class="text-2xl hover:text-mauve tracking-wider"
           aria-label={siteConfig.title}
         >
           {siteConfig.title}
@@ -83,35 +84,40 @@ const isActive = (href: string) =>
     <a
       href={item.href}
       aria-current={isActive(item.href) ? "page" : undefined}
-      class="inline-flex items-baseline border-b border-line pb-8 text-4xl md:text-6xl lg:text-8xl tracking-wider text-foreground hover:text-green-500 dark:hover:text-indigo-500"
+      class="inline-flex items-baseline border-b border-line pb-8 text-4xl md:text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mauve dark:hover:text-indigo-500"
     >
       {item.text}
 
-      <span class="ml-4 text-base self-end text-slate-500/60">{num}</span>
+      <span class="ml-4 text-base self-end text-stone-600/60">{num}</span>
     </a>
   );
 })}
         </nav>
 
-        <div class="flex w-full flex-col justify-between gap-2 tracking-wider">
+        <div class="flex w-full justify-between gap-2">
+
           <ThemeToggle />
 
-          <div class="flex gap-2 text-sm">
-            <a class="hover:text-rose-500" href="https://instagram.com">
-              Instagram /
+          <div class="flex flex-col gap-1">
+
+          <div class="flex text-sm gap-3">
+            <a class="hover:text-mauve" href="https://instagram.com">
+              Instagram 
             </a>
-            <a class="hover:text-rose-500" href="https://github.com/yojeero">
-              Github /
+            <a class="hover:text-mauve" href="https://github.com/yojeero">
+              Github 
             </a>
-            <a class="hover:text-rose-500" href="https://dribbble.com/yojeero">
-              Dribbble
+            <a class="hover:text-mauve" href="https://dribbble.com/yojeero"> Dribbble
             </a>
           </div>
 
-          <div class="text-xs uppercase text-rose-500 hover:text-slate-300">
+          <div class="text-sm smallcase text-mauve hover:text-mauve-700 cursor-pointer">
             hello @
             <a href="https://pinuq.vercel.app">pinuq</a>
           </div>
+
+          </div>
+
         </div>
       </div>
     </div>
