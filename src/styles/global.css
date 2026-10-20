@@ -9,8 +9,8 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #fafaf9;
-  --stone: #f5f5f4;
+  --background: #ffffff;
+  --stone: #fafaf9;
   --foreground: #334155;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
