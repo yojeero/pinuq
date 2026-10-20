@@ -155,8 +155,7 @@ html {
 }
 
 .blog-main-slot {
-  @apply mx-auto grid max-w-6xl w-full py-[clamp(4rem,4vw,6rem)] px-4 lg:px-8;
-  /* @apply mx-auto grid max-w-6xl w-full py-[clamp(2rem,4vw,6rem)] px-4 lg:px-8  border-x border-line; */
+  @apply mx-auto grid max-w-6xl w-full py-[clamp(4rem,4vw,6rem)];
 }
 
 .blog-grid {
