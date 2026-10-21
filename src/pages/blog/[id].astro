@@ -152,15 +152,17 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   {(olderPost || newerPost) && (
   <nav
     aria-label="Post navigation"
-    class="mt-12 grid gap-4 border-t pt-8 sm:grid-cols-2"
+    class="w-full max-w-2xl mx-auto py-8 gap-2 flex justify-center"
   >
     {olderPost ? (
       <a
         href={`/blog/${olderPost.id}/`}
-        class="hover:text-foreground/80 text-foreground/60 transition-colors"
+        class="flex flex-col w-fit text-right inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
       >
-        <span class="text-xs">&larr; Older post</span>
-        <span class="block font-medium">{olderPost.data.title}</span>
+        <span class="block text-xs mb-2">&larr; Prev</span>
+        <span class="block font-mono text-sm capitalize">
+          {olderPost.data.title}
+        </span>
       </a>
     ) : (
       <span class="hidden sm:block" aria-hidden="true" />
@@ -168,10 +170,12 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     {newerPost && (
       <a
         href={`/blog/${newerPost.id}/`}
-        class="hover:text-foreground/80 text-foreground/60 transition-colors sm:text-right"
+        class="flex flex-col w-fit text-left inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
       >
-        <span class="text-xs">Newer post &rarr;</span>
-        <span class="block font-medium">{newerPost.data.title}</span>
+        <span class="block text-xs mb-2">Next &rarr;</span>
+        <span class="block font-mono text-sm capitalize">
+          {newerPost.data.title}
+        </span>
       </a>
     )}
   </nav>
