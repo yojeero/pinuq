@@ -2,7 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: var(--font-piersans), sans-serif;
+  --font-sans: var(--font-dmsans), sans-serif;
+  --font-bold: var(--font-sourceserif4), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
@@ -97,7 +98,7 @@ html {
 }
 
 .prose :is(h1, h2, h3, h4, h5, h6) {
-  font-family: var(--font-sans);
+  font-family: var(--font-bold);
   font-weight: 600;
 }
 

@@ -12,12 +12,12 @@ const siteConfig: SiteConfig = {
   url: siteUrl,
   description: "Tech Lover",
   logo: {
-    src: "/assets/icons/pinuq.svg",
+    src: "/assets/icons/note.svg",
     alt: "PINUQ",
   },
   author: "Yojee",
   image: {
-    src: "/assets/team/yojee.png",
+    src: "/assets/team/yojee.webp",
     alt: "Yojee - Full Stack Developer",
   },
 };

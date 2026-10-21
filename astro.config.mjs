@@ -53,25 +53,36 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "Pier Sans",
-      cssVariable: "--font-piersans",
+      name: "DM Sans",
+      cssVariable: "--font-dmsans",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
             weight: "300",
             style: "normal",
-            src: ["./src/assets/fonts/PierSans-Light.woff2"],
+            src: ["./src/assets/fonts/DM-Sans-variable.woff2"],
           },
           {
             weight: "400",
             style: "normal",
-            src: ["./src/assets/fonts/PierSans-Regular.woff2"],
-          },
+            src: ["./src/assets/fonts/DM-Sans-variable.woff2"],
+          },      
+        ],
+      },
+    },
+
+   {
+      provider: fontProviders.local(),
+      name: "Source Serif 4",
+      cssVariable: "--font-sourceserif4",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [        
           {
             weight: "700",
             style: "normal",
-            src: ["./src/assets/fonts/PierSans-Bold.woff2"],
+            src: ["./src/assets/fonts/Source-Serif-4-variable.woff2"],
           },
         ],
       },

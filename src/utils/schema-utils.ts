@@ -35,7 +35,6 @@ export function createWebSiteSchema(url: string): WithContext<WebSite> {
 }
 
 export function createPersonSchema(): WithContext<Person> {
-  const socialLinks = siteConfig.socialLinks || [];
 
   return {
     "@context": "https://schema.org",
@@ -52,7 +51,6 @@ export function createPersonSchema(): WithContext<Person> {
       addressCountry: "Cloud",
     },
     url: new URL("about", getSiteUrl()).toString(),
-    sameAs: socialLinks.map((link) => link.href),
     description: "I'm a full stack developer based in the Cloud.",
     knowsAbout: [
       "Full Stack Development",
