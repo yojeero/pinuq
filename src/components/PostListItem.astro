@@ -43,7 +43,9 @@ const { title, excerpt, publishDate, tags = [] } = post.data;
       {title}
     </a>
     {lead && excerpt && (
-  <p class="text-foreground mt-3 max-w-[58ch] italic leading-relaxed">{excerpt}</p>
+  <p class="text-foreground mt-3 max-w-[58ch] italic leading-relaxed">
+    {excerpt}
+  </p>
 )}
     {!hideTags && tags.length > 0 && (
   <p class="w-fit text-xs font-mono tracking-widest hover:text-slate-400 mt-3">

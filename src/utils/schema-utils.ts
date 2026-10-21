@@ -35,7 +35,6 @@ export function createWebSiteSchema(url: string): WithContext<WebSite> {
 }
 
 export function createPersonSchema(): WithContext<Person> {
-
   return {
     "@context": "https://schema.org",
     "@type": "Person",

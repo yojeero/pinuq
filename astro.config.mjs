@@ -67,18 +67,18 @@ export default defineConfig({
             weight: "400",
             style: "normal",
             src: ["./src/assets/fonts/DM-Sans-variable.woff2"],
-          },      
+          },
         ],
       },
     },
 
-   {
+    {
       provider: fontProviders.local(),
       name: "Source Serif 4",
       cssVariable: "--font-sourceserif4",
       fallbacks: ["sans-serif"],
       options: {
-        variants: [        
+        variants: [
           {
             weight: "700",
             style: "normal",

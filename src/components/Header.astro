@@ -21,18 +21,15 @@ const isActive = (href: string) =>
   <div
     class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between py-4 tracking-wider font-bold"
   >
-    <a
-      href="/"  
-      aria-label={siteConfig.title}       
-    >
-
-      <div class="skew-logo bg-accent inline-flex px-3 py-1 flex items-center  rounded-br-4xl rounded-tl-4xl transform skew-x-[-20deg]">
-      <Icon
-        name="cup"
-        class="h-10 w-10 inline-flex text-white mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
-      />
-    </div>
-
+    <a href="/" aria-label={siteConfig.title}>
+      <div
+        class="skew-logo bg-accent inline-flex px-3 py-1 flex items-center  rounded-br-4xl rounded-tl-4xl transform skew-x-[-20deg]"
+      >
+        <Icon
+          name="cup"
+          class="h-10 w-10 inline-flex text-white mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
+        />
+      </div>
     </a>
 
     <button
@@ -95,28 +92,25 @@ const isActive = (href: string) =>
         </nav>
 
         <div class="flex w-full justify-between gap-2">
-
           <ThemeToggle />
 
           <div class="flex flex-col">
+            <div class="flex text-sm  gap-3">
+              <a class="hover:text-mauve" href="https://instagram.com">
+                Instagram
+              </a>
+              <a class="hover:text-mauve" href="https://github.com/yojeero">
+                Github
+              </a>
+            </div>
 
-          <div class="flex text-sm  gap-3">
-            <a class="hover:text-mauve" href="https://instagram.com">
-              Instagram 
-            </a>
-            <a class="hover:text-mauve" href="https://github.com/yojeero">
-              Github 
-            </a>
-
+            <div
+              class="text-sm smallcase text-mauve hover:text-mauve-700 cursor-pointer"
+            >
+              hello @
+              <a href="https://pinuq.vercel.app">pinuq</a>
+            </div>
           </div>
-
-          <div class="text-sm smallcase text-mauve hover:text-mauve-700 cursor-pointer">
-            hello @
-            <a href="https://pinuq.vercel.app">pinuq</a>
-          </div>
-
-          </div>
-
         </div>
       </div>
     </div>

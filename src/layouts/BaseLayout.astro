@@ -50,11 +50,13 @@ if (customSchemas.length > 0) {
       href={`${Astro.site}rss.xml`}
     >
 
-  <script is:inline>
+    <script is:inline>
     function applyTheme() {
       const localStorageTheme = localStorage.getItem("theme");
-      const systemSpeed = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      
+      const systemSpeed = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+
       if (localStorageTheme === "dark" || (!localStorageTheme && systemSpeed)) {
         document.documentElement.classList.add("dark");
       } else {
@@ -65,7 +67,7 @@ if (customSchemas.length > 0) {
     applyTheme();
 
     document.addEventListener("astro:after-swap", applyTheme);
-  </script>
+    </script>
 
     <ClientRouter />
     <BaseHead {...head} />

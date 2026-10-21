@@ -13,29 +13,23 @@ const pages = Object.fromEntries(
   ]),
 );
 
-export const { getStaticPaths, GET } = await OGImageRoute({
-  pages,
-  getSlug: (id: string) => `${id}.png`,
-  getImageOptions: (_, page: (typeof pages)[string]) => {
+const ogRoutesResult = await OGImageRoute({
+  param: "id",
+  pages: pages,
+  getSlug: (key) => `${key}.png`,
+  getImageOptions: (_, page) => {
     return {
       title: page.title,
-      bgGradient: [[240, 236, 227]],
-      border: { color: [200, 168, 112], width: 10 },
+      bgGradient: [[255, 255, 255]],
+      border: { color: [200, 200, 200], width: 10 },
       padding: 60,
       logo: {
         path: "./public/android-chrome-512x512.png",
-        size: [80],
+        size: [128],
       },
-      font: {
-        title: {
-          color: [28, 38, 68],
-          size: 60,
-          lineHeight: 1.25,
-          families: ["Pier Sans"],
-          weight: "Normal",
-        },
-      },
-      fonts: ["./src/assets/fonts/PierSans-Regular.woff2"],
     };
   },
 });
+
+export const getStaticPaths = ogRoutesResult.getStaticPaths;
+export const GET = ogRoutesResult.GET;

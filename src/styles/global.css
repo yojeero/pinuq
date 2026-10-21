@@ -10,7 +10,7 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background:  #fafafa;
+  --background: #fafafa;
   --foreground: #2a212c;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
@@ -180,7 +180,7 @@ html {
 }
 
 .notes-grid {
-  @apply grid list-none w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 ;
+  @apply grid list-none w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6;
 }
 
 /* hamburger menu */
