@@ -28,6 +28,7 @@ All commands are run from the root of the project:
 | `bun run preview` | Previews the build locally                      |
 | `bun run check`   | Lints + formats (Biome, applies safe fixes)     |
 | `bun run ci`      | Non-mutating Biome check for CI                 |
+| `bun astro sync`  | Clear Astro fonts cache after changing fonts    |
 
 > [!IMPORTANT]
 > **https://pinuq.vercel.app** — now using in the config files on production.   

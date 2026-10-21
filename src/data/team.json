@@ -16,5 +16,17 @@
     "author": "Yuginso",
     "role": "Frontend Engineer",
     "avatar": "yura.webp"
+  },
+  {
+    "name": "Ann",
+    "author": "Ann",
+    "role": "QA Engineer",
+    "avatar": "ann.webp"
+  },
+  {
+    "name": "PvMarch",
+    "author": "PvMarch",
+    "role": "Product Manager",
+    "avatar": "pavel.webp"
   }
 ]

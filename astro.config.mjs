@@ -53,36 +53,60 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "DM Sans",
-      cssVariable: "--font-dmsans",
+      name: "IBMPlex Sans",
+      cssVariable: "--font-ibmplexsans-light",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
             weight: "300",
             style: "normal",
-            src: ["./src/assets/fonts/DM-Sans-variable.woff2"],
-          },
-          {
-            weight: "400",
-            style: "normal",
-            src: ["./src/assets/fonts/DM-Sans-variable.woff2"],
-          },
+            src: ["./src/assets/fonts/IBMPlexSans-Light.woff2"],
+          },       
         ],
       },
     },
-
+        {
+      provider: fontProviders.local(),
+      name: "IBMPlex Sans",
+      cssVariable: "--font-ibmplexsans",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "400",
+            style: "normal",
+            src: ["./src/assets/fonts/IBMPlexSans-Regular.woff2"],
+          },       
+        ],
+      },
+    },
+     {
+      provider: fontProviders.local(),
+      name: "IBMPlex Sans",
+      cssVariable: "--font-ibmplexsans-italic",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "400",
+            style: "italic",
+            src: ["./src/assets/fonts/IBMPlexSans-Italic.woff2"],
+          },       
+        ],
+      },
+    },
     {
       provider: fontProviders.local(),
-      name: "Source Serif 4",
-      cssVariable: "--font-sourceserif4",
+      name: "Gloock",
+      cssVariable: "--font-gloock",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
             weight: "700",
             style: "normal",
-            src: ["./src/assets/fonts/Source-Serif-4-variable.woff2"],
+            src: ["./src/assets/fonts/Gloock-400.woff2"],
           },
         ],
       },

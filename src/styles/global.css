@@ -2,8 +2,10 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: var(--font-dmsans), sans-serif;
-  --font-bold: var(--font-sourceserif4), sans-serif;
+  --font-sans: var(--font-ibmplexsans), sans-serif;
+  --font-sans-italic: var(--font-ibmplexsans-italic), sans-serif;
+  --font-sans-light: var(--font-ibmplexsans-light), sans-serif;
+  --font-bold: var(--font-gloock), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
