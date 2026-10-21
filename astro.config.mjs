@@ -62,11 +62,11 @@ export default defineConfig({
             weight: "300",
             style: "normal",
             src: ["./src/assets/fonts/IBMPlexSans-Light.woff2"],
-          },       
+          },
         ],
       },
     },
-        {
+    {
       provider: fontProviders.local(),
       name: "IBMPlex Sans",
       cssVariable: "--font-ibmplexsans",
@@ -77,11 +77,11 @@ export default defineConfig({
             weight: "400",
             style: "normal",
             src: ["./src/assets/fonts/IBMPlexSans-Regular.woff2"],
-          },       
+          },
         ],
       },
     },
-     {
+    {
       provider: fontProviders.local(),
       name: "IBMPlex Sans",
       cssVariable: "--font-ibmplexsans-italic",
@@ -92,7 +92,7 @@ export default defineConfig({
             weight: "400",
             style: "italic",
             src: ["./src/assets/fonts/IBMPlexSans-Italic.woff2"],
-          },       
+          },
         ],
       },
     },
