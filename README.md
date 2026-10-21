@@ -1,10 +1,10 @@
-<img src="preview/d1.webp" width="100%"><img src="preview/d2.webp" width="100%">
+<img src="preview/d3.webp" width="100%">
 
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Pinuq">   
 
 Features 🧼   
 
-- Blog about Tech & Lifestyle   
+- Blog in Tech & Lifestyle   
 - 100% Lighthouse Performance   
 - Cloud & Vercel Hosting Ready   
 - Responsive Design   
