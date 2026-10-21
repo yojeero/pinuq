@@ -9,16 +9,13 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  /* --background: linear-gradient(170deg, #eee8d4 0%, #d8d0b8 100%); */
-  --background: #d8d0b8;
-  --stone: rgba(230, 224, 211, 0.8);
-  --foreground: #1c2644;
+  --background:  #fafafa;
+  --foreground: #2a212c;
   --primary: #1c2644;
   --primary-foreground: #f0ece3;
   --muted-foreground: #5b6377;
   --accent: #eac95a;
-  --line: #ede8e0;
-  /* --line: #cbc6b9; */
+  --line: #e7e4e7;
   --mauve: #79697b;
 }
 
@@ -143,17 +140,8 @@ html {
 
 /* Blog layout */
 
-.main-logo {
-  @apply font-mono text-lg font-light text-foreground py-2 px-6 bg-accent border border-[#c8a840] rounded-xs cursor-pointer flex items-center justify-center;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 2px 3px 0 #b09030, 3px 4px 4px rgba(80,60,0,0.2);
-}
-
 .blog-main {
   @apply grid w-full;
-}
-
-.blog-main-slot {
-  @apply mx-auto grid max-w-6xl w-full py-[clamp(4rem,4vw,6rem)];
 }
 
 .blog-grid {
@@ -209,11 +197,6 @@ html {
 .nav-links.is-open {
   @apply opacity-100 visible transform-none;
 }
-
-.nav-links .burger-close {
-  @apply absolute z-50 right-18 top-18;
-}
-
 
 /* smooth page entrance between view transitions */
 

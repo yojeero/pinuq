@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+// import { Image } from "astro:assets";
 import BlogNotesList from "@/components/BlogNotesList.astro";
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import Button from "@/components/Button.astro";
@@ -17,9 +17,9 @@ const { posts, currentPage } = Astro.props;
 const notePosts = posts.filter((post) => !post.data.coverImage);
 const cardPosts = posts.filter((post) => post.data.coverImage);
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,webp}",
-);
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   "/src/assets/**/*.{jpeg,jpg,png,webp}",
+// );
 ---
 
 <BaseLayout
@@ -27,7 +27,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   description="Explore tech news & lifestyle."
   mainClass="blog-main"
 >
-  <div class="blog-main-slot">
+  <div class="mx-auto grid max-w-6xl w-full py-[clamp(4rem,4vw,6rem)]">
     {currentPage === 1 && (
   <section
     aria-labelledby="heading"

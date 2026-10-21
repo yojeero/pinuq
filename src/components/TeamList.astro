@@ -5,19 +5,18 @@ import { resolveAvatar } from "@/utils/team-utils";
 ---
 
 <section
-  class="not-prose mx-auto max-w-5xl bg-stone flex flex-col gap-8 bg-white/20"
+  class="not-prose mx-auto max-w-5xl flex flex-col gap-8"
 >
-  <div class="grid justify-start p-18 gap-4">
-    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
-      Team.
-    </h2>
-    <p class="text-xl max-w-3xl">
+
+  <div class="flex flex-col p-4 lg:p-18 justify-center mt-8">
+    <h2 class="w-full text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">Team.</h2>
+    <p class="text-xl max-w-3xl pt-2">
       Professionals building the digital future every day.
     </p>
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-accent"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
@@ -27,13 +26,13 @@ import { resolveAvatar } from "@/utils/team-utils";
         <Image
           src={avatar}
           alt={`Photo of ${member.name}`}
-          class="w-full aspect-[4/6] object-cover object-top overflow-hidden"
+          class="w-full aspect-[4/5] object-cover object-top overflow-hidden"
         />
       )}
 
-      <div class="tracking-wide p-18 h-48 overflow-hidden p-8 font-bold text-lg mx-auto border-r border-line w-full">
-        <p class="text-white/70 leading-8">{member.name}</p>
-        <p class="text-white">{member.role}</p>
+      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-foreground lg:border-l lg:border-line lg:last:border-r">
+        <p class="leading-8 text-base">{member.name}</p>
+        <p>{member.role}</p>
       </div>
 
     </div>

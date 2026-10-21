@@ -17,22 +17,22 @@ const isActive = (href: string) =>
     : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full py-24">
+<header class="w-full border-b-1 border-b-mauve">
   <div
-    class="relative z-20 mx-auto flex w-full max-w-7xl items-center justify-between py-4 tracking-wider"
+    class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between py-4 tracking-wider"
   >
     <a
       href="/"  
-      aria-label={siteConfig.title} 
-      class="main-logo"
+      aria-label={siteConfig.title}       
     >
 
+      <div class="skew-logo bg-accent inline-flex px-3 py-1 flex items-center  rounded-br-4xl rounded-tl-4xl transform skew-x-[-20deg]">
       <Icon
         name="cup"
-        class="h-10 w-10 inline-flex text-white mr-2 bg-white/20 rounded-full flex-shrink-0 p-2"
+        class="h-10 w-10 inline-flex text-white mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
       />
+    </div>
 
-      <span>{siteConfig.title}</span>
     </a>
 
     <button
@@ -41,12 +41,12 @@ const isActive = (href: string) =>
       aria-expanded="false"
       aria-controls="site-nav"
       data-nav-toggle="open"
-      class="inline-flex text-xs uppercase text-foreground items-center"
+      class="inline-flex text-xs uppercase text-mauve items-center hover:text-black"
     >
       Menu
 
       <Icon
-        name="menu2"
+        name="menu"
         class="h-8 w-8 text-foreground hover:text-mauve-500 ml-2"
       />
     </button>
@@ -55,7 +55,7 @@ const isActive = (href: string) =>
       <button
         type="button"
         aria-label="Close navigation menu"
-        class="burger-close"
+        class="absolute z-50 right-8 top-8"
         data-nav-toggle="close"
       >
         <Icon
@@ -66,11 +66,11 @@ const isActive = (href: string) =>
 
       <div
         id="nav-content"
-        class="fixed inset-0 z-20 flex h-full w-full flex-col items-start justify-between p-18"
+        class="fixed inset-0 z-20 flex h-full w-full flex-col items-start justify-between p-8 lg:p-18"
       >
         <a
           href="/"
-          class="text-2xl hover:text-mauve tracking-wider"
+          class="text-lg hover:text-mauve tracking-wider"
           aria-label={siteConfig.title}
         >
           {siteConfig.title}
@@ -84,7 +84,7 @@ const isActive = (href: string) =>
     <a
       href={item.href}
       aria-current={isActive(item.href) ? "page" : undefined}
-      class="inline-flex items-baseline border-b border-line pb-8 text-4xl md:text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mauve dark:hover:text-indigo-500"
+      class="inline-flex items-baseline border-b border-line pb-8 text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mauve"
     >
       {item.text}
 
@@ -98,17 +98,16 @@ const isActive = (href: string) =>
 
           <ThemeToggle />
 
-          <div class="flex flex-col gap-1">
+          <div class="flex flex-col">
 
-          <div class="flex text-sm gap-3">
+          <div class="flex text-sm  gap-3">
             <a class="hover:text-mauve" href="https://instagram.com">
               Instagram 
             </a>
             <a class="hover:text-mauve" href="https://github.com/yojeero">
               Github 
             </a>
-            <a class="hover:text-mauve" href="https://dribbble.com/yojeero"> Dribbble
-            </a>
+
           </div>
 
           <div class="text-sm smallcase text-mauve hover:text-mauve-700 cursor-pointer">
