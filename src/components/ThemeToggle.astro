@@ -1,19 +1,19 @@
 ---
-// src/components/toggle.astro
+// import { Icon } from "astro-icon/components";
 ---
 
-<div class="theme-toggle-wrapper">
-  <button
-    type="button"
-    class="theme-toggle"
-    role="switch"
-    aria-checked="false"
-    aria-label="Переключить тему"
-  >
-    <span class="color-btn color-btn-left" data-option="light">light</span>
-    <span class="color-btn color-btn-right" data-option="dark">dark</span>
-  </button>
-</div>
+<button
+  id="theme-toggle"
+  type="button"
+  aria-label="Toggle Theme"
+  aria-pressed="false"
+  class="inline-flex items-center cursor-pointer"
+>
+  <span
+    class="inline-flex w-fit border border-black bg-accent px-5 py-3 font-light text-xs hover:bg-mist tracking-wider uppercase text-foreground hover:text-white shadow-[4px_4px_0_0] shadow-black"
+    >Theme
+  </span>
+</button>
 
 <script>
 const THEME_STORAGE_KEY = "theme";
@@ -24,12 +24,9 @@ const getThemeState = () => document.documentElement.classList.contains("dark");
 function syncThemeElements() {
   const isDark = getThemeState();
 
-  const toggle = document.querySelector<HTMLButtonElement>(
-    "button.theme-toggle",
-  );
-  if (toggle) {
-    toggle.setAttribute("aria-checked", String(isDark));
-    toggle.dataset.theme = isDark ? "dark" : "light";
+  const button = document.getElementById("theme-toggle");
+  if (button) {
+    button.setAttribute("aria-pressed", String(isDark));
   }
 
   const color = isDark ? THEME_COLORS.dark : THEME_COLORS.light;
@@ -41,17 +38,16 @@ function syncThemeElements() {
 function setupTheme() {
   syncThemeElements();
 
-  const toggle = document.querySelector<HTMLButtonElement>(
-    "button.theme-toggle",
-  );
-  if (toggle) {
-    toggle.removeEventListener("click", handleThemeToggle);
-    toggle.addEventListener("click", handleThemeToggle);
+  const button = document.getElementById("theme-toggle");
+  if (button) {
+    button.removeEventListener("click", toggleTheme);
+    button.addEventListener("click", toggleTheme);
   }
 }
 
-function handleThemeToggle() {
-  const newTheme = getThemeState() ? "light" : "dark";
+function toggleTheme() {
+  const isDark = getThemeState();
+  const newTheme = isDark ? "light" : "dark";
 
   document.documentElement.classList.toggle("dark", newTheme === "dark");
   localStorage.setItem(THEME_STORAGE_KEY, newTheme);
@@ -59,7 +55,6 @@ function handleThemeToggle() {
 }
 
 document.addEventListener("astro:page-load", setupTheme);
-document.addEventListener("astro:after-swap", syncThemeElements);
 
 window
   .matchMedia("(prefers-color-scheme: dark)")
