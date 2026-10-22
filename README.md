@@ -1,4 +1,4 @@
-<img src="preview/d3.webp" width="100%">
+<img src="preview/d2.webp" width="100%">
 
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Pinuq">   
 
