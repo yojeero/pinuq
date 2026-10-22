@@ -33,21 +33,28 @@ const cardPosts = posts.filter((post) => post.data.coverImage);
     aria-labelledby="heading"
     class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] mb-32 px-2"
   >
-    <div class="w-full grid items-center gap-4 tracking-wide font-bold">
+    <div class="relative w-full grid items-center gap-4 tracking-wide font-bold">
+
+      <span class="absolute top-2/4 left-2 transform -translate-y-1/2 [writing-mode:vertical-rl] font-mono text-[10.5px] tracking-[0.32em] text-mauve whitespace-nowrap">Vol. XIII · No. 25 · Autumn</span> 
+
+      <span class="font-mono text-[10.5px] font-bold tracking-[0.24em] px-2 text-foreground boder border-b border-mauve leading-16">SPRING 2026 · INDEX NO. 02</span>  
+
       <h1
         id="featured-heading"
-        class="text-6xl lg:text-[152px] text-foreground"
+        class="grid leading-40 text-foreground justify-self-center"
       >
-        Pinuq journal
+        <p class="text-9xl lg:text-[148px] text-rose">Pinuq</p> 
+        <em class="text-8xl">journal</em>
       </h1>
 
-      <h3 class="flex text-3xl text-foreground mb-6 pl-2 lg:pl-6">tech news</h3>
+      <h3 class="flex place-self-center font-mono text-[10.5px] tracking-[0.32em] text-mauve whitespace-nowrap p-2 border-y border-mauve">tech news</h3>
 
       <Button href="/blog/all/">All writing &rarr;</Button>
+
     </div>
 
-    <div class="flex h-full place-content-center mt-12">
-      <div class="px-6 py-12 flex flex-col gap-4 items-center justify-center w-full border border-line">
+    <div class="flex h-fit place-self-center mt-12">
+      <div class="px-6 py-18 flex flex-col gap-4 items-center justify-center w-full border border-mauve">
         <div class="text-center">
           <div class="text-xs tracking-normal text-foreground uppercase mb-2">
             — Master Class —
