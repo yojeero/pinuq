@@ -29,36 +29,36 @@ const { title, excerpt, publishDate, tags = [] } = post.data;
 ]}
   {...rest}
 >
-  <p class="font-light text-foreground">
+  <p class="font-light text-mist/70">
     <FormattedDate date={publishDate} format="short" />
   </p>
   <div>
     <a
       href={`/blog/${post.id}/`}
       class:list={[
-  "font-bold tracking-wide text-foreground underline-offset-[6px] transition-colors hover:underline",
+  "font-bold tracking-wide text-mist underline-offset-[6px] transition-colors hover:underline",
   lead ? "text-lg sm:text-[2.125rem]" : "text-lg sm:text-[1.375rem]",
 ]}
     >
       {title}
     </a>
     {lead && excerpt && (
-  <p class="text-foreground mt-3 max-w-[58ch] italic leading-relaxed">
+  <p class="text-mauve mt-3 max-w-[58ch] font-italic leading-relaxed">
     {excerpt}
   </p>
 )}
     {!hideTags && tags.length > 0 && (
-  <p class="w-fit text-xs font-mono tracking-widest hover:text-slate-400 mt-3">
+  <p class="w-fit text-xs font-mono tracking-widest hover:text-blue mt-3">
     {tags.map((tag, index) => (
       <>
         <a
           href={`/tags/${slugify(tag)}/`}
-          class="py-1 transition-colors hover:text-foreground"
+          class="py-1 text-mauve dark:text-blue/70 hover:text-foreground"
         >
           {tag}
         </a>
         {index < tags.length - 1 && (
-          <span class="text-mauve-400" aria-hidden="true">
+          <span class="text-blue" aria-hidden="true">
             {" "}
             ·{" "}
           </span>

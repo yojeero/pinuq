@@ -11,12 +11,12 @@ const currentYear = new Date().getFullYear();
     <div
       class="flex flex-col md:flex-row place-content-center items-center lg:justify-start gap-2"
     >
-      <a href="/" aria-label="up" class="font-bold">
+      <a href="/" aria-label="up" class="font-bold text-blue">
         {siteConfig.title}
       </a>
 
       <a href="https://t.me/" target="_blank">
-        <span class="text-md font-mono hover:text-stone-600 px-2"
+        <span class="text-md font-mono text-mist hover:text-foreground px-2"
           >[ Telegram ]</span
         >
       </a>
@@ -24,7 +24,7 @@ const currentYear = new Date().getFullYear();
 
     <div class="flex text-sm justify-center lg:justify-end">
       <a
-        class="flex hover:text-blue-300"
+        class="flex text-foreground hover:text-blue"
         aria-label={siteConfig.title}
         href="https//pinuq.vercel.app/"
       >

@@ -19,7 +19,7 @@ const isActive = (href: string) =>
 
 <header class="w-full border-b-1 border-b-mauve">
   <div
-    class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between py-4 tracking-wider font-bold"
+    class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between py-4"
   >
     <a href="/" aria-label={siteConfig.title}>
       <div
@@ -27,7 +27,7 @@ const isActive = (href: string) =>
       >
         <Icon
           name="cup"
-          class="h-10 w-10 inline-flex text-white mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
+          class="h-10 w-10 inline-flex text-background mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
         />
       </div>
     </a>
@@ -38,14 +38,11 @@ const isActive = (href: string) =>
       aria-expanded="false"
       aria-controls="site-nav"
       data-nav-toggle="open"
-      class="inline-flex font-sans-light text-xs uppercase text-mauve items-center hover:text-black"
+      class="inline-flex font-sans text-xs uppercase text-foreground items-center hover:text-mist"
     >
       Menu
 
-      <Icon
-        name="menu"
-        class="h-8 w-8 text-foreground hover:text-mauve-500 ml-2"
-      />
+      <Icon name="menu" class="h-8 w-8 text-foreground hover:text-rose ml-2" />
     </button>
 
     <div id="site-nav" class="nav-links">
@@ -55,10 +52,7 @@ const isActive = (href: string) =>
         class="absolute z-50 right-8 top-8"
         data-nav-toggle="close"
       >
-        <Icon
-          name="close"
-          class="h-8 w-8 text-foreground hover:text-mauve-500"
-        />
+        <Icon name="close" class="h-8 w-8 text-foreground hover:text-mist" />
       </button>
 
       <div
@@ -67,7 +61,7 @@ const isActive = (href: string) =>
       >
         <a
           href="/"
-          class="text-lg hover:text-mauve tracking-wider"
+          class="text-lg text-mist hover:text-mauve tracking-wider"
           aria-label={siteConfig.title}
         >
           {siteConfig.title}
@@ -81,11 +75,11 @@ const isActive = (href: string) =>
     <a
       href={item.href}
       aria-current={isActive(item.href) ? "page" : undefined}
-      class="inline-flex items-baseline border-b border-line pb-8 text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mauve"
+      class="inline-flex items-baseline border-b border-line pb-8 text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mist"
     >
       {item.text}
 
-      <span class="ml-4 text-base self-end text-stone-600/60">{num}</span>
+      <span class="ml-4 text-base self-end text-mauve">{num}</span>
     </a>
   );
 })}
@@ -95,17 +89,23 @@ const isActive = (href: string) =>
           <ThemeToggle />
 
           <div class="flex flex-col">
-            <div class="flex text-sm  gap-3">
-              <a class="hover:text-mauve" href="https://instagram.com">
+            <div class="flex text-sm gap-3">
+              <a
+                class="hover:text-mist text-foreground"
+                href="https://instagram.com"
+              >
                 Instagram
               </a>
-              <a class="hover:text-mauve" href="https://github.com/yojeero">
+              <a
+                class="hover:text-mist text-foreground"
+                href="https://github.com/yojeero"
+              >
                 Github
               </a>
             </div>
 
             <div
-              class="text-sm smallcase text-mauve hover:text-mauve-700 cursor-pointer"
+              class="text-sm smallcase text-mist hover:text-foreground cursor-pointer"
             >
               hello @
               <a href="https://pinuq.vercel.app">pinuq</a>

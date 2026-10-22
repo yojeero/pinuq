@@ -14,34 +14,34 @@
 :root {
   --background: #fafafa;
   --foreground: #2a212c;
-  --primary: #1c2644;
-  --primary-foreground: #f0ece3;
-  --muted-foreground: #5b6377;
   --accent: #eac95a;
   --line: #e7e4e7;
   --mauve: #79697b;
+  --rose: #f43f5e;
+  --blue: #93c5fd;
+  --mist: #abab9c;
 }
 
 .dark {
   --background: #1c2644;
   --foreground: #5d7596;
-  --primary: #e2dcd0;
-  --primary-foreground: #1c2644;
-  --muted-foreground: #a9b1c6;
-  --accent: #4b5f96;
+  --accent: #eac95a;
   --line: #314158;
+  --mauve: #36446d;
+  --rose: #f43f5e;
+  --blue: #93c5fd;
+  --mist: #abab9c;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-stone: var(--stone);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-line: var(--line);
   --color-mauve: var(--mauve);
+  --color-rose: var(--rose);
+  --color-blue: var(--blue);
+  --color-mist: var(--mist);
 }
 
 html {
@@ -86,7 +86,7 @@ html {
   --tw-prose-hr: var(--border);
   --tw-prose-quotes: var(--foreground);
   --tw-prose-quote-borders: #c8a870;
-  --tw-prose-captions: var(--muted-foreground);
+  --tw-prose-captions: var(--mauve);
   --tw-prose-code: var(--foreground);
   --tw-prose-pre-code: #e2dcd0;
   --tw-prose-pre-bg: #232f55;
@@ -132,7 +132,7 @@ html {
 }
 
 .prose .anchor-link {
-  @apply text-muted-foreground ml-1.5 font-normal no-underline opacity-0 transition-opacity duration-150;
+  @apply text-mauve ml-1.5 font-normal no-underline opacity-0 transition-opacity duration-150;
 }
 
 .prose :is(h2, h3, h4):hover .anchor-link,

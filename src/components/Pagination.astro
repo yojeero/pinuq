@@ -21,29 +21,29 @@ const prevUrl =
     {hasPrev ? (
       <a
         href={prevUrl}
-        class="text-foreground/60 hover:text-foreground transition-colors"
+        class="text-mauve hover:text-foreground transition-colors"
         rel="prev"
       >
         &larr; Previous
       </a>
     ) : (
-      <span class="text-foreground/30" aria-disabled="true">
+      <span class="text-mauve" aria-disabled="true">
         &larr; Previous
       </span>
     )}
-    <span class="text-foreground/60">
+    <span class="text-mint">
       Page {page.currentPage} of {page.lastPage}
     </span>
     {hasNext ? (
       <a
         href={page.url.next}
-        class="text-foreground/60 hover:text-foreground transition-colors"
+        class="text-mist hover:text-foreground transition-colors"
         rel="next"
       >
         Next &rarr;
       </a>
     ) : (
-      <span class="text-foreground/30" aria-disabled="true">
+      <span class="text-mist" aria-disabled="true">
         Next &rarr;
       </span>
     )}
