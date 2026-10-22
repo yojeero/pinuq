@@ -1,19 +1,27 @@
 ---
-// import { Icon } from "astro-icon/components";
+// src/components/toggle.astro
 ---
 
-<button
-  id="theme-toggle"
-  type="button"
-  aria-label="Toggle Theme"
-  aria-pressed="false"
-  class="inline-flex items-center cursor-pointer"
->
-  <span
-    class="inline-flex w-fit border-2 border-black bg-accent px-5 py-3 font-light text-xs text-black shadow-[4px_4px_0_0] shadow-black hover:bg-mauve hover:text-mauve-100 tracking-wider"
-    >Switch Theme
-  </span>
-</button>
+<div class="theme-toggle-wrapper">
+  <input
+    id="toggle-on"
+    class="toggle toggle-left"
+    name="theme-radio"
+    value="light"
+    type="radio"
+    checked
+  >
+  <label for="toggle-on" class="color-btn">light</label>
+
+  <input
+    id="toggle-off"
+    class="toggle toggle-right"
+    name="theme-radio"
+    value="dark"
+    type="radio"
+  >
+  <label for="toggle-off" class="color-btn">dark</label>
+</div>
 
 <script>
 const THEME_STORAGE_KEY = "theme";
@@ -24,9 +32,16 @@ const getThemeState = () => document.documentElement.classList.contains("dark");
 function syncThemeElements() {
   const isDark = getThemeState();
 
-  const button = document.getElementById("theme-toggle");
-  if (button) {
-    button.setAttribute("aria-pressed", String(isDark));
+  const radioLight = document.getElementById(
+    "toggle-on",
+  ) as HTMLInputElement | null;
+  const radioDark = document.getElementById(
+    "toggle-off",
+  ) as HTMLInputElement | null;
+
+  if (radioLight && radioDark) {
+    radioLight.checked = !isDark;
+    radioDark.checked = isDark;
   }
 
   const color = isDark ? THEME_COLORS.dark : THEME_COLORS.light;
@@ -38,16 +53,21 @@ function syncThemeElements() {
 function setupTheme() {
   syncThemeElements();
 
-  const button = document.getElementById("theme-toggle");
-  if (button) {
-    button.removeEventListener("click", toggleTheme);
-    button.addEventListener("click", toggleTheme);
+  const radioLight = document.getElementById("toggle-on");
+  const radioDark = document.getElementById("toggle-off");
+
+  if (radioLight && radioDark) {
+    radioLight.removeEventListener("change", handleThemeChange);
+    radioDark.removeEventListener("change", handleThemeChange);
+
+    radioLight.addEventListener("change", handleThemeChange);
+    radioDark.addEventListener("change", handleThemeChange);
   }
 }
 
-function toggleTheme() {
-  const isDark = getThemeState();
-  const newTheme = isDark ? "light" : "dark";
+function handleThemeChange(e: Event) {
+  const target = e.target as HTMLInputElement;
+  const newTheme = target.value; // 'light' или 'dark'
 
   document.documentElement.classList.toggle("dark", newTheme === "dark");
   localStorage.setItem(THEME_STORAGE_KEY, newTheme);
