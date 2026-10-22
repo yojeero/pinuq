@@ -173,7 +173,7 @@ html {
 
 /* Notes */
 .notes-bg {
-  @apply w-full py-12 lg:py-38 bg-accent;
+  @apply w-full py-12 lg:py-38 bg-accent dark:text-black;
 }
 
 .notes-center {
