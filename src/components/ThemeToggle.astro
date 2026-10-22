@@ -3,24 +3,16 @@
 ---
 
 <div class="theme-toggle-wrapper">
-  <input
-    id="toggle-on"
-    class="toggle toggle-left"
-    name="theme-radio"
-    value="light"
-    type="radio"
-    checked
+  <button
+    type="button"
+    class="theme-toggle"
+    role="switch"
+    aria-checked="false"
+    aria-label="Переключить тему"
   >
-  <label for="toggle-on" class="color-btn">light</label>
-
-  <input
-    id="toggle-off"
-    class="toggle toggle-right"
-    name="theme-radio"
-    value="dark"
-    type="radio"
-  >
-  <label for="toggle-off" class="color-btn">dark</label>
+    <span class="color-btn color-btn-left" data-option="light">light</span>
+    <span class="color-btn color-btn-right" data-option="dark">dark</span>
+  </button>
 </div>
 
 <script>
@@ -32,16 +24,12 @@ const getThemeState = () => document.documentElement.classList.contains("dark");
 function syncThemeElements() {
   const isDark = getThemeState();
 
-  const radioLight = document.getElementById(
-    "toggle-on",
-  ) as HTMLInputElement | null;
-  const radioDark = document.getElementById(
-    "toggle-off",
-  ) as HTMLInputElement | null;
-
-  if (radioLight && radioDark) {
-    radioLight.checked = !isDark;
-    radioDark.checked = isDark;
+  const toggle = document.querySelector<HTMLButtonElement>(
+    "button.theme-toggle",
+  );
+  if (toggle) {
+    toggle.setAttribute("aria-checked", String(isDark));
+    toggle.dataset.theme = isDark ? "dark" : "light";
   }
 
   const color = isDark ? THEME_COLORS.dark : THEME_COLORS.light;
@@ -53,21 +41,17 @@ function syncThemeElements() {
 function setupTheme() {
   syncThemeElements();
 
-  const radioLight = document.getElementById("toggle-on");
-  const radioDark = document.getElementById("toggle-off");
-
-  if (radioLight && radioDark) {
-    radioLight.removeEventListener("change", handleThemeChange);
-    radioDark.removeEventListener("change", handleThemeChange);
-
-    radioLight.addEventListener("change", handleThemeChange);
-    radioDark.addEventListener("change", handleThemeChange);
+  const toggle = document.querySelector<HTMLButtonElement>(
+    "button.theme-toggle",
+  );
+  if (toggle) {
+    toggle.removeEventListener("click", handleThemeToggle);
+    toggle.addEventListener("click", handleThemeToggle);
   }
 }
 
-function handleThemeChange(e: Event) {
-  const target = e.target as HTMLInputElement;
-  const newTheme = target.value; // 'light' или 'dark'
+function handleThemeToggle() {
+  const newTheme = getThemeState() ? "light" : "dark";
 
   document.documentElement.classList.toggle("dark", newTheme === "dark");
   localStorage.setItem(THEME_STORAGE_KEY, newTheme);
@@ -75,6 +59,7 @@ function handleThemeChange(e: Event) {
 }
 
 document.addEventListener("astro:page-load", setupTheme);
+document.addEventListener("astro:after-swap", syncThemeElements);
 
 window
   .matchMedia("(prefers-color-scheme: dark)")

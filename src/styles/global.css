@@ -254,9 +254,6 @@ html {
 /* ------------------------------ */
 /*  toggle theme
 /* ------------------------------ */
-/* ------------------------------ */
-/*  toggle theme
-/* ------------------------------ */
 
 .theme-toggle-wrapper {
   @apply inline-flex items-center isolate;
@@ -270,41 +267,51 @@ html {
     color 600ms ease;
 }
 
-input[type="radio"].toggle {
-  @apply hidden;
+button.theme-toggle {
+  @apply flex items-center cursor-pointer;
 }
 
-input[type="radio"].toggle + label {
+button.theme-toggle:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
+}
+
+button.theme-toggle .color-btn {
   @apply cursor-pointer w-16 h-full flex items-center justify-center;
 }
 
-input[type="radio"].toggle + label:hover {
+button.theme-toggle .color-btn:hover {
   @apply bg-none text-foreground;
 }
 
-input[type="radio"].toggle + label:after {
+button.theme-toggle .color-btn:after {
   @apply absolute top-0 w-full h-full bg-foreground -z-10;
   content: "";
   transition: transform 200ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
-input[type="radio"].toggle.toggle-left + label:after {
+button.theme-toggle .color-btn-left {
+  @apply border border-line;
+}
+
+button.theme-toggle .color-btn-left:after {
   @apply translate-x-full;
 }
 
-input[type="radio"].toggle.toggle-right + label {
-  @apply -ml-[1px] border-l-0;
+button.theme-toggle .color-btn-right {
+  @apply border border-line -ml-[1px] border-l-0;
 }
 
-input[type="radio"].toggle.toggle-right + label:after {
+button.theme-toggle .color-btn-right:after {
   @apply -translate-x-full;
 }
 
-input[type="radio"].toggle:checked + label {
+button.theme-toggle[data-theme="light"] .color-btn[data-option="light"],
+button.theme-toggle[data-theme="dark"] .color-btn[data-option="dark"] {
   @apply cursor-default text-background;
   transition: color 200ms;
 }
 
-input[type="radio"].toggle:checked + label:after {
+button.theme-toggle[data-theme="light"] .color-btn[data-option="light"]:after,
+button.theme-toggle[data-theme="dark"] .color-btn[data-option="dark"]:after {
   @apply translate-x-0;
 }
