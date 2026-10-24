@@ -10,14 +10,16 @@ const { posts } = Astro.props;
 const notePosts = posts.slice(0, 9);
 ---
 
-<ol class="notes-grid">
+<ol
+  class="grid list-none w-full grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"
+>
   {notePosts.map((post) => {
   const { title, excerpt, publishDate, tags = [] } = post.data;
   const primaryTag = tags[0];
 
   return (
     <li class="flex min-w-0 flex-col pt-2">
-      <div class="flex items-center gap-3 mb-2 tracking-normal text-xs uppercase font-mono tracking-tight">
+      <div class="flex items-center gap-3 mb-2 text-xs uppercase font-mono tracking-tight">
         <time datetime={publishDate.toISOString()}>
           {publishDate.toLocaleDateString("us-US", {
             day: "numeric",
@@ -30,7 +32,7 @@ const notePosts = posts.slice(0, 9);
         )}
       </div>
 
-      <h3 class="m-0 font-medium leading-normal tracking-wide text-lg hover:text-foreground">
+      <h3 class="font-medium leading-normal tracking-wide text-lg hover:text-foreground">
         <a href={`/blog/${post.id}/`}>{title}</a>
       </h3>
 

@@ -17,19 +17,12 @@ const isActive = (href: string) =>
     : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full border-b-1 border-b-mauve">
+<header class="w-full">
   <div
-    class="relative z-20 mx-auto flex w-full max-w-6xl items-center justify-between py-4"
+    class="relative z-20 mx-auto flex w-full max-w-5xl items-center justify-between py-8 px-4"
   >
     <a href="/" aria-label={siteConfig.title}>
-      <div
-        class="skew-logo bg-accent inline-flex px-3 py-1 flex items-center  rounded-br-4xl rounded-tl-4xl transform skew-x-[-20deg]"
-      >
-        <Icon
-          name="cup"
-          class="h-10 w-10 inline-flex text-background mr-2 flex-shrink-0 p-2  transform skew-x-[20deg]"
-        />
-      </div>
+      <Icon name="note" class="h-8 w-8 text-mist hover:text-rose ml-2" />
     </a>
 
     <button
@@ -116,6 +109,14 @@ const isActive = (href: string) =>
     </div>
   </div>
 </header>
+
+<div class="flex w-full p-2 border-y border-mauve">
+  <p
+    class="flex max-w-5xl mx-auto font-mono text-[10.5px] tracking-[0.32em] text-foreground whitespace-nowrap text-center"
+  >
+    tech news / coder lifestyle / linux rice
+  </p>
+</div>
 
 <script>
 const getElement = <T extends HTMLElement>(selector: string) =>

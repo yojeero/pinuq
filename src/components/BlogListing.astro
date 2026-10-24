@@ -1,6 +1,8 @@
 ---
 // import { Image } from "astro:assets";
-import BlogNotesList from "@/components/BlogNotesList.astro";
+
+import { Icon } from "astro-icon/components";
+import BlogNotes from "@/components/BlogNotes.astro";
 import BlogPostCard from "@/components/BlogPostCard.astro";
 import Button from "@/components/Button.astro";
 import siteConfig from "@/data/site-config";
@@ -27,46 +29,30 @@ const cardPosts = posts.filter((post) => post.data.coverImage);
   description="Explore tech news & lifestyle."
   mainClass="blog-main"
 >
-  <div class="mx-auto grid max-w-6xl w-full py-[clamp(4rem,4vw,6rem)]">
+  <div class="mx-auto grid max-w-5xl w-full py-[clamp(4rem,6vw,8rem)]">
     {currentPage === 1 && (
   <section
     aria-labelledby="heading"
-    class="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] mb-32 px-2"
+    class="grid grid-cols-1 md:grid-cols-[1fr_auto] mb-32 px-2 lg:gap-x-24"
   >
     <div class="relative w-full grid items-center gap-4 tracking-wide font-bold">
+      <span class="w-fit font-mono text-[10.5px] font-bold tracking-[0.24em] px-2 text-foreground boder border-b border-mauve leading-16 uppercase">
+        Autumn 2026 · INDEX NO. 05
+      </span>
 
-      <span class="absolute top-2/4 left-2 transform -translate-y-1/2 [writing-mode:vertical-rl] font-mono text-[10.5px] tracking-[0.32em] text-mauve whitespace-nowrap">Vol. XIII · No. 25 · Autumn</span> 
-
-      <span class="font-mono text-[10.5px] font-bold tracking-[0.24em] px-2 text-foreground boder border-b border-mauve leading-16">SPRING 2026 · INDEX NO. 02</span>  
-
-      <h1
-        id="featured-heading"
-        class="grid leading-40 text-foreground justify-self-center"
-      >
-        <p class="text-9xl lg:text-[148px] text-rose">Pinuq</p> 
-        <em class="text-8xl">journal</em>
+      <h1 id="featured-heading" class="grid leading-40 text-foreground pb-16">
+        <p class="text-9xl lg:text-[148px] text-rose">Pinuq</p>
+        <em class="ml-2 text-8xl">
+          journal
+          <Icon name="arrow" class="inline-flex h-14 w-14 text-rose ml-12" />
+        </em>
       </h1>
 
-      <h3 class="flex place-self-center font-mono text-[10.5px] tracking-[0.32em] text-mauve whitespace-nowrap p-2 border-y border-mauve">tech news</h3>
-
       <Button href="/blog/all/">All writing &rarr;</Button>
-
     </div>
 
-    <div class="flex h-fit place-self-center mt-12">
-      <div class="px-6 py-18 flex flex-col gap-4 items-center justify-center w-full border border-mauve">
-        <div class="text-center">
-          <div class="text-xs tracking-normal text-foreground uppercase mb-2">
-            — Master Class —
-          </div>
-          <div class="font-bold text-3xl text-mauve leading-none mb-2 tracking-wide">
-            Letterpress &amp; Bindery
-          </div>
-          <div class="text-[0.65rem] tracking-wider text-mist uppercase">
-            N° 0247 · Awarded May 2026
-          </div>
-        </div>
-      </div>
+    <div class="flex flex-col w-full p-6 items-center border border-mauve mt-16 h-fit place-self-center rounded-lg">
+      <BlogNotes posts={notePosts} />
     </div>
   </section>
 )}
@@ -81,12 +67,4 @@ const cardPosts = posts.filter((post) => post.data.coverImage);
   </div>
 
   <slot />
-
-  <section class="notes-bg" aria-labelledby="notes">
-    {notePosts.length > 0 && (
-  <div class="notes-center">
-    <BlogNotesList posts={notePosts} />
-  </div>
-)}
-  </section>
 </BaseLayout>

@@ -1,0 +1,42 @@
+---
+import type { BlogPost } from "@/data/types";
+
+type Props = {
+  posts: BlogPost[];
+};
+
+const { posts } = Astro.props;
+const notePosts = posts.slice(0, 9);
+---
+
+<ol class="grid w-full gap-6 grid-cols-1 md:grid-cols-2 ">
+  {notePosts.map((post) => {
+  const { title, publishDate } = post.data;
+
+  return (
+    <li class="flex w-full flex-col py-2 border-b border-line">
+      <h3 class="font-light leading-normal tracking-wide text-sm text-foreground hover:text-rose">
+        <a href={`/blog/${post.id}/`}>{title}</a>
+      </h3>
+
+      <div class="flex items-center gap-3 text-[10.5px] uppercase font-mono tracking-tight text-mist">
+        <time datetime={publishDate.toISOString()}>
+          {publishDate.toLocaleDateString("us-US", {
+            day: "numeric",
+            month: "numeric",
+            year: "numeric",
+          })}
+        </time>
+      </div>
+    </li>
+  );
+})}
+</ol>
+
+<div class="mt-[clamp(2.5rem,_5vw,_4rem)]">
+  <a
+    href="/blog/all"
+    class="inline-flex items-center text-xs tracking-wide uppercase hover:text-rose"
+    >More Notes</a
+  >
+</div>

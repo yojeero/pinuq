@@ -4,8 +4,10 @@ import { team } from "@/data/site-config";
 import { resolveAvatar } from "@/utils/team-utils";
 ---
 
-<section class="not-prose mx-auto max-w-5xl flex flex-col gap-8">
-  <div class="flex flex-col p-4 lg:p-18 justify-center mt-8">
+<section
+  class="not-prose mx-auto max-w-4xl flex flex-col gap-8 py-[clamp(4rem,6vw,8rem)]"
+>
+  <div class="flex flex-col p-4 lg:p-18 justify-center">
     <h2
       class="w-full text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide text-foreground dark:text-mist"
     >
@@ -16,7 +18,9 @@ import { resolveAvatar } from "@/utils/team-utils";
     </p>
   </div>
 
-  <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  bg-mauve/10"
+  >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
   return (
@@ -29,7 +33,7 @@ import { resolveAvatar } from "@/utils/team-utils";
         />
       )}
 
-      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-foreground dark:text-mist bg-mauve/10">
+      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-foreground dark:text-mist">
         <p class="leading-8 text-base">{member.name}</p>
         <p>{member.role}</p>
       </div>
