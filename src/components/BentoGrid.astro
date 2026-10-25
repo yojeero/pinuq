@@ -29,79 +29,112 @@ const cardPosts = posts.filter((post) => post.data.coverImage);
   description="Explore tech news & lifestyle."
   mainClass="blog-main"
 >
+  <div
+    class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-6xl mx-auto p-4 auto-rows-[180px]"
+  >
+    {latestPost && (
+  <article class="md:col-span-3 md:row-span-2 relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-6 md:p-8 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
+    <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-50"></div>
 
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-6xl mx-auto p-4 auto-rows-[180px]">
-  
-
-  {latestPost && (
-    <article class="md:col-span-3 md:row-span-2 relative overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900 p-6 md:p-8 flex flex-col justify-between group hover:border-zinc-700 transition-all duration-300">
-      <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-transparent opacity-50"></div>
-      
-      <div class="relative z-10">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 animate-pulse">
-          Новое в блоге
-        </span>
-        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mt-4 group-hover:text-emerald-300 transition-colors">
-          {latestPost.data.title}
-        </h2>
-        <p class="text-zinc-400 mt-2 text-sm md:text-base max-w-xl line-clamp-2">
-          {latestPost.data.description}
-        </p>
-      </div>
-
-      <div class="relative z-10 flex items-center justify-between mt-6 pt-4 border-t border-zinc-800/60">
-        <span class="text-xs text-zinc-500">
-          {new Date(latestPost.data.pubDate).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' })}
-        </span>
-        <a href={`/blog/${latestPost.id}`} class="inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform">
-          Читать статью <span class="text-emerald-400">→</span>
-        </a>
-      </div>
-    </article>
-  )}
-
-
-  <div class={`md:col-span-1 md:row-span-2 rounded-3xl border border-zinc-800 bg-gradient-to-b ${categories[0].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[0].border}`}>
-    <div>
-      <div class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg">💻</div>
-      <h3 class="text-lg font-bold text-white mt-4">{categories[0].name}</h3>
-      <p class="text-xs text-zinc-400 mt-1">{categories[0].desc}</p>
+    <div class="relative z-10">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 animate-pulse">
+        Новое в блоге
+      </span>
+      <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white mt-4 group-hover:text-emerald-300 transition-colors">
+        {latestPost.data.title}
+      </h2>
+      <p class="text-zinc-400 mt-2 text-sm md:text-base max-w-xl line-clamp-2">
+        {latestPost.data.description}
+      </p>
     </div>
-    <a href={`/category/${categories[0].slug}`} class="text-xs font-semibold text-zinc-300 hover:text-white mt-4 flex items-center gap-1">
-      Смотреть всё →
-    </a>
-  </div>
 
-  {/* РУБРИКА 2: Занимает 2 колонки и 1 строку в высоту (снизу слева) */}
-  <div class={`md:col-span-2 md:row-span-1 rounded-3xl border border-zinc-800 bg-gradient-to-r ${categories[1].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[1].border}`}>
-    <div class="flex items-start justify-between gap-4">
+    <div class="relative z-10 flex items-center justify-between mt-6 pt-4 border-t border-zinc-800/60">
+      <span class="text-xs text-zinc-500">
+        {new Date(latestPost.data.pubDate).toLocaleDateString("ru-RU", {
+          day: "numeric",
+          month: "short",
+        })}
+      </span>
+      <a
+        href={`/blog/${latestPost.id}`}
+        class="inline-flex items-center gap-1 text-sm font-medium text-white group-hover:translate-x-1 transition-transform"
+      >
+        Читать статью <span class="text-emerald-400">→</span>
+      </a>
+    </div>
+  </article>
+)}
+
+    <div
+      class={`md:col-span-1 md:row-span-2 rounded-3xl border border-zinc-800 bg-gradient-to-b ${categories[0].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[0].border}`}
+    >
       <div>
-        <h3 class="text-lg font-bold text-white">{categories[1].name}</h3>
-        <p class="text-xs text-zinc-400 mt-1 max-w-sm">{categories[1].desc}</p>
+        <div
+          class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg"
+        >
+          💻
+        </div>
+        <h3 class="text-lg font-bold text-white mt-4">{categories[0].name}</h3>
+        <p class="text-xs text-zinc-400 mt-1">{categories[0].desc}</p>
       </div>
-      <div class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg shrink-0">🎨</div>
+      <a
+        href={`/category/${categories[0].slug}`}
+        class="text-xs font-semibold text-zinc-300 hover:text-white mt-4 flex items-center gap-1"
+      >
+        Смотреть всё →
+      </a>
     </div>
-    <a href={`/category/${categories[1].slug}`} class="text-xs font-semibold text-zinc-300 hover:text-white mt-2">
-      Перейти в рубрику →
-    </a>
-  </div>
 
-  {/* РУБРИКА 3: Занимает 2 колонки и 1 строку в высоту (снизу справа) */}
-  <div class={`md:col-span-2 md:row-span-1 rounded-3xl border border-zinc-800 bg-gradient-to-r ${categories[2].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[2].border}`}>
-    <div class="flex items-start justify-between gap-4">
-      <div>
-        <h3 class="text-lg font-bold text-white">{categories[2].name}</h3>
-        <p class="text-xs text-zinc-400 mt-1 max-w-sm">{categories[2].desc}</p>
+    {/* РУБРИКА 2: Занимает 2 колонки и 1 строку в высоту (снизу слева) */}
+    <div
+      class={`md:col-span-2 md:row-span-1 rounded-3xl border border-zinc-800 bg-gradient-to-r ${categories[1].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[1].border}`}
+    >
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">{categories[1].name}</h3>
+          <p class="text-xs text-zinc-400 mt-1 max-w-sm">
+            {categories[1].desc}
+          </p>
+        </div>
+        <div
+          class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg shrink-0"
+        >
+          🎨
+        </div>
       </div>
-      <div class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg shrink-0">☕</div>
+      <a
+        href={`/category/${categories[1].slug}`}
+        class="text-xs font-semibold text-zinc-300 hover:text-white mt-2"
+      >
+        Перейти в рубрику →
+      </a>
     </div>
-    <a href={`/category/${categories[2].slug}`} class="text-xs font-semibold text-zinc-300 hover:text-white mt-2">
-      Перейти в рубрику →
-    </a>
-  </div>
 
-</div>
+    {/* РУБРИКА 3: Занимает 2 колонки и 1 строку в высоту (снизу справа) */}
+    <div
+      class={`md:col-span-2 md:row-span-1 rounded-3xl border border-zinc-800 bg-gradient-to-r ${categories[2].bg} p-6 flex flex-col justify-between transition-all duration-300 ${categories[2].border}`}
+    >
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-lg font-bold text-white">{categories[2].name}</h3>
+          <p class="text-xs text-zinc-400 mt-1 max-w-sm">
+            {categories[2].desc}
+          </p>
+        </div>
+        <div
+          class="w-8 h-8 rounded-lg bg-zinc-800 flex items-center justify-center text-lg shrink-0"
+        >
+          ☕
+        </div>
+      </div>
+      <a
+        href={`/category/${categories[2].slug}`}
+        class="text-xs font-semibold text-zinc-300 hover:text-white mt-2"
+      >
+        Перейти в рубрику →
+      </a>
+    </div>
+  </div>
 
   <slot />
 </BaseLayout>
-
