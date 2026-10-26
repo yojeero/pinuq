@@ -24,22 +24,6 @@ const blog = defineCollection({
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]),
       seo: seoSchema.optional(),
-      coverImage: image().optional(),
-      coverAlt: z.string().optional(),
-      coverPosition: z
-        .enum([
-          "center",
-          "top",
-          "bottom",
-          "left",
-          "right",
-          "top-left",
-          "top-right",
-          "bottom-left",
-          "bottom-right",
-        ])
-        .default("center"),
-      coverZoom: z.number().min(100).max(500).default(100),
       author: z.string().optional(),
     }),
 });

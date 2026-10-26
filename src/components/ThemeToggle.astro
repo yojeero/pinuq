@@ -1,5 +1,5 @@
 ---
-// import { Icon } from "astro-icon/components";
+import { Icon } from "astro-icon/components";
 ---
 
 <button
@@ -7,12 +7,9 @@
   type="button"
   aria-label="Toggle Theme"
   aria-pressed="false"
-  class="inline-flex items-center cursor-pointer"
+  class="inline-flex items-center cursor-pointer pr-2"
 >
-  <span
-    class="inline-flex w-fit border border-black bg-accent px-5 py-3 font-light text-xs hover:bg-mist tracking-wider uppercase text-foreground dark:text-black hover:text-white shadow-[4px_4px_0_0] shadow-black"
-    >Theme
-  </span>
+  <Icon name="sun" class="h-5 w-5 text-foreground hover:text-mauve outline-none" />
 </button>
 
 <script>

@@ -10,9 +10,9 @@ const siteConfig: SiteConfig = {
   title: "PINUQ",
   titleSeparator: "",
   url: siteUrl,
-  description: "Tech Lover",
+  description: "Tech Blog",
   logo: {
-    src: "/assets/icons/note.svg",
+    src: "",
     alt: "PINUQ",
   },
   author: "Yojee",

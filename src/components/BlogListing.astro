@@ -1,10 +1,5 @@
 ---
-// import { Image } from "astro:assets";
-
-import { Icon } from "astro-icon/components";
-import BlogNotes from "@/components/BlogNotes.astro";
-import BlogPostCard from "@/components/BlogPostCard.astro";
-import Button from "@/components/Button.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 import siteConfig from "@/data/site-config";
 import type { BlogPost } from "@/data/types";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -16,12 +11,6 @@ type Props = {
 };
 
 const { posts, currentPage } = Astro.props;
-const notePosts = posts.filter((post) => !post.data.coverImage);
-const cardPosts = posts.filter((post) => post.data.coverImage);
-
-// const images = import.meta.glob<{ default: ImageMetadata }>(
-//   "/src/assets/**/*.{jpeg,jpg,png,webp}",
-// );
 ---
 
 <BaseLayout
@@ -29,41 +18,32 @@ const cardPosts = posts.filter((post) => post.data.coverImage);
   description="Explore tech news & lifestyle."
   mainClass="blog-main"
 >
-  <div class="mx-auto grid max-w-5xl w-full py-[clamp(4rem,6vw,8rem)]">
-    {currentPage === 1 && (
-  <section
-    aria-labelledby="heading"
-    class="grid grid-cols-1 md:grid-cols-[1fr_auto] mb-32 px-2 lg:gap-x-24"
-  >
-    <div class="relative w-full grid items-center gap-4 tracking-wide font-bold">
-      <span class="w-fit font-mono text-[10.5px] font-bold tracking-[0.24em] px-2 text-foreground boder border-b border-mauve leading-16 uppercase">
-        Autumn 2026 · INDEX NO. 05
-      </span>
-
-      <h1 id="featured-heading" class="grid leading-40 text-foreground pb-16">
-        <p class="text-9xl lg:text-[148px] text-rose">Pinuq</p>
-        <em class="ml-2 text-8xl">
-          journal
-          <Icon name="arrow" class="inline-flex h-14 w-14 text-rose ml-12" />
-        </em>
+  <div class="mx-auto max-w-4xl w-full py-[clamp(4rem,6vw,8rem)] px-4 sm:px-6">
+    <header class="mb-12 md:mb-16">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground"
+      >
+        Blog
       </h1>
+    </header>
 
-      <Button href="/blog/all/">All writing &rarr;</Button>
-    </div>
-
-    <div class="flex flex-col w-full p-6 items-center border border-mauve mt-16 h-fit place-self-center rounded-lg">
-      <BlogNotes posts={notePosts} />
-    </div>
-  </section>
-)}
-
-    {cardPosts.length > 0 && (
-  <section aria-labelledby="latest-heading" class="blog-grid">
-    {cardPosts.map((post) => (
-      <BlogPostCard post={post} />
-    ))}
-  </section>
-)}
+    <ul class="divide-y divide-line">
+      {posts.map((post) => (
+  <li class="group">
+    <a
+      href={`/blog/${post.id}/`}
+      class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 py-5 sm:py-6 hover:text-rose transition-colors"
+    >
+      <h2 class="text-lg sm:text-xl font-medium tracking-wide leading-snug group-hover:text-rose transition-colors">
+        {post.data.title}
+      </h2>
+      <time class="text-sm text-mist font-mono whitespace-nowrap shrink-0">
+        <FormattedDate date={post.data.publishDate} format="short" />
+      </time>
+    </a>
+  </li>
+))}
+    </ul>
   </div>
 
   <slot />

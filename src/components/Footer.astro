@@ -1,35 +1,30 @@
 ---
-import siteConfig from "@/data/site-config";
-
 const currentYear = new Date().getFullYear();
+
+const navItems = [
+  { text: "Home", href: "/" },
+  { text: "Blog", href: "/blog/all" },
+  { text: "About", href: "/about" },
+  { text: "Team", href: "/team" },
+];
 ---
 
-<footer id="foot" class="w-full lg:border-t border-mauve py-32">
+<footer
+  id="foot"
+  class="w-full min-h-vh flex-1 border-t border-blue py-[clamp(4rem,6vw,8rem)]"
+>
   <div
-    class="w-full max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 lg:items-center place-content-evenly tracking-widest gap-8"
+    class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
   >
-    <div
-      class="flex flex-col md:flex-row place-content-center items-center lg:justify-start gap-2"
-    >
-      <a href="/" aria-label="up" class="font-bold text-blue">
-        {siteConfig.title}
-      </a>
+    <nav class="items-center text-sm gap-2 flex" aria-label="Main navigation">
+      {navItems.map((item) => (
+    <a href={item.href} class="text-foreground hover:text-mist">
+      {item.text}
+    </a>
+    <span class="text-slate-400 last:hidden">•</span>
+))}
+    </nav>
 
-      <a href="https://t.me/" target="_blank">
-        <span class="text-md font-mono text-mist hover:text-foreground px-2"
-          >[ Telegram ]</span
-        >
-      </a>
-    </div>
-
-    <div class="flex text-sm justify-center lg:justify-end">
-      <a
-        class="flex text-foreground hover:text-blue"
-        aria-label={siteConfig.title}
-        href="https//pinuq.vercel.app/"
-      >
-        © Pinuq {currentYear}
-      </a>
-    </div>
+    <div class="text-sm">© Pinuq {currentYear}</div>
   </div>
 </footer>

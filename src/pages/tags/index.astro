@@ -22,8 +22,8 @@ const tagsWithCount = tags
   title="Tags"
   description="Click on any tag to discover related articles and insights."
 >
-  <section>
-    <h1 class="font-serif text-4xl font-bold sm:text-[2.5rem]">Tags</h1>
+  <section class="w-full max-w-5xl mx-auto py-[clamp(4rem,6vw,8rem)]">
+    <h1 class="font-bold text-4xl sm:text-[2.5rem]">Tags</h1>
     <p class="mt-5 mb-6 text-base leading-relaxed sm:text-lg">
       Click on any tag to discover related articles and insights.
     </p>
@@ -36,7 +36,7 @@ const tagsWithCount = tags
           {tagsWithCount.map((tag) => (
   <a
     href={`/tags/${tag.id}/`}
-    class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs mt-4 hover:text-slate-400"
+    class="flex w-fit uppercase text-xs font-mono tracking-widest px-2 mt-4"
   >
     {tag.name}
   </a>
@@ -45,13 +45,13 @@ const tagsWithCount = tags
       </div>
       {tagsWithCount.length > 0 && (
   <div>
-    <h2 class="font-serif text-2xl font-medium sm:text-3xl">Popular Tags</h2>
+    <h2 class="font-mono text-2xl sm:text-3xl">Popular Tags</h2>
     <div class="mt-4 grid gap-3 sm:grid-cols-2 md:grid-cols-2">
       {tagsWithCount.slice(0, 9).map((tag) => (
         <a href={`/tags/${tag.id}/`} class="font-medium">
-          <div class="flex items-center justify-between rounded-lg border p-3">
+          <div class="flex items-center justify-between p-3">
             {tag.name}
-            <span class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs">
+            <span class="flex w-fit uppercase text-xs font-mono tracking-widest px-2">
               {tag.count} <span class="sr-only">posts</span>
             </span>
           </div>

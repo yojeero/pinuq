@@ -1,4 +1,4 @@
-<img src="preview/d2.webp" width="100%">
+<img src="preview/d1.webp" width="100%">
 
 <img src="https://img.shields.io/badge/Pinuq-7678ed?style=for-the-badge" width="40%" alt="Pinuq">   
 
@@ -40,4 +40,8 @@ otherwise, the incorrect address will remain.
 > public/robots.txt   
 > site-config.ts   
 > BaseLayout.astro.   
+
+> [!NOTE]
+> `bun run astro preferences disable devToolbar` — run in your terminal in the root for disable Astro applet.   
+
 

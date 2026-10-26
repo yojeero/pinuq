@@ -8,9 +8,7 @@ import { resolveAvatar } from "@/utils/team-utils";
   class="not-prose mx-auto max-w-4xl flex flex-col gap-8 py-[clamp(4rem,6vw,8rem)]"
 >
   <div class="flex flex-col p-4 lg:p-18 justify-center">
-    <h2
-      class="w-full text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide text-foreground dark:text-mist"
-    >
+    <h2 class="w-full text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide">
       Team.
     </h2>
     <p class="text-xl max-w-3xl pt-2">
@@ -19,7 +17,7 @@ import { resolveAvatar } from "@/utils/team-utils";
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  bg-mauve/10"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-top-svg/70"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
@@ -33,7 +31,7 @@ import { resolveAvatar } from "@/utils/team-utils";
         />
       )}
 
-      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-foreground dark:text-mist">
+      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-mist">
         <p class="leading-8 text-base">{member.name}</p>
         <p>{member.role}</p>
       </div>

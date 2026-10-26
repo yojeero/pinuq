@@ -33,7 +33,6 @@ export type SiteConfig = {
     alt: string;
   };
   image: Image;
-  team?: TeamMember[];
 };
 
 // -------------------------------------------------------------
@@ -57,7 +56,6 @@ export interface PostListItemProps extends Record<string, unknown> {
   post: BlogPost;
   class?: string;
   hideTags?: boolean;
-  showCover?: boolean;
 }
 
 export interface TOCProps extends Record<string, unknown> {

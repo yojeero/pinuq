@@ -8,170 +8,48 @@ const navItems = [
   { text: "About", href: "/about" },
   { text: "Team", href: "/team" },
 ];
-
-const normalize = (path: string) => path.replace(/\/+$/, "") || "/";
-const currentPath = normalize(Astro.url.pathname);
-const isActive = (href: string) =>
-  href === "/"
-    ? currentPath === "/"
-    : currentPath === href || currentPath.startsWith(`${href}/`);
 ---
 
-<header class="w-full">
+<header class="w-full backdrop-blur-sm py-4 z-10">
   <div
-    class="relative z-20 mx-auto flex w-full max-w-5xl items-center justify-between py-8 px-4"
+    class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8"
   >
-    <a href="/" aria-label={siteConfig.title}>
-      <Icon name="note" class="h-8 w-8 text-blue hover:text-rose ml-2" />
-    </a>
-
-    <button
-      type="button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-      aria-controls="site-nav"
-      data-nav-toggle="open"
-      class="inline-flex font-sans text-xs uppercase text-foreground items-center hover:text-mist"
-    >
-      Menu
-
-      <Icon name="menu" class="h-8 w-8 text-foreground hover:text-rose ml-2" />
-    </button>
-
-    <div id="site-nav" class="nav-links">
-      <button
-        type="button"
-        aria-label="Close navigation menu"
-        class="absolute z-50 right-8 top-8"
-        data-nav-toggle="close"
-      >
-        <Icon name="close" class="h-8 w-8 text-foreground hover:text-mist" />
-      </button>
-
-      <div
-        id="nav-content"
-        class="fixed inset-0 z-20 flex h-full w-full flex-col items-start justify-between p-8 lg:p-18"
-      >
+    <div class="flex">
+      <div class="flex items-center gap-4">
         <a
           href="/"
-          class="text-2xl text-foreground dark:text-accent hover:text-mauve tracking-wider ml-2"
+          class="flex items-center gap-3 text-lg font-mono tracking-tight text-black hover:text-mauve"
           aria-label={siteConfig.title}
         >
-          {siteConfig.title}.
+          <Icon
+            name="note"
+            class="h-5 w-5 items-center text-foreground hover:text-mauve"
+          />
+
+          <span>Pinuq</span>
         </a>
-
-        <nav aria-label="Primary" class="flex w-full flex-col gap-4">
-          {navItems.map((item, index) => {
-  const num = String(index + 1).padStart(2, "0");
-
-  return (
-    <a
-      href={item.href}
-      aria-current={isActive(item.href) ? "page" : undefined}
-      class="inline-flex items-baseline border-b border-line pb-8 text-6xl lg:text-8xl tracking-wider text-foreground hover:text-mist"
-    >
-      {item.text}
-
-      <span class="ml-4 text-base self-end text-mauve">{num}</span>
-    </a>
-  );
-})}
-        </nav>
-
-        <div class="flex w-full justify-between gap-2">
-          <ThemeToggle />
-
-          <div class="flex flex-col">
-            <div class="flex text-sm gap-3">
-              <a
-                class="hover:text-mist text-foreground"
-                href="https://instagram.com"
-              >
-                Instagram
-              </a>
-              <a
-                class="hover:text-mist text-foreground"
-                href="https://github.com/yojeero"
-              >
-                Github
-              </a>
-            </div>
-
-            <div
-              class="text-sm smallcase text-mist hover:text-foreground cursor-pointer"
-            >
-              hello @
-              <a href="https://pinuq.vercel.app">pinuq</a>
-            </div>
-          </div>
-        </div>
       </div>
+
+      <nav
+        class="hidden items-center gap-8 text-sm md:flex gap-6 ml-12"
+        aria-label="Main navigation"
+      >
+        {navItems.map((item) => (
+  <a
+    href={item.href}
+    class="font-mono tracking-tight text-foreground hover:text-mauve"
+  >
+    {item.text}
+  </a>
+))}
+      </nav>
+    </div>
+
+    <div class="inline-flex gap-x-2">
+      <ThemeToggle />
+      <a href="/rss.xml"
+        ><Icon name="rss" class="h-5 w-5 text-foreground hover:text-mauve outline-none" /></a
+      >
     </div>
   </div>
 </header>
-
-<div class="flex w-full p-2 border-y border-mauve">
-  <p
-    class="flex max-w-5xl mx-auto font-mono text-[10.5px] tracking-[0.32em] text-foreground whitespace-nowrap text-center"
-  >
-    tech news / lifestyle / linux
-  </p>
-</div>
-
-<script>
-const getElement = <T extends HTMLElement>(selector: string) =>
-  document.querySelector<T>(selector);
-
-const isOpen = () =>
-  getElement("#site-nav")?.classList.contains("is-open") ?? false;
-
-const setOpen = (open: boolean) => {
-  const nav = getElement("#site-nav");
-  if (!nav) return;
-
-  nav.classList.toggle("is-open", open);
-  document.documentElement.classList.toggle("nav-open", open);
-
-  document
-    .querySelectorAll<HTMLElement>("[data-nav-toggle]")
-    .forEach((toggle) => {
-      toggle.setAttribute("aria-expanded", String(open));
-    });
-};
-
-const handleDocumentClick = (event: MouseEvent) => {
-  const target = event.target instanceof Element ? event.target : null;
-
-  const toggle = target?.closest<HTMLElement>("[data-nav-toggle]");
-  if (toggle) {
-    setOpen(toggle.dataset.navToggle === "open");
-    return;
-  }
-
-  if (!isOpen()) return;
-
-  const nav = getElement("#site-nav");
-  if (nav && target && nav.contains(target)) {
-    if (target.closest("a")) setOpen(false);
-    return;
-  }
-
-  if (nav) setOpen(false);
-};
-
-const handleDocumentKeydown = (event: KeyboardEvent) => {
-  if (event.key === "Escape") setOpen(false);
-};
-
-document.addEventListener("click", handleDocumentClick);
-document.addEventListener("keydown", handleDocumentKeydown);
-document.addEventListener("astro:before-preparation", () => setOpen(false));
-document.addEventListener("astro:page-load", () => setOpen(false));
-</script>
-
-<style>
-:global(html.nav-open),
-:global(html.nav-open body) {
-  overflow: hidden;
-}
-</style>

@@ -42,10 +42,6 @@ const {
   excerpt,
   tags = [],
   seo,
-  coverImage,
-  coverAlt,
-  coverPosition = "center",
-  coverZoom = 100,
   author,
 } = post.data;
 
@@ -66,25 +62,6 @@ const { Content } = await render(post);
 
 const postUrl = new URL(`/blog/${post.id}`, Astro.site).toString();
 
-const originMap = {
-  center: "center center",
-  top: "top center",
-  bottom: "bottom center",
-  left: "center left",
-  right: "center right",
-  "top-left": "top left",
-  "top-right": "top right",
-  "bottom-left": "bottom left",
-  "bottom-right": "bottom right",
-};
-
-const activePosition = coverPosition in originMap ? coverPosition : "center";
-
-const coverStyle = {
-  transform: `scale(${coverZoom / 100})`,
-  "transform-origin": originMap[activePosition],
-};
-
 const authorSchema = createPersonSchema();
 const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
 ---
@@ -100,8 +77,10 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   tags={tags}
   customSchemas={[blogPostingSchema]}
 >
-  <div class="max-w-3xl mx-auto w-full mt-24">
-    <h1 class="font-bold leading-8 tracking-wide text-3xl lg:text-4xl">
+  <div class="max-w-4xl mx-auto w-full py-12">
+    <h1
+      class="font-bold leading-8 tracking-wide text-3xl lg:text-4xl text-center"
+    >
       {title}
     </h1>
   </div>
@@ -121,7 +100,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     </div>
 
     <div
-      class="flex w-fit uppercase text-xs font-mono tracking-widest border border-slate-500 px-2 rounded-xs mt-4 hover:text-slate-400"
+      class="flex w-fit px-4 text-[10px] font-mono uppercase items-end tracking-widest text-foreground"
     >
       {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
@@ -129,18 +108,6 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
 
   <div class="mt-10">
     <article class="min-w-0 w-full max-w-3xl mx-auto">
-      {coverImage && (
-  <div class="mb-10 aspect-video w-full overflow-hidden rounded-lg border border-line select-none pointer-events-none">
-    <Image
-      src={coverImage}
-      alt={coverAlt ?? title}
-      widths={[520, 1040]}
-      sizes="(min-width: 1024px) 672px, 100vw"
-      class="w-full h-full object-cover"
-      style={coverStyle}
-    />
-  </div>
-)}
       <div id="content">
         <Prose>
           <Content />
@@ -160,9 +127,9 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
         class="flex flex-col w-fit text-right inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
       >
         <span class="block text-xs mb-2">&larr; Prev</span>
-        <span class="block font-mono text-sm capitalize">
+        {/* <span class="block font-mono text-sm capitalize">
           {olderPost.data.title}
-        </span>
+        </span> */}
       </a>
     ) : (
       <span class="hidden sm:block" aria-hidden="true" />
@@ -173,9 +140,9 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
         class="flex flex-col w-fit text-left inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
       >
         <span class="block text-xs mb-2">Next &rarr;</span>
-        <span class="block font-mono text-sm capitalize">
+        {/* <span class="block font-mono text-sm capitalize">
           {newerPost.data.title}
-        </span>
+        </span> */}
       </a>
     )}
   </nav>
