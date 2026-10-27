@@ -12,7 +12,8 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #f2f0eb;
+  --background: #ffffff;
+  /* --background: #f2f0eb; */
   --foreground: #100f0d;
   --mauve: #79697b;
   --rose: #f43f5e;
