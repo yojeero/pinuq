@@ -46,8 +46,8 @@ const getExcerpt = (post) =>
 
     <p class=" mt-3 text-sm leading-6">{getExcerpt(post)}</p>
 
-    <div class="mt-8 flex items-center gap-3 text-xs tracking-wide">
-      <span>by {post.data.author || "Pinuq"}</span>
+    <div class="mt-8 flex items-center gap-3 text-xs tracking-wide uppercase">
+      <span>{post.data.author || "Pinuq"}</span>
       <FormattedDate date={post.data.publishDate} format="short" />
     </div>
   </article>
@@ -63,7 +63,7 @@ const getExcerpt = (post) =>
       <div class="flex gap-4 flex-col p-8">
         {categories.map((tag) => (
   <a
-    class="flex w-fit rounded-lg border border-white px-3 py-1.5 text-xs font-mono text-foreground"
+    class="flex w-fit rounded-lg border border-blue px-3 py-1.5 text-xs font-mono text-foreground"
     href={`/tags/${slugify(tag)}/`}
   >
     {tag}
