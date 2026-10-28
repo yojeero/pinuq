@@ -66,8 +66,11 @@
 }
 
 /* for hide # in the .mdx */
-h1 a, h2 a, h3 a, h4 a {
-  display: none; 
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+  display: none;
 }
 
 h2 .anchor-link {

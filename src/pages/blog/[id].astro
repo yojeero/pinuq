@@ -127,9 +127,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
         class="flex flex-col w-fit text-right inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">&larr; Prev</span>
-        <span class="block text-sm capitalize">
-          {olderPost.data.title}
-        </span>
+        <span class="block text-sm capitalize">{olderPost.data.title}</span>
       </a>
     ) : (
       <span class="hidden sm:block" aria-hidden="true" />
@@ -140,9 +138,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
         class="flex flex-col w-fit text-left inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">Next &rarr;</span>
-        <span class="block text-sm capitalize">
-          {newerPost.data.title}
-        </span>
+        <span class="block text-sm capitalize">{newerPost.data.title}</span>
       </a>
     )}
   </nav>
