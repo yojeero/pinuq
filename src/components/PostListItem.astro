@@ -36,19 +36,17 @@ const { title, excerpt, publishDate, tags = [] } = post.data;
     <a
       href={`/blog/${post.id}/`}
       class:list={[
-  "font-bold tracking-wide text-foreground hover:text-mist",
+  "font-medium tracking-wide hover:text-mist",
   lead ? "text-lg sm:text-[2.125rem]" : "text-lg sm:text-[1.375rem]",
 ]}
     >
       {title}
     </a>
     {lead && excerpt && (
-  <p class="text-mauve mt-3 max-w-[58ch] font-italic leading-relaxed">
-    {excerpt}
-  </p>
+  <p class="text-mauve mt-3 max-w-[58ch] leading-relaxed">{excerpt}</p>
 )}
     {!hideTags && tags.length > 0 && (
-  <p class="w-fit text-xs font-mono tracking-widest hover:text-mist mt-3">
+  <p class="w-fit text-xs tracking-widest hover:text-mist mt-3">
     {tags.map((tag, index) => (
       <>
         <a

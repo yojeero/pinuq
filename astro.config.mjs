@@ -53,23 +53,8 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "Google Sans Text Bold",
-      cssVariable: "--font-googlesans-bold",
-      fallbacks: ["sans-serif"],
-      options: {
-        variants: [
-          {
-            weight: "700",
-            style: "normal",
-            src: ["./src/assets/fonts/GoogleSansText-Bold.woff2"],
-          },
-        ],
-      },
-    },
-    {
-      provider: fontProviders.local(),
-      name: "Google Sans Text Semibold",
-      cssVariable: "--font-googlesans-semibold",
+      name: "Google Sans Text Medium",
+      cssVariable: "--font-googlesans-medium",
       fallbacks: ["sans-serif"],
       options: {
         variants: [

@@ -25,18 +25,18 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
   >
     <section class="flex flex-col max-w-2xl">
       <div class="flex items-center mb-6">
-        <h3
-          class="text-7xl leading-18 font-mono-bold tracking-normal text-foreground dark:text-mist"
+        <h1
+          class="text-6xl leading-18 font-bold tracking-normal text-foreground dark:text-mist"
         >
           Tech Blog.
-        </h3>
+        </h1>
       </div>
 
       <div class="grid gap-4 max-w-2xl mx-auto">
         {latestPosts.map((post) => (
   <article class="overflow-hidden py-12">
-    <a href={`/blog/${post.id}/`} class="flex w-2/3 items-center ">
-      <h4 class="text-foreground font-semibold text-2xl tracking-wide">
+    <a href={`/blog/${post.id}/`} class="flex w-2/3 items-center">
+      <h4 class="font-medium text-foreground text-2xl tracking-wide">
         {post.data.title}
       </h4>
       <span class="px-4 text-[10px] uppercase items-end tracking-widest text-mist mt-1">
@@ -56,14 +56,14 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
     </section>
 
     <section class="p-2">
-      <h3 class="font-mono text-sm tracking-tight p-6 uppercase">
+      <h3 class="font-medium text-sm tracking-tight p-6 uppercase">
         # categories
       </h3>
 
       <div class="flex gap-4 flex-col p-8">
         {categories.map((tag) => (
   <a
-    class="flex w-fit rounded-lg border border-blue px-3 py-1.5 text-xs font-mono text-foreground"
+    class="flex w-fit rounded-lg border border-blue px-3 py-1.5 text-sm font-medium text-foreground"
     href={`/tags/${slugify(tag)}/`}
   >
     {tag}
@@ -74,7 +74,7 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
 
     <a href="/blog/all">
       <button
-        class="w-fit cursor-pointer grid place-items-center font-semibold min-h-12 px-6 border-0 rounded-xl text-blue-50 text-xs tracking-widest bg-blue-500 hover:bg-blue-600 shadow-lg"
+        class="w-fit cursor-pointer grid place-items-center font-medium min-h-12 px-6 border-0 rounded-xl text-blue-50 text-xs tracking-widest bg-blue-500 hover:bg-blue-600 shadow-lg mt-12"
         type="button"
         aria-label="All articles"
         aria-pressed="false"

@@ -2,10 +2,9 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-mono-bold: var(--font-googlesans-mono), sans-serif;
+  --font-bold: var(--font-googlesans-mono), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-bold: var(--font-googlesans-bold), ui-monospace, monospace;
-  --font-semibold: var(--font-googlesans-medium), ui-monospace, monospace;
+  --font-medium: var(--font-googlesans-medium), ui-monospace, monospace;
   --font-sans: var(--font-googlesans-regular), ui-monospace, monospace;
 }
 
@@ -27,7 +26,7 @@
   --mauve: #36446d;
   --rose: #f43f5e;
   --blue: #406896;
-  --mist: #ddeeeb;
+  --mist: #a9b8b6;
 }
 
 @theme inline {
@@ -66,6 +65,18 @@
   }
 }
 
+/* for hide # in the .mdx */
+h1 a, h2 a, h3 a, h4 a {
+  display: none; 
+}
+
+h2 .anchor-link {
+  display: none;
+}
+h2:hover .anchor-link {
+  display: inline;
+}
+
 .prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
@@ -95,7 +106,7 @@
 }
 
 .prose :is(h2, h3, h4, h5, h6) {
-  font-family: var(--font-semibold);
+  font-family: var(--font-medium);
   font-weight: 500;
 }
 

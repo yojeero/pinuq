@@ -78,11 +78,11 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
   customSchemas={[blogPostingSchema]}
 >
   <div class="max-w-4xl mx-auto w-full py-12">
-    <h1
-      class="font-bold leading-8 tracking-wide text-3xl lg:text-4xl text-center"
+    <h2
+      class="font-medium leading-8 tracking-wide text-3xl lg:text-4xl text-center dark:text-mist"
     >
       {title}
-    </h1>
+    </h2>
   </div>
 
   <div class="flex w-full max-w-3xl mx-auto items-center my-4">
@@ -94,13 +94,13 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     class="h-12 w-12 rounded-full object-cover object-top"
   />
 )}
-      <p class="text-slate-700 text-xs font-mono tracking-tighter">
+      <p class="text-xs tracking-tighter">
         <FormattedDate date={publishDate} format="short" />
       </p>
     </div>
 
     <div
-      class="flex w-fit px-4 text-[10px] font-mono uppercase items-end tracking-widest text-foreground"
+      class="flex w-fit px-4 text-[10px] uppercase items-end tracking-widest text-foreground"
     >
       {primaryTag && <a href={`/tags/${slugify(primaryTag)}/`}>{primaryTag}</a>}
     </div>
@@ -124,10 +124,10 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     {olderPost ? (
       <a
         href={`/blog/${olderPost.id}/`}
-        class="flex flex-col w-fit text-right inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
+        class="flex flex-col w-fit text-right inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">&larr; Prev</span>
-        <span class="block font-mono text-sm capitalize">
+        <span class="block text-sm capitalize">
           {olderPost.data.title}
         </span>
       </a>
@@ -137,10 +137,10 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     {newerPost && (
       <a
         href={`/blog/${newerPost.id}/`}
-        class="flex flex-col w-fit text-left inline-flex border-1 border-slate-300 px-4 py-2 font-light text-slate-400 hover:text-mauve-600 tracking-wide rounded-lg shadow-xs hover:shadow-lg"
+        class="flex flex-col w-fit text-left inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">Next &rarr;</span>
-        <span class="block font-mono text-sm capitalize">
+        <span class="block text-sm capitalize">
           {newerPost.data.title}
         </span>
       </a>

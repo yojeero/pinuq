@@ -18,13 +18,13 @@ const navItems = [
   >
     <nav class="items-center text-sm gap-2 flex" aria-label="Main navigation">
       {navItems.map((item) => (
-    <a href={item.href} class="text-foreground hover:text-mist">
+    <a href={item.href} class="text-foreground hover:text-mist tracking-wide">
       {item.text}
     </a>
     <span class="text-slate-400 last:hidden">•</span>
 ))}
     </nav>
 
-    <div class="text-sm">© Pinuq {currentYear}</div>
+    <div class="text-sm tracking-wide">© Pinuq {currentYear}</div>
   </div>
 </footer>

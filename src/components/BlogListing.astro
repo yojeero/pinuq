@@ -14,17 +14,17 @@ const { posts, currentPage } = Astro.props;
 ---
 
 <BaseLayout
-  title={currentPage > 1 ? `Blog ${siteConfig.titleSeparator} Page ${currentPage}` : ""}
+  title={currentPage > 1 ? `${siteConfig.titleSeparator} Page ${currentPage}` : ""}
   description="Explore tech news & lifestyle."
   mainClass="blog-main"
 >
   <div class="mx-auto max-w-4xl w-full py-[clamp(4rem,6vw,8rem)] px-4 sm:px-6">
     <header class="mb-12 md:mb-16">
-      <h1
+      <h2
         class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground"
       >
         Blog
-      </h1>
+      </h2>
     </header>
 
     <ul class="divide-y divide-line">
@@ -32,12 +32,12 @@ const { posts, currentPage } = Astro.props;
   <li class="group">
     <a
       href={`/blog/${post.id}/`}
-      class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 py-5 sm:py-6 hover:text-rose transition-colors"
+      class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 py-5 sm:py-6"
     >
-      <h2 class="text-lg sm:text-xl font-medium tracking-wide leading-snug group-hover:text-rose transition-colors">
+      <h2 class="text-lg sm:text-xl font-medium tracking-wide dark:text-mist">
         {post.data.title}
       </h2>
-      <time class="text-sm text-mist font-mono whitespace-nowrap shrink-0">
+      <time class="text-sm text-mist whitespace-nowrap shrink-0">
         <FormattedDate date={post.data.publishDate} format="short" />
       </time>
     </a>
