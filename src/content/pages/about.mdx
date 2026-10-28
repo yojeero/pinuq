@@ -3,7 +3,8 @@ title: "About"
 ---
 
 import { Image } from 'astro:assets';
-import imageAbout from './about.webp'; 
+import imageAbout1 from './about1.png'; 
+import imageAbout2 from './about2.png'; 
 
 <section
   class="not-prose mx-auto max-w-4xl flex flex-col gap-8 py-[clamp(4rem,6vw,8rem)]"
@@ -15,11 +16,12 @@ import imageAbout from './about.webp';
     </p>
   </div>
 
-  <div class="w-full flex flex-col md:flex-row bg-mauve/10">
+  <div class="w-full flex flex-col md:flex-row bg-white/40 dark:bg-blue/20">
  
-   <Image src={imageAbout} alt="about image" class="w-full lg:w-3/4  aspect-video overflow-hidden object-cover object-center" />
+   <Image src={imageAbout1} alt="about image" class="w-full aspect-square overflow-hidden object-cover object-center" />
+   <Image src={imageAbout2} alt="about image" class="w-full aspect-square overflow-hidden object-cover object-center" />
 
-    <div class="p-8 lg:p-18 font-sans-italic text-lg max-w-3xl flex items-center text-foreground">We focus on bold aesthetics where functional gadgets and street fashion collide, redefining how we interact in the modern world.</div>
+    <div class="p-8 lg:p-18 text-lg flex items-center text-foreground">We focus on bold aesthetics where functional gadgets and street fashion collide, redefining how we interact in the modern world.</div>
 
     </div>
 

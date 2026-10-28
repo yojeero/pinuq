@@ -3,8 +3,6 @@
 
 @theme {
   --font-sans: var(--font-ibmplexsans), sans-serif;
-  --font-sans-italic: var(--font-ibmplexsans-italic), sans-serif;
-  --font-sans-light: var(--font-ibmplexsans-light), sans-serif;
   --font-bold: var(--font-gloock), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
@@ -12,14 +10,13 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #ffffff;
-  /* --background: #f2f0eb; */
+  /* --background: #ffffff; */
+  --background: #f2f0eb;
   --foreground: #100f0d;
   --mauve: #79697b;
   --rose: #f43f5e;
   --blue: #f0f7ff;
   --mist: #637b77;
-  --top-svg: #ddeeeb;
 }
 
 .dark {
@@ -29,7 +26,6 @@
   --rose: #f43f5e;
   --blue: #406896;
   --mist: #ddeeeb;
-  --top-svg: #d9d5bf;
 }
 
 @theme inline {

@@ -17,7 +17,7 @@ import { resolveAvatar } from "@/utils/team-utils";
   </div>
 
   <div
-    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-top-svg/70"
+    class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-white/40 dark:bg-blue/20"
   >
     {team.map((member) => {
   const avatar = resolveAvatar(member.avatar);
@@ -27,13 +27,13 @@ import { resolveAvatar } from "@/utils/team-utils";
         <Image
           src={avatar}
           alt={`Photo of ${member.name}`}
-          class="w-full aspect-[4/5] object-cover object-top overflow-hidden"
+          class="w-full aspect-square object-cover object-center overflow-hidden"
         />
       )}
 
-      <div class="tracking-wide p-8 lg:p-18 flex flex-col justify-center text-lg text-mist">
-        <p class="leading-8 text-base">{member.name}</p>
-        <p>{member.role}</p>
+      <div class="tracking-wide px-8 py-12 lg:px-18 flex flex-col justify-center text-lg">
+        <p class="leading-8 text-sm font-mono text-mist">{member.name}</p>
+        <p class="leading-5 text-base text-foreground/80">{member.role}</p>
       </div>
     </div>
   );

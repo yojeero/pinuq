@@ -3,30 +3,30 @@
     "name": "Yojee",
     "author": "Yojee",
     "role": "Full Stack Developer",
-    "avatar": "yojee.webp"
+    "avatar": "team1.png"
   },
   {
     "name": "ADTech",
     "author": "ADTech",
     "role": "Kotlin Developer",
-    "avatar": "alex.webp"
+    "avatar": "team2.png"
   },
   {
     "name": "Yuginso",
     "author": "Yuginso",
     "role": "Frontend Engineer",
-    "avatar": "yura.webp"
+    "avatar": "team3.png"
   },
   {
     "name": "Ann",
     "author": "Ann",
     "role": "QA Engineer",
-    "avatar": "ann.webp"
+    "avatar": "team4.png"
   },
   {
     "name": "PvMarch",
     "author": "PvMarch",
     "role": "Product Manager",
-    "avatar": "pavel.webp"
+    "avatar": "team5.png"
   }
 ]
