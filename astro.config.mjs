@@ -53,30 +53,60 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "IBMPlex Sans",
-      cssVariable: "--font-ibmplexsans",
-      fallbacks: ["sans-serif"],
-      options: {
-        variants: [
-          {
-            weight: "400",
-            style: "normal",
-            src: ["./src/assets/fonts/IBMPlexSans-Regular.woff2"],
-          },
-        ],
-      },
-    },
-    {
-      provider: fontProviders.local(),
-      name: "Gloock",
-      cssVariable: "--font-gloock",
+      name: "Google Sans Text Bold",
+      cssVariable: "--font-googlesans-bold",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
             weight: "700",
             style: "normal",
-            src: ["./src/assets/fonts/Gloock-400.woff2"],
+            src: ["./src/assets/fonts/GoogleSansText-Bold.woff2"],
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Google Sans Text Semibold",
+      cssVariable: "--font-googlesans-semibold",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "500",
+            style: "normal",
+            src: ["./src/assets/fonts/GoogleSansText-Medium.woff2"],
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Google Sans Text Regular",
+      cssVariable: "--font-googlesans-regular",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "400",
+            style: "normal",
+            src: ["./src/assets/fonts/GoogleSansText-Regular.woff2"],
+          },
+        ],
+      },
+    },
+    {
+      provider: fontProviders.local(),
+      name: "Google Sans Mono",
+      cssVariable: "--font-googlesans-mono",
+      fallbacks: ["sans-serif"],
+      options: {
+        variants: [
+          {
+            weight: "700",
+            style: "normal",
+            src: ["./src/assets/fonts/GoogleSansMono.woff2"],
           },
         ],
       },

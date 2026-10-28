@@ -2,9 +2,11 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: var(--font-ibmplexsans), sans-serif;
-  --font-bold: var(--font-gloock), sans-serif;
+  --font-mono-bold: var(--font-googlesans-mono), sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --font-bold: var(--font-googlesans-bold), ui-monospace, monospace;
+  --font-semibold: var(--font-googlesans-medium), ui-monospace, monospace;
+  --font-sans: var(--font-googlesans-regular), ui-monospace, monospace;
 }
 
 @custom-variant dark (&:where(.dark *));
@@ -87,9 +89,14 @@
   --tw-prose-links: #c8a870;
 }
 
-.prose :is(h1, h2, h3, h4, h5, h6) {
+.prose :is(h1) {
   font-family: var(--font-bold);
-  font-weight: 600;
+  font-weight: 700;
+}
+
+.prose :is(h2, h3, h4, h5, h6) {
+  font-family: var(--font-semibold);
+  font-weight: 500;
 }
 
 .prose :is(h2, h3, h4) {

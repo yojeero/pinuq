@@ -16,7 +16,7 @@ const seoSchema = z.object({
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       title: z.string(),
       excerpt: z.string().optional(),
