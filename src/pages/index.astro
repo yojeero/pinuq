@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
 import FormattedDate from "@/components/FormattedDate.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { slugify } from "@/utils/common-utils";
@@ -20,15 +21,17 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
   title=""
   description="Digital product news and developer stories from Pinuq."
 >
+  <div role="presentation" class="top-bg-text" aria-hidden="true">TechBlog</div>
+
   <div
-    class="mx-auto w-full max-w-5xl grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-4 py-[clamp(4rem,6vw,8rem)]"
+    class="mx-auto w-full max-w-5xl grid grid-cols-1 md:grid-cols-[3fr_1fr] gap-4 py-[clamp(4rem,6vw,8rem)] z-50"
   >
     <section class="flex flex-col max-w-2xl">
       <div class="flex items-center mb-6">
         <h1
-          class="lg:text-6xl text-5xl leading-18 font-bold tracking-normal text-foreground dark:text-mist"
+          class="lg:text-6xl text-5xl leading-18 font-bold tracking-tight text-foreground dark:text-mist"
         >
-          Tech Blog.
+          Tech Blog
         </h1>
       </div>
 
@@ -36,10 +39,10 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
         {latestPosts.map((post) => (
   <article class="overflow-hidden py-12">
     <a href={`/blog/${post.id}/`} class="flex w-2/3 items-center">
-      <h4 class="font-medium text-foreground text-2xl tracking-wide">
+      <h4 class="font-medium text-foreground hover:text-mist text-2xl tracking-wide">
         {post.data.title}
       </h4>
-      <span class="px-4 text-[10px] uppercase items-end tracking-widest text-mist mt-1">
+      <span class="px-4 text-[10px] uppercase items-end tracking-widest text-mauve-500 mt-1">
         {post.data.tags?.[0] ?? "Pinuq"}
       </span>
     </a>
@@ -56,17 +59,21 @@ const getExcerpt = (post: { data: { excerpt?: string } }) =>
     </section>
 
     <section class="p-2">
-      <h3 class="font-medium text-sm tracking-tight p-6 uppercase">
-        # categories
+      <h3 class="font-medium text-sm tracking-wide p-6">Categories <Icon
+    name="arrow-down-left"
+    class="inline-flex h-6 w-6 outline-none p-1"
+  /> 
+
       </h3>
 
-      <div class="flex gap-4 flex-col p-8">
+      <div class="flex gap-4 flex-col p-6">
         {categories.map((tag) => (
   <a
-    class="flex w-fit rounded-lg border border-blue px-3 py-1.5 text-sm font-medium text-foreground"
+    class="flex w-fit text-sm font-medium hover:text-mist text-foreground items-center"
     href={`/tags/${slugify(tag)}/`}
   >
-    {tag}
+   {tag}
+   
   </a>
 ))}
       </div>

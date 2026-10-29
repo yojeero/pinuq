@@ -11,12 +11,10 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  /* --background: #ffffff; */
   --background: #f2f0eb;
   --foreground: #100f0d;
   --mauve: #79697b;
-  --rose: #f43f5e;
-  --blue: #f0f7ff;
+  --line: #f0f7ff;
   --mist: #637b77;
 }
 
@@ -24,8 +22,7 @@
   --background: #1c2644;
   --foreground: #6a83a5;
   --mauve: #36446d;
-  --rose: #f43f5e;
-  --blue: #406896;
+  --line: #2c4766;
   --mist: #a9b8b6;
 }
 
@@ -33,10 +30,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-mauve: var(--mauve);
-  --color-rose: var(--rose);
-  --color-blue: var(--blue);
+  --color-line: var(--line);
   --color-mist: var(--mist);
-  --color-top-svg: var(--top-svg);
 }
 
 @layer base {
@@ -48,6 +43,14 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   button:not(:disabled),
@@ -145,6 +148,10 @@ h2:hover .anchor-link {
   @apply grid w-full;
 }
 
+#main {
+  @apply z-10;
+}
+
 .blog-grid {
   @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3;
   column-gap: clamp(1.25rem, 2vw, 2rem);
@@ -155,6 +162,87 @@ h2:hover .anchor-link {
   break-inside: avoid;
   margin-bottom: 1rem;
 }
+
+/* ------------------------------ */
+/*  top bg
+/* ------------------------------ */
+
+.top-bg {
+  @apply relative overflow-hidden;
+}
+
+.top-bg::before,
+.top-bg::after {
+  @apply absolute inset-0 w-full opacity-40;
+  content: "";
+}
+
+/* bottom */
+.top-bg::after {
+  @apply h-1/4;
+  background: linear-gradient(135deg, #ffffff 0%, #dcdad4 100%);
+  clip-path: polygon(-1% 0, 101% 0, 101% 100%, -1% 90%);
+
+  transition: clip-path 0.5s ease-in-out;
+
+  z-index: 1;
+}
+
+/* over */
+.top-bg::before {
+  @apply h-1/3;
+  background: linear-gradient(135deg, #ffffff 0%, #dcdad4 100%);
+  clip-path: polygon(-1% 0, 101% 0, 101% 60%, -1% 80%);
+
+  transition: clip-path 0.5s ease-in-out;
+
+  z-index: 2;
+}
+
+@media (min-width: 1200px) {
+  .top-bg::after {
+    clip-path: polygon(-1% 0, 101% 0, 101% 100%, -1% 80%);
+  }
+  .top-bg::before {
+    clip-path: polygon(-1% 0, 101% 0, 101% 60%, -1% 90%);
+  }
+}
+
+/* ------------------------------ */
+/* words
+/* ------------------------------ */
+
+.top-bg-text {
+  @apply absolute pointer-events-none font-bold font-black block z-0 top-0 text-mist-500 opacity-10;
+
+  contain: layout;
+  font-size: clamp(96px, 36vw + 1rem, 520px);
+  left: clamp(0px, 4vw - 1rem, 56px);
+}
+
+@media (width <= 520px) {
+  .top-bg-text {
+    @apply hidden;
+  }
+}
+
+/* ------------------------------ */
+/* top bg dark
+/* ------------------------------ */
+
+.dark .top-bg::before {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  @apply opacity-20; 
+}
+.dark .top-bg::after {
+  background: linear-gradient(135deg, #121212 0%, #000000 100%);
+}
+
+/* .dark .top-bg::before,
+.dark .top-bg::after {
+  content: none; 
+}
+ */
 
 /* ------------------------------ */
 /* smooth

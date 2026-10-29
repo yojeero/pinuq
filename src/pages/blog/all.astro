@@ -12,7 +12,7 @@ const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
     <h2
       class="text-4xl md:text-5xl lg:text-6xl font-medium dark:text-mist tracking-wide mb-8"
     >
-      Writing.
+      Writing
     </h2>
     <ul class="flex flex-col gap-2">
       {allPosts.map((post) => <PostListItem post={post} hideTags={false} />)}

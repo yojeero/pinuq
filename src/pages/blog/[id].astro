@@ -124,7 +124,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     {olderPost ? (
       <a
         href={`/blog/${olderPost.id}/`}
-        class="flex flex-col w-fit text-right inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
+        class="flex flex-col w-fit text-right inline-flex border border-line p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">&larr; Prev</span>
         <span class="block text-sm capitalize">{olderPost.data.title}</span>
@@ -135,7 +135,7 @@ const blogPostingSchema = createBlogPostingSchema(post, postUrl, authorSchema);
     {newerPost && (
       <a
         href={`/blog/${newerPost.id}/`}
-        class="flex flex-col w-fit text-left inline-flex border border-blue p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
+        class="flex flex-col w-fit text-left inline-flex border border-line p-4 hover:text-mist tracking-wide rounded-md shadow-xs"
       >
         <span class="block text-xs mb-2">Next &rarr;</span>
         <span class="block text-sm capitalize">{newerPost.data.title}</span>
