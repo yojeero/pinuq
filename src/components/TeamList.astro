@@ -29,13 +29,13 @@ import { resolveAvatar } from "@/utils/team-utils";
         <Image
           src={avatar}
           alt={`Photo of ${member.name}`}
-          class="w-full aspect-square object-cover object-center overflow-hidden bg-neutral-50 dark:bg-amber-300"
+          class="w-full aspect-square object-cover object-center overflow-hidden bg-neutral-50 dark:bg-mist-400"
         />
       )}
 
-      <div class="tracking-wide px-8 py-12 lg:px-18 flex flex-col justify-center text-lg">
+      <div class="tracking-wide px-8 py-12 lg:px-12 flex flex-col justify-center">
         <p class="leading-8 text-sm font-mono text-mist">{member.name}</p>
-        <p class="leading-5 text-base text-foreground">{member.role}</p>
+        <p class="leading-5 text-lg text-foreground">{member.role}</p>
       </div>
     </div>
   );
