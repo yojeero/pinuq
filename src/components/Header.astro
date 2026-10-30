@@ -18,7 +18,7 @@ const navItems = [
       <div class="flex items-center gap-4">
         <a
           href="/"
-          class="flex items-center gap-3 text-lg font-medium tracking-tight  text-foreground dark:text-mist hover:text-mauve"
+          class="flex items-center gap-3 text-lg font-medium tracking-tight  text-foreground dark:text-green hover:text-mauve dark:hover:text-rose-500"
           aria-label={siteConfig.title}
         >
           <Icon
@@ -35,7 +35,7 @@ const navItems = [
         aria-label="Main navigation"
       >
         {navItems.map((item) => (
-  <a href={item.href} class="tracking-wider text-foreground hover:text-mauve">
+  <a href={item.href} class="tracking-wider text-foreground hover:text-mauve dark:hover:text-green">
     {item.text}
   </a>
 ))}
@@ -47,7 +47,7 @@ const navItems = [
       <a href="/rss.xml"
         ><Icon
           name="rss"
-          class="h-5 w-5 text-foreground dark:text-blue-600 hover:text-mist outline-none"
+          class="h-5 w-5 text-foreground dark:text-green hover:text-mist outline-none"
         /></a
       >
     </div>

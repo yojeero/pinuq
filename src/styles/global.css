@@ -16,6 +16,7 @@
   --mauve: #79697b;
   --line: #f0f7ff;
   --mist: #637b77;
+  --green: #00c950;
 }
 
 .dark {
@@ -24,6 +25,7 @@
   --mauve: #36446d;
   --line: #2c4766;
   --mist: #a9b8b6;
+  --green: #00c950;
 }
 
 @theme inline {
@@ -32,6 +34,7 @@
   --color-mauve: var(--mauve);
   --color-line: var(--line);
   --color-mist: var(--mist);
+  --color-green: var(--green);
 }
 
 @layer base {
