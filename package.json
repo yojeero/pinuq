@@ -16,13 +16,13 @@
     "ci": "biome ci"
   },
   "dependencies": {
-    "@astrojs/markdown-satteri": "^0.4.2",
-    "@astrojs/mdx": "^8.0.2",
+    "@astrojs/markdown-satteri": "0.4.10",
+    "@astrojs/mdx": "8.1.6",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
-    "@astrojs/vercel": "^11.0.11",
+    "@astrojs/sitemap": "3.7.5",
+    "@astrojs/vercel": "11.0.22",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.2",
+    "astro": "7.4.12",
     "astro-icon": "^1.2.0",
     "astro-og-canvas": "^0.13.1",
     "biome": "^0.3.3",
