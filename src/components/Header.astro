@@ -35,7 +35,10 @@ const navItems = [
         aria-label="Main navigation"
       >
         {navItems.map((item) => (
-  <a href={item.href} class="tracking-wider text-foreground hover:text-mauve dark:hover:text-green">
+  <a
+    href={item.href}
+    class="tracking-wider text-foreground hover:text-mauve dark:hover:text-green"
+  >
     {item.text}
   </a>
 ))}
