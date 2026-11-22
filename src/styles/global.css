@@ -171,7 +171,7 @@ h2:hover .anchor-link {
 /* ------------------------------ */
 
 .top-bg-text {
-  @apply absolute pointer-events-none font-bold font-black block z-0 top-0 text-mist-500 opacity-10;
+  @apply absolute pointer-events-none font-bold font-black block z-0 top-0 text-mist-500 opacity-5;
 
   contain: layout;
   font-size: clamp(96px, 36vw + 1rem, 520px);
@@ -183,16 +183,6 @@ h2:hover .anchor-link {
     @apply hidden;
   }
 }
-
-/* ------------------------------ */
-/* top bg dark disable
-/* ------------------------------ */
-
-/* .dark .top-bg::before,
-.dark .top-bg::after {
-  content: none; 
-}
- */
 
 /* ----------------------------- */
 /* top glass
