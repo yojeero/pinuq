@@ -171,18 +171,17 @@ h2:hover .anchor-link {
 /* ------------------------------ */
 
 .top-bg-text {
-  @apply absolute pointer-events-none font-bold font-black block z-0 top-0 text-mist-500 opacity-5;
+  @apply fixed pointer-events-none font-bold block -z-1 left-0 top-60 text-stone-500 opacity-5 -rotate-90 uppercase select-none;
 
   contain: layout;
   font-size: clamp(96px, 36vw + 1rem, 520px);
-  left: clamp(0px, 4vw - 1rem, 56px);
 }
 
-@media (width <= 520px) {
+ @media (width <= 520px) {
   .top-bg-text {
     @apply hidden;
   }
-}
+} 
 
 /* ----------------------------- */
 /* top glass
