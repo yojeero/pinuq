@@ -171,7 +171,7 @@ h2:hover .anchor-link {
 /* ------------------------------ */
 
 .top-bg-text {
-  @apply fixed pointer-events-none font-bold block -z-1 left-0 top-60 text-stone-500 opacity-5 -rotate-90 uppercase select-none;
+  @apply fixed pointer-events-none font-bold block -z-1 left-0 top-60 text-white/80 dark:text-black/10 -rotate-90 uppercase select-none;
 
   contain: layout;
   font-size: clamp(96px, 36vw + 1rem, 520px);
