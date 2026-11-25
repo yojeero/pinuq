@@ -11,10 +11,10 @@
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #f2f0eb;
+  --background: #f9fafb;
   --foreground: #100f0d;
   --mauve: #79697b;
-  --line: #f0f7ff;
+  --line: #e5e7eb;
   --mist: #637b77;
   --green: #00c950;
 }
@@ -53,7 +53,6 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
   }
 
   button:not(:disabled),
@@ -164,79 +163,6 @@ h2:hover .anchor-link {
 .blog-grid > article {
   break-inside: avoid;
   margin-bottom: 1rem;
-}
-
-/* ------------------------------ */
-/* words
-/* ------------------------------ */
-
-.top-bg-text {
-  @apply fixed pointer-events-none font-bold block -z-1 left-0 top-60 text-white/80 dark:text-black/10 -rotate-90 uppercase select-none;
-
-  contain: layout;
-  font-size: clamp(96px, 36vw + 1rem, 520px);
-}
-
- @media (width <= 520px) {
-  .top-bg-text {
-    @apply hidden;
-  }
-} 
-
-/* ----------------------------- */
-/* top glass
- /* ----------------------------- */
-.top-glass {
-  @apply relative overflow-hidden;
-}
-
-.top-glass::before,
-.top-glass::after {
-  @apply absolute inset-0 w-full;
-  content: "";
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  transition: all 0.5s ease-in-out;
-}
-
-.top-glass::before {
-  @apply h-1/3;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    rgba(255, 255, 255, 0.1) 100%
-  );
-  clip-path: polygon(-1% 0, 101% 0, 101% 60%, -1% 80%);
-  z-index: 2;
-}
-
-.top-glass::after {
-  @apply h-1/4;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4) 0%,
-    rgba(235, 233, 227, 0.2) 100%
-  );
-  clip-path: polygon(-1% 0, 101% 0, 101% 100%, -1% 90%);
-  z-index: 1;
-}
-
-.dark .top-glass::before {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(0, 0, 0, 0.2) 100%
-  );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.dark .top-glass::after {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ------------------------------ */

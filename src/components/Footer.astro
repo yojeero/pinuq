@@ -1,34 +1,40 @@
 ---
-const currentYear = new Date().getFullYear();
+import { getCollection } from "astro:content";
+import { slugify } from "@/utils/common-utils";
+import { sortItemsByDateDesc } from "@/utils/data-utils";
 
-const navItems = [
-  { text: "Home", href: "/" },
-  { text: "Blog", href: "/blog/all" },
-  { text: "About", href: "/about" },
-  { text: "Team", href: "/team" },
-];
+const allPosts = (await getCollection("blog")).sort(sortItemsByDateDesc);
+const categories = [
+  ...new Set(allPosts.flatMap((post) => post.data.tags ?? [])),
+].slice(0, 8);
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer
   id="foot"
-  class="w-full min-h-vh flex-1 border-t border-line py-[clamp(4rem,6vw,8rem)]"
+  class="w-full min-h-vh flex-1 py-[clamp(4rem,6vw,8rem)] bg-gray-100/70 dark:bg-black/5"
 >
   <div
-    class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
+    class="mx-auto flex max-w-6xl flex-col gap-12 px-4 py-10 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8"
   >
-    <nav class="items-center text-sm gap-2 flex" aria-label="Main navigation">
-      {navItems.map((item) => (
-    <a
-      href={item.href}
-      class="text-foreground hover:text-mauve dark:hover:text-green tracking-wide"
-    >
-      {item.text}
-    </a>
-    <span class="text-slate-400 last:hidden">•</span>
-))}
-    </nav>
 
-    <div class="text-sm tracking-wide dark:text-rose-500">
+   <h3 class="font-medium text-sm tracking-wide">
+        Categories
+      </h3>
+
+        <div class="flex gap-8 p-0 md:p-6">
+        {categories.map((tag) => (
+  <a
+    class="flex text-sm font-medium hover:text-green text-blue-500 items-center"
+    href={`/tags/${slugify(tag)}/`}
+  >
+    {tag}
+  </a>
+))}
+      </div>
+
+    <div class="text-xs tracking-wide dark:text-blue-400/70">
       © Pinuq {currentYear}
     </div>
   </div>
