@@ -2,39 +2,32 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-bold: var(--font-googlesans-mono), sans-serif;
+  --font-display: var(--font-playfair), Georgia, serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
-  --font-medium: var(--font-googlesans-medium), ui-monospace, monospace;
-  --font-sans: var(--font-googlesans-regular), ui-monospace, monospace;
+  --font-body: var(--font-PierSans), system-ui, sans-serif;
 }
 
 @custom-variant dark (&:where(.dark *));
 
 :root {
-  --background: #f9fafb;
-  --foreground: #100f0d;
-  --mauve: #79697b;
-  --line: #e5e7eb;
-  --mist: #637b77;
-  --green: #00c950;
+  --background: #ffffff;
+  --foreground: #272727;
+
+  --stone: #f7f7f7;
 }
 
 .dark {
-  --background: #1c2644;
-  --foreground: #6a83a5;
-  --mauve: #36446d;
-  --line: #2c4766;
-  --mist: #a9b8b6;
-  --green: #00c950;
+  --background: #1d1816;
+  --foreground: #7c6d67;
+
+  --stone: #394447;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-mauve: var(--mauve);
-  --color-line: var(--line);
-  --color-mist: var(--mist);
-  --color-green: var(--green);
+
+  --color-stone: var(--stone);
 }
 
 @layer base {
@@ -45,7 +38,11 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-body;
+  }
+
+  .bg-page {
+    background: linear-gradient(to right, #f7f7f7 50%, #ffffff 50%);
   }
 
   html,
@@ -109,12 +106,12 @@ h2:hover .anchor-link {
 }
 
 .prose :is(h1) {
-  font-family: var(--font-bold);
+  font-family: var(--font-playfair-display);
   font-weight: 700;
 }
 
 .prose :is(h2, h3, h4, h5, h6) {
-  font-family: var(--font-medium);
+  font-family: var(--font-playfair-display);
   font-weight: 500;
 }
 
@@ -146,23 +143,10 @@ h2:hover .anchor-link {
   text-wrap: pretty;
 }
 
-.blog-main {
-  @apply grid w-full;
-}
-
-#main {
-  @apply z-10;
-}
-
 .blog-grid {
-  @apply grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3;
-  column-gap: clamp(1.25rem, 2vw, 2rem);
-  row-gap: clamp(1rem, 2vw, 2rem);
-}
+  @apply flex min-h-screen flex-col min-h-0 overflow-hidden w-full mx-auto max-w-6xl tracking-wide px-6;
 
-.blog-grid > article {
-  break-inside: avoid;
-  margin-bottom: 1rem;
+  row-gap: clamp(2rem, 4vw, 4rem);
 }
 
 /* ------------------------------ */

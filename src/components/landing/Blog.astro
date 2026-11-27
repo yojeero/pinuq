@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import FormattedDate from "@/components/FormattedDate.astro";
+import ArrowLink from "@/components/landing/ArrowLink.astro";
+import type { BlogPost } from "@/data/types";
+
+interface Props {
+  posts: { post: BlogPost; image: ImageMetadata }[];
+}
+
+const { posts } = Astro.props;
+---
+
+<section id="blog">
+  <div>
+    <p class="text-xs uppercase">blog</p>
+
+    <h2 class="font-display text-5xl leading-tight pb-8">Blog</h2>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {posts.map(({ post, image }) => (
+  <article class="group">
+    <a href={`/blog/${post.id}/`} class="block overflow-hidden">
+      <Image
+        src={image}
+        alt={post.data.title}
+        class="aspect-4/3 w-full object-cover group-hover:scale-[1.03]"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+
+    <p class="text-xs pt-2">
+      <FormattedDate date={post.data.publishDate} format="short" />
+    </p>
+
+    <h3 class="font-display text-3xl leading-12 pt-4">{post.data.title}</h3>
+
+    <p class="line-clamp-2 mb-4">{post.data.excerpt}</p>
+
+    <ArrowLink href={`/blog/${post.id}/`} label="read more" />
+  </article>
+))}
+  </div>
+
+  <div class="flex items-center gap-2">
+    <div class="flex gap-1" aria-hidden="true">
+      <span class="h-2 w-2 rounded-full bg-blue-500" />
+      <span class="h-2 w-2 rounded-full bg-blue-300" />
+      <span class="h-2 w-2 rounded-full bg-blue-100" />
+    </div>
+
+    <ArrowLink
+      href="/blog/all"
+      label="see all"
+      class="group inline-flex items-center gap-2"
+    />
+  </div>
+</section>

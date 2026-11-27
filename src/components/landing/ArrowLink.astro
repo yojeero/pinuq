@@ -1,0 +1,31 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  class?: string;
+}
+
+const { href, label, class: className } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+  "group inline-flex items-center gap-2 whitespace-nowrap text-sm lowercase tracking-wider text-mauve-500 hover:text-teal-600",
+  className,
+]}
+>
+  <span>{label}</span>
+  <svg
+    class="h-2.5 w-8 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1"
+    viewBox="0 0 34 10"
+    aria-hidden="true"
+    aria-label="icon-arrow"
+  >
+    <line x1="0" x2="30" y1="5" y2="5" />
+    <polyline points="26,1 31,5 26,9" />
+  </svg>
+</a>

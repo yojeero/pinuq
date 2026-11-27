@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+import aboutImage from "@/assets/images/about.webp";
+import ArrowLink from "@/components/landing/ArrowLink.astro";
+---
+
+<section id="about" class="grid grid-cols-1 items-center gap-4 md:grid-cols-2">
+  <Image
+    src={aboutImage}
+    alt="workspace about"
+    class="aspect-4/3 object-cover"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div>
+    <div class="h-1 w-1/3 bg-amber-500 ml-8"></div>
+
+    <div class="p-8">
+      <h2 class="font-display text-5xl leading-tight py-8">About Us</h2>
+
+      <p class="leading-7">
+        Pinuq is a tech blog covering digital products, mobile apps and the
+        Linux ecosystem. We write about engineering, tooling and the open source
+        projects we build and use every day.
+      </p>
+
+      <p class="py-8 leading-7">
+        Our goal is to share practical, hands-on knowledge — from Android and
+        Kotlin to the frontend and the command line.
+      </p>
+
+      <ArrowLink href="#blog" label="latest posts" class="py-4" />
+    </div>
+  </div>
+</section>

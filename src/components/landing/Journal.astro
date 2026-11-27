@@ -1,0 +1,33 @@
+---
+import FormattedDate from "@/components/FormattedDate.astro";
+import ArrowLink from "@/components/landing/ArrowLink.astro";
+import type { BlogPost } from "@/data/types";
+
+interface Props {
+  posts: BlogPost[];
+}
+
+const { posts } = Astro.props;
+---
+
+<div id="journal" class="flex-1 justify-evenly p-4">
+  <p class="text-xs uppercase">from the blog</p>
+
+  <h2 class="font-display text-5xl leading-tight pb-8">Journal</h2>
+
+  <div>
+    {posts.map((post, i) => (
+  <article class:list={["py-8", i === 0 ? "pt-[34px]" : "border-t"]}>
+    <p class="text-xs">
+      <FormattedDate date={post.data.publishDate} format="short" />
+    </p>
+
+    <h3 class="font-display text-3xl leading-12">{post.data.title}</h3>
+
+    <p class="text-xs">{post.data.excerpt}</p>
+  </article>
+))}
+  </div>
+
+  <ArrowLink href="/blog/all" label="see all" />
+</div>

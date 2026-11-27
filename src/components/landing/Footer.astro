@@ -1,0 +1,40 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between p-8 md:p-24 border-t"
+>
+  <div
+    class="flex gap-2 capitalize tracking-wider text-mauve-500 font-display text-2xl"
+  >
+    <a
+      href="https://github.com/yojeero"
+      aria-label="Github"
+      class="hover:text-blue-500"
+    >
+      <span>github</span>
+    </a>
+    /
+
+    <a
+      href="https://yojee.vercel.app"
+      aria-label="Web"
+      class="hover:text-blue-500"
+    >
+      <span>Yojee</span>
+    </a>
+    /
+
+    <a href="/rss.xml" aria-label="RSS" class="hover:text-blue-500">
+      <span>rss</span>
+    </a>
+  </div>
+
+  <div>
+    <p class="py-4 text-xs capitalize">
+      Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript | Pinuq
+      {currentYear}
+    </p>
+  </div>
+</footer>

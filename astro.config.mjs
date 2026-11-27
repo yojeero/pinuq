@@ -53,45 +53,30 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.local(),
-      name: "Google Sans Text Medium",
-      cssVariable: "--font-googlesans-medium",
-      fallbacks: ["sans-serif"],
-      options: {
-        variants: [
-          {
-            weight: "500",
-            style: "normal",
-            src: ["./src/assets/fonts/GoogleSansText-Medium.woff2"],
-          },
-        ],
-      },
-    },
-    {
-      provider: fontProviders.local(),
-      name: "Google Sans Text Regular",
-      cssVariable: "--font-googlesans-regular",
+      name: "PierSans",
+      cssVariable: "--font-PierSans",
       fallbacks: ["sans-serif"],
       options: {
         variants: [
           {
             weight: "400",
             style: "normal",
-            src: ["./src/assets/fonts/GoogleSansText-Regular.woff2"],
+            src: ["./src/assets/fonts/PierSans-Regular.woff2"],
           },
         ],
       },
     },
     {
       provider: fontProviders.local(),
-      name: "Google Sans Mono",
-      cssVariable: "--font-googlesans-mono",
-      fallbacks: ["sans-serif"],
+      name: "Playfair",
+      cssVariable: "--font-playfair",
+      fallbacks: ["serif"],
       options: {
         variants: [
           {
-            weight: "700",
+            weight: "400 700",
             style: "normal",
-            src: ["./src/assets/fonts/GoogleSansMono.woff2"],
+            src: ["./src/assets/fonts/PlayfairDisplay-Variable.woff2"],
           },
         ],
       },

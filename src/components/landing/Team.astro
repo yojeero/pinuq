@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import { team } from "@/data/site-config";
+import { resolveAvatar } from "@/utils/team-utils";
+---
+
+<section id="team">
+  <p class="text-xs uppercase">our</p>
+
+  <h2 class="font-display text-5xl leading-tight pb-8">Team</h2>
+
+  <div class="grid grid-cols-3 gap-3">
+    {team.map((member) => {
+  const avatar = resolveAvatar(member.avatar);
+  if (!avatar) return null;
+  return (
+    <div class="group text-left">
+      <Image
+        src={avatar}
+        alt={member.name}
+        class="w-48 aspect-square object-cover transition-opacity duration-300 bg-stone"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <p class="font-display text-xl mt-2">{member.name}</p>
+      <p class="text-lg">{member.role}</p>
+    </div>
+  );
+})}
+  </div>
+</section>

@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import headImage from "@/assets/images/head.webp";
+import topImage from "@/assets/images/top.webp";
+import ArrowLink from "@/components/landing/ArrowLink.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+
+const navItems = [
+  { text: "", href: "/", icon: "home" },
+  { text: "Blog", href: "/blog/all" },
+  { text: "About", href: "#about" },
+  { text: "Team", href: "#team" },
+];
+---
+
+<section class="relative overflow-hidden grid md:grid-cols-[60%_40%]">
+  <header class="flex w-full flex-col min-h-[700px]">
+    <div class="flex items-center py-12 justify-between">
+      <nav aria-label="Navigation" class="flex items-center gap-6">
+        {navItems.map((item) => (
+  <a
+    href={item.href}
+    class="inline-flex items-center gap-2 tracking-wider text-foreground hover:text-teal-600 transition-colors duration-300"
+  >
+    {item.icon && (
+      <Icon name={item.icon} class="h-6 w-6 text-teal-700 shrink-0" />
+    )}
+    {item.text && (
+      <span class="capitalize text-lg leading-none">{item.text}</span>
+    )}
+  </a>
+))}
+      </nav>
+
+      <ThemeToggle />
+    </div>
+
+    <div
+      class="flex-1 justify-evenly flex flex-col border-r-80 border-teal-700/90"
+    >
+      <h1
+        class="font-display text-[clamp(40px,6vw,72px)] leading-20 tracking-wide"
+      >
+        <span class="block">Digital, Apps</span>
+        <span class="block text-foreground/50">&amp; Linux</span>
+      </h1>
+
+      <p class="max-w-lg font-display text-2xl leading-snug">
+        Software, mobile apps and tech.
+      </p>
+
+      <p class="tracking-wider">Engineering. Reviews. Tutorials.</p>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 items-center border-r-80 border-amber-500/80"
+    >
+      <Image
+        src={headImage}
+        alt="Laptop with a Linux terminal and a mechanical keyboard"
+        class="w-full md:w-96 aspect-video object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <div class="w-full flex h-full bg-stone py-6 grid place-content-center ">
+        <ArrowLink href="#about" label="start reading" />
+      </div>
+    </div>
+  </header>
+
+  <Image
+    src={topImage}
+    alt="workspace"
+    class="hidden md:block absolute object-cover right-0 top-0 mt-0 h-full w-[40%]"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+</section>

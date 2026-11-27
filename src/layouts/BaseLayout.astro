@@ -2,8 +2,6 @@
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import BaseHead from "@/components/BaseHead.astro";
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
 import JsonLd from "@/components/JsonLd.astro";
 import siteConfig from "@/data/site-config";
 import type { BaseHeadProps, Thing, WithContext } from "@/data/types";
@@ -13,12 +11,14 @@ export type Props = BaseHeadProps & {
   lastModified?: Date;
   customSchemas?: WithContext<Thing>[];
   mainClass?: string;
+  variant?: "landing" | "blog";
 };
 
 const {
   lastModified,
   customSchemas = [],
-  mainClass = "mx-auto w-full",
+  mainClass,
+  variant = "blog",
   ...head
 } = Astro.props;
 
@@ -70,13 +70,16 @@ if (customSchemas.length > 0) {
     </script>
 
     <ClientRouter />
+
     <BaseHead {...head} />
-    <Font cssVariable="--font-googlesans-medium" preload />
-    <Font cssVariable="--font-googlesans-regular" preload />
+
+    <Font cssVariable="--font-PierSans" preload />
     <Font cssVariable="--font-jetbrains-mono" preload />
-    <Font cssVariable="--font-googlesans-mono" preload />
+    <Font cssVariable="--font-playfair" preload />
+
     <JsonLd schema={schemas} />
   </head>
+
   <body>
     <a
       href="#main"
@@ -85,20 +88,8 @@ if (customSchemas.length > 0) {
       Skip to content
     </a>
 
-
-      <div
-        class="flex min-h-screen flex-col min-h-0 overflow-hidden px-4 md:px-8"
-      >
-      
-        <Header />
-
-        <main id="main" class={mainClass}>
-          <slot />
-        </main>
-
-        <Footer />
-
-      </div>
-
+    <main id="main" class="blog-grid">
+      <slot />
+    </main>
   </body>
 </html>
