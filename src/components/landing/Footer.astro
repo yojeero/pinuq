@@ -6,12 +6,12 @@ const currentYear = new Date().getFullYear();
   class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between p-8 md:p-24 border-t"
 >
   <div
-    class="flex gap-2 capitalize tracking-wider text-mauve-500 font-display text-2xl"
+    class="flex gap-2 capitalize text-teal-600 tracking-wider font-display text-2xl"
   >
     <a
       href="https://github.com/yojeero"
       aria-label="Github"
-      class="hover:text-blue-500"
+      class="hover:text-mauve-700"
     >
       <span>github</span>
     </a>
@@ -26,15 +26,14 @@ const currentYear = new Date().getFullYear();
     </a>
     /
 
-    <a href="/rss.xml" aria-label="RSS" class="hover:text-blue-500">
+    <a href="/rss.xml" aria-label="RSS" class="hover:text-rose-500">
       <span>rss</span>
     </a>
   </div>
 
   <div>
     <p class="py-4 text-xs capitalize">
-      Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript | Pinuq
-      {currentYear}
+      Astro | Bun | Vite | Biome | Tailwind CSS | TypeScript | <span class="text-teal-600">Pinuq {currentYear}</span>
     </p>
   </div>
 </footer>

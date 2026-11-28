@@ -24,7 +24,7 @@ const navItems = [
     class="inline-flex items-center gap-2 tracking-wider text-foreground hover:text-teal-600 transition-colors duration-300"
   >
     {item.icon && (
-      <Icon name={item.icon} class="h-6 w-6 text-teal-700 shrink-0" />
+      <Icon name={item.icon} class="h-6 w-6 text-teal-600 shrink-0" />
     )}
     {item.text && (
       <span class="capitalize text-lg leading-none">{item.text}</span>
@@ -37,7 +37,7 @@ const navItems = [
     </div>
 
     <div
-      class="flex-1 justify-evenly flex flex-col md:border-r-80 md:border-teal-700/90"
+      class="flex-1 justify-evenly flex flex-col md:border-r-80 md:border-zinc-100 dark:md:border-taupe-700"
     >
       <h1
         class="font-display text-[clamp(40px,6vw,72px)] leading-20 tracking-wide"
@@ -54,7 +54,7 @@ const navItems = [
     </div>
 
     <div
-      class="grid grid-cols-1 md:grid-cols-2 items-center md:border-r-80 md:border-amber-500/80"
+      class="grid grid-cols-1 md:grid-cols-2 items-center md:border-r-80 md:border-amber-500"
     >
       <Image
         src={headImage}
@@ -64,7 +64,7 @@ const navItems = [
         decoding="async"
       />
 
-      <div class="w-full flex h-full bg-stone py-6 grid place-content-center ">
+      <div class="w-full flex h-full bg-zinc-50 dark:bg-taupe-800 py-6 grid place-content-center">
         <ArrowLink href="#about" label="start reading" />
       </div>
     </div>

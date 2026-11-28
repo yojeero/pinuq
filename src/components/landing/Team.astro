@@ -14,17 +14,17 @@ import { resolveAvatar } from "@/utils/team-utils";
   const avatar = resolveAvatar(member.avatar);
   if (!avatar) return null;
   return (
-    <div class="group text-left">
+    <div class="group text-left tracking-wider">
       <Image
         src={avatar}
         alt={member.name}
-        class="w-48 aspect-square object-cover transition-opacity duration-300 bg-stone"
+        class="w-48 aspect-square object-cover bg-white dark:bg-taupe-800"
         loading="lazy"
         decoding="async"
       />
 
-      <p class="font-display text-xl mt-2">{member.name}</p>
-      <p class="text-lg">{member.role}</p>
+      <p class="font-display text-lg mt-3">{member.name}</p>
+      <p class="text-lg leading-4 py-1 text-taupe-600">{member.role}</p>
     </div>
   );
 })}
